@@ -38,7 +38,27 @@
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
 			<Add directory="C:/Users/Cyprien/Documents/Creation projects/Junkies Corporation/Ultimate-Penguin-Rampage/Ultimate Penguin Rampage/SDL2/lib" />
 		</Linker>
+		<Unit filename="include/Arme.h" />
+		<Unit filename="include/Carte.h" />
+		<Unit filename="include/Ennemi.h" />
+		<Unit filename="include/Jeu.h" />
+		<Unit filename="include/Joueur.h" />
+		<Unit filename="include/MenuPrincipal.h" />
+		<Unit filename="include/Objet.h" />
+		<Unit filename="include/Options.h" />
+		<Unit filename="include/Personnage.h" />
+		<Unit filename="include/Tile.h" />
 		<Unit filename="include/UPR.h" />
+		<Unit filename="src/Arme.cpp" />
+		<Unit filename="src/Carte.cpp" />
+		<Unit filename="src/Ennemi.cpp" />
+		<Unit filename="src/Jeu.cpp" />
+		<Unit filename="src/Joueur.cpp" />
+		<Unit filename="src/MenuPrincipal.cpp" />
+		<Unit filename="src/Objet.cpp" />
+		<Unit filename="src/Options.cpp" />
+		<Unit filename="src/Personnage.cpp" />
+		<Unit filename="src/Tile.cpp" />
 		<Unit filename="src/UPR.cpp" />
 		<Extensions>
 			<code_completion />
