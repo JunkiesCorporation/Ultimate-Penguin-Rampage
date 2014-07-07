@@ -28,7 +28,16 @@ int main(int argc, char* args[]) {
 	SDL_BlitSurface(penguin, NULL, screenSurface, NULL);
 	SDL_UpdateWindowSurface(window);
 
-    SDL_Delay( 5000 );
+    bool quit(false);
+    SDL_Event e;
+
+    while(!quit) {
+        while(SDL_PollEvent(&e) != 0) {
+            if(e.type == SDL_QUIT) {
+                quit = true;
+            }
+        }
+    }
 
     SDLQuit();
 
