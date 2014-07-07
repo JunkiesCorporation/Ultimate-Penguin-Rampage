@@ -23,4 +23,6 @@
 # Code::Blocks files
 *.layout
 *.depend
+*.LAYOUT
+*.DEPEND
 
