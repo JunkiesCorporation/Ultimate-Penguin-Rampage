@@ -6,7 +6,8 @@
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
-bool SDLInit(SDL_Window *window, SDL_Surface *screenSurface);
+bool SDLInit(SDL_Window*, SDL_Surface*);
+void SDLQuit(SDL_Window*);
 
 int main(int argc, char* args[])
 {
@@ -18,7 +19,6 @@ int main(int argc, char* args[])
         return -1;
 	}
     screenSurface = SDL_GetWindowSurface(window); // Récupération de la surface à partir de la fenêtre créée
-    //Wait two seconds
     SDL_Delay( 2000 );
 
 	//Destroy window
@@ -30,7 +30,9 @@ int main(int argc, char* args[])
 	return 0;
 }
 
+// Initialise la SDL et retourne true si il n'y a pas d'erreur
 bool SDLInit(SDL_Window *window, SDL_Surface *screenSurface) {
+    SDL_DestroyWindow(window);
 	if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) // Initialise la SDL
 	{
 		return false;
@@ -45,4 +47,8 @@ bool SDLInit(SDL_Window *window, SDL_Surface *screenSurface) {
 		}
 	}
 	return true;
+}
+
+void SDLQuit(SDL_Window *window) {
+
 }
