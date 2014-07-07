@@ -20,6 +20,7 @@ int main(int argc, char* args[]) {
     screenSurface = SDL_GetWindowSurface(window); // Récupération de la surface à partir de la fenêtre créée
     SDL_Delay( 2000 );
 
+
     SDLQuit(window);
 
 	return 0;
