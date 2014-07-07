@@ -9,8 +9,7 @@ const int SCREEN_HEIGHT = 480;
 bool SDLInit(SDL_Window*, SDL_Surface*);
 void SDLQuit(SDL_Window*);
 
-int main(int argc, char* args[])
-{
+int main(int argc, char* args[]) {
 	SDL_Window* window = NULL; // Fenêtre du programme
 	SDL_Surface* screenSurface = NULL; // La surface contenue dans la fenêtre
 
@@ -21,11 +20,8 @@ int main(int argc, char* args[])
     screenSurface = SDL_GetWindowSurface(window); // Récupération de la surface à partir de la fenêtre créée
     SDL_Delay( 2000 );
 
-	//Destroy window
-	SDL_DestroyWindow( window );
 
-	//Quit SDL subsystems
-	SDL_Quit();
+    SDLQuit(window);
 
 	return 0;
 }
@@ -49,6 +45,8 @@ bool SDLInit(SDL_Window *window, SDL_Surface *screenSurface) {
 	return true;
 }
 
+// Quite la SDL proprement
 void SDLQuit(SDL_Window *window) {
-
+    SDL_DestroyWindow(window);
+    SDL_Quit();
 }
