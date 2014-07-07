@@ -2,52 +2,50 @@
 #include <SDL.h>
 #include "UPR.h"
 
-//Screen dimension constants
+//Dimensions de l'écran
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
-int main( int argc, char* args[] )
-{
-	//The window we'll be rendering to
-	SDL_Window* window = NULL;
+bool SDLInit(SDL_Window*, SDL_Surface*);
+void SDLQuit(SDL_Window*);
 
-	//The surface contained by the window
-	SDL_Surface* screenSurface = NULL;
+int main(int argc, char* args[]) {
+	SDL_Window* window = NULL; // Fenêtre du programme
+	SDL_Surface* screenSurface = NULL; // La surface contenue dans la fenêtre
 
-	//Initialize SDL
-	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+	if(!SDLInit(window, screenSurface)) {
+        printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
+        return -1;
+	}
+    screenSurface = SDL_GetWindowSurface(window); // Récupération de la surface à partir de la fenêtre créée
+    SDL_Delay( 2000 );
+
+    SDLQuit(window);
+
+	return 0;
+}
+
+// Initialise la SDL et retourne true si il n'y a pas d'erreur
+bool SDLInit(SDL_Window *window, SDL_Surface *screenSurface) {
+    SDL_DestroyWindow(window);
+	if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) // Initialise la SDL
 	{
-		printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
+		return false;
 	}
 	else
 	{
-		//Create window
+		// Créé la fenêtre
 		window = SDL_CreateWindow( "Ultimate Penguin Rampage", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( window == NULL )
 		{
-			printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
-		}
-		else
-		{
-			//Get window surface
-			screenSurface = SDL_GetWindowSurface( window );
-
-			//Fill the surface white
-			SDL_FillRect( screenSurface, NULL, SDL_MapRGB( screenSurface->format, 0xFF, 0xFF, 0xFF ) );
-
-			//Update the surface
-			SDL_UpdateWindowSurface( window );
-
-			//Wait two seconds
-			SDL_Delay( 2000 );
+			return false;
 		}
 	}
+	return true;
+}
 
-	//Destroy window
-	SDL_DestroyWindow( window );
-
-	//Quit SDL subsystems
-	SDL_Quit();
-
-	return 0;
+// Quite la SDL proprement
+void SDLQuit(SDL_Window *window) {
+    SDL_DestroyWindow(window);
+    SDL_Quit();
 }
