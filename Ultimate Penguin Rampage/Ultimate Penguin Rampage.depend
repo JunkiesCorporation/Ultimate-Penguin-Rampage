@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1404755261 source:d:\projets\jeux\penguins arena\ultimate-penguin-rampage\ultimate penguin rampage\src\upr.cpp
+	<stdio.h>
+	<SDL.h>
+	"UPR.h"
+
+1404755261 d:\projets\jeux\penguins arena\ultimate-penguin-rampage\ultimate penguin rampage\include\upr.h
+
