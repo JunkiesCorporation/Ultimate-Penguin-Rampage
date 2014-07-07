@@ -6,7 +6,8 @@ class Ennemi
 {
     public:
     protected:
-    private:
+    private;
+
 };
 
 #endif // ENNEMI_H
