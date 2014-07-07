@@ -41,6 +41,8 @@ int main( int argc, char* args[] )
 			//Wait two seconds
 			SDL_Delay( 2000 );
 		}
+
+		printf("plop");
 	}
 
 	//Destroy window
