@@ -1,0 +1,3 @@
+Valeur de la couleur du fond: rouge=255, vert=0, bleu=255
+
+(255,0,255)
