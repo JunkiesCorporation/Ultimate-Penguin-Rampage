@@ -1,6 +1,18 @@
 #include "Personnage.h"
 
+using namespace std;
+
+
 Personnage::Personnage()
 {
-    //ctor
 }
+    void Personnage::subitDegats(int nbDegats)
+    {
+
+    }
+    void Personnage::utiliserArme()
+    {
+
+    }
+    //ctor
+
