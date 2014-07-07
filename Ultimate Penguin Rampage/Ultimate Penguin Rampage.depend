@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1404761399 source:c:\users\quentin\documents\codage\ultimate-penguin-rampage\ultimate penguin rampage\src\upr.cpp
+	<stdio.h>
+	<SDL.h>
+	"UPR.h"
+
+1404760813 c:\users\quentin\documents\codage\ultimate-penguin-rampage\ultimate penguin rampage\include\upr.h
+
