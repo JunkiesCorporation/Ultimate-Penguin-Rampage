@@ -1,2 +1,4 @@
-Ultimate Penguin Rampage\*.layout
-Ultimate Penguin Rampage\*.depend
+$ cat .gitignore
+
+*.depend
+*.layout
