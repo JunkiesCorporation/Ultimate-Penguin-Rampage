@@ -24,6 +24,8 @@ int main(int argc, char* args[]) {
     bool quit(false);
     SDL_Event e;
 
+    Jeu jeu(window, screenSurface);
+
     while(!quit) {
         // Affichage et gestion du menu principal
         // Démarrage du jeu

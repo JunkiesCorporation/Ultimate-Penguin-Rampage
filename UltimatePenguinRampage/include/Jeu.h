@@ -2,6 +2,7 @@
 #define JEU_H
 
 #include <SDL.h>
+#include "Joueur.h"
 
 class Jeu
 {
@@ -11,7 +12,8 @@ class Jeu
 
     protected:
     private:
-        int Start(SDL_Window*&,SDL_Surface*&); // Lancement du jeu
+        int start(SDL_Window*&,SDL_Surface*&); // Lancement du jeu
+        Joueur* moi;
 };
 
 #endif // JEU_H
