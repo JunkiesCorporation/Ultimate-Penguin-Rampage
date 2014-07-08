@@ -8,30 +8,24 @@ const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
 bool SDLInit(SDL_Window**, SDL_Surface**);
-void SDLQuit(SDL_Window**, SDL_Surface**);
+void SDLQuit(SDL_Window**);
 
 int main(int argc, char* args[]) {
     SDL_Window* window = NULL;
     SDL_Surface* screenSurface = NULL;
-    SDL_Surface* penguin = NULL;
 
+    // Initialisation de la SDL
 	if(!SDLInit(&window, &screenSurface)) {
         printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
         return -1;
 	}
 
-	penguin = SDL_LoadBMP("img/PBface.bmp");
-	if(penguin == NULL) {
-        printf("plop");
-	}
-
-	SDL_BlitSurface(penguin, NULL, screenSurface, NULL);
-	SDL_UpdateWindowSurface(window);
-
+    // Boucle principale du programme
     bool quit(false);
     SDL_Event e;
-
     while(!quit) {
+        // Affichage et gestion du menu principal
+        // Démarrage du jeu
         while(SDL_PollEvent(&e) != 0) {
             if(e.type == SDL_QUIT) {
                 quit = true;
@@ -39,7 +33,7 @@ int main(int argc, char* args[]) {
         }
     }
 
-    SDLQuit(&window, &penguin);
+    SDLQuit(&window);
 
 	return 0;
 }
@@ -65,8 +59,7 @@ bool SDLInit(SDL_Window** window, SDL_Surface** screenSurface) {
 }
 
 // Quite la SDL proprement
-void SDLQuit(SDL_Window** window, SDL_Surface** penguin) {
-    SDL_FreeSurface(*penguin); *penguin = NULL;
+void SDLQuit(SDL_Window** window) {
     SDL_DestroyWindow(*window); *window = NULL;
     SDL_Quit();
 }
