@@ -49,6 +49,7 @@
 		<Unit filename="include/Personnage.h" />
 		<Unit filename="include/Tile.h" />
 		<Unit filename="include/UPR.h" />
+		<Unit filename="include/Utils.h" />
 		<Unit filename="src/Arme.cpp" />
 		<Unit filename="src/Carte.cpp" />
 		<Unit filename="src/Ennemi.cpp" />
@@ -60,6 +61,7 @@
 		<Unit filename="src/Personnage.cpp" />
 		<Unit filename="src/Tile.cpp" />
 		<Unit filename="src/UPR.cpp" />
+		<Unit filename="src/Utils.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
