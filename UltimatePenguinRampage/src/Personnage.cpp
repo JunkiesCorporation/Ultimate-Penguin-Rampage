@@ -2,17 +2,15 @@
 
 using namespace std;
 
-
 Personnage::Personnage()
 {
 }
-    void Personnage::subitDegats(int nbDegats)
-    {
 
-    }
-    void Personnage::utiliserArme()
-    {
+void Personnage::subitDegats(int nbDegats)
+{
 
-    }
-    //ctor
+}
+void Personnage::utiliserArme()
+{
 
+}
