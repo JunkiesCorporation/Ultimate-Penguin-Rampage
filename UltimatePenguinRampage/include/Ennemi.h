@@ -9,10 +9,13 @@
 
 class Ennemi : public Personnage
 {
-    public:
-        void suisJoueur(int posJoueur[2]);
-    protected:
-    private:
+public:
+    void suisJoueur(int posJoueur[2])
+    {
+
+    }
+protected:
+private:
 
 };
 
