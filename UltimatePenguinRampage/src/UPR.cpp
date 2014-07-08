@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <SDL.h>
-#include <iostream>
 #include "UPR.h"
 #include "Jeu.h"
 
