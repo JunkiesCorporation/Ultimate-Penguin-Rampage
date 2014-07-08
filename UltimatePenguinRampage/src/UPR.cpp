@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <iostream>
 #include "UPR.h"
+#include "Jeu.h"
 
 //Dimensions de l'écran
 const int SCREEN_WIDTH = 640;
@@ -23,6 +24,7 @@ int main(int argc, char* args[]) {
     // Boucle principale du programme
     bool quit(false);
     SDL_Event e;
+
     while(!quit) {
         // Affichage et gestion du menu principal
         // Démarrage du jeu
