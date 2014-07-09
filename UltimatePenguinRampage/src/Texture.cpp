@@ -1,0 +1,59 @@
+#include <iostream>
+
+#include "Texture.h"
+#include "Utils.h"
+
+Texture::Texture(std::string chemin) : m_image(NULL), m_largeur(0), m_hauteur(0)
+{
+    charger(chemin);
+}
+
+Texture::~Texture()
+{
+    liberer();
+}
+
+void Texture::charger(std::string chemin) {
+    liberer(); // Liberation de la texture précédente
+
+    SDL_Texture* nouvelleTexture = NULL;
+    SDL_Surface* imageChargee = SDL_LoadBMP(chemin.c_str()); // Chargement de l'image Bitmap
+    if(imageChargee == NULL) { // Gestion de l'échec du chargement de l'image
+        std::cout << "Erreur : L'image " << chemin << " n'a pas pu etre chargee." << std::endl;
+    } else {
+        SDL_SetColorKey(imageChargee, SDL_TRUE, SDL_MapRGB(imageChargee->format, 255, 0, 255)); // Activation de la transparence
+
+        nouvelleTexture = SDL_CreateTextureFromSurface(Utils::renderer, imageChargee); // Création de la texture
+        if(nouvelleTexture == NULL) { // Gestion de l'échec de la création de la texture
+            std::cout << "Erreur : La texture n'a pas pu etre creee." << std::endl;
+        } else {
+            m_largeur = imageChargee->w; // Récupération des données de l'image chargée
+            m_hauteur = imageChargee->h;
+        }
+
+        SDL_FreeSurface(imageChargee);
+    }
+
+    m_image = nouvelleTexture;
+}
+
+void Texture::liberer() {
+    if(m_image != NULL) {
+        SDL_DestroyTexture(m_image);
+        m_image = NULL;
+        m_largeur = 0;
+        m_hauteur = 0;
+    }
+}
+
+void Texture::render(int x, int y) {
+    SDL_Rect renderQuad = {x, y, m_largeur, m_hauteur}; // Le rectangle sur lequel la texture est projetée
+    SDL_RenderCopy(Utils::renderer, m_image, NULL, &renderQuad);
+}
+
+int Texture::getLargeur() {
+    return m_largeur;
+}
+int Texture::getHauteur() {
+    return m_hauteur;
+}

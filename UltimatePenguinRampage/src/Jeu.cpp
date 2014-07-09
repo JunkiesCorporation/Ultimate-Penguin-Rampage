@@ -4,7 +4,7 @@
 
 // Construceur
 Jeu::Jeu() {
-    moi = new Joueur(Utils::loadBMP("img/PBface.bmp", Utils::ecran));
+    moi = new Joueur("img/PBface.bmp");
     start();
 }
 
@@ -17,10 +17,7 @@ int Jeu::start() {
     printf("Jeu lance.\n");
     bool quit(false);
     SDL_Event e;
-    SDL_Texture* penguin = Utils::loadTexture("img/PBface.bmp");
-    SDL_RenderClear(Utils::renderer);
-    SDL_RenderCopy(Utils::renderer,penguin, NULL, NULL);
-    SDL_RenderPresent(Utils::renderer);
+
     while(!quit) {
         // Gestion des événements
         while(SDL_PollEvent(&e) != 0) {
@@ -32,8 +29,15 @@ int Jeu::start() {
                     break;
                 }
             }
+
+            moi->gererEvenement(e);
         }
 
+        SDL_RenderClear(Utils::renderer);
+
+        moi->render();
+
+        SDL_RenderPresent(Utils::renderer);
 
     }
 

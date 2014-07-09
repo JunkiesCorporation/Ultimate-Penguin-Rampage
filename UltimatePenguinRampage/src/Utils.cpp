@@ -5,7 +5,6 @@
 
 SDL_Window* Utils::fenetre = NULL;
 SDL_Renderer* Utils::renderer = NULL;
-SDL_Surface* Utils::ecran = NULL;
 
 bool Utils::initialisation() {
     if(SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -18,9 +17,8 @@ bool Utils::initialisation() {
             std::cout << "Erreur : Echec de la creation de la fenetre." << std::endl;
             return false;
         } else {
-            Utils::ecran = SDL_GetWindowSurface(Utils::fenetre);
-
             Utils::renderer = SDL_CreateRenderer(Utils::fenetre, -1, SDL_RENDERER_ACCELERATED);
+
             if(Utils::renderer == NULL) {
                 std::cout << "Erreur : Echec de la creation du renderer." << std::endl;
                 return false;
@@ -40,48 +38,4 @@ void Utils::quitter() {
     Utils::fenetre = NULL;
 
     SDL_Quit();
-}
-
-SDL_Surface* Utils::loadBMP(std::string chemin, SDL_Surface* &ecran) {
-    SDL_Surface* retour = NULL; // La surface à renvoyer
-
-    SDL_Surface* chargee = SDL_LoadBMP(chemin.c_str()); // La surface chargée
-    SDL_SetColorKey(chargee, SDL_TRUE, SDL_MapRGB(chargee->format, 255, 0, 255)); //Transparence
-
-    if(chargee == NULL) { // Gestion de l'échec du chargement
-        std::cout << "Erreur : L'image " << chemin << " n'a pas pu etre chargee." << std::endl;
-        return NULL;
-    } else {
-        retour = SDL_ConvertSurface(chargee, ecran->format, NULL); // Optimisation de la surface
-
-        if(retour == NULL) { // Gestion de l'échec de l'optimisation
-            std::cout << "Erreur : L'image chargee n'a pas pu etre optimisee." << std::endl;
-            retour = chargee;
-        }
-
-        SDL_FreeSurface(chargee); // Libération de la surface chargée
-    }
-
-    return retour;
-}
-
-SDL_Texture* Utils::loadTexture(std::string chemin) {
-    SDL_Texture* retour = NULL;
-
-    SDL_Surface* chargee = SDL_LoadBMP(chemin.c_str());
-    SDL_SetColorKey(chargee, SDL_TRUE, SDL_MapRGB(chargee->format, 255, 0, 255));
-    if(chargee == NULL) { // Gestion de l'échec du chargement
-        std::cout << "Erreur : L'image " << chemin << " n'a pas pu etre chargee." << std::endl;
-        return NULL;
-    } else {
-        retour = SDL_CreateTextureFromSurface(Utils::renderer, chargee);
-
-        if(retour == NULL) {
-            std::cout << "Erreur : La texture n'a pas pu etre creee." << std::endl;
-        }
-
-        SDL_FreeSurface(chargee);
-    }
-
-    return retour;
 }

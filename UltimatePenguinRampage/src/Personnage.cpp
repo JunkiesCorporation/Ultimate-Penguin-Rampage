@@ -1,16 +1,16 @@
-#include "Personnage.h"
+#include <stdio.h>
 
-using namespace std;
+#include "Personnage.h"
+#include "Utils.h"
 
 // Constructeur
-Personnage::Personnage(SDL_Surface* sprite) {
-    m_sprite = sprite; // Charge l'image avec le paramètre donné
+Personnage::Personnage(std::string cheminImage) : m_posX(0), m_posY(0), m_sprite(cheminImage)
+{
 }
 
 // Destructeur
 Personnage::~Personnage() {
-    SDL_FreeSurface(m_sprite); // Libère l'image
-    delete m_sprite; // Détruit le pointeur
+    m_sprite.liberer();
 }
 
 void Personnage::subitDegats(int nbDegats) {
@@ -19,7 +19,10 @@ void Personnage::subitDegats(int nbDegats) {
 void Personnage::utiliserArme() {
 
 }
+void Personnage::render() {
+    m_sprite.render(m_posX, m_posY);
+}
 
-SDL_Surface* Personnage::getSprite() {
+Texture Personnage::getSprite() {
     return m_sprite;
 }
