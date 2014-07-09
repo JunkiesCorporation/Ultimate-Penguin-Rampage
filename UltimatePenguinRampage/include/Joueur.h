@@ -16,7 +16,6 @@ class Joueur : public Personnage
 
     protected:
     private:
-        const int m_vitesse;
 };
 
 #endif // JOUEUR_H
