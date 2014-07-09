@@ -8,14 +8,14 @@
 class Tile
 {
     public:
-        Tile();
+        Tile(); // Constructeur
 
     protected:
     private:
-        char m_symbole;
+        char m_symbole; // ?
         std::string m_nomImage;
-        bool m_solide; //si le sprite est infranchissable m_solide=true, sinon false
-        SDL_Surface m_sprite;
+        bool m_solide; // Si la case est franchissable ou non
+        SDL_Surface m_sprite; // Image de la case
 
 };
 
