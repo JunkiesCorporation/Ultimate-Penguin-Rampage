@@ -7,8 +7,10 @@
 class Joueur : public Personnage
 {
     public:
-        Joueur(SDL_Surface*);
-        void gererEvenement(SDL_Event&);
+        Joueur(SDL_Surface*); // Constructeur
+
+        void gererEvenement(SDL_Event&); // Récupère un événement et vérifie si celui-ci modifie le Joueur
+
     protected:
     private:
 };
