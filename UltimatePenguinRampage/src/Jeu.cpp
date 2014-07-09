@@ -4,7 +4,7 @@
 
 // Construceur
 Jeu::Jeu() {
-    moi = new Joueur("img/PBface.bmp");
+    moi = new Joueur(50, 50, "img/PBface.bmp");
     start();
 }
 
@@ -29,9 +29,9 @@ int Jeu::start() {
                     break;
                 }
             }
-
-            moi->gererEvenement(e);
         }
+
+        moi->gererEvenement();
 
         SDL_RenderClear(Utils::renderer);
 

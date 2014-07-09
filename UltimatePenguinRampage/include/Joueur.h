@@ -10,8 +10,9 @@ class Joueur : public Personnage
 {
     public:
         Joueur(std::string cheminImage); // Constructeur
+        Joueur(int posX, int posY, std::string cheminImage);
 
-        void gererEvenement(SDL_Event&); // Récupère un événement et vérifie si celui-ci modifie le Joueur
+        void gererEvenement(); // Récupère un événement et vérifie si celui-ci modifie le Joueur
 
     protected:
     private:

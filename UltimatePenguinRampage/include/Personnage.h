@@ -9,12 +9,13 @@
 class Personnage
 {
     public:
-        Personnage(std::string image); // Constructeur
+        Personnage(std::string cheminImage); // Constructeur
+        Personnage(int posX, int posY, std::string cheminImage);
         ~Personnage(); // Destructeur
 
         void subitDegats(int nbDegats); // Enlève de la vie au Personnage
         void utiliserArme(); // Enclenche l'utilisation de l'arme
-        void gererEvenement(SDL_Event&); // Gère les événements qui concernent le Personnage
+        void gererEvenement(); // Gère les événements qui concernent le Personnage
         void render(); // Afficher le Personnage
 
         Texture getSprite(); // Getter : retourne m_sprite
