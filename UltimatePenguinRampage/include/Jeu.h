@@ -7,12 +7,12 @@
 class Jeu
 {
     public:
-        Jeu(SDL_Window*&, SDL_Surface*&); // Constructeur
+        Jeu(); // Constructeur
         ~Jeu(); // Destructeur
 
     protected:
     private:
-        int start(SDL_Window*&,SDL_Surface*&); // Lance le jeu
+        int start(); // Lance le jeu
 
         Joueur* moi; // Personnage
 };

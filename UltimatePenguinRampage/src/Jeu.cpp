@@ -3,9 +3,9 @@
 #include "Utils.h"
 
 // Construceur
-Jeu::Jeu(SDL_Window* &fenetre, SDL_Surface* &ecran) {
-    moi = new Joueur(Utils::loadBMP("img/PBface.bmp", ecran));
-    start(fenetre, ecran);
+Jeu::Jeu() {
+    moi = new Joueur(Utils::loadBMP("img/PBface.bmp", Utils::ecran));
+    start();
 }
 
 // Destructeur
@@ -13,11 +13,11 @@ Jeu::~Jeu() {
 }
 
 // Gère tout le jeu
-int Jeu::start(SDL_Window* &fenetre, SDL_Surface* &ecran) {
+int Jeu::start() {
     bool quit(false);
     SDL_Event e;
-    SDL_BlitSurface(moi->getSprite(), NULL, ecran, NULL);
-    SDL_UpdateWindowSurface(fenetre);
+    SDL_BlitSurface(moi->getSprite(), NULL, Utils::ecran, NULL);
+    SDL_UpdateWindowSurface(Utils::fenetre);
     while(!quit) {
         // Gestion des événements
         while(SDL_PollEvent(&e) != 0) {
