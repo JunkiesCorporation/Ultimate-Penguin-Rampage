@@ -13,9 +13,9 @@ class Joueur : public Personnage
         Joueur(int posX, int posY, std::string cheminImage);
 
         void gererEvenement(); // Récupère un événement et vérifie si celui-ci modifie le Joueur
-
     protected:
     private:
+        int posPrecedente;
 };
 
 #endif // JOUEUR_H
