@@ -14,10 +14,13 @@ Jeu::~Jeu() {
 
 // Gère tout le jeu
 int Jeu::start() {
+    printf("Jeu lance.\n");
     bool quit(false);
     SDL_Event e;
-    SDL_BlitSurface(moi->getSprite(), NULL, Utils::ecran, NULL);
-    SDL_UpdateWindowSurface(Utils::fenetre);
+    SDL_Texture* penguin = Utils::loadTexture("img/PBface.bmp");
+    SDL_RenderClear(Utils::renderer);
+    SDL_RenderCopy(Utils::renderer,penguin, NULL, NULL);
+    SDL_RenderPresent(Utils::renderer);
     while(!quit) {
         // Gestion des événements
         while(SDL_PollEvent(&e) != 0) {
@@ -25,10 +28,10 @@ int Jeu::start() {
                 switch(e.key.keysym.sym) {
                 case SDLK_q:
                     quit = true;
+                    printf("Jeu quitte.\n");
                     break;
                 }
             }
-            moi->gererEvenement(e);
         }
 
 

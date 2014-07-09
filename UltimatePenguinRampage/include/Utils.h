@@ -8,10 +8,12 @@ class Utils
 {
     public:
         static SDL_Surface* loadBMP(std::string, SDL_Surface*&); // Charge l'image du chemin donné
+        static SDL_Texture* loadTexture(std::string); // Charge une texture à partir de l'image du chemin donné
         static bool initialisation(); // Initialisation du programme et de la SDL.
         static void quitter();
 
         static SDL_Window* fenetre; // La fenêtre du programme
+        static SDL_Renderer* renderer; // Permet d'afficher du contenu dans la fenêtre
         static SDL_Surface* ecran; // Le contenu de la fenêtre
 
         static const int SCREEN_WIDTH = 640; // Largeur de l'écran

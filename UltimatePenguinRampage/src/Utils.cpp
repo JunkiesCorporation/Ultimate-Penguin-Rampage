@@ -4,6 +4,7 @@
 #include "Utils.h"
 
 SDL_Window* Utils::fenetre = NULL;
+SDL_Renderer* Utils::renderer = NULL;
 SDL_Surface* Utils::ecran = NULL;
 
 bool Utils::initialisation() {
@@ -12,10 +13,20 @@ bool Utils::initialisation() {
         return false;
     } else {
         Utils::fenetre = SDL_CreateWindow( "Ultimate Penguin Rampage", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Utils::SCREEN_WIDTH, Utils::SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+
         if(Utils::fenetre == NULL) {
             std::cout << "Erreur : Echec de la creation de la fenetre." << std::endl;
+            return false;
         } else {
             Utils::ecran = SDL_GetWindowSurface(Utils::fenetre);
+
+            Utils::renderer = SDL_CreateRenderer(Utils::fenetre, -1, SDL_RENDERER_ACCELERATED);
+            if(Utils::renderer == NULL) {
+                std::cout << "Erreur : Echec de la creation du renderer." << std::endl;
+                return false;
+            } else {
+                SDL_SetRenderDrawColor(Utils::renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+            }
         }
     }
 
@@ -23,6 +34,8 @@ bool Utils::initialisation() {
 }
 
 void Utils::quitter() {
+    SDL_DestroyRenderer(Utils::renderer);
+    Utils::renderer = NULL;
     SDL_DestroyWindow(Utils::fenetre);
     Utils::fenetre = NULL;
 
@@ -47,6 +60,27 @@ SDL_Surface* Utils::loadBMP(std::string chemin, SDL_Surface* &ecran) {
         }
 
         SDL_FreeSurface(chargee); // Libération de la surface chargée
+    }
+
+    return retour;
+}
+
+SDL_Texture* Utils::loadTexture(std::string chemin) {
+    SDL_Texture* retour = NULL;
+
+    SDL_Surface* chargee = SDL_LoadBMP(chemin.c_str());
+    SDL_SetColorKey(chargee, SDL_TRUE, SDL_MapRGB(chargee->format, 255, 0, 255));
+    if(chargee == NULL) { // Gestion de l'échec du chargement
+        std::cout << "Erreur : L'image " << chemin << " n'a pas pu etre chargee." << std::endl;
+        return NULL;
+    } else {
+        retour = SDL_CreateTextureFromSurface(Utils::renderer, chargee);
+
+        if(retour == NULL) {
+            std::cout << "Erreur : La texture n'a pas pu etre creee." << std::endl;
+        }
+
+        SDL_FreeSurface(chargee);
     }
 
     return retour;
