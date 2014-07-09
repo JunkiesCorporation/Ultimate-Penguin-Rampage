@@ -7,7 +7,7 @@
 class Utils
 {
     public:
-         static SDL_Surface* loadBMP(std::string, SDL_Surface*&);
+         static SDL_Surface* loadBMP(std::string, SDL_Surface*&); // Charge l'image du chemin donné
     protected:
     private:
 };
