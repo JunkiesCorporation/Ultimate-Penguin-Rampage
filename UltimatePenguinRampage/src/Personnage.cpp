@@ -2,13 +2,15 @@
 
 using namespace std;
 
+// Constructeur
 Personnage::Personnage(SDL_Surface* sprite) {
-    m_sprite = sprite;
+    m_sprite = sprite; // Charge l'image avec le paramètre donné
 }
 
+// Destructeur
 Personnage::~Personnage() {
-    SDL_FreeSurface(m_sprite);
-    delete m_sprite;
+    SDL_FreeSurface(m_sprite); // Libère l'image
+    delete m_sprite; // Détruit le pointeur
 }
 
 void Personnage::subitDegats(int nbDegats) {
