@@ -3,12 +3,14 @@
 #include "Personnage.h"
 #include "Utils.h"
 
-// Constructeur
 Personnage::Personnage(std::string cheminImage) : m_posX(0), m_posY(0), m_sprite(cheminImage)
 {
 }
 
-// Destructeur
+Personnage::Personnage(int posX, int posY, std::string cheminImage) : m_posX(posX), m_posY(posY), m_sprite(cheminImage)
+{
+}
+
 Personnage::~Personnage() {
     m_sprite.liberer();
 }
