@@ -17,7 +17,7 @@ bool Utils::initialisation() {
             std::cout << "Erreur : Echec de la creation de la fenetre." << std::endl;
             return false;
         } else {
-            Utils::renderer = SDL_CreateRenderer(Utils::fenetre, -1, SDL_RENDERER_ACCELERATED);
+            Utils::renderer = SDL_CreateRenderer(Utils::fenetre, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
             if(Utils::renderer == NULL) {
                 std::cout << "Erreur : Echec de la creation du renderer." << std::endl;
