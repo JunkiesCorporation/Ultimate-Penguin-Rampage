@@ -12,7 +12,11 @@ class Arme
         int m_porteeArme;
         int m_munitionArme;
         int m_vitesseTirArme;
-        int m_typeArme;  // (1)= Arme de corps à corps (2) Arme à distance
+        int m_typeArme;
+        /* Type d'armes:
+            1 : Corps à corps
+            2 : A distance
+        */
 };
 
 #endif // ARME_H
