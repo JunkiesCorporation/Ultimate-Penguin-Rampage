@@ -5,12 +5,13 @@
 
 using namespace std;
 
-Carte::Carte() {
-
+// Constructeur
+Carte::Carte(string cheminFichier) {
+    m_cheminFichier = cheminFichier;
 }
 
-void Carte::extraire(string m_nomFichier) {
-    ifstream fichier("map/1.txt"); //extraction du fichier
+void Carte::charger() {
+    ifstream fichier(m_cheminFichier.c_str()); //extraction du fichier
     string ligne;
 
     if(fichier) {

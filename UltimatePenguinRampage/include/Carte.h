@@ -6,12 +6,14 @@
 class Carte
 {
     public:
-        Carte();
-        void extraire(std::string m_nomFichier);
+        Carte(std::string); // Constructeur
+
     protected:
     private:
-        int m_tableau[100];
-        std::string m_nomFichier;
+        void charger(); // Lis le fichier associé à la carte
+
+        int m_tableau[100]; // Contient les données de la carte
+        std::string m_cheminFichier; // Chemin du fichier à charger
 };
 
 #endif // CARTE_H
