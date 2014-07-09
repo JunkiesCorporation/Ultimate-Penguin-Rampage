@@ -47,7 +47,7 @@
 		<Unit filename="include/Objet.h" />
 		<Unit filename="include/Options.h" />
 		<Unit filename="include/Personnage.h" />
-		<Unit filename="include/Sprite.h" />
+		<Unit filename="include/Texture.h" />
 		<Unit filename="include/Tile.h" />
 		<Unit filename="include/UPR.h" />
 		<Unit filename="include/Utils.h" />
@@ -60,7 +60,7 @@
 		<Unit filename="src/Objet.cpp" />
 		<Unit filename="src/Options.cpp" />
 		<Unit filename="src/Personnage.cpp" />
-		<Unit filename="src/Sprite.cpp" />
+		<Unit filename="src/Texture.cpp" />
 		<Unit filename="src/Tile.cpp" />
 		<Unit filename="src/UPR.cpp" />
 		<Unit filename="src/Utils.cpp" />
