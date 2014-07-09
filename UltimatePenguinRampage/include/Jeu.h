@@ -8,12 +8,13 @@ class Jeu
 {
     public:
         Jeu(SDL_Window*&, SDL_Surface*&); // Constructeur
-        ~Jeu();
+        ~Jeu(); // Destructeur
 
     protected:
     private:
-        int start(SDL_Window*&,SDL_Surface*&); // Lancement du jeu
-        Joueur* moi;
+        int start(SDL_Window*&,SDL_Surface*&); // Lance le jeu
+
+        Joueur* moi; // Personnage
 };
 
 #endif // JEU_H
