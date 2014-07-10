@@ -9,7 +9,8 @@
 class Personnage
 {
     public:
-        Personnage(std::string cheminImage); // Constructeur
+        // Constructeurs
+        Personnage(std::string cheminImage); // Initialise la postion à (0,0)
         Personnage(int posX, int posY, std::string cheminImage);
         ~Personnage(); // Destructeur
 

@@ -9,13 +9,16 @@
 class Joueur : public Personnage
 {
     public:
-        Joueur(std::string cheminImage); // Constructeur
+        // Constructeurs
+        Joueur(std::string cheminImage); // Initalise la position au centre de l'écran
         Joueur(int posX, int posY, std::string cheminImage);
 
         void gererEvenement(); // Récupère un événement et vérifie si celui-ci modifie le Joueur
+        void deplacer(); // Déplace le personnage
     protected:
     private:
-        int posPrecedente;
+        int direction; // La direction actuelle
+        int dirPrecedente; // La direction de la trame précédente
 };
 
 #endif // JOUEUR_H

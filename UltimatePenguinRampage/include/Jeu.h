@@ -14,7 +14,7 @@ class Jeu
     private:
         int start(); // Lance le jeu
 
-        Joueur* moi; // Personnage
+        Joueur* j1; // Personnage
 };
 
 #endif // JEU_H
