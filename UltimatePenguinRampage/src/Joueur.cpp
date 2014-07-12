@@ -7,17 +7,17 @@
 const int VITESSE_JOUEUR = 3;
 const int VITESSE_ANGLE = VITESSE_JOUEUR * cos(M_PI_4);
 
-Joueur::Joueur() : Personnage(), m_direction(DIR_IMMOBILE), m_dirPrecedente(DIR_IMMOBILE)
+Joueur::Joueur() : Personnage()
 {
     // Chargement des 8 textures du Joueur
-    m_sprites[DIR_BAS] = *(new Texture("img/PBface.bmp"));
-    m_sprites[DIR_BAS_GAUCHE] = *(new Texture("img/PBbasgauche.bmp"));
-    m_sprites[DIR_GAUCHE] = *(new Texture("img/PBgauche.bmp"));
-    m_sprites[DIR_HAUT_GAUCHE] = *(new Texture("img/PBhautgauche.bmp"));
-    m_sprites[DIR_HAUT] = *(new Texture("img/PBdos.bmp"));
-    m_sprites[DIR_HAUT_DROITE] = *(new Texture("img/PBhautdroite.bmp"));
-    m_sprites[DIR_DROITE] = *(new Texture("img/PBdroite.bmp"));
-    m_sprites[DIR_BAS_DROITE] = *(new Texture("img/PBbasdroite.bmp"));
+    m_sprites[DIR_BAS].charger("img/PBface.bmp");
+    m_sprites[DIR_BAS_GAUCHE].charger("img/PBbasgauche.bmp");
+    m_sprites[DIR_GAUCHE].charger("img/PBgauche.bmp");
+    m_sprites[DIR_HAUT_GAUCHE].charger("img/PBhautgauche.bmp");
+    m_sprites[DIR_HAUT].charger("img/PBdos.bmp");
+    m_sprites[DIR_HAUT_DROITE].charger("img/PBhautdroite.bmp");
+    m_sprites[DIR_DROITE].charger("img/PBdroite.bmp");
+    m_sprites[DIR_BAS_DROITE].charger("img/PBbasdroite.bmp");
 
     m_sprite = &m_sprites[DIR_BAS]; // Attribution de la première texture
 

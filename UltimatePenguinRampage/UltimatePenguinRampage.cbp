@@ -41,6 +41,7 @@
 		<Unit filename="include/Arme.h" />
 		<Unit filename="include/Carte.h" />
 		<Unit filename="include/Ennemi.h" />
+		<Unit filename="include/Entite.h" />
 		<Unit filename="include/Enums.h" />
 		<Unit filename="include/Jeu.h" />
 		<Unit filename="include/Joueur.h" />
@@ -56,6 +57,7 @@
 		<Unit filename="src/Arme.cpp" />
 		<Unit filename="src/Carte.cpp" />
 		<Unit filename="src/Ennemi.cpp" />
+		<Unit filename="src/Entite.cpp" />
 		<Unit filename="src/Jeu.cpp" />
 		<Unit filename="src/Joueur.cpp" />
 		<Unit filename="src/MenuPrincipal.cpp" />

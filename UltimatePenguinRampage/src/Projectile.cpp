@@ -4,23 +4,15 @@
 #include "Projectile.h"
 #include "Utils.h"
 
-Projectile::Projectile(Direction direction): m_posX(0), m_posY(0), m_vitesseCard(0), m_vitesseAngle(0), m_direction(direction),
-        m_dirPrecedente(direction), m_sprite(NULL)
+Projectile::Projectile(): Entite()
 {
     m_sprite = new Texture("img/boule_de_neige.bmp");
 }
 
-Projectile::Projectile(Direction direction, int vitesse): m_posX(0), m_posY(0), m_vitesseCard(vitesse), m_vitesseAngle(0),
-        m_direction(direction), m_dirPrecedente(direction), m_sprite(NULL)
+Projectile::Projectile(int x, int y, Direction direction, int vitesseCard): Entite(x, y, direction), m_vitesseCard(vitesseCard)
 {
-    m_vitesseAngle = vitesse * cos(M_PI_4);
+    m_vitesseAngle = vitesseCard * cos(M_PI_4);
     m_sprite = new Texture("img/boule_de_neige.bmp");
-}
-
-Projectile::~Projectile()
-{
-    m_sprite->liberer();
-    delete m_sprite;
 }
 
 void Projectile::deplacer() {
@@ -35,10 +27,6 @@ void Projectile::deplacer() {
         case DIR_BAS_DROITE: m_posY += m_vitesseAngle; m_posX += m_vitesseAngle; break;
         case DIR_IMMOBILE: break;
     }
-}
-
-void Projectile::render() {
-    m_sprite->render(m_posX, m_posY);
 }
 
 bool Projectile::isDehorsEcran() {

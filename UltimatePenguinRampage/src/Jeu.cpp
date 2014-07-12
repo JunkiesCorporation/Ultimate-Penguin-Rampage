@@ -21,8 +21,6 @@ int Jeu::start() {
     bool quit(false);
     SDL_Event e;
 
-    Projectile test(DIR_BAS_DROITE, 4);
-
     while(!quit) {
         // Gestion des événements
         while(SDL_PollEvent(&e) != 0) {
@@ -38,16 +36,15 @@ int Jeu::start() {
         }
         j1->gererEvenement();
         j1->deplacer();
-        test.deplacer();
 
         SDL_RenderClear(Utils::renderer);
 
         j1->render();
-        test.render();
 
         SDL_RenderPresent(Utils::renderer);
 
     }
 
+    delete j1;
     return 0;
 }
