@@ -7,14 +7,26 @@
 const int VITESSE_JOUEUR = 3;
 const int VITESSE_ANGLE = VITESSE_JOUEUR * cos(M_PI_4);
 
-Joueur::Joueur(std::string cheminImage) : Personnage(cheminImage), direction(IMMOBILE), dirPrecedente(IMMOBILE)
+Joueur::Joueur() : Personnage(), direction(IMMOBILE), dirPrecedente(IMMOBILE)
 {
-    m_posX = (Utils::SCREEN_WIDTH - m_sprite.getLargeur()) / 2;
-    m_posY = (Utils::SCREEN_HEIGHT - m_sprite.getHauteur()) / 2;
+    // Chargement des 8 textures du Joueur
+    m_sprites[BAS] = *(new Texture("img/PBface.bmp"));
+    m_sprites[BAS_GAUCHE] = *(new Texture("img/PBbasgauche.bmp"));
+    m_sprites[GAUCHE] = *(new Texture("img/PBgauche.bmp"));
+    m_sprites[HAUT_GAUCHE] = *(new Texture("img/PBhautgauche.bmp"));
+    m_sprites[HAUT] = *(new Texture("img/PBdos.bmp"));
+    m_sprites[HAUT_DROITE] = *(new Texture("img/PBhautdroite.bmp"));
+    m_sprites[DROITE] = *(new Texture("img/PBdroite.bmp"));
+    m_sprites[BAS_DROITE] = *(new Texture("img/PBbasdroite.bmp"));
 
+    m_sprite = &m_sprites[BAS]; // Attribution de la première texture
+
+    // Positionnement du Joueur au centre de l'écran
+    m_posX = (Utils::SCREEN_WIDTH - m_sprite->getLargeur()) / 2;
+    m_posY = (Utils::SCREEN_HEIGHT - m_sprite->getHauteur()) / 2;
 }
 
-Joueur::Joueur(int posX, int posY, std::string cheminImage) : Personnage(posX, posY, cheminImage), direction(IMMOBILE), dirPrecedente(IMMOBILE)
+Joueur::Joueur(int posX, int posY) : Personnage(posX, posY), direction(IMMOBILE), dirPrecedente(IMMOBILE)
 {
 }
 
@@ -55,25 +67,16 @@ void Joueur::deplacer() {
         case BAS_DROITE: m_posY += VITESSE_ANGLE; m_posX += VITESSE_ANGLE; break;
     }
 
-    if(direction != dirPrecedente) { // Change le sprite si nécessaire
-        switch(direction) {
-            case BAS: m_sprite.charger("img/PBface.bmp"); break;
-            case BAS_GAUCHE: m_sprite.charger("img/PBbasgauche.bmp"); break;
-            case GAUCHE: m_sprite.charger("img/PBgauche.bmp"); break;
-            case HAUT_GAUCHE: m_sprite.charger("img/PBhautgauche.bmp"); break;
-            case HAUT: m_sprite.charger("img/PBdos.bmp"); break;
-            case HAUT_DROITE: m_sprite.charger("img/PBhautdroite.bmp"); break;
-            case DROITE: m_sprite.charger("img/PBdroite.bmp"); break;
-            case BAS_DROITE: m_sprite.charger("img/PBbasdroite.bmp"); break;
-        }
+    if((direction != dirPrecedente) && (direction != IMMOBILE)) { // Change le sprite si nécessaire
+        m_sprite = &m_sprites[direction];
     }
 
     dirPrecedente = direction;
 
     // Faudrait quand même pas qu'il sorte de l'écran ce pingouin
     if(m_posX < 0) { m_posX = 0; }
-    if(m_posX + m_sprite.getLargeur() > Utils::SCREEN_WIDTH) { m_posX = Utils::SCREEN_WIDTH - m_sprite.getLargeur(); }
+    if(m_posX + m_sprite->getLargeur() > Utils::SCREEN_WIDTH) { m_posX = Utils::SCREEN_WIDTH - m_sprite->getLargeur(); }
     if(m_posY < 0) { m_posY = 0; }
-    if(m_posY + m_sprite.getHauteur() > Utils::SCREEN_HEIGHT) { m_posY = Utils::SCREEN_HEIGHT - m_sprite.getHauteur(); }
+    if(m_posY + m_sprite->getHauteur() > Utils::SCREEN_HEIGHT) { m_posY = Utils::SCREEN_HEIGHT - m_sprite->getHauteur(); }
 
 }

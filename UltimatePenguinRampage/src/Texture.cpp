@@ -3,9 +3,13 @@
 #include "Texture.h"
 #include "Utils.h"
 
-Texture::Texture(std::string chemin) : m_image(NULL), m_largeur(0), m_hauteur(0)
+Texture::Texture() : m_image(NULL), m_largeur(0), m_hauteur(0)
 {
-    charger(chemin);
+}
+
+Texture::Texture(std::string cheminImage) : m_image(NULL), m_largeur(0), m_hauteur(0)
+{
+    charger(cheminImage);
 }
 
 Texture::~Texture()
@@ -13,13 +17,13 @@ Texture::~Texture()
     liberer();
 }
 
-void Texture::charger(std::string chemin) {
+void Texture::charger(std::string cheminImage) {
     liberer(); // Liberation de la texture précédente
 
     SDL_Texture* nouvelleTexture = NULL;
-    SDL_Surface* imageChargee = SDL_LoadBMP(chemin.c_str()); // Chargement de l'image Bitmap
+    SDL_Surface* imageChargee = SDL_LoadBMP(cheminImage.c_str()); // Chargement de l'image Bitmap
     if(imageChargee == NULL) { // Gestion de l'échec du chargement de l'image
-        std::cout << "Erreur : L'image " << chemin << " n'a pas pu etre chargee." << std::endl;
+        std::cout << "Erreur : L'image " << cheminImage << " n'a pas pu etre chargee." << std::endl;
     } else {
         SDL_SetColorKey(imageChargee, SDL_TRUE, SDL_MapRGB(imageChargee->format, 255, 0, 255)); // Activation de la transparence
 

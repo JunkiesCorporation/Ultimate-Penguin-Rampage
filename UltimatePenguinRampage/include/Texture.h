@@ -7,11 +7,14 @@
 class Texture
 {
     public:
-        Texture(std::string chemin); // Constructeur
+        // Constructeurs
+        Texture(); // Par défaut
+        Texture(std::string cheminImage); // Créé la texture avec l'image donnée
+
         ~Texture(); // Destructeur
 
         void liberer(); // Libère la texture (pour détruire ou en changer)
-        void charger(std::string chemin); // Charge la texture
+        void charger(std::string cheminImage); // Charge la texture
         void render(int x, int y); // Afficher la texture à la position
 
         int getLargeur(); // Getter : retourne m_largeur

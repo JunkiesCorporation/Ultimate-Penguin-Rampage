@@ -4,7 +4,7 @@
 
 // Construceur
 Jeu::Jeu() {
-    j1 = new Joueur("img/PBface.bmp");
+    j1 = new Joueur();
     start();
 }
 
