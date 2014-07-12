@@ -7,13 +7,11 @@
 const int VITESSE_JOUEUR = 3;
 const int VITESSE_ANGLE = VITESSE_JOUEUR * cos(M_PI_4);
 
-// Les déplacements possibles du joueur
-enum {BAS, HAUT, DROITE, GAUCHE, BAS_GAUCHE, HAUT_GAUCHE, HAUT_DROITE, BAS_DROITE, IMMOBILE};
-
 Joueur::Joueur(std::string cheminImage) : Personnage(cheminImage), direction(IMMOBILE), dirPrecedente(IMMOBILE)
 {
     m_posX = (Utils::SCREEN_WIDTH - m_sprite.getLargeur()) / 2;
     m_posY = (Utils::SCREEN_HEIGHT - m_sprite.getHauteur()) / 2;
+
 }
 
 Joueur::Joueur(int posX, int posY, std::string cheminImage) : Personnage(posX, posY, cheminImage), direction(IMMOBILE), dirPrecedente(IMMOBILE)

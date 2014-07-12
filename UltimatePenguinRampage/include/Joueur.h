@@ -19,6 +19,8 @@ class Joueur : public Personnage
     private:
         int direction; // La direction actuelle
         int dirPrecedente; // La direction de la trame précédente
+
+        enum {BAS, HAUT, DROITE, GAUCHE, BAS_GAUCHE, HAUT_GAUCHE, HAUT_DROITE, BAS_DROITE, IMMOBILE}; // Les directions que peut avoir le personnage
 };
 
 #endif // JOUEUR_H
