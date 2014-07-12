@@ -1,9 +1,6 @@
 #include <stdio.h>
-
 #include "Jeu.h"
-#include "Projectile.h"
 #include "Utils.h"
-#include "Enums.h"
 
 // Construceur
 Jeu::Jeu() {
@@ -21,8 +18,6 @@ int Jeu::start() {
     bool quit(false);
     SDL_Event e;
 
-    Projectile test(DIR_BAS_DROITE, 4);
-
     while(!quit) {
         // Gestion des événements
         while(SDL_PollEvent(&e) != 0) {
@@ -38,12 +33,10 @@ int Jeu::start() {
         }
         j1->gererEvenement();
         j1->deplacer();
-        test.deplacer();
 
         SDL_RenderClear(Utils::renderer);
 
         j1->render();
-        test.render();
 
         SDL_RenderPresent(Utils::renderer);
 
