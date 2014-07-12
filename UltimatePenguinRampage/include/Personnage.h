@@ -10,8 +10,8 @@ class Personnage
 {
     public:
         // Constructeurs
-        Personnage(std::string cheminImage); // Initialise la postion à (0,0)
-        Personnage(int posX, int posY, std::string cheminImage);
+        Personnage(); // Initialise la postion à (0,0)
+        Personnage(int posX, int posY);
         ~Personnage(); // Destructeur
 
         void subitDegats(int nbDegats); // Enlève de la vie au Personnage
@@ -19,14 +19,14 @@ class Personnage
         void gererEvenement(); // Gère les événements qui concernent le Personnage
         void render(); // Afficher le Personnage
 
-        Texture getSprite(); // Getter : retourne m_sprite
+        Texture* getSprite(); // Getter : retourne m_sprite
     protected:
         int m_posX;
         int m_posY;
         int m_pdv;
         int m_mana;
         bool m_vivant;
-        Texture m_sprite; // L'image du Personnage
+        Texture* m_sprite; // Pointeur sur la texture du Personnage
     private:
 
 };
