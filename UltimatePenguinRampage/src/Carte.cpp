@@ -1,7 +1,8 @@
-#include "Carte.h"
 #include <fstream>
 #include <iostream>
 #include <string>
+
+#include "Carte.h"
 
 using namespace std;
 
