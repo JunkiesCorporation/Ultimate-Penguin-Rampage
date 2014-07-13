@@ -5,6 +5,7 @@
 #include "Projectile.h"
 #include "Utils.h"
 #include "Enums.h"
+#include "Carte.h"
 
 std::vector<Projectile*> Jeu::projectiles(0);
 
@@ -25,6 +26,8 @@ int Jeu::start() {
     printf("Jeu lance.\n");
     bool quit(false);
     SDL_Event e;
+
+    Carte test("map/test_1.txt");
 
     while(!quit) {
         // Gestion des événements

@@ -4,19 +4,21 @@
 #include <string>
 #include <SDL.h>
 
+#include "Texture.h"
 
 class Tile
 {
     public:
         Tile(); // Constructeur
 
+        bool isSolide(); // Retourne m_solide
+        int getId(); // Getter : retourne m_id;
     protected:
     private:
-        char m_symbole; // ?
-        std::string m_nomImage;
-        bool m_solide; // Si la case est franchissable ou non
-        SDL_Surface m_sprite; // Image de la case
+        int m_id;
 
+        bool m_solide; // Si la case est franchissable ou non
+        Texture m_texture;
 };
 
 #endif // TILE_H
