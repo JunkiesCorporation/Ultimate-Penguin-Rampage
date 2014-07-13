@@ -1,6 +1,8 @@
 #ifndef ENTITE_H
 #define ENTITE_H
 
+#include <vector>
+
 #include "Texture.h"
 #include "Enums.h"
 
@@ -14,6 +16,8 @@ class Entite
         virtual ~Entite();
 
         void render(); // Affiche l'Entite à l'ecran
+        virtual void update() = 0;
+
     protected:
         // Position de l'Entite sur le niveau
         int m_posX;

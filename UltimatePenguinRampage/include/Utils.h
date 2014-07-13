@@ -16,8 +16,6 @@ class Utils
 
         static const int SCREEN_WIDTH = 640; // Largeur de l'écran
         static const int SCREEN_HEIGHT = 480; // Hauteur de l'écran
-
-        static int plop;
     protected:
     private:
 };

@@ -12,6 +12,7 @@ class Personnage : public Entite
 
         void subitDegats(int nbDegats); // Enlève de la vie au Personnage
         void utiliserArme(); // Enclenche l'utilisation de l'arme
+
     protected:
         int m_pdv;
         int m_mana;

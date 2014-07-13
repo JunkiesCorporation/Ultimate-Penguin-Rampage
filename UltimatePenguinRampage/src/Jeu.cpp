@@ -6,14 +6,18 @@
 #include "Utils.h"
 #include "Enums.h"
 
+std::vector<Projectile*> Jeu::projectiles(0);
+
 // Construceur
 Jeu::Jeu() {
-    j1 = new Joueur();
+    m_j1 = new Joueur();
     start();
 }
 
 // Destructeur
 Jeu::~Jeu() {
+    delete m_j1;
+    m_j1 = NULL;
 }
 
 // Gère tout le jeu
@@ -33,38 +37,44 @@ int Jeu::start() {
                     break;
                 }
             }
-            j1->gererEvenement(e);
+            m_j1->gererEvenement(e);
         }
 
-        j1->update(projectiles);
-        for(Uint8 i(0); i < projectiles.size(); i++) {
-            projectiles[i]->deplacer();
-        }
+        update();
 
-        std::vector<int> aDetruire;
-        for(Uint8 i(0); i < projectiles.size(); i++) {
-            if(projectiles[i]->isHorsEcran()) {
-                aDetruire.push_back(i);
-            }
-        }
-        for(int i(0); i < (int)aDetruire.size(); i++) {
-            std::cout << "Destruction du projectile : " << i << " : ";
-            delete projectiles[i];
-            projectiles.erase(projectiles.begin()+i);
-        }
-        aDetruire.clear();
-
-        SDL_RenderClear(Utils::renderer);
-
-        j1->render();
-        for(Uint8 i(0); i < projectiles.size(); i++) {
-            projectiles[i]->render();
-        }
-
-        SDL_RenderPresent(Utils::renderer);
-
+        render();
     }
-    delete j1;
-    j1 = NULL;
     return 0;
+}
+
+void Jeu::update() {
+    m_j1->update();
+
+    for(int i(0); i < (int)Jeu::projectiles.size(); i++) {
+        Jeu::projectiles[i]->update();
+    }
+
+    std::vector<int> aDetruire(0);
+    for(int i(0); i < (int)Jeu::projectiles.size(); i++) {
+        if(Jeu::projectiles[i]->isHorsEcran()) {
+            aDetruire.push_back(i);
+        }
+    }
+    for(int i(0); i < (int)aDetruire.size(); i++) {
+        delete Jeu::projectiles[aDetruire[i]];
+        Jeu::projectiles.erase(Jeu::projectiles.begin()+aDetruire[i]);
+    }
+    aDetruire.clear();
+}
+
+void Jeu::render() {
+    SDL_RenderClear(Utils::renderer);
+
+    for(Uint8 i(0); i < Jeu::projectiles.size(); i++) {
+        Jeu::projectiles[i]->render();
+    }
+
+    m_j1->render();
+
+    SDL_RenderPresent(Utils::renderer);
 }

@@ -12,12 +12,14 @@ class Jeu
         Jeu(); // Constructeur
         ~Jeu(); // Destructeur
 
-        std::vector<Projectile*> projectiles;
+        static std::vector<Projectile*> projectiles; // Les projectiles en jeu
     protected:
     private:
         int start(); // Lance le jeu
+        void update(); // Met à jour tous les éléments
+        void render(); // Affiche tous les éléments
 
-        Joueur* j1; // Personnage
+        Joueur* m_j1; // Personnage
 };
 
 #endif // JEU_H
