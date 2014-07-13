@@ -1,8 +1,10 @@
 #ifndef JEU_H
 #define JEU_H
 
-#include <SDL.h>
+#include <vector>
+
 #include "Joueur.h"
+#include "Projectile.h"
 
 class Jeu
 {
@@ -10,6 +12,7 @@ class Jeu
         Jeu(); // Constructeur
         ~Jeu(); // Destructeur
 
+        std::vector<Projectile*> projectiles;
     protected:
     private:
         int start(); // Lance le jeu

@@ -13,7 +13,7 @@ class Projectile : public Entite
 
         void deplacer(); // Déplace le Projectile
 
-        bool isDehorsEcran(); // Retourne si le Projectile est sorti de l'écran
+        bool isHorsEcran(); // Retourne si le Projectile est sorti de l'écran
 
     protected:
     private:

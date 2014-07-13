@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <iostream>
 
 #include "Jeu.h"
 #include "Projectile.h"
@@ -32,19 +33,38 @@ int Jeu::start() {
                     break;
                 }
             }
-
+            j1->gererEvenement(e);
         }
-        j1->gererEvenement();
-        j1->deplacer();
+
+        j1->update(projectiles);
+        for(Uint8 i(0); i < projectiles.size(); i++) {
+            projectiles[i]->deplacer();
+        }
+
+        std::vector<int> aDetruire;
+        for(Uint8 i(0); i < projectiles.size(); i++) {
+            if(projectiles[i]->isHorsEcran()) {
+                aDetruire.push_back(i);
+            }
+        }
+        for(int i(0); i < (int)aDetruire.size(); i++) {
+            std::cout << "Destruction du projectile : " << i << " : ";
+            delete projectiles[i];
+            projectiles.erase(projectiles.begin()+i);
+        }
+        aDetruire.clear();
 
         SDL_RenderClear(Utils::renderer);
 
         j1->render();
+        for(Uint8 i(0); i < projectiles.size(); i++) {
+            projectiles[i]->render();
+        }
 
         SDL_RenderPresent(Utils::renderer);
 
     }
-
     delete j1;
+    j1 = NULL;
     return 0;
 }

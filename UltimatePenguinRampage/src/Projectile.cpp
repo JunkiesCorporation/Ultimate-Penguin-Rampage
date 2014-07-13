@@ -11,6 +11,7 @@ Projectile::Projectile(): Entite()
 
 Projectile::Projectile(int x, int y, Direction direction, int vitesseCard): Entite(x, y, direction), m_vitesseCard(vitesseCard)
 {
+    if(direction == DIR_IMMOBILE) {m_direction = DIR_BAS; }
     m_vitesseAngle = vitesseCard * cos(M_PI_4);
     m_sprite = new Texture("img/boule_de_neige.bmp");
 }
@@ -29,8 +30,8 @@ void Projectile::deplacer() {
     }
 }
 
-bool Projectile::isDehorsEcran() {
-    if(m_posX < 0 || m_posY < 0 || m_posX + m_sprite->getLargeur() > Utils::SCREEN_WIDTH || m_sprite->getHauteur() > Utils::SCREEN_HEIGHT) {
+bool Projectile::isHorsEcran() {
+    if(m_posX < 0 || m_posY < 0 || m_posX + m_sprite->getLargeur() > Utils::SCREEN_WIDTH || m_posY + m_sprite->getHauteur() > Utils::SCREEN_HEIGHT) {
         return true;
     }
     return false;

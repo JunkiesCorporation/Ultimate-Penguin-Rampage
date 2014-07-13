@@ -14,8 +14,6 @@ class Entite
         virtual ~Entite();
 
         void render(); // Affiche l'Entite à l'ecran
-
-        virtual void deplacer() = 0; // Gère le déplacement de l'Entite
     protected:
         // Position de l'Entite sur le niveau
         int m_posX;

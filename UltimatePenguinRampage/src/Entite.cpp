@@ -17,8 +17,10 @@ Entite::Entite(int x, int y, Direction direction) : m_posX(x), m_posY(y), m_dire
 
 Entite::~Entite()
 {
+    std::cout << "Destruction!" << std::endl;
     m_sprite->liberer();
     delete m_sprite;
+    m_sprite = NULL;
 }
 
 void Entite::render() {
