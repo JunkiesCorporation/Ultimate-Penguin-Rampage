@@ -6,13 +6,14 @@
 #include "Carte.h"
 
 // Constructeur
-Carte::Carte(std::string cheminFichier) : m_largeur(0), m_hauteur(0), m_nombreTilesets(0), m_data(NULL),
+Carte::Carte(std::string cheminFichier) : m_largeur(0), m_hauteur(0), m_data(NULL),
         m_cheminFichier(cheminFichier)
 {
     charger();
 }
 
 Carte::~Carte() {
+    std::cout << "Carte detruite" << std::endl;
     if(m_data != NULL) {
         for(int i(0); i < m_largeur; i++) {
             delete [] m_data[i];
@@ -55,6 +56,9 @@ void Carte::charger() {
         fichier >> ligne;
         int hauteurTileset(atoi(ligne.c_str()));
 
+        (&m_tileset)->~Tileset();
+        new (&m_tileset) Tileset(largeurTileset, hauteurTileset, largeurTiles, hauteurTiles, cheminTileset);
+
         fichier >> ligne;
         if(ligne != "[data]") {
             std::cout << "Erreur : [data] manquant dans : " << m_cheminFichier << std::endl;
@@ -70,5 +74,13 @@ void Carte::charger() {
         fichier.close();
     } else {
         std::cout << "Erreur : Echec du chargement de " << m_cheminFichier << std::endl;
+    }
+}
+
+void Carte::render() {
+    for(int y(0); y < m_hauteur; y++) {
+        for(int x(0); x < m_largeur; x++) {
+            m_tileset.render(m_data[x][y], x, y);
+        }
     }
 }

@@ -5,6 +5,7 @@
 
 #include "Joueur.h"
 #include "Projectile.h"
+#include "Carte.h"
 
 class Jeu
 {
@@ -20,6 +21,7 @@ class Jeu
         void render(); // Affiche tous les éléments
 
         Joueur* m_j1; // Personnage
+        Carte* m_carte; // La carte
 };
 
 #endif // JEU_H

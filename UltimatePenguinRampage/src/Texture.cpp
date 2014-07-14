@@ -55,6 +55,9 @@ void Texture::render(int x, int y) {
     SDL_RenderCopy(Utils::renderer, m_image, NULL, &renderQuad);
 }
 
+SDL_Texture* Texture::getImage() {
+    return m_image;
+}
 int Texture::getLargeur() {
     return m_largeur;
 }

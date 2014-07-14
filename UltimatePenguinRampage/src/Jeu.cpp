@@ -2,23 +2,22 @@
 #include <iostream>
 
 #include "Jeu.h"
-#include "Projectile.h"
 #include "Utils.h"
 #include "Enums.h"
-#include "Carte.h"
 
 std::vector<Projectile*> Jeu::projectiles(0);
 
 // Construceur
 Jeu::Jeu() {
     m_j1 = new Joueur();
+    m_carte = new Carte("map/test_1.txt");
     start();
 }
 
 // Destructeur
 Jeu::~Jeu() {
-    delete m_j1;
-    m_j1 = NULL;
+    delete m_j1; m_j1 = NULL;
+    delete m_carte; m_carte = NULL;
 }
 
 // Gère tout le jeu
@@ -26,8 +25,6 @@ int Jeu::start() {
     printf("Jeu lance.\n");
     bool quit(false);
     SDL_Event e;
-
-    Carte test("map/test_1.txt");
 
     while(!quit) {
         // Gestion des événements
@@ -72,6 +69,8 @@ void Jeu::update() {
 
 void Jeu::render() {
     SDL_RenderClear(Utils::renderer);
+
+    m_carte->render();
 
     for(Uint8 i(0); i < Jeu::projectiles.size(); i++) {
         Jeu::projectiles[i]->render();

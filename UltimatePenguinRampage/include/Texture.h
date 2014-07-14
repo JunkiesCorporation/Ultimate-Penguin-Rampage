@@ -19,6 +19,7 @@ class Texture
 
         int getLargeur(); // Getter : retourne m_largeur
         int getHauteur(); // Getter : retourne m_hauteur
+        SDL_Texture* getImage(); // Getter : retourne m_image
     protected:
     private:
         SDL_Texture* m_image; // Contient la texture

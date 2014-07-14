@@ -51,7 +51,7 @@
 		<Unit filename="include/Personnage.h" />
 		<Unit filename="include/Projectile.h" />
 		<Unit filename="include/Texture.h" />
-		<Unit filename="include/Tile.h" />
+		<Unit filename="include/Tileset.h" />
 		<Unit filename="include/UPR.h" />
 		<Unit filename="include/Utils.h" />
 		<Unit filename="src/Arme.cpp" />
@@ -66,7 +66,7 @@
 		<Unit filename="src/Personnage.cpp" />
 		<Unit filename="src/Projectile.cpp" />
 		<Unit filename="src/Texture.cpp" />
-		<Unit filename="src/Tile.cpp" />
+		<Unit filename="src/Tileset.cpp" />
 		<Unit filename="src/UPR.cpp" />
 		<Unit filename="src/Utils.cpp" />
 		<Extensions>
