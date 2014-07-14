@@ -26,6 +26,8 @@ int Jeu::start() {
     bool quit(false);
     SDL_Event e;
 
+    //m_carte->render();
+
     while(!quit) {
         // Gestion des événements
         while(SDL_PollEvent(&e) != 0) {

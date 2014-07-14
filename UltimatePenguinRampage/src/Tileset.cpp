@@ -21,7 +21,7 @@ Tileset::~Tileset()
 }
 
 void Tileset::render(int tileID, int x, int y) {
-    SDL_Rect clipQuad = {tileID % m_largeur, tileID / m_hauteur, m_largeurTiles, m_hauteurTiles};
-    SDL_Rect renderQuad = {x * m_largeurTiles, y * m_hauteurTiles, m_largeurTiles, m_hauteurTiles};
+    SDL_Rect clipQuad = {((tileID%m_largeur)-1)*m_largeurTiles, (tileID/m_hauteur)*m_hauteurTiles, m_largeurTiles, m_hauteurTiles};
+    SDL_Rect renderQuad = {x*m_largeurTiles, y*m_hauteurTiles, m_largeurTiles, m_hauteurTiles};
     SDL_RenderCopy(Utils::renderer, m_image.getImage(), &clipQuad, &renderQuad);
 }
