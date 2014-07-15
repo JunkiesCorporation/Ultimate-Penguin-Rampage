@@ -13,4 +13,10 @@ enum Direction {
     DIR_IMMOBILE
 };
 
+enum TileType {
+    TILE_TRAVERSABLE,
+    TILE_SOLIDE,
+    TILE_OPAQUE // Ce type de tile est idéalement rendu par-dessus le joueur, pour donner un impression de relief
+};
+
 #endif // ENUMS_H_INCLUDED
