@@ -9,9 +9,12 @@ class Projectile : public Entite
         Projectile();
         Projectile(int x, int y, Direction direction, int vitesseCard);
 
+        ~Projectile();
+
         void update();
 
         bool isHorsEcran(); // Retourne si le Projectile est sorti de l'écran
+
     protected:
     private:
         void deplacer(); // Déplace le Projectile

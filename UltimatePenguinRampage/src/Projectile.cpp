@@ -4,6 +4,8 @@
 #include "Projectile.h"
 #include "Utils.h"
 
+static int nombre(0);
+
 Projectile::Projectile(): Entite()
 {
     m_sprite = new Texture("img/boule_de_neige.bmp");
@@ -14,6 +16,14 @@ Projectile::Projectile(int x, int y, Direction direction, int vitesseCard): Enti
     if(direction == DIR_IMMOBILE) {m_direction = DIR_BAS; }
     m_vitesseAngle = vitesseCard * cos(M_PI_4);
     m_sprite = new Texture("img/boule_de_neige.bmp");
+
+    nombre++;
+    std::cout << nombre << std::endl;
+}
+
+Projectile::~Projectile(){
+    nombre--;
+    std::cout << nombre << " - ";
 }
 
 void Projectile::update() {
