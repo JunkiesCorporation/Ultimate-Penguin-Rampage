@@ -145,25 +145,35 @@ void Joueur::deplacer(Carte const &carte) {
     coins[1] = carte.isTileSolide(m_pos.x/LARGEUR_TILE + 1, m_pos.y/HAUTEUR_TILE);
     coins[2] = carte.isTileSolide(m_pos.x/LARGEUR_TILE + 1, m_pos.y/HAUTEUR_TILE + 1);
     coins[3] = carte.isTileSolide(m_pos.x/LARGEUR_TILE, m_pos.y/HAUTEUR_TILE + 1);
-    if(coins[0] || coins[1] || coins[2] || coins[3]) {
-        m_pos = m_posPrecedente;
-        do {
-            switch(m_direction) { // Déplace le joueur en fonction de sa direction
-                case DIR_BAS: m_pos.y += 1; break;
-                case DIR_BAS_GAUCHE: m_pos.y += 1; m_pos.x -= 1; break;
-                case DIR_GAUCHE: m_pos.x -= 1; break;
-                case DIR_HAUT_GAUCHE: m_pos.y -= 1; m_pos.x -= 1; break;
-                case DIR_HAUT: m_pos.y -= 1; break;
-                case DIR_HAUT_DROITE: m_pos.y -= 1; m_pos.x += 1; break;
-                case DIR_DROITE: m_pos.x += 1; break;
-                case DIR_BAS_DROITE: m_pos.y += 1; m_pos.x += 1; break;
-                case DIR_IMMOBILE: break;
+    if(coins[0] && coins[1]) {
+        m_pos.y = (m_pos.y/HAUTEUR_TILE + 1) * HAUTEUR_TILE;
+    } if(coins[1] && coins[2]) {
+        m_pos.x = (m_pos.x/LARGEUR_TILE) * LARGEUR_TILE;
+    } if(coins[2] && coins[3]) {
+        m_pos.y = (m_pos.y/HAUTEUR_TILE) * HAUTEUR_TILE;
+    } if(coins[3] && coins[0]) {
+        m_pos.x = (m_pos.x/LARGEUR_TILE + 1) * LARGEUR_TILE;
+    }
+    if (coins[0] && !(coins[1] || coins[2] || coins[3])) {
+        switch(m_direction) {
+        case DIR_GAUCHE: m_pos.x = (m_pos.x/LARGEUR_TILE + 1) * LARGEUR_TILE;
+            break;
+        case DIR_HAUT: m_pos.y = (m_pos.y/HAUTEUR_TILE + 1) * HAUTEUR_TILE;
+            break;
+        case DIR_HAUT_DROITE: m_pos.y = (m_pos.y/HAUTEUR_TILE + 1) * HAUTEUR_TILE;
+            break;
+        case DIR_BAS_GAUCHE: m_pos.x = (m_pos.x/LARGEUR_TILE + 1) * LARGEUR_TILE;
+            break;
+        case DIR_HAUT_GAUCHE:
+            if (m_posPrecedente.x - (m_pos.x / LARGEUR_TILE + 1)*LARGEUR_TILE > m_posPrecedente.y - (m_pos.y / HAUTEUR_TILE + 1)*HAUTEUR_TILE) {
+                m_pos.x = (m_pos.x/LARGEUR_TILE + 1) * LARGEUR_TILE;
+            } else {
+                m_pos.y = (m_pos.y/HAUTEUR_TILE + 1) * HAUTEUR_TILE;
             }
-            coins[0] = carte.isTileSolide(m_pos.x/LARGEUR_TILE, m_pos.y/HAUTEUR_TILE);
-            coins[1] = carte.isTileSolide(m_pos.x/LARGEUR_TILE + 1, m_pos.y/HAUTEUR_TILE);
-            coins[2] = carte.isTileSolide(m_pos.x/LARGEUR_TILE + 1, m_pos.y/HAUTEUR_TILE + 1);
-            coins[3] = carte.isTileSolide(m_pos.x/LARGEUR_TILE, m_pos.y/HAUTEUR_TILE + 1);
-        } while (coins[0] || coins[1] || coins[2] || coins[3]);
+            break;
+        default:
+            break;
+        }
     }
 
 }
