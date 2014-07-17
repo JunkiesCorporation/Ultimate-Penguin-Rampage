@@ -50,10 +50,10 @@ int Jeu::start() {
 }
 
 void Jeu::update() {
-    m_j1->update();
+    m_j1->update(*m_carte);
 
     for(int i(0); i < (int)Jeu::projectiles.size(); i++) {
-        Jeu::projectiles[i]->update();
+        Jeu::projectiles[i]->update(*m_carte);
     }
 
     std::vector<int> aDetruire(0);

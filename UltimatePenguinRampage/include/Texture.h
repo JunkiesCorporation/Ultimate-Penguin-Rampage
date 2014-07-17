@@ -15,11 +15,11 @@ class Texture
 
         void liberer(); // Libère la texture (pour détruire ou en changer)
         void charger(std::string cheminImage); // Charge la texture
-        void render(int x, int y); // Afficher la texture à la position
 
-        int getLargeur(); // Getter : retourne m_largeur
-        int getHauteur(); // Getter : retourne m_hauteur
-        SDL_Texture* getImage(); // Getter : retourne m_image
+        void render(int x, int y) const; // Afficher la texture à la position
+        int getLargeur() const ; // Getter : retourne m_largeur
+        int getHauteur() const ; // Getter : retourne m_hauteur
+        SDL_Texture* getImage() const ; // Getter : retourne m_image
     protected:
     private:
         SDL_Texture* m_image; // Contient la texture

@@ -11,7 +11,7 @@ class Projectile : public Entite
 
         ~Projectile();
 
-        void update();
+        void update(Carte const& carte);
 
         bool isHorsEcran(); // Retourne si le Projectile est sorti de l'écran
 

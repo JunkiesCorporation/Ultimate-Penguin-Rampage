@@ -50,17 +50,17 @@ void Texture::liberer() {
     }
 }
 
-void Texture::render(int x, int y) {
+void Texture::render(int x, int y) const {
     SDL_Rect renderQuad = {x, y, m_largeur, m_hauteur}; // Le rectangle sur lequel la texture est projetée
     SDL_RenderCopy(Utils::renderer, m_image, NULL, &renderQuad);
 }
 
-SDL_Texture* Texture::getImage() {
+SDL_Texture* Texture::getImage() const {
     return m_image;
 }
-int Texture::getLargeur() {
+int Texture::getLargeur() const {
     return m_largeur;
 }
-int Texture::getHauteur() {
+int Texture::getHauteur() const {
     return m_hauteur;
 }

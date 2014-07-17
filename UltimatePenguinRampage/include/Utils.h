@@ -13,9 +13,6 @@ class Utils
 
         static SDL_Window* fenetre; // La fenêtre du programme
         static SDL_Renderer* renderer; // Permet d'afficher du contenu dans la fenêtre
-
-        static const int SCREEN_WIDTH = 640; // Largeur de l'écran
-        static const int SCREEN_HEIGHT = 480; // Hauteur de l'écran
     protected:
     private:
 };

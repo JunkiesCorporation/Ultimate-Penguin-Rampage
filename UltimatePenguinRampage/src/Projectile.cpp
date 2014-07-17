@@ -3,6 +3,7 @@
 
 #include "Projectile.h"
 #include "Utils.h"
+#include "Constantes.h"
 
 static int nombre(0);
 
@@ -26,26 +27,26 @@ Projectile::~Projectile(){
     std::cout << nombre << " - ";
 }
 
-void Projectile::update() {
+void Projectile::update(Carte const& carte) {
     deplacer();
 }
 
 void Projectile::deplacer() {
     switch(m_direction) {
-        case DIR_BAS: m_posY += m_vitesseCard; break;
-        case DIR_BAS_GAUCHE: m_posY += m_vitesseAngle; m_posX -= m_vitesseAngle; break;
-        case DIR_GAUCHE: m_posX -= m_vitesseCard; break;
-        case DIR_HAUT_GAUCHE: m_posY -= m_vitesseAngle; m_posX -= m_vitesseAngle; break;
-        case DIR_HAUT: m_posY -= m_vitesseCard; break;
-        case DIR_HAUT_DROITE: m_posY -= m_vitesseAngle; m_posX += m_vitesseAngle; break;
-        case DIR_DROITE: m_posX += m_vitesseCard; break;
-        case DIR_BAS_DROITE: m_posY += m_vitesseAngle; m_posX += m_vitesseAngle; break;
+        case DIR_BAS: m_pos.y += m_vitesseCard; break;
+        case DIR_BAS_GAUCHE: m_pos.y += m_vitesseAngle; m_pos.x -= m_vitesseAngle; break;
+        case DIR_GAUCHE: m_pos.x -= m_vitesseCard; break;
+        case DIR_HAUT_GAUCHE: m_pos.y -= m_vitesseAngle; m_pos.x -= m_vitesseAngle; break;
+        case DIR_HAUT: m_pos.y -= m_vitesseCard; break;
+        case DIR_HAUT_DROITE: m_pos.y -= m_vitesseAngle; m_pos.x += m_vitesseAngle; break;
+        case DIR_DROITE: m_pos.x += m_vitesseCard; break;
+        case DIR_BAS_DROITE: m_pos.y += m_vitesseAngle; m_pos.x += m_vitesseAngle; break;
         case DIR_IMMOBILE: break;
     }
 }
 
 bool Projectile::isHorsEcran() {
-    if(m_posX + m_sprite->getLargeur() < 0 || m_posY + m_sprite->getHauteur() < 0 || m_posX > Utils::SCREEN_WIDTH || m_posY > Utils::SCREEN_HEIGHT) {
+    if(m_pos.x + m_sprite->getLargeur() < 0 || m_pos.y + m_sprite->getHauteur() < 0 || m_pos.x > LARGEUR_ECRAN || m_pos.y > HAUTEUR_ECRAN) {
         return true;
     }
     return false;

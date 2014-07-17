@@ -5,6 +5,8 @@
 
 #include "Texture.h"
 #include "Enums.h"
+#include "Carte.h"
+#include "Struct.h"
 
 class Entite
 {
@@ -16,17 +18,16 @@ class Entite
         virtual ~Entite();
 
         void render(); // Affiche l'Entite à l'ecran
-        virtual void update() = 0;
+        virtual void update(Carte const& carte) = 0;
 
     protected:
-        // Position de l'Entite sur le niveau
-        int m_posX;
-        int m_posY;
+        Pos m_pos; ///< Position de l'Entite sur le niveau
+        Pos m_posPrecedente; ///< Position de l'Entite sur le niveau à la trame précédente
 
-        Direction m_direction; // La direction actuelle de l'Entite
-        Direction m_dirPrecedente; // La direction à la trame Precedente
+        Direction m_direction; ///< La direction de l'Entite
+        Direction m_dirPrecedente; ///< La direction de l'Entite à la trame précédente
 
-        Texture* m_sprite; // La texture à afficher de l'Entite
+        Texture* m_sprite; ///< La Texture de l'Entite
     private:
 };
 

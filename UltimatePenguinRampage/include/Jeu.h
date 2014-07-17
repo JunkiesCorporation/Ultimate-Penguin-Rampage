@@ -22,6 +22,7 @@ class Jeu
 
         Joueur* m_j1; // Personnage
         Carte* m_carte; // La carte
+
 };
 
 #endif // JEU_H

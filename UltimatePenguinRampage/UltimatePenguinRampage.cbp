@@ -40,6 +40,7 @@
 		</Linker>
 		<Unit filename="include/Arme.h" />
 		<Unit filename="include/Carte.h" />
+		<Unit filename="include/Constantes.h" />
 		<Unit filename="include/Ennemi.h" />
 		<Unit filename="include/Entite.h" />
 		<Unit filename="include/Enums.h" />
@@ -50,6 +51,7 @@
 		<Unit filename="include/Options.h" />
 		<Unit filename="include/Personnage.h" />
 		<Unit filename="include/Projectile.h" />
+		<Unit filename="include/Struct.h" />
 		<Unit filename="include/Texture.h" />
 		<Unit filename="include/Tileset.h" />
 		<Unit filename="include/UPR.h" />
@@ -73,6 +75,15 @@
 			<code_completion />
 			<envvars />
 			<debugger />
+			<DoxyBlocks>
+				<comment_style block="2" line="2" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

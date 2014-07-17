@@ -1,9 +1,9 @@
 [header]
-width= 20
-height= 15
+largeur= 20
+hauteur= 15
 
-[tileset]
-tileset= img/TSbanquise.bmp 32 32 10 10
+[tilesets]
+tileset= TS/TSbanquise.txt
 
 [data]
 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 

@@ -1,0 +1,12 @@
+[header]
+largeur= 10
+hauteur= 10
+dimensionTiles= 32 x 32
+image= img/TSbanquise.bmp
+
+[tiles_solides]
+nombre= 10
+1 2 3 11 12 13 21 22 23 31
+
+[tiles_opaques]
+nombre= 0

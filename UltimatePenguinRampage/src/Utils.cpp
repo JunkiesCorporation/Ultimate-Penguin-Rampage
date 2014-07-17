@@ -2,6 +2,7 @@
 #include <SDL.h>
 
 #include "Utils.h"
+#include "Constantes.h"
 
 SDL_Window* Utils::fenetre = NULL;
 SDL_Renderer* Utils::renderer = NULL;
@@ -11,7 +12,7 @@ bool Utils::initialisation() {
         std::cout << "Erreur : Impossible d'initialiser la SDL." << std::endl;
         return false;
     } else {
-        Utils::fenetre = SDL_CreateWindow( "Ultimate Penguin Rampage", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Utils::SCREEN_WIDTH, Utils::SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+        Utils::fenetre = SDL_CreateWindow( "Ultimate Penguin Rampage", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, LARGEUR_ECRAN, HAUTEUR_ECRAN, SDL_WINDOW_SHOWN );
 
         if(Utils::fenetre == NULL) {
             std::cout << "Erreur : Echec de la creation de la fenetre." << std::endl;

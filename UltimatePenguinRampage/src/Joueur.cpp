@@ -4,6 +4,7 @@
 #include "Joueur.h"
 #include "Utils.h"
 #include "Jeu.h"
+#include "Constantes.h"
 
 const int VITESSE_JOUEUR = 3;
 const int VITESSE_ANGLE = VITESSE_JOUEUR * cos(M_PI_4);
@@ -32,8 +33,8 @@ Joueur::Joueur() : Personnage(), m_reload(10), m_feu(false)
     m_sprite = &m_sprites[DIR_BAS]; // Attribution de la première texture
 
     // Positionnement du Joueur au centre de l'écran
-    m_posX = (Utils::SCREEN_WIDTH - m_sprite->getLargeur()) / 2;
-    m_posY = (Utils::SCREEN_HEIGHT - m_sprite->getHauteur()) / 2;
+    m_pos.x = (LARGEUR_ECRAN - m_sprite->getLargeur()) / 2;
+    m_pos.y = (HAUTEUR_ECRAN - m_sprite->getHauteur()) / 2;
 }
 
 void Joueur::gererEvenement(SDL_Event &e) {
@@ -78,8 +79,8 @@ void Joueur::gererEvenement(SDL_Event &e) {
     }
 }
 
-void Joueur::update() {
-    deplacer();
+void Joueur::update(Carte const& carte) {
+    deplacer(carte);
 
     if (m_reload > 0) { m_reload--; }
 
@@ -88,7 +89,7 @@ void Joueur::update() {
     }
 }
 
-void Joueur::deplacer() {
+void Joueur::deplacer(Carte const &carte) {
     // Règle la direction en fonction des touches appuyées
     if(m_toucheDir[DIR_BAS] && !(m_toucheDir[DIR_GAUCHE] || m_toucheDir[DIR_DROITE])) {
         m_direction = DIR_BAS;
@@ -110,15 +111,17 @@ void Joueur::deplacer() {
         m_direction = DIR_IMMOBILE;
     }
 
+    m_posPrecedente = m_pos;
+
     switch(m_direction) { // Déplace le joueur en fonction de sa direction
-        case DIR_BAS: m_posY += VITESSE_JOUEUR; break;
-        case DIR_BAS_GAUCHE: m_posY += VITESSE_ANGLE; m_posX -= VITESSE_ANGLE; break;
-        case DIR_GAUCHE: m_posX -= VITESSE_JOUEUR; break;
-        case DIR_HAUT_GAUCHE: m_posY -= VITESSE_ANGLE; m_posX -= VITESSE_ANGLE; break;
-        case DIR_HAUT: m_posY -= VITESSE_JOUEUR; break;
-        case DIR_HAUT_DROITE: m_posY -= VITESSE_ANGLE; m_posX += VITESSE_ANGLE; break;
-        case DIR_DROITE: m_posX += VITESSE_JOUEUR; break;
-        case DIR_BAS_DROITE: m_posY += VITESSE_ANGLE; m_posX += VITESSE_ANGLE; break;
+        case DIR_BAS: m_pos.y += VITESSE_JOUEUR; break;
+        case DIR_BAS_GAUCHE: m_pos.y += VITESSE_ANGLE; m_pos.x -= VITESSE_ANGLE; break;
+        case DIR_GAUCHE: m_pos.x -= VITESSE_JOUEUR; break;
+        case DIR_HAUT_GAUCHE: m_pos.y -= VITESSE_ANGLE; m_pos.x -= VITESSE_ANGLE; break;
+        case DIR_HAUT: m_pos.y -= VITESSE_JOUEUR; break;
+        case DIR_HAUT_DROITE: m_pos.y -= VITESSE_ANGLE; m_pos.x += VITESSE_ANGLE; break;
+        case DIR_DROITE: m_pos.x += VITESSE_JOUEUR; break;
+        case DIR_BAS_DROITE: m_pos.y += VITESSE_ANGLE; m_pos.x += VITESSE_ANGLE; break;
         case DIR_IMMOBILE: break;
     }
 
@@ -131,16 +134,43 @@ void Joueur::deplacer() {
     }
 
     // Faudrait quand même pas qu'il sorte de l'écran ce pingouin
-    if(m_posX < 0) { m_posX = 0; }
-    if(m_posX + m_sprite->getLargeur() > Utils::SCREEN_WIDTH) { m_posX = Utils::SCREEN_WIDTH - m_sprite->getLargeur(); }
-    if(m_posY < 0) { m_posY = 0; }
-    if(m_posY + m_sprite->getHauteur() > Utils::SCREEN_HEIGHT) { m_posY = Utils::SCREEN_HEIGHT - m_sprite->getHauteur(); }
+    if(m_pos.x < 0) { m_pos.x = 0; }
+    if(m_pos.x + m_sprite->getLargeur() > LARGEUR_ECRAN) { m_pos.x = LARGEUR_ECRAN - m_sprite->getLargeur(); }
+    if(m_pos.y < 0) { m_pos.y = 0; }
+    if(m_pos.y + m_sprite->getHauteur() > HAUTEUR_ECRAN) { m_pos.y = HAUTEUR_ECRAN - m_sprite->getHauteur(); }
+
+    // TODO Putain de collision de merde
+    bool coins[4]; // Vrai si le coin est en collision
+    coins[0] = carte.isTileSolide(m_pos.x/LARGEUR_TILE, m_pos.y/HAUTEUR_TILE);
+    coins[1] = carte.isTileSolide(m_pos.x/LARGEUR_TILE + 1, m_pos.y/HAUTEUR_TILE);
+    coins[2] = carte.isTileSolide(m_pos.x/LARGEUR_TILE + 1, m_pos.y/HAUTEUR_TILE + 1);
+    coins[3] = carte.isTileSolide(m_pos.x/LARGEUR_TILE, m_pos.y/HAUTEUR_TILE + 1);
+    if(coins[0] || coins[1] || coins[2] || coins[3]) {
+        m_pos = m_posPrecedente;
+        do {
+            switch(m_direction) { // Déplace le joueur en fonction de sa direction
+                case DIR_BAS: m_pos.y += 1; break;
+                case DIR_BAS_GAUCHE: m_pos.y += 1; m_pos.x -= 1; break;
+                case DIR_GAUCHE: m_pos.x -= 1; break;
+                case DIR_HAUT_GAUCHE: m_pos.y -= 1; m_pos.x -= 1; break;
+                case DIR_HAUT: m_pos.y -= 1; break;
+                case DIR_HAUT_DROITE: m_pos.y -= 1; m_pos.x += 1; break;
+                case DIR_DROITE: m_pos.x += 1; break;
+                case DIR_BAS_DROITE: m_pos.y += 1; m_pos.x += 1; break;
+                case DIR_IMMOBILE: break;
+            }
+            coins[0] = carte.isTileSolide(m_pos.x/LARGEUR_TILE, m_pos.y/HAUTEUR_TILE);
+            coins[1] = carte.isTileSolide(m_pos.x/LARGEUR_TILE + 1, m_pos.y/HAUTEUR_TILE);
+            coins[2] = carte.isTileSolide(m_pos.x/LARGEUR_TILE + 1, m_pos.y/HAUTEUR_TILE + 1);
+            coins[3] = carte.isTileSolide(m_pos.x/LARGEUR_TILE, m_pos.y/HAUTEUR_TILE + 1);
+        } while (coins[0] || coins[1] || coins[2] || coins[3]);
+    }
 
 }
 
 void Joueur::utiliserArme() {
     if(m_reload == 0) {
         m_reload = 10;
-        Jeu::projectiles.push_back(new Projectile(m_posX, m_posY, m_dirPrecedente, 7));
+        Jeu::projectiles.push_back(new Projectile(m_pos.x, m_pos.y, m_dirPrecedente, 7));
     }
 }
