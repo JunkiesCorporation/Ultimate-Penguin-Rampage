@@ -55,6 +55,9 @@ void Joueur::gererEvenement(SDL_Event &e) {
         case SDLK_z:
             m_feu = true;
             break;
+        case SDLK_p:
+            std::cout << m_pos.x << " , " << m_pos.y << std::endl;
+            break;
         }
     }
 
@@ -139,19 +142,21 @@ void Joueur::deplacer(Carte const &carte) {
     if(m_pos.y < 0) { m_pos.y = 0; }
     if(m_pos.y + m_sprite->getHauteur() > HAUTEUR_ECRAN) { m_pos.y = HAUTEUR_ECRAN - m_sprite->getHauteur(); }
 
-    // TODO Putain de collision de merde
     bool coins[4]; // Vrai si le coin est en collision
     coins[0] = carte.isTileSolide(m_pos.x/LARGEUR_TILE, m_pos.y/HAUTEUR_TILE);
-    coins[1] = carte.isTileSolide(m_pos.x/LARGEUR_TILE + 1, m_pos.y/HAUTEUR_TILE);
-    coins[2] = carte.isTileSolide(m_pos.x/LARGEUR_TILE + 1, m_pos.y/HAUTEUR_TILE + 1);
-    coins[3] = carte.isTileSolide(m_pos.x/LARGEUR_TILE, m_pos.y/HAUTEUR_TILE + 1);
+    coins[1] = carte.isTileSolide((m_pos.x+LARGEUR_TILE-1)/LARGEUR_TILE, m_pos.y/HAUTEUR_TILE);
+    coins[2] = carte.isTileSolide((m_pos.x+LARGEUR_TILE-1)/LARGEUR_TILE, (m_pos.y+HAUTEUR_TILE-1)/HAUTEUR_TILE);
+    coins[3] = carte.isTileSolide(m_pos.x/LARGEUR_TILE, (m_pos.y+HAUTEUR_TILE-1)/HAUTEUR_TILE);
     if(coins[0] && coins[1]) {
         m_pos.y = (m_pos.y/HAUTEUR_TILE + 1) * HAUTEUR_TILE;
-    } if(coins[1] && coins[2]) {
+    }
+    if(coins[1] && coins[2]) {
         m_pos.x = (m_pos.x/LARGEUR_TILE) * LARGEUR_TILE;
-    } if(coins[2] && coins[3]) {
+    }
+    if(coins[2] && coins[3]) {
         m_pos.y = (m_pos.y/HAUTEUR_TILE) * HAUTEUR_TILE;
-    } if(coins[3] && coins[0]) {
+    }
+    if(coins[3] && coins[0]) {
         m_pos.x = (m_pos.x/LARGEUR_TILE + 1) * LARGEUR_TILE;
     }
     if (coins[0] && !(coins[1] || coins[2] || coins[3])) {
@@ -175,6 +180,70 @@ void Joueur::deplacer(Carte const &carte) {
             break;
         }
     }
+    if (coins[1] && !(coins[0] || coins[2] || coins[3])) {
+        switch(m_direction) {
+        case DIR_DROITE: m_pos.x = (m_pos.x/LARGEUR_TILE) * LARGEUR_TILE;
+            break;
+        case DIR_HAUT: m_pos.y = (m_pos.y/HAUTEUR_TILE + 1) * HAUTEUR_TILE;
+            break;
+        case DIR_HAUT_GAUCHE: m_pos.y = (m_pos.y/HAUTEUR_TILE + 1) * HAUTEUR_TILE;
+            break;
+        case DIR_BAS_DROITE: m_pos.x = (m_pos.x/LARGEUR_TILE) * LARGEUR_TILE;
+            break;
+        case DIR_HAUT_DROITE:
+            if((m_pos.x/LARGEUR_TILE)*LARGEUR_TILE - m_posPrecedente.x > m_posPrecedente.y - (m_pos.y/HAUTEUR_TILE + 1) * HAUTEUR_TILE) {
+                m_pos.x = (m_pos.x/LARGEUR_TILE) * LARGEUR_TILE;
+            } else {
+                m_pos.y = (m_pos.y/HAUTEUR_TILE + 1) * HAUTEUR_TILE;
+            }
+            break;
+        default:
+            break;
+        }
+    }
+    if (coins[2] && !(coins[0] || coins[1] || coins[3])) {
+        switch(m_direction) {
+        case DIR_DROITE: m_pos.x = (m_pos.x/LARGEUR_TILE) * LARGEUR_TILE;
+            break;
+        case DIR_BAS: m_pos.y = (m_pos.y/HAUTEUR_TILE) * HAUTEUR_TILE;
+            break;
+        case DIR_BAS_GAUCHE: m_pos.y = (m_pos.y/HAUTEUR_TILE) * HAUTEUR_TILE;
+            break;
+        case DIR_HAUT_DROITE: m_pos.x = (m_pos.x/LARGEUR_TILE) * LARGEUR_TILE;
+            break;
+        case DIR_BAS_DROITE:
+            if((m_pos.x/LARGEUR_TILE)*LARGEUR_TILE - m_posPrecedente.x > (m_pos.y/HAUTEUR_TILE)*HAUTEUR_TILE - m_posPrecedente.y) {
+                m_pos.x = (m_pos.x/LARGEUR_TILE) * LARGEUR_TILE;
+            } else {
+                m_pos.y = (m_pos.y/HAUTEUR_TILE) * HAUTEUR_TILE;
+            }
+            break;
+        default:
+            break;
+        }
+    }
+    if (coins[3] && !(coins[0] || coins[1] || coins[2])) {
+        switch(m_direction) {
+        case DIR_GAUCHE: m_pos.x = (m_pos.x/LARGEUR_TILE + 1) * LARGEUR_TILE;
+            break;
+        case DIR_BAS: m_pos.y = (m_pos.y/HAUTEUR_TILE) * HAUTEUR_TILE;
+            break;
+        case DIR_BAS_DROITE: m_pos.y = (m_pos.y/HAUTEUR_TILE) * HAUTEUR_TILE;
+            break;
+        case DIR_HAUT_GAUCHE: m_pos.x = (m_pos.x/LARGEUR_TILE + 1) * LARGEUR_TILE;
+            break;
+        case DIR_BAS_GAUCHE:
+            if(m_posPrecedente.x - (m_pos.x/LARGEUR_TILE + 1)*LARGEUR_TILE > (m_pos.y/HAUTEUR_TILE)*HAUTEUR_TILE - m_posPrecedente.y) {
+                m_pos.x = (m_pos.x/LARGEUR_TILE + 1) * LARGEUR_TILE;
+            } else {
+                m_pos.y = (m_pos.y/HAUTEUR_TILE) * HAUTEUR_TILE;
+            }
+            break;
+        default:
+            break;
+        }
+    }
+
 
 }
 
