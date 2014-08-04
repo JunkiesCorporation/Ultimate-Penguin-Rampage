@@ -20,8 +20,9 @@ class Jeu
         void update(); // Met à jour tous les éléments
         void render(); // Affiche tous les éléments
 
-        Joueur* m_j1; // Personnage
-        Carte* m_carte; // La carte
+        Joueur* m_j1; ///< Personnage
+        Carte* m_carte; ///< La carte
+        SDL_Rect m_camera; ///< La camera du jeu
 
 };
 

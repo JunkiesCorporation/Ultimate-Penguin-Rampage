@@ -76,10 +76,21 @@ void Carte::charger() {
     }
 }
 
-void Carte::render() const {
+void Carte::render(SDL_Rect camera) const {
+    int h = m_tileset.getHauteurTiles();
+    int l = m_tileset.getLargeurTiles();
+
+    bool coins[4];
+
     for(int y(0); y < m_hauteur; y++) {
         for(int x(0); x < m_largeur; x++) {
-            m_tileset.render(m_data[x][y], x, y);
+            coins[0] = x*l > camera.x && x*l < camera.x + LARGEUR_ECRAN && y*h > camera.y && y*h < camera.y + HAUTEUR_ECRAN;
+            coins[1] = x*l + l > camera.x && x*l + l < camera.x + LARGEUR_ECRAN && y*h > camera.y && y*h < camera.y + HAUTEUR_ECRAN;
+            coins[2] = x*l + l > camera.x && x*l + l < camera.x + LARGEUR_ECRAN && y*h + h > camera.y && y*h + h < camera.y + HAUTEUR_ECRAN;
+            coins[3] = x*l > camera.x && x*l < camera.x + LARGEUR_ECRAN && y*h + h > camera.y && y*h + h < camera.y + HAUTEUR_ECRAN;
+            if(coins[0]||coins[1]||coins[2]||coins[3]) {
+                m_tileset.render(m_data[x][y], x*l - camera.x, y*h - camera.y);
+            }
         }
     }
 }

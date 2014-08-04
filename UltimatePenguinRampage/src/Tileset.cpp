@@ -72,10 +72,17 @@ void Tileset::charger(std::string cheminFichier) {
 }
 
 void Tileset::render(int tileID, int x, int y)  const {
-    SDL_Rect renderQuad = {x*m_largeurTiles, y*m_hauteurTiles, m_largeurTiles, m_hauteurTiles};
+    SDL_Rect renderQuad = {x, y, m_largeurTiles, m_hauteurTiles};
     SDL_RenderCopy(Utils::renderer, m_image.getImage(), &m_tiles[tileID-1].clipQuad, &renderQuad);
 }
 
 bool Tileset::isTileSolide(int tileID) const {
     return m_tiles[tileID-1].type == TILE_SOLIDE;
+}
+
+int Tileset::getHauteurTiles() const {
+    return m_hauteurTiles;
+}
+int Tileset::getLargeurTiles() const {
+    return m_largeurTiles;
 }

@@ -13,7 +13,7 @@ class Tileset
 
         ~Tileset(); // Destructeur
 
-        void render(int tileID, int x, int y) const;
+        void render(int tileID, int x, int y) const; ///< Affiche la tile demandée - x et y en pixel
         bool isTileSolide(int tileID) const;
 
         int getLargeurTiles() const; ///< Getter : retourne m_largeurTiles

@@ -33,6 +33,16 @@ Entite::~Entite()
     m_sprite = NULL;
 }
 
-void Entite::render() {
-    m_sprite->render(m_pos.x, m_pos.y);
+void Entite::render(SDL_Rect camera) {
+    m_sprite->render(m_pos.x - camera.x, m_pos.y - camera.y);
+}
+
+Pos Entite::getPos() const {
+    return m_pos;
+}
+int Entite::getLargeur() const {
+    return m_sprite->getLargeur();
+}
+int Entite::getHauteur() const {
+    return m_sprite->getHauteur();
 }

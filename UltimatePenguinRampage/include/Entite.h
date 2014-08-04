@@ -17,8 +17,12 @@ class Entite
 
         virtual ~Entite();
 
-        void render(); // Affiche l'Entite à l'ecran
+        void render(SDL_Rect camera); ///< Affiche l'Entite à l'ecran, par rapport à la position de la caméra
         virtual void update(Carte const& carte) = 0;
+
+        Pos getPos() const; ///< Retourne la position de l'Entite
+        int getLargeur() const; ///< Retourne la largeur de la texture de l'Entite
+        int getHauteur() const; ///< Retourne la hauteur de la texture de l'Entite
 
     protected:
         Pos m_pos; ///< Position de l'Entite sur le niveau

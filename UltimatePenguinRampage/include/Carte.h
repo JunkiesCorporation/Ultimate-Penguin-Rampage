@@ -12,7 +12,7 @@ class Carte
 
         ~Carte(); // Destructeur
 
-        void render() const; // Affiche la carte
+        void render(SDL_Rect camera) const; // Affiche la carte
         bool isTileSolide(int x, int y) const; // Vérifie si la tile à la position donnée est solide
 
     protected:
