@@ -5,6 +5,7 @@
 #include "Utils.h"
 #include "Jeu.h"
 #include "Constantes.h"
+#include "Images.h"
 
 const int VITESSE_JOUEUR = 3;
 const int VITESSE_ANGLE = VITESSE_JOUEUR * cos(M_PI_4);
@@ -20,17 +21,7 @@ Joueur::Joueur() : Personnage(), m_reload(10), m_feu(false)
     m_toucheDir[DIR_DROITE] = false;
     m_toucheDir[DIR_BAS_DROITE] = false;
 
-    // Chargement des 8 textures du Joueur
-    m_sprites[DIR_BAS].charger("img/PBface.bmp");
-    m_sprites[DIR_BAS_GAUCHE].charger("img/PBbasgauche.bmp");
-    m_sprites[DIR_GAUCHE].charger("img/PBgauche.bmp");
-    m_sprites[DIR_HAUT_GAUCHE].charger("img/PBhautgauche.bmp");
-    m_sprites[DIR_HAUT].charger("img/PBdos.bmp");
-    m_sprites[DIR_HAUT_DROITE].charger("img/PBhautdroite.bmp");
-    m_sprites[DIR_DROITE].charger("img/PBdroite.bmp");
-    m_sprites[DIR_BAS_DROITE].charger("img/PBbasdroite.bmp");
-
-    m_sprite = &m_sprites[DIR_BAS]; // Attribution de la première texture
+    m_sprite = &Images::spritesJoueur[DIR_BAS]; // Attribution de la première texture
 
     // Positionnement du Joueur au centre de l'écran
     m_pos.x = (LARGEUR_ECRAN - m_sprite->getLargeur()) / 2;
@@ -129,18 +120,12 @@ void Joueur::deplacer(Carte const &carte) {
     }
 
     if((m_direction != m_dirPrecedente) && (m_direction != DIR_IMMOBILE)) { // Change le sprite si nécessaire
-        m_sprite = &m_sprites[m_direction];
+        m_sprite = &Images::spritesJoueur[m_direction];
     }
 
     if(m_direction != DIR_IMMOBILE) {
         m_dirPrecedente = m_direction;
     }
-
-    // Faudrait quand même pas qu'il sorte de l'écran ce pingouin
-    if(m_pos.x < 0) { m_pos.x = 0; }
-    if(m_pos.x + m_sprite->getLargeur() > LARGEUR_ECRAN) { m_pos.x = LARGEUR_ECRAN - m_sprite->getLargeur(); }
-    if(m_pos.y < 0) { m_pos.y = 0; }
-    if(m_pos.y + m_sprite->getHauteur() > HAUTEUR_ECRAN) { m_pos.y = HAUTEUR_ECRAN - m_sprite->getHauteur(); }
 
     bool coins[4]; // Vrai si le coin est en collision
     coins[0] = carte.isTileSolide(m_pos.x/LARGEUR_TILE, m_pos.y/HAUTEUR_TILE);

@@ -5,13 +5,14 @@
 #include "Utils.h"
 #include "Enums.h"
 #include "Constantes.h"
+#include "Images.h"
 
 std::vector<Projectile*> Jeu::projectiles(0);
 
 // Construceur
 Jeu::Jeu() {
     m_j1 = new Joueur();
-    m_carte = new Carte("map/test_1.txt");
+    m_carte = new Carte("map/test_2.txt");
     m_camera.x = 0; m_camera.y = 0;
     m_camera.w = LARGEUR_ECRAN; m_camera.h = HAUTEUR_ECRAN;
     start();
@@ -25,6 +26,8 @@ Jeu::~Jeu() {
 
 // Gère tout le jeu
 int Jeu::start() {
+    Images::chargerImages();
+
     printf("Jeu lance.\n");
     bool quit(false);
     SDL_Event e;

@@ -3,6 +3,8 @@
 #include "Texture.h"
 #include "Utils.h"
 
+static int nombre(0);
+
 Texture::Texture() : m_image(NULL), m_largeur(0), m_hauteur(0)
 {
 }
@@ -18,6 +20,7 @@ Texture::~Texture()
 }
 
 void Texture::charger(std::string cheminImage) {
+    nombre++;
     liberer(); // Liberation de la texture précédente
 
     SDL_Texture* nouvelleTexture = NULL;
@@ -43,6 +46,8 @@ void Texture::charger(std::string cheminImage) {
 
 void Texture::liberer() {
     if(m_image != NULL) {
+        nombre--;
+        std::cout << "Textures restantes: " << nombre << std::endl;
         SDL_DestroyTexture(m_image);
         m_image = NULL;
         m_largeur = 0;
