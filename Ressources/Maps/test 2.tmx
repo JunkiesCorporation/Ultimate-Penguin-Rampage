@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Banquise" tilewidth="32" tileheight="32">
+  <image source="../Images/TSbanquise.bmp" width="320" height="320"/>
+ </tileset>
+ <layer name="Calque de Tile 1" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzlls0OgjAMgKcoHPCHCyJe5Crv/4B2cU2aZt26HxITDt/BUPqtG7brjDHdDjkB50xaZZ7W470Bd+AAHIHG/dYwePLE4nh8D1yAa8SF60MaYf20Bo33E6nZxr2Bh2NieUZgYTWEvKPLs0Rq7t1zKQ91Yw0hL31nKvTyc9N4Y/SuDul8U7y+b0Xy4nlI55vi9eUq/R+NJFeNfeZgb9CuT+OdHaGcmpgUL419ZuxzDa/k3sJr4f2cu0u80h5q3CVenot/Iy8hfmbPcrz43sByhOJTzuufvHhPoH2AvmN7aGPid4+afcOC8ycUw9eZMvdrefFesBjd3JeIzWNe52p+c3It9ObUifegKdHL57FmNuN9gNaZ+l3xeayZzWMgRuqT88b4et5e+AIcgyu8
+  </data>
+ </layer>
+</map>
