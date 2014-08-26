@@ -6,7 +6,7 @@ image= img/TSbanquise.bmp
 
 [tiles_solides]
 nombre= 10
-1 2 3 11 12 13 21 22 23 31
+1 2 3 11 12 13 21 22 23 7 31 32 41 42
 
 [tiles_opaques]
 nombre= 0

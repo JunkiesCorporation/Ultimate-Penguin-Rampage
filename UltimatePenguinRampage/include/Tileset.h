@@ -17,7 +17,7 @@ class Tileset
         bool isTileSolide(int tileID) const;
 
         int getLargeurTiles() const; ///< Getter : retourne m_largeurTiles
-        int getHauteurTiles() const; ///< Getter : retourne m_hauteurTiles
+        int gsetHauteurTiles() const; ///< Getter : retourne m_hauteurTiles
     protected:
     private:
         /// Permet de charger le Tileset
