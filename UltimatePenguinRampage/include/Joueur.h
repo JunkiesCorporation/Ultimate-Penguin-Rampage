@@ -23,7 +23,6 @@ class Joueur : public Personnage
         int m_reload;
         bool m_toucheDir[8];
         bool m_feu;
-        Texture m_sprites[8]; // Les différents sprites du Joueur
 };
 
 #endif // JOUEUR_H

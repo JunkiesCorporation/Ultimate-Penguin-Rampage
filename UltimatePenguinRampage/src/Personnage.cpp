@@ -10,10 +10,3 @@ Personnage::Personnage() : Entite()
 Personnage::Personnage(int x, int y) : Entite(x, y)
 {
 }
-
-void Personnage::subitDegats(int nbDegats) {
-
-}
-void Personnage::utiliserArme() {
-
-}

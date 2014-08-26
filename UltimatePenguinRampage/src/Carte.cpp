@@ -98,3 +98,10 @@ void Carte::render(SDL_Rect camera) const {
 bool Carte::isTileSolide(int x, int y) const {
     return m_tileset.isTileSolide(m_data[x][y]);
 }
+
+int Carte::getHauteur() const {
+    return m_hauteur;
+}
+int Carte::getLargeur() const {
+    return m_largeur;
+}

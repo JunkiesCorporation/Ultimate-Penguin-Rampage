@@ -26,7 +26,6 @@ Entite::Entite(int x, int y, Direction direction) : m_direction(direction), m_di
 
 Entite::~Entite()
 {
-
     std::cout << "Entite detruite" << std::endl;
     m_sprite->liberer();
     delete m_sprite;

@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "Joueur.h"
+#include "Ennemi.h"
 #include "Projectile.h"
 #include "Carte.h"
 
@@ -21,6 +22,7 @@ class Jeu
         void render(); // Affiche tous les éléments
 
         Joueur* m_j1; ///< Personnage
+        Ennemi* m_ennemi1;
         Carte* m_carte; ///< La carte
         SDL_Rect m_camera; ///< La camera du jeu
 

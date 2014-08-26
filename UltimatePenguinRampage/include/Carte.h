@@ -15,6 +15,8 @@ class Carte
         void render(SDL_Rect camera) const; // Affiche la carte
         bool isTileSolide(int x, int y) const; // Vérifie si la tile à la position donnée est solide
 
+        int getLargeur() const; ///< Retourne m_largeur
+        int getHauteur() const; ///< Retourne m_hauteur
     protected:
     private:
         void charger(); // Lis le fichier associé à la carte

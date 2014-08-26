@@ -45,8 +45,8 @@ void Projectile::deplacer() {
     }
 }
 
-bool Projectile::isHorsEcran() {
-    if(m_pos.x + m_sprite->getLargeur() < 0 || m_pos.y + m_sprite->getHauteur() < 0 || m_pos.x > LARGEUR_ECRAN || m_pos.y > HAUTEUR_ECRAN) {
+bool Projectile::isHorsEcran(Carte const& carte) {
+    if(m_pos.x + m_sprite->getLargeur() < 0 || m_pos.y + m_sprite->getHauteur() < 0 || m_pos.x > carte.getLargeur()*LARGEUR_TILE || m_pos.y > carte.getHauteur()*HAUTEUR_TILE) {
         return true;
     }
     return false;

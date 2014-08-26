@@ -13,7 +13,7 @@ class Projectile : public Entite
 
         void update(Carte const& carte);
 
-        bool isHorsEcran(); // Retourne si le Projectile est sorti de l'écran
+        bool isHorsEcran(Carte const& carte); // Retourne si le Projectile est sorti de l'écran
 
     protected:
     private:
