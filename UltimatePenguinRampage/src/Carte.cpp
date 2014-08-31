@@ -32,8 +32,8 @@ void Carte::charger() {
     if(fichier) {
         // Lecture du [header]
         fichier >> ligne;
-        if(ligne != "[header]") {
-            std::cout << "Erreur : [header] manquant dans : " << m_cheminFichier << std::endl;
+        if(ligne != "[en-tete]") {
+            std::cout << "Erreur : [en-tete] manquant dans : " << m_cheminFichier << std::endl;
         }
 
         fichier >> ligne; fichier >> ligne; // Lecture de la largeur
@@ -73,8 +73,8 @@ void Carte::charger() {
         new (&m_tileset) Tileset(cheminTileset);
 
         fichier >> ligne;
-        if(ligne != "[data]") {
-            std::cout << "Erreur : [data] manquant dans : " << m_cheminFichier << std::endl;
+        if(ligne != "[donnees]") {
+            std::cout << "Erreur : [donnees] manquant dans : " << m_cheminFichier << std::endl;
         }
 
         // Lecture des données de la Carte
