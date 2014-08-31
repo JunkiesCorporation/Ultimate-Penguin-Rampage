@@ -1,8 +1,7 @@
 #ifndef ENTITE_H
 #define ENTITE_H
 
-#include <vector>
-
+#include "Animation.h"
 #include "Texture.h"
 #include "Enums.h"
 #include "Carte.h"
@@ -25,6 +24,8 @@ class Entite
         int getHauteur() const; ///< Retourne la hauteur de la texture de l'Entite
 
     protected:
+        Animation m_animation; ///< L'Animation de l'Entite. Remplacera m_sprite.
+
         Pos m_pos; ///< Position de l'Entite sur le niveau
         Pos m_posPrecedente; ///< Position de l'Entite sur le niveau à la trame précédente
 

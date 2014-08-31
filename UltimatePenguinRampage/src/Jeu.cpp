@@ -13,7 +13,7 @@ std::vector<Projectile*> Jeu::projectiles(0);
 Jeu::Jeu() {
     m_carte = new Carte("map/test_2.txt");
     m_j1 = new Joueur(m_carte->getPtDeDepart());
-    m_ennemi1 = new Ennemi(200,100);
+    //m_ennemi1 = new Ennemi(200,100);
     m_camera.x = 0; m_camera.y = 0;
     m_camera.w = LARGEUR_ECRAN; m_camera.h = HAUTEUR_ECRAN;
     start();
@@ -22,7 +22,7 @@ Jeu::Jeu() {
 // Destructeur
 Jeu::~Jeu() {
     delete m_j1; m_j1 = NULL;
-    delete m_ennemi1; m_ennemi1 = NULL;
+    //delete m_ennemi1; m_ennemi1 = NULL;
     delete m_carte; m_carte = NULL;
 }
 
@@ -60,7 +60,7 @@ int Jeu::start() {
 void Jeu::update() {
     // Gestion du joueur
     m_j1->update(*m_carte);
-    m_ennemi1->update(*m_carte, *m_j1);
+    //m_ennemi1->update(*m_carte, *m_j1);
 
     // Gestion de la caméra
     m_camera.x = m_j1->getPos().x + (m_j1->getLargeur()/2) - (LARGEUR_ECRAN/2);
@@ -93,7 +93,7 @@ void Jeu::render() {
     }
 
     m_j1->render(m_camera);
-    m_ennemi1->render(m_camera);
+    //m_ennemi1->render(m_camera);
 
     SDL_RenderPresent(Utils::renderer);
 }

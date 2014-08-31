@@ -6,7 +6,7 @@ hauteur= 30
 point_de_depart= 3 2
 
 [tilesets]
-tileset= TS/TSbanquise.txt
+chemin_tileset= TS/TSbanquise.txt
 
 [donnees]
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 

@@ -10,7 +10,8 @@
 const int VITESSE_JOUEUR = 3;
 const int VITESSE_ANGLE = VITESSE_JOUEUR * cos(M_PI_4);
 
-Joueur::Joueur(Pos ptDeDepart) : Personnage(), m_reload(10), m_feu(false) {
+Joueur::Joueur(Pos ptDeDepart) : Personnage(), m_reload(10), m_feu(false)
+{
     m_toucheDir[DIR_BAS] = false;
     m_toucheDir[DIR_BAS_GAUCHE] = false;
     m_toucheDir[DIR_GAUCHE] = false;
@@ -74,6 +75,8 @@ void Joueur::gererEvenement(SDL_Event &e) {
 
 void Joueur::update(Carte const& carte) {
     deplacer(carte);
+
+    m_animation.update();
 
     if (m_reload > 0) { m_reload--; }
 

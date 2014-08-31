@@ -33,7 +33,8 @@ Entite::~Entite()
 }
 
 void Entite::render(SDL_Rect camera) {
-    m_sprite->render(m_pos.x - camera.x, m_pos.y - camera.y);
+    //m_sprite->render(m_pos.x - camera.x, m_pos.y - camera.y);
+    m_animation.render(m_pos.x - camera.x, m_pos.y - camera.y);
 }
 
 Pos Entite::getPos() const {

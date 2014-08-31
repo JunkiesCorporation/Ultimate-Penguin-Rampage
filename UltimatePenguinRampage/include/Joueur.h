@@ -1,8 +1,7 @@
 #ifndef JOUEUR_H
 #define JOUEUR_H
 
-#include <vector>
-
+#include "Animation.h"
 #include "Personnage.h"
 #include "Projectile.h"
 #include "Struct.h"

@@ -38,6 +38,7 @@
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
 			<Add directory="SDL2/lib" />
 		</Linker>
+		<Unit filename="include/Animation.h" />
 		<Unit filename="include/Arme.h" />
 		<Unit filename="include/Carte.h" />
 		<Unit filename="include/Constantes.h" />
@@ -57,6 +58,7 @@
 		<Unit filename="include/Tileset.h" />
 		<Unit filename="include/UPR.h" />
 		<Unit filename="include/Utils.h" />
+		<Unit filename="src/Animation.cpp" />
 		<Unit filename="src/Arme.cpp" />
 		<Unit filename="src/Carte.cpp" />
 		<Unit filename="src/Ennemi.cpp" />
