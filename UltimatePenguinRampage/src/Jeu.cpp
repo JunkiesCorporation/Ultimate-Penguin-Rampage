@@ -11,9 +11,9 @@ std::vector<Projectile*> Jeu::projectiles(0);
 
 // Construceur
 Jeu::Jeu() {
-    m_j1 = new Joueur();
-    m_ennemi1 = new Ennemi(200,100);
     m_carte = new Carte("map/test_2.txt");
+    m_j1 = new Joueur(m_carte->getPtDeDepart());
+    m_ennemi1 = new Ennemi(200,100);
     m_camera.x = 0; m_camera.y = 0;
     m_camera.w = LARGEUR_ECRAN; m_camera.h = HAUTEUR_ECRAN;
     start();

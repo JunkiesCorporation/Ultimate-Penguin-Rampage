@@ -2,6 +2,9 @@
 largeur= 30
 hauteur= 30
 
+[infos_joueur]
+point_de_depart= 3 2
+
 [tilesets]
 tileset= TS/TSbanquise.txt
 

@@ -10,7 +10,7 @@
 const int VITESSE_JOUEUR = 3;
 const int VITESSE_ANGLE = VITESSE_JOUEUR * cos(M_PI_4);
 
-Joueur::Joueur() : Personnage(), m_reload(10), m_feu(false) {
+Joueur::Joueur(Pos ptDeDepart) : Personnage(), m_reload(10), m_feu(false) {
     m_toucheDir[DIR_BAS] = false;
     m_toucheDir[DIR_BAS_GAUCHE] = false;
     m_toucheDir[DIR_GAUCHE] = false;
@@ -23,8 +23,8 @@ Joueur::Joueur() : Personnage(), m_reload(10), m_feu(false) {
     m_sprite = &Images::spritesJoueur[DIR_BAS]; // Attribution de la première texture
 
     // Positionnement du Joueur au centre de l'écran
-    m_pos.x = (LARGEUR_ECRAN - m_sprite->getLargeur()) / 2;
-    m_pos.y = (HAUTEUR_ECRAN - m_sprite->getHauteur()) / 2;
+    m_pos.x = ptDeDepart.x * LARGEUR_TILE;
+    m_pos.y = ptDeDepart.y * HAUTEUR_TILE;
 }
 
 void Joueur::gererEvenement(SDL_Event &e) {

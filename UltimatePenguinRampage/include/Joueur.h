@@ -11,7 +11,7 @@ class Joueur : public Personnage
 {
     public:
         // Constructeurs
-        Joueur(); // Initalise la position au centre de l'écran
+        Joueur(Pos ptDeDepart); // Initalise la position au centre de l'écran
 
         void gererEvenement(SDL_Event &e); // Récupère un événement et vérifie si celui-ci modifie le Joueur
         void update(Carte const& carte);

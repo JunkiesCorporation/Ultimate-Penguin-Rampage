@@ -10,6 +10,8 @@
 Carte::Carte(std::string cheminFichier) : m_largeur(0), m_hauteur(0), m_data(NULL),
         m_cheminFichier(cheminFichier)
 {
+    m_ptDeDepart.x = 0;
+    m_ptDeDepart.y = 0;
     charger();
 }
 
@@ -28,6 +30,7 @@ void Carte::charger() {
     std::string ligne;
 
     if(fichier) {
+        // Lecture du [header]
         fichier >> ligne;
         if(ligne != "[header]") {
             std::cout << "Erreur : [header] manquant dans : " << m_cheminFichier << std::endl;
@@ -38,12 +41,24 @@ void Carte::charger() {
         fichier >> ligne; fichier >> ligne; // Lecture de la hauteur
         m_hauteur = atoi(ligne.c_str());
 
-        // Cretaion de la grille de données
+        // Creation de la grille de données
         m_data = new int*[m_largeur];
         for(int i(0); i < m_largeur; i++) {
             m_data[i] = new int[m_hauteur];
         }
 
+        // Lecture des [infos_joueur]
+        fichier >> ligne;
+        if(ligne != "[infos_joueur]") {
+            std::cout << "Erreur : [infos_joueur] manquant dans : " << m_cheminFichier << std::endl;
+        }
+
+        fichier >> ligne; fichier >> ligne; // Lecture des coordonnées de départ du joueur
+        m_ptDeDepart.x = atoi(ligne.c_str());
+        fichier >> ligne;
+        m_ptDeDepart.y = atoi(ligne.c_str());
+
+        // Lecture du [tileset]
         fichier >> ligne;
         if(ligne != "[tilesets]") {
             std::cout << "Erreur : [tileset] manquant dans : " << m_cheminFichier << std::endl;
@@ -104,4 +119,7 @@ int Carte::getHauteur() const {
 }
 int Carte::getLargeur() const {
     return m_largeur;
+}
+Pos Carte::getPtDeDepart() const {
+    return m_ptDeDepart;
 }
