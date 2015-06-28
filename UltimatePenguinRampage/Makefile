@@ -8,7 +8,7 @@ CC = g++
 INCLUDE_PATHS = -Ilibraries\include\SDL2 -Iinclude
 
 #LIBRARY_PATHS specifies the additional library paths we'll need
-LIBRARY_PATHS = -Llibaries\lib
+LIBRARY_PATHS = -Llibraries\lib
 
 #COMPILER_FLAGS specifies the additional compilation options we're using
 # -w suppresses all warnings
