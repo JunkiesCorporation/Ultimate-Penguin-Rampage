@@ -76,7 +76,7 @@ void Joueur::gererEvenement(SDL_Event &e) {
 void Joueur::update(Carte const& carte) {
     deplacer(carte);
 
-    m_animation.update();
+    // m_animation.update();
 
     if (m_reload > 0) { m_reload--; }
 
