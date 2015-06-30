@@ -165,13 +165,14 @@ int gestionMenuPrincipal()
 	}
 	
 	// Libération des images du menu.
-	texture_fond->liberer();
-	texture_nouveau_profil->liberer();
-	texture_charger_profil->liberer();
-	texture_options->liberer();
-	texture_quitter->liberer();
-	texture_curseur->liberer();
+	delete texture_fond;
+	delete texture_nouveau_profil;
+	delete texture_charger_profil;
+	delete texture_options;
+	delete texture_quitter;
+	delete texture_curseur;
 	
+	// Fermeture des pointeurs.
 	texture_fond = NULL;
 	texture_nouveau_profil = NULL;
 	texture_charger_profil = NULL;

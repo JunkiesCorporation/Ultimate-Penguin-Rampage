@@ -40,7 +40,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
-      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -115,6 +114,15 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a764098794f6069f9f3569d772f511190"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a764098794f6069f9f3569d772f511190">liberer</a> ()</td></tr>
 <tr class="memdesc:a764098794f6069f9f3569d772f511190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la <a class="el" href="class_texture.html" title="Classe qui englobe le type SDL_Texture. ">Texture</a>.  <a href="#a764098794f6069f9f3569d772f511190">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a764098794f6069f9f3569d772f511190"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa578b09504e119096bede0afba62d558"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#aa578b09504e119096bede0afba62d558">render</a> (int x, int y) const </td></tr>
+<tr class="memdesc:aa578b09504e119096bede0afba62d558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche la texture à la position donnée.  <a href="#aa578b09504e119096bede0afba62d558">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa578b09504e119096bede0afba62d558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a972f486b281dd5379e7ee802a3792497"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a972f486b281dd5379e7ee802a3792497">getLargeur</a> () const </td></tr>
+<tr class="memdesc:a972f486b281dd5379e7ee802a3792497"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la largeur de l'image contenue.  <a href="#a972f486b281dd5379e7ee802a3792497">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a972f486b281dd5379e7ee802a3792497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac500f25ea924dd8a05d15ebb7f47f603"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ac500f25ea924dd8a05d15ebb7f47f603">getHauteur</a> () const </td></tr>
+<tr class="memdesc:ac500f25ea924dd8a05d15ebb7f47f603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la hauteur de l'image contenue.  <a href="#ac500f25ea924dd8a05d15ebb7f47f603">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac500f25ea924dd8a05d15ebb7f47f603"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
@@ -131,7 +139,7 @@ Attributs privés</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Classe qui englobe le type SDL_Texture. </p>
 <p>Classe qui permet de conserver plus d'informations sur les textures chargées dans le jeu.</p>
-<p>Le chargement et la destructions des textures sont facilités avec les fonctions <a class="el" href="class_texture.html#a021907ff4f92101782c3fbffc609d9c0" title="Charge l&#39;image située au chemin donné. ">charger()</a> et <a class="el" href="class_texture.html#a764098794f6069f9f3569d772f511190" title="Libère la Texture. ">liberer()</a>. </p>
+<p>Le chargement et la destruction des textures sont facilités avec les fonctions <a class="el" href="class_texture.html#a021907ff4f92101782c3fbffc609d9c0" title="Charge l&#39;image située au chemin donné. ">charger()</a> et <a class="el" href="class_texture.html#a764098794f6069f9f3569d772f511190" title="Libère la Texture. ">liberer()</a>. </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a class="anchor" id="a6c275e3f186675ff6ed73ccf970e552f"></a>
 <div class="memitem">
@@ -210,13 +218,50 @@ Attributs privés</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Charge l'image située au chemin donné. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">A faire:</a></b></dt><dd>Description <a class="el" href="class_texture.html#a021907ff4f92101782c3fbffc609d9c0" title="Charge l&#39;image située au chemin donné. ">charger()</a>.</dd></dl>
+<p>Créée une nouvelle SDL_Texture avec l'image donnée. Récupère également la largeur et la hauteur de l'image.</p>
+<p>Sert également à donnée une nouvelle image à une <a class="el" href="class_texture.html" title="Classe qui englobe le type SDL_Texture. ">Texture</a> déjà utilisée.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">chemin_image</td><td>Le chemin de l'image BMP à charger. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="ac500f25ea924dd8a05d15ebb7f47f603"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Texture::getHauteur </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne la hauteur de l'image contenue. </p>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="class_texture.html#abf0dffcfa8f8b76bf966a4cb150fb5c6" title="La hauteur (en px) de l&#39;image chargée. ">m_hauteur</a> La hauteur de l'image. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a972f486b281dd5379e7ee802a3792497"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Texture::getLargeur </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne la largeur de l'image contenue. </p>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="class_texture.html#a84bb5fba2ef025fa9a1cb6c568bb1e88" title="La largeur (en px) de l&#39;image chargée. ">m_largeur</a> La largeur de l'image. </dd></dl>
 
 </div>
 </div>
@@ -234,7 +279,45 @@ Attributs privés</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Libère la <a class="el" href="class_texture.html" title="Classe qui englobe le type SDL_Texture. ">Texture</a>. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">A faire:</a></b></dt><dd>Description <a class="el" href="class_texture.html#a764098794f6069f9f3569d772f511190" title="Libère la Texture. ">liberer()</a>. </dd></dl>
+<p>Libère la SDL_Texture grâce à SDL_DestroyTexture() et ré-initialise les attributs membres.</p>
+<p>Doit être appelée lorsque l'usage de la <a class="el" href="class_texture.html" title="Classe qui englobe le type SDL_Texture. ">Texture</a> est terminée ou lorsque l'on souhaite la réutiliser.</p>
+<p>Appelée par défaut par <a class="el" href="class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a" title="Destructeur. ">~Texture()</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa578b09504e119096bede0afba62d558"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Texture::render </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche la texture à la position donnée. </p>
+<p>Attention! Cette fonction ne contient un appel qu'à SDL_RenderCopy(), il faut tout de même appeler SDL_RenderPresent() après.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>La position x où afficher l'image. </td></tr>
+    <tr><td class="paramname">y</td><td>La position y où afficher l'image. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -307,7 +390,7 @@ Attributs privés</h2></td></tr>
 </div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
 <li>include/<a class="el" href="_texture_8h_source.html">Texture.h</a></li>
-<li>src/<a class="el" href="_texutre_8cpp.html">Texutre.cpp</a></li>
+<li>src/<a class="el" href="_texture_8cpp.html">Texture.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

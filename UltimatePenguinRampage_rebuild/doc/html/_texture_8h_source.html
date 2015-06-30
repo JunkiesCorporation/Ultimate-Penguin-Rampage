@@ -40,7 +40,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
-      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -113,33 +112,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">// Fonctions membres publiques</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">//-----------------------------</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_texture.html#a021907ff4f92101782c3fbffc609d9c0">charger</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* chemin_image);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_texture.html#a764098794f6069f9f3569d772f511190">liberer</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">//-----------------------------</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">// Membres privés</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">//-----------------------------</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_texture.html#ae2157c3994c99824e640cd01810ce104">   59</a></span>&#160;<span class="comment"></span>        SDL_Texture* <a class="code" href="class_texture.html#ae2157c3994c99824e640cd01810ce104">m_image</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_texture.html#a84bb5fba2ef025fa9a1cb6c568bb1e88">   63</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_texture.html#a84bb5fba2ef025fa9a1cb6c568bb1e88">m_largeur</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_texture.html#a021907ff4f92101782c3fbffc609d9c0">charger</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* chemin_image);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_texture.html#a764098794f6069f9f3569d772f511190">liberer</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_texture.html#aa578b09504e119096bede0afba62d558">render</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_texture.html#abf0dffcfa8f8b76bf966a4cb150fb5c6">   67</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_texture.html#abf0dffcfa8f8b76bf966a4cb150fb5c6">m_hauteur</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">//-----------------------------</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // TEXTURE_H</span></div>
-<div class="ttc" id="class_texture_html_a021907ff4f92101782c3fbffc609d9c0"><div class="ttname"><a href="class_texture.html#a021907ff4f92101782c3fbffc609d9c0">Texture::charger</a></div><div class="ttdeci">void charger(const char *chemin_image)</div><div class="ttdoc">Charge l&#39;image située au chemin donné. </div><div class="ttdef"><b>Definition:</b> Texutre.cpp:30</div></div>
-<div class="ttc" id="class_texture_html_a84bb5fba2ef025fa9a1cb6c568bb1e88"><div class="ttname"><a href="class_texture.html#a84bb5fba2ef025fa9a1cb6c568bb1e88">Texture::m_largeur</a></div><div class="ttdeci">int m_largeur</div><div class="ttdoc">La largeur (en px) de l&#39;image chargée. </div><div class="ttdef"><b>Definition:</b> Texture.h:63</div></div>
-<div class="ttc" id="class_texture_html_a764098794f6069f9f3569d772f511190"><div class="ttname"><a href="class_texture.html#a764098794f6069f9f3569d772f511190">Texture::liberer</a></div><div class="ttdeci">void liberer()</div><div class="ttdoc">Libère la Texture. </div><div class="ttdef"><b>Definition:</b> Texutre.cpp:84</div></div>
-<div class="ttc" id="class_texture_html_a09c4bcb7462f64c1d20fa69dba3cee8a"><div class="ttname"><a href="class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a">Texture::~Texture</a></div><div class="ttdeci">~Texture()</div><div class="ttdoc">Destructeur. </div><div class="ttdef"><b>Definition:</b> Texutre.cpp:21</div></div>
-<div class="ttc" id="class_texture_html_a6c275e3f186675ff6ed73ccf970e552f"><div class="ttname"><a href="class_texture.html#a6c275e3f186675ff6ed73ccf970e552f">Texture::Texture</a></div><div class="ttdeci">Texture()</div><div class="ttdoc">Constructeur par défaut. </div><div class="ttdef"><b>Definition:</b> Texutre.cpp:7</div></div>
-<div class="ttc" id="class_texture_html_abf0dffcfa8f8b76bf966a4cb150fb5c6"><div class="ttname"><a href="class_texture.html#abf0dffcfa8f8b76bf966a4cb150fb5c6">Texture::m_hauteur</a></div><div class="ttdeci">int m_hauteur</div><div class="ttdoc">La hauteur (en px) de l&#39;image chargée. </div><div class="ttdef"><b>Definition:</b> Texture.h:67</div></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_texture.html#a972f486b281dd5379e7ee802a3792497">getLargeur</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_texture.html#ac500f25ea924dd8a05d15ebb7f47f603">getHauteur</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">//-----------------------------</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment">// Membres privés</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">//-----------------------------</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_texture.html#ae2157c3994c99824e640cd01810ce104">   83</a></span>&#160;<span class="comment"></span>        SDL_Texture* <a class="code" href="class_texture.html#ae2157c3994c99824e640cd01810ce104">m_image</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_texture.html#a84bb5fba2ef025fa9a1cb6c568bb1e88">   87</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_texture.html#a84bb5fba2ef025fa9a1cb6c568bb1e88">m_largeur</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="class_texture.html#abf0dffcfa8f8b76bf966a4cb150fb5c6">   91</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_texture.html#abf0dffcfa8f8b76bf966a4cb150fb5c6">m_hauteur</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="comment">//-----------------------------</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;};</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif // TEXTURE_H</span></div>
+<div class="ttc" id="class_texture_html_aa578b09504e119096bede0afba62d558"><div class="ttname"><a href="class_texture.html#aa578b09504e119096bede0afba62d558">Texture::render</a></div><div class="ttdeci">void render(int x, int y) const </div><div class="ttdoc">Affiche la texture à la position donnée. </div><div class="ttdef"><b>Definition:</b> Texture.cpp:101</div></div>
+<div class="ttc" id="class_texture_html_a021907ff4f92101782c3fbffc609d9c0"><div class="ttname"><a href="class_texture.html#a021907ff4f92101782c3fbffc609d9c0">Texture::charger</a></div><div class="ttdeci">void charger(const char *chemin_image)</div><div class="ttdoc">Charge l&#39;image située au chemin donné. </div><div class="ttdef"><b>Definition:</b> Texture.cpp:32</div></div>
+<div class="ttc" id="class_texture_html_a972f486b281dd5379e7ee802a3792497"><div class="ttname"><a href="class_texture.html#a972f486b281dd5379e7ee802a3792497">Texture::getLargeur</a></div><div class="ttdeci">int getLargeur() const </div><div class="ttdoc">Retourne la largeur de l&#39;image contenue. </div><div class="ttdef"><b>Definition:</b> Texture.cpp:111</div></div>
+<div class="ttc" id="class_texture_html_a84bb5fba2ef025fa9a1cb6c568bb1e88"><div class="ttname"><a href="class_texture.html#a84bb5fba2ef025fa9a1cb6c568bb1e88">Texture::m_largeur</a></div><div class="ttdeci">int m_largeur</div><div class="ttdoc">La largeur (en px) de l&#39;image chargée. </div><div class="ttdef"><b>Definition:</b> Texture.h:87</div></div>
+<div class="ttc" id="class_texture_html_a764098794f6069f9f3569d772f511190"><div class="ttname"><a href="class_texture.html#a764098794f6069f9f3569d772f511190">Texture::liberer</a></div><div class="ttdeci">void liberer()</div><div class="ttdoc">Libère la Texture. </div><div class="ttdef"><b>Definition:</b> Texture.cpp:86</div></div>
+<div class="ttc" id="class_texture_html_a09c4bcb7462f64c1d20fa69dba3cee8a"><div class="ttname"><a href="class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a">Texture::~Texture</a></div><div class="ttdeci">~Texture()</div><div class="ttdoc">Destructeur. </div><div class="ttdef"><b>Definition:</b> Texture.cpp:23</div></div>
+<div class="ttc" id="class_texture_html_a6c275e3f186675ff6ed73ccf970e552f"><div class="ttname"><a href="class_texture.html#a6c275e3f186675ff6ed73ccf970e552f">Texture::Texture</a></div><div class="ttdeci">Texture()</div><div class="ttdoc">Constructeur par défaut. </div><div class="ttdef"><b>Definition:</b> Texture.cpp:9</div></div>
+<div class="ttc" id="class_texture_html_abf0dffcfa8f8b76bf966a4cb150fb5c6"><div class="ttname"><a href="class_texture.html#abf0dffcfa8f8b76bf966a4cb150fb5c6">Texture::m_hauteur</a></div><div class="ttdeci">int m_hauteur</div><div class="ttdoc">La hauteur (en px) de l&#39;image chargée. </div><div class="ttdef"><b>Definition:</b> Texture.h:91</div></div>
+<div class="ttc" id="class_texture_html_ac500f25ea924dd8a05d15ebb7f47f603"><div class="ttname"><a href="class_texture.html#ac500f25ea924dd8a05d15ebb7f47f603">Texture::getHauteur</a></div><div class="ttdeci">int getHauteur() const </div><div class="ttdoc">Retourne la hauteur de l&#39;image contenue. </div><div class="ttdef"><b>Definition:</b> Texture.cpp:117</div></div>
 <div class="ttc" id="class_texture_html"><div class="ttname"><a href="class_texture.html">Texture</a></div><div class="ttdoc">Classe qui englobe le type SDL_Texture. </div><div class="ttdef"><b>Definition:</b> Texture.h:11</div></div>
-<div class="ttc" id="class_texture_html_ae2157c3994c99824e640cd01810ce104"><div class="ttname"><a href="class_texture.html#ae2157c3994c99824e640cd01810ce104">Texture::m_image</a></div><div class="ttdeci">SDL_Texture * m_image</div><div class="ttdoc">L&#39;image contenue dans la texture. </div><div class="ttdef"><b>Definition:</b> Texture.h:59</div></div>
+<div class="ttc" id="class_texture_html_ae2157c3994c99824e640cd01810ce104"><div class="ttname"><a href="class_texture.html#ae2157c3994c99824e640cd01810ce104">Texture::m_image</a></div><div class="ttdeci">SDL_Texture * m_image</div><div class="ttdoc">L&#39;image contenue dans la texture. </div><div class="ttdef"><b>Definition:</b> Texture.h:83</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

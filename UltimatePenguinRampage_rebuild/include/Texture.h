@@ -6,7 +6,7 @@
 /** Classe qui englobe le type SDL_Texture.
  * Classe qui permet de conserver plus d'informations sur les textures chargées dans le jeu.
  *
- * Le chargement et la destructions des textures sont facilités avec les fonctions #charger() et #liberer().
+ * Le chargement et la destruction des textures sont facilités avec les fonctions #charger() et #liberer().
  */
 class Texture
 {
@@ -37,14 +37,20 @@ class Texture
 		// Fonctions membres publiques
 		//-----------------------------
 		/** Charge l'image située au chemin donné.
-		 * \todo Description #charger().
+		 * Créée une nouvelle SDL_Texture avec l'image donnée. Récupère également la largeur et la hauteur de l'image.
+		 *
+		 * Sert également à donnée une nouvelle image à une Texture déjà utilisée.
 		 *
 		 * @param chemin_image Le chemin de l'image BMP à charger.
 		 */
 		void charger(const char* chemin_image);
 		
 		/** Libère la Texture.
-		 * \todo Description #liberer().
+		 * Libère la SDL_Texture grâce à SDL_DestroyTexture() et ré-initialise les attributs membres.
+		 *
+		 * Doit être appelée lorsque l'usage de la Texture est terminée ou lorsque l'on souhaite la réutiliser.
+		 *
+		 * Appelée par défaut par #~Texture().		 
 		 */
 		void liberer();
 		
