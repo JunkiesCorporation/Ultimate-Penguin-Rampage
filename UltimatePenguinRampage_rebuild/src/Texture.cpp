@@ -1,4 +1,6 @@
-﻿#include "Texture.h"
+﻿#include <iostream>
+
+#include "Texture.h"
 #include "UPR.h"
 
 // Constructeurs
