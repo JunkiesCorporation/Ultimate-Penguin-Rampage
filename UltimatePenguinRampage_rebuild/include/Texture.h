@@ -55,6 +55,16 @@ class Texture
 		 * @param y La position y où afficher l'image.
 		 */
 		void render(int x, int y) const;
+		
+		/** Retourne la largeur de l'image contenue.
+		 * @return #m_largeur La largeur de l'image.
+		 */
+		int getLargeur() const;
+		
+		/** Retourne la hauteur de l'image contenue.
+		 * @return #m_hauteur La hauteur de l'image.
+		 */
+		int getHauteur() const;
 		//-----------------------------
 	
 	protected:

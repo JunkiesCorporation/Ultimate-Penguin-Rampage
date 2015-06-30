@@ -106,4 +106,16 @@ void Texture::render(int x, int y) const
 	// L'instruction pour afficher la texture.
 	SDL_RenderCopy(UPR::renderer_SDL, m_image, NULL, &render_quad);
 }
+
+/* Retourne la largeur de l'image contenue.*/
+int Texture::getLargeur() const
+{
+	return m_largeur;
+}
+
+/* Retourne la hauteur de l'image contenue.*/
+int Texture::getHauteur() const
+{
+	return m_hauteur;
+}
 //-------------------------------------
