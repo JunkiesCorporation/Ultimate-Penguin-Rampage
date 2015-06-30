@@ -10,6 +10,8 @@
 class UPR
 {
 	public:
+		// Attributs membres publiques
+		//-----------------------------
 		/** Largeur de l'écran (= 25 tiles).
 		 */
 		static const int LARGEUR_ECRAN = 800;
@@ -33,6 +35,7 @@ class UPR
 		 * Détruit dans Utils::quitter();
 		 */
 		static SDL_Renderer* renderer_SDL;
+		//-----------------------------
 	
 	protected:
 	

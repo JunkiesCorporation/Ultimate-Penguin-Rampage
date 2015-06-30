@@ -3,6 +3,9 @@
 #include "UPR.h"
 #include "Utils.h"
 
+// Fonctions membres publiques
+//-------------------------------------
+/* Initialise la SDL et ses principaux composants.*/
 bool Utils::initialisationSDL()
 {
 	// Si oui ou non l'initialisation de la SDL a réussie.
@@ -21,7 +24,7 @@ bool Utils::initialisationSDL()
 		// Tentative de création de la fenêtre.
 		UPR::fenetre_SDL = SDL_CreateWindow("Ultimate Penguin Rampage", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 0, 0, SDL_WINDOW_FULLSCREEN_DESKTOP);
 		
-		// Gestion d'un échec potentiel
+		// Gestion d'un échec potentiel.
 		if(UPR::fenetre_SDL == NULL)
 		{
 			std::cout << "Erreur : Echec de la creation de la fenetre." << std::endl;
@@ -55,6 +58,7 @@ bool Utils::initialisationSDL()
 	return succes;
 }
 
+/* Détruit les composants restants de la SDL et quitte correctement les systèmes ouverts.*/
 void Utils::quitter()
 {
 	// Destruction de UPR::renderer_SDL.
@@ -69,3 +73,4 @@ void Utils::quitter()
 	// Fermeture des systèmes ouverts
 	SDL_Quit();
 }
+//-------------------------------------
