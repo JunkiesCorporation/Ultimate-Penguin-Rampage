@@ -17,7 +17,8 @@ SDL_Renderer* UPR::renderer_SDL = NULL;
  */
 int main(int argc, char* args[])
 {
-	bool quit = false; // Contrôle de la boucle principale.
+	// Contrôle de la boucle principale.
+	bool quit = false; 
 	
 	//---------------------------------
 	
@@ -32,7 +33,7 @@ int main(int argc, char* args[])
 	
 	while(!quit)
 	{
-		SDL_Delay(2000);
+		gestionMenuPrincipal();
 		
 		quit = true;
 	}
@@ -47,6 +48,9 @@ int gestionMenuPrincipal()
 {
 	// Choix à retourner.
 	int choix = -1;
+	
+	// Contrôle de la boucle du menu.
+	bool quit = false;
 	
 	/* Liste des images :
 	 * - image de fond
@@ -64,11 +68,40 @@ int gestionMenuPrincipal()
 	// Textures contenant les images du menu.
 	Texture* texture_fond = NULL;
 	
+	// Élément de manipulations des événements.
+	SDL_Event e;
+	
 	//---------------------------------
 	
 	// Chargement des images du menu.
 	texture_fond = new Texture(chemin_image_fond);
 	
+	// Boucle du menu.
+	while(!quit)
+	{
+		// Nettoyage du renderer.
+		SDL_RenderClear(UPR::renderer_SDL);
+		
+		// Render des images du menu.
+		texture_fond->render(0, 0);
+		
+		// Affichage à l'écran.
+		SDL_RenderPresent(UPR::renderer_SDL);
+		
+		// Gestion des événements.
+		while(SDL_PollEvent(&e) != 0)
+		{
+			if(e.type == SDL_KEYDOWN)
+			{
+				switch(e.key.keysym.sym)
+				{
+				case SDLK_q:
+					quit = true;
+					break;
+				}
+			}
+		}
+	}
 	
 	// Libération des images du menu.
 	texture_fond->liberer();

@@ -96,4 +96,14 @@ void Texture::liberer()
 		m_hauteur = 0;
 	}
 }
+
+/* Affiche la texture à la position donnée.*/
+void Texture::render(int x, int y) const
+{
+	// Le rectangle sur lequel la texture est projetée.
+	SDL_Rect render_quad = {x, y, m_largeur, m_hauteur};
+	
+	// L'instruction pour afficher la texture.
+	SDL_RenderCopy(UPR::renderer_SDL, m_image, NULL, &render_quad);
+}
 //-------------------------------------

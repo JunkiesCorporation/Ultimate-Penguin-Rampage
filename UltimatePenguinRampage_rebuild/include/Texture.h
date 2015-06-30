@@ -47,6 +47,14 @@ class Texture
 		 * \todo Description #liberer().
 		 */
 		void liberer();
+		
+		/** Affiche la texture à la position donnée.
+		 * Attention! Cette fonction ne contient un appel qu'à SDL_RenderCopy(), il faut tout de même appeler SDL_RenderPresent() après.
+		 *
+		 * @param x La position x où afficher l'image.
+		 * @param y La position y où afficher l'image.
+		 */
+		void render(int x, int y) const;
 		//-----------------------------
 	
 	protected:
