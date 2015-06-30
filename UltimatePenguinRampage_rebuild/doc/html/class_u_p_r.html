@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -107,9 +108,9 @@ Attributs publics statiques</h2></td></tr>
 <tr class="memitem:a337a823f61ad23359193a2d031d3376e"><td class="memItemLeft" align="right" valign="top">static SDL_Window *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e">fenetre_SDL</a> = NULL</td></tr>
 <tr class="memdesc:a337a823f61ad23359193a2d031d3376e"><td class="mdescLeft">&#160;</td><td class="mdescRight">La fenêtre du programme.  <a href="#a337a823f61ad23359193a2d031d3376e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a337a823f61ad23359193a2d031d3376e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6f9d806062f3d722ac9e16ac6946814"><td class="memItemLeft" align="right" valign="top">static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#af6f9d806062f3d722ac9e16ac6946814">surface_ecran</a> = NULL</td></tr>
-<tr class="memdesc:af6f9d806062f3d722ac9e16ac6946814"><td class="mdescLeft">&#160;</td><td class="mdescRight">La surface contenue par <a class="el" href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e" title="La fenêtre du programme. ">UPR::fenetre_SDL</a>.  <a href="#af6f9d806062f3d722ac9e16ac6946814">Plus de détails...</a><br /></td></tr>
-<tr class="separator:af6f9d806062f3d722ac9e16ac6946814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dd7c5199d974bb2a935763f4946f36c"><td class="memItemLeft" align="right" valign="top">static SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a5dd7c5199d974bb2a935763f4946f36c">renderer_SDL</a> = NULL</td></tr>
+<tr class="memdesc:a5dd7c5199d974bb2a935763f4946f36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le renderer de <a class="el" href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e" title="La fenêtre du programme. ">UPR::fenetre_SDL</a>.  <a href="#a5dd7c5199d974bb2a935763f4946f36c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5dd7c5199d974bb2a935763f4946f36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>La classe principale du programme. </p>
@@ -134,8 +135,8 @@ Attributs publics statiques</h2></td></tr>
 </div><div class="memdoc">
 
 <p>La fenêtre du programme. </p>
-<p>Créée par <a class="el" href="class_utils.html#a65fa5f629d47909dcd35b7194a394df5" title="Initialise la SDL et ses principaux composants. ">Utils::initialisationSDL()</a>.</p>
-<p>Détruite par SDL_DestroyWindow() dans <a class="el" href="class_utils.html#a1a1317e9deaac6dc1ad285d101b6f929" title="Détruit les composants restants de la SDL et quitte correctement les systèmes ouverts. ">Utils::quitter()</a>. </p>
+<p>Créée dans <a class="el" href="class_utils.html#a65fa5f629d47909dcd35b7194a394df5" title="Initialise la SDL et ses principaux composants. ">Utils::initialisationSDL()</a>.</p>
+<p>Détruite dans <a class="el" href="class_utils.html#a1a1317e9deaac6dc1ad285d101b6f929" title="Détruit les composants restants de la SDL et quitte correctement les systèmes ouverts. ">Utils::quitter()</a>. </p>
 
 </div>
 </div>
@@ -183,7 +184,7 @@ Attributs publics statiques</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af6f9d806062f3d722ac9e16ac6946814"></a>
+<a class="anchor" id="a5dd7c5199d974bb2a935763f4946f36c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -191,7 +192,7 @@ Attributs publics statiques</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SDL_Surface * UPR::surface_ecran = NULL</td>
+          <td class="memname">SDL_Renderer * UPR::renderer_SDL = NULL</td>
         </tr>
       </table>
   </td>
@@ -201,10 +202,9 @@ Attributs publics statiques</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>La surface contenue par <a class="el" href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e" title="La fenêtre du programme. ">UPR::fenetre_SDL</a>. </p>
-<p>Permet d'y afficher du contenu en utilisant le double buffer.</p>
-<p>Initialisée dans <a class="el" href="class_utils.html#a65fa5f629d47909dcd35b7194a394df5" title="Initialise la SDL et ses principaux composants. ">Utils::initialisationSDL()</a>.</p>
-<p>Elle n'a pas d'instructions de suppression explicites, elle est détruite par la fonction SDL_DestroyWindow() utilisée dans la fonction <a class="el" href="class_utils.html#a1a1317e9deaac6dc1ad285d101b6f929" title="Détruit les composants restants de la SDL et quitte correctement les systèmes ouverts. ">Utils::quitter()</a>. </p>
+<p>Le renderer de <a class="el" href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e" title="La fenêtre du programme. ">UPR::fenetre_SDL</a>. </p>
+<p>Créé dans <a class="el" href="class_utils.html#a65fa5f629d47909dcd35b7194a394df5" title="Initialise la SDL et ses principaux composants. ">Utils::initialisationSDL()</a>.</p>
+<p>Détruit dans <a class="el" href="class_utils.html#a1a1317e9deaac6dc1ad285d101b6f929" title="Détruit les composants restants de la SDL et quitte correctement les systèmes ouverts. ">Utils::quitter()</a>; </p>
 
 </div>
 </div>

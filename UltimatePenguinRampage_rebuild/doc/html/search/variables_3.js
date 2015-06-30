@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['surface_5fecran',['surface_ecran',['../class_u_p_r.html#af6f9d806062f3d722ac9e16ac6946814',1,'UPR']]]
+  ['m_5fhauteur',['m_hauteur',['../class_texture.html#abf0dffcfa8f8b76bf966a4cb150fb5c6',1,'Texture']]],
+  ['m_5fimage',['m_image',['../class_texture.html#ae2157c3994c99824e640cd01810ce104',1,'Texture']]],
+  ['m_5flargeur',['m_largeur',['../class_texture.html#a84bb5fba2ef025fa9a1cb6c568bb1e88',1,'Texture']]]
 ];

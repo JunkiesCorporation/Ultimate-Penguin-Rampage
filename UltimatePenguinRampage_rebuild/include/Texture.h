@@ -6,7 +6,7 @@
 /** Classe qui englobe le type SDL_Texture.
  * Classe qui permet de conserver plus d'informations sur les textures chargées dans le jeu.
  *
- * Le chargement et la destructions des textures sont facilités avec les fonctions Texture::charger() et Texture::liberer().
+ * Le chargement et la destructions des textures sont facilités avec les fonctions #charger() et #liberer().
  */
 class Texture
 {

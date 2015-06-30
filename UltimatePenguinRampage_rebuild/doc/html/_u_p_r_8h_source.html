@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -98,32 +99,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_u_p_r.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_u_p_r.html">UPR</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_u_p_r.html#a29b280f8a41e96854465f42ce303520b">   15</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_u_p_r.html#a29b280f8a41e96854465f42ce303520b">LARGEUR_ECRAN</a> = 800;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_u_p_r.html#a68b3cf191ad71e0bea073c214f47b760">   19</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_u_p_r.html#a68b3cf191ad71e0bea073c214f47b760">HAUTEUR_ECRAN</a> = 640;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e">   27</a></span>&#160;        <span class="keyword">static</span> SDL_Window* <a class="code" href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e">fenetre_SDL</a>; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_u_p_r.html#af6f9d806062f3d722ac9e16ac6946814">   37</a></span>&#160;        <span class="keyword">static</span> SDL_Surface* <a class="code" href="class_u_p_r.html#af6f9d806062f3d722ac9e16ac6946814">surface_ecran</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//--------------------------</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// Prototypes des fonctions</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">//--------------------------</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">int</span> <a class="code" href="_u_p_r_8h.html#a07eb386ace866c37e5a61c566029ebf1">gestionMenuPrincipal</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif // UPR_H</span></div>
-<div class="ttc" id="class_u_p_r_html_a337a823f61ad23359193a2d031d3376e"><div class="ttname"><a href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e">UPR::fenetre_SDL</a></div><div class="ttdeci">static SDL_Window * fenetre_SDL</div><div class="ttdoc">La fenêtre du programme. </div><div class="ttdef"><b>Definition:</b> UPR.h:27</div></div>
-<div class="ttc" id="class_u_p_r_html_af6f9d806062f3d722ac9e16ac6946814"><div class="ttname"><a href="class_u_p_r.html#af6f9d806062f3d722ac9e16ac6946814">UPR::surface_ecran</a></div><div class="ttdeci">static SDL_Surface * surface_ecran</div><div class="ttdoc">La surface contenue par UPR::fenetre_SDL. </div><div class="ttdef"><b>Definition:</b> UPR.h:37</div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="comment">// Attributs membres publiques</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="comment">//-----------------------------</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_u_p_r.html#a29b280f8a41e96854465f42ce303520b">   17</a></span>&#160;<span class="comment"></span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_u_p_r.html#a29b280f8a41e96854465f42ce303520b">LARGEUR_ECRAN</a> = 800;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_u_p_r.html#a68b3cf191ad71e0bea073c214f47b760">   21</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_u_p_r.html#a68b3cf191ad71e0bea073c214f47b760">HAUTEUR_ECRAN</a> = 640;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e">   29</a></span>&#160;        <span class="keyword">static</span> SDL_Window* <a class="code" href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e">fenetre_SDL</a>; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_u_p_r.html#a5dd7c5199d974bb2a935763f4946f36c">   37</a></span>&#160;        <span class="keyword">static</span> SDL_Renderer* <a class="code" href="class_u_p_r.html#a5dd7c5199d974bb2a935763f4946f36c">renderer_SDL</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">//-----------------------------</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">//--------------------------</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// Prototypes des fonctions</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">//--------------------------</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">int</span> <a class="code" href="_u_p_r_8h.html#a07eb386ace866c37e5a61c566029ebf1">gestionMenuPrincipal</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif // UPR_H</span></div>
+<div class="ttc" id="class_u_p_r_html_a337a823f61ad23359193a2d031d3376e"><div class="ttname"><a href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e">UPR::fenetre_SDL</a></div><div class="ttdeci">static SDL_Window * fenetre_SDL</div><div class="ttdoc">La fenêtre du programme. </div><div class="ttdef"><b>Definition:</b> UPR.h:29</div></div>
 <div class="ttc" id="class_u_p_r_html"><div class="ttname"><a href="class_u_p_r.html">UPR</a></div><div class="ttdoc">La classe principale du programme. </div><div class="ttdef"><b>Definition:</b> UPR.h:10</div></div>
-<div class="ttc" id="_u_p_r_8h_html_a07eb386ace866c37e5a61c566029ebf1"><div class="ttname"><a href="_u_p_r_8h.html#a07eb386ace866c37e5a61c566029ebf1">gestionMenuPrincipal</a></div><div class="ttdeci">int gestionMenuPrincipal()</div><div class="ttdoc">Gère l&#39;affichage et le contrôle du menu principal. </div><div class="ttdef"><b>Definition:</b> UPR.cpp:47</div></div>
-<div class="ttc" id="class_u_p_r_html_a68b3cf191ad71e0bea073c214f47b760"><div class="ttname"><a href="class_u_p_r.html#a68b3cf191ad71e0bea073c214f47b760">UPR::HAUTEUR_ECRAN</a></div><div class="ttdeci">static const int HAUTEUR_ECRAN</div><div class="ttdoc">Hauteur de l&#39;écran (= 20 tiles). </div><div class="ttdef"><b>Definition:</b> UPR.h:19</div></div>
-<div class="ttc" id="class_u_p_r_html_a29b280f8a41e96854465f42ce303520b"><div class="ttname"><a href="class_u_p_r.html#a29b280f8a41e96854465f42ce303520b">UPR::LARGEUR_ECRAN</a></div><div class="ttdeci">static const int LARGEUR_ECRAN</div><div class="ttdoc">Largeur de l&#39;écran (= 25 tiles). </div><div class="ttdef"><b>Definition:</b> UPR.h:15</div></div>
+<div class="ttc" id="class_u_p_r_html_a5dd7c5199d974bb2a935763f4946f36c"><div class="ttname"><a href="class_u_p_r.html#a5dd7c5199d974bb2a935763f4946f36c">UPR::renderer_SDL</a></div><div class="ttdeci">static SDL_Renderer * renderer_SDL</div><div class="ttdoc">Le renderer de UPR::fenetre_SDL. </div><div class="ttdef"><b>Definition:</b> UPR.h:37</div></div>
+<div class="ttc" id="_u_p_r_8h_html_a07eb386ace866c37e5a61c566029ebf1"><div class="ttname"><a href="_u_p_r_8h.html#a07eb386ace866c37e5a61c566029ebf1">gestionMenuPrincipal</a></div><div class="ttdeci">int gestionMenuPrincipal()</div><div class="ttdoc">Gère l&#39;affichage et le contrôle du menu principal. </div><div class="ttdef"><b>Definition:</b> UPR.cpp:46</div></div>
+<div class="ttc" id="class_u_p_r_html_a68b3cf191ad71e0bea073c214f47b760"><div class="ttname"><a href="class_u_p_r.html#a68b3cf191ad71e0bea073c214f47b760">UPR::HAUTEUR_ECRAN</a></div><div class="ttdeci">static const int HAUTEUR_ECRAN</div><div class="ttdoc">Hauteur de l&#39;écran (= 20 tiles). </div><div class="ttdef"><b>Definition:</b> UPR.h:21</div></div>
+<div class="ttc" id="class_u_p_r_html_a29b280f8a41e96854465f42ce303520b"><div class="ttname"><a href="class_u_p_r.html#a29b280f8a41e96854465f42ce303520b">UPR::LARGEUR_ECRAN</a></div><div class="ttdeci">static const int LARGEUR_ECRAN</div><div class="ttdoc">Largeur de l&#39;écran (= 25 tiles). </div><div class="ttdef"><b>Definition:</b> UPR.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
