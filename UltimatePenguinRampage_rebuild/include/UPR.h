@@ -2,7 +2,6 @@
 #define UPR_H
 
 #include <SDL.h>
-#include <string.h>
 
 /** La classe principale du programme.
  * Contient la fenêtre ainsi que sa surface et son renderer.
@@ -21,25 +20,32 @@ class UPR
 		
 		/** La fenêtre du programme.
 		 * 
-		 * Créée par Utils::initialisationSDL().
+		 * Créée dans Utils::initialisationSDL().
 		 *
-		 * Détruite par SDL_DestroyWindow() dans Utils::quitter().
+		 * Détruite dans Utils::quitter().
 		 */
 		static SDL_Window* fenetre_SDL; 
 		
-		/** La surface contenue par UPR::fenetre_SDL. 
+		/** Le renderer de UPR::fenetre_SDL.
 		 * 
-		 * Permet d'y afficher du contenu en utilisant le double buffer.
-		 *
-		 * Initialisée dans Utils::initialisationSDL().
+		 * Créé dans Utils::initialisationSDL().
 		 * 
-		 * Elle n'a pas d'instructions de suppression explicites, elle est détruite par la fonction SDL_DestroyWindow() utilisée dans la fonction Utils::quitter().
+		 * Détruit dans Utils::quitter();
 		 */
-		static SDL_Surface* surface_ecran;
+		static SDL_Renderer* renderer_SDL;
 	
 	protected:
 	
 	private:
 };
+
+//--------------------------
+// Prototypes des fonctions
+//--------------------------
+
+/** Gère l'affichage et le contrôle du menu principal.
+ * @return Le numéro de l'option choisie.
+ */
+int gestionMenuPrincipal();
 
 #endif // UPR_H

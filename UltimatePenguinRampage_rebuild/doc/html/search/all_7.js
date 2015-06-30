@@ -1,9 +1,4 @@
 var searchData=
 [
-  ['upr',['UPR',['../class_u_p_r.html',1,'']]],
-  ['upr_2ecpp',['UPR.cpp',['../_u_p_r_8cpp.html',1,'']]],
-  ['upr_2eh',['UPR.h',['../_u_p_r_8h.html',1,'']]],
-  ['utils',['Utils',['../class_utils.html',1,'']]],
-  ['utils_2ecpp',['Utils.cpp',['../_utils_8cpp.html',1,'']]],
-  ['utils_2eh',['Utils.h',['../_utils_8h.html',1,'']]]
+  ['surface_5fecran',['surface_ecran',['../class_u_p_r.html#af6f9d806062f3d722ac9e16ac6946814',1,'UPR']]]
 ];

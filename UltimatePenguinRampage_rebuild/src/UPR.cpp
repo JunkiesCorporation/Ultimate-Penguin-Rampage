@@ -4,7 +4,7 @@
 #include "Utils.h"
 
 SDL_Window* UPR::fenetre_SDL = NULL;
-SDL_Surface* UPR::surface_ecran = NULL;
+SDL_Renderer* UPR::renderer_SDL = NULL;
 
 /** La fonction main.
  *
@@ -16,14 +16,22 @@ SDL_Surface* UPR::surface_ecran = NULL;
  */
 int main(int argc, char* args[])
 {
+	bool quit = false; // Contrôle de la boucle principale.
 	
-	// Initialisation de la SDL
+	// Initialisation de la SDL.
 	if(!Utils::initialisationSDL())
 	{
 		std::cout << "Une erreur est survenue lors de l'initialisation de la SDL : " << std::endl;
 		std::cout << "SDL_Error: " << SDL_GetError() << std::endl;
 		std::cout << "Le programme va s'arreter." << std::endl;
 		return -1;
+	}
+	
+	while(!quit)
+	{
+		SDL_Delay(2000);
+		
+		quit = true;
 	}
 	
 	Utils::quitter();
