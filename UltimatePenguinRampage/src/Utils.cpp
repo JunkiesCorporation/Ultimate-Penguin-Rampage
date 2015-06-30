@@ -6,6 +6,7 @@
 
 SDL_Window* Utils::fenetre = NULL;
 SDL_Renderer* Utils::renderer = NULL;
+SDL_Surface* Utils::screenSurface = NULL;
 
 bool Utils::initialisation() {
     if(SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -26,6 +27,8 @@ bool Utils::initialisation() {
             } else {
                 SDL_SetRenderDrawColor(Utils::renderer, 0xFF, 0xFF, 0xFF, 0xFF);
             }
+			
+			Utils::screenSurface == SDL_GetWindowSurface(Utils::fenetre);
         }
     }
 

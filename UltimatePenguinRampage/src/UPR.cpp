@@ -4,6 +4,7 @@
 
 #include "Utils.h"
 #include "Jeu.h"
+#include "MenuPrincipal.h"
 
 int main(int argc, char* args[]) {
     // Initialisation du programme
@@ -15,6 +16,8 @@ int main(int argc, char* args[]) {
 
     bool quit(false); // Variable de contrôle de la boucle principale
     SDL_Event e; // Objet permettant de gérer les événements
+	
+	MenuPrincipal::menuPrincipal();
 
     Jeu jeu; // Lancement du jeu;
 
@@ -25,6 +28,13 @@ int main(int argc, char* args[]) {
         while(SDL_PollEvent(&e) != 0) {
             if(e.type == SDL_QUIT) {
                 quit = true;
+            }
+			if(e.type == SDL_KEYDOWN) {
+                switch(e.key.keysym.sym) {
+                case SDLK_q:
+                    quit = true;
+                    break;
+                }
             }
         }
     }

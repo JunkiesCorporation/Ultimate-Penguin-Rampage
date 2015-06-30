@@ -7,12 +7,13 @@
 class Utils
 {
     public:
-        static SDL_Texture* loadTexture(std::string); // Charge une texture à partir de l'image du chemin donné
-        static bool initialisation(); // Initialisation du programme et de la SDL.
-        static void quitter(); // Destruction correcte de la fenêtre et du renderer.
+        static SDL_Texture* loadTexture(std::string); ///< Charge une texture à partir de l'image du chemin donné
+        static bool initialisation(); ///< Initialisation du programme et de la SDL.
+        static void quitter(); ///< Destruction correcte de la fenêtre et du renderer.
 
-        static SDL_Window* fenetre; // La fenêtre du programme
-        static SDL_Renderer* renderer; // Permet d'afficher du contenu dans la fenêtre
+        static SDL_Window* fenetre; ///< La fenêtre du programme
+        static SDL_Renderer* renderer; ///< Permet d'afficher du contenu dans la fenêtre
+		static SDL_Surface* screenSurface; ///< La surface contenue par la fenêtre
     protected:
     private:
 };
