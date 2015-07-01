@@ -1,5 +1,5 @@
 #OBJS specifies which files to compile as part of the project
-OBJS = src\Texture.cpp src\UPR.cpp src\Utils.cpp
+OBJS = src\Profil.cpp src\Texture.cpp src\UPR.cpp src\Utils.cpp
 
 #CC specifies which compiler we're using
 CC = g++
