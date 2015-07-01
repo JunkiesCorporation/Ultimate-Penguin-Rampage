@@ -9,19 +9,12 @@ SDL_Renderer* UPR::renderer_SDL = NULL;
 
 /** La fonction main.
  *
- * Initialise la SDL grâces aux méthodes static de la
- * classe Utils, lance la cinématique d'introduction puis le
- * menu principal.
+ * Initialise la SDL grâces aux méthodes static de la classe Utils, lance la cinématique d'introduction puis créé une instance d'UPR.
  * 
  * Une fois le jeu quitté, quitte la SDL correctement grâce à Utils::quitter().
  */
 int main(int argc, char* args[])
-{
-	// Contrôle de la boucle principale.
-	bool quit = false; 
-	
-	//---------------------------------
-	
+{	
 	// Initialisation de la SDL.
 	if(!Utils::initialisationSDL())
 	{
@@ -31,24 +24,72 @@ int main(int argc, char* args[])
 		return -1;
 	}
 	
+	// Création d'une instance du programme.
+	UPR* programme = new UPR();
+	
+	// Déroulement du programme.
+	programme->lancer();
+	
+	// Destruction de l'instance à la fin du jeu et fermeture du pointeur.
+	delete programme;
+	programme = NULL;
+	
+	// Fermeture de la SDL.
+	Utils::quitterSDL();
+	
+	return 0;
+}
+
+/* Constructeur par défaut.*/
+UPR::UPR()
+{
+	
+}
+
+/* Fonction responsable du programme.*/
+void UPR::lancer()
+{
+	// Contrôle de la boucle principal du programme.
+	bool quit = false;
+	
+	//---------------------------------
+	
+	// Boucle principal du programme.
 	while(!quit)
 	{
 		// Affichage du menu principal et traitement du choix.
 		switch(gestionMenuPrincipal())
 		{
+		// Nouveau profil.
+		case 0:
+			// Création d'un nouveau profil.
+			(&profil_joueur)->~Profil();
+			new (&profil_joueur) Profil(true);
+			
+			// Lancement du jeu avec le profil créé.
+			// new Jeu(profil_joueur);
+			break;
+		
+		// Charger profil.
+		case 1:
+			break;
+		
+		// Options.
+		case 2:
+			break;
+		
+		// Quitter.
 		case 3:
+			// Fermeture de la boucle de contrôle.
 			quit = true;
+			
 			break;
 		}
 	}
-	
-	Utils::quitter();
-	
-	return 0;
 }
 
 /* Gère l'affichage et le contrôle du menu principal.*/
-int gestionMenuPrincipal()
+int UPR::gestionMenuPrincipal()
 {
 	// Choix à retourner.
 	int choix = 0;
@@ -71,7 +112,7 @@ int gestionMenuPrincipal()
 	char chemin_image_charger_profil[] = "img/menu_principal/charger_profil.bmp";
 	char chemin_image_options[] = "img/menu_principal/options.bmp";
 	char chemin_image_quitter[] = "img/menu_principal/quitter.bmp";
-	char chemin_image_curseur[] = "img/menu_principal/curseur.bmp";
+	char chemin_image_curseur[] = "img/commun/curseur.bmp";
 	
 	// Textures contenant les images du menu.
 	Texture* texture_fond = NULL;
@@ -89,6 +130,10 @@ int gestionMenuPrincipal()
 	
 	// Élément de manipulations des événements.
 	SDL_Event e;
+	
+	// Timer pour bloquer les FPS à 60 et nombre ticks par image.
+	Timer timer;
+	int ticks_image = 0;
 	
 	//---------------------------------
 	
@@ -123,6 +168,9 @@ int gestionMenuPrincipal()
 	// Boucle du menu.
 	while(!quit)
 	{
+		// Début du chronométrage de l'image.
+		timer.start();
+		
 		// Nettoyage du renderer.
 		SDL_RenderClear(UPR::renderer_SDL);
 		
@@ -161,6 +209,13 @@ int gestionMenuPrincipal()
 					break;
 				}
 			}
+		}
+		
+		// Correction si le FPS dépasse le maximum.
+		ticks_image = timer.getTicks();
+		if(ticks_image < UPR::TICKS_ECRAN_PAR_IMAGE)
+		{
+			SDL_Delay(UPR::TICKS_ECRAN_PAR_IMAGE - ticks_image);
 		}
 	}
 	

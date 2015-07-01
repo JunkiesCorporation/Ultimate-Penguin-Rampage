@@ -59,7 +59,7 @@ bool Utils::initialisationSDL()
 }
 
 /* Détruit les composants restants de la SDL et quitte correctement les systèmes ouverts.*/
-void Utils::quitter()
+void Utils::quitterSDL()
 {
 	// Destruction de UPR::renderer_SDL.
 	SDL_DestroyRenderer(UPR::renderer_SDL);
@@ -72,5 +72,24 @@ void Utils::quitter()
 	
 	// Fermeture des systèmes ouverts
 	SDL_Quit();
+}
+
+/* Constructeur par défaut.*/
+Timer::Timer() : m_ticks_depart(0)
+{
+	
+}
+
+/* Démarre le Timer.*/
+void Timer::start()
+{
+	// On récupère le temps système actuel.
+	m_ticks_depart = SDL_GetTicks();
+}
+
+/* Retourne le nombre de ticks écoulé depuis le démarrage du Timer.*/
+Uint32 Timer::getTicks()
+{
+	return SDL_GetTicks() - m_ticks_depart;
 }
 //-------------------------------------

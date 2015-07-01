@@ -76,7 +76,7 @@ class Texture
 	protected:
 	
 	private:
-		// Membres privés
+		// Attributs membres privés
 		//-----------------------------
 		/** L'image contenue dans la texture.
 		 */
