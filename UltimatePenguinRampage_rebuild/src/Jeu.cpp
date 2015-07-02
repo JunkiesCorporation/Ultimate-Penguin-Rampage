@@ -43,12 +43,15 @@ void Jeu::lancer(Profil* profil_joueur)
 	// Contrôle de la boucle du Jeu.
 	bool quit = false;
 	
+	// La position actuelle du curseur.
+	enum_ecran_options position_curseur = MODE_HISTOIRE;
+	
 	// Nombre d'images de l'écran principal du jeu : 3
 	// Positions des images de l'écran principal du jeu.
-	Position positions_textures_ecran[3] = {{0, 0}};
+	Position positions_textures_ecran[NB_OPTIONS] = {{0, 0}};
 	
 	// Positions du curseur lors de l'écran principal du jeu.
-	Position positions_curseur_ecran[1] = {{0, 0}};
+	Position positions_curseur_ecran[NB_OPTIONS] = {{0, 0}};
 	
 	// Élément de manipulations des événements.
 	SDL_Event e;
@@ -66,15 +69,14 @@ void Jeu::lancer(Profil* profil_joueur)
 	chargerTexturesEcran();
 	
 	// Attribution des positions des images de l'écran principal du jeu.
-	positions_textures_ecran[0] = {0, 0}; // m_texture_fond_jeu
-	positions_textures_ecran[1] = {120, 250}; // m_texture_mode_histoire
-	positions_textures_ecran[2] = {530, 250}; // m_texture_mode_arene
+	positions_textures_ecran[MODE_HISTOIRE] = {120, 250};
+	positions_textures_ecran[MODE_ARENE] = {530, 250};
 	
 	// Attribution des positions du curseur lors de l'écran principal du jeu.
-	positions_curseur_ecran[0] = {115, 245}; // sur m_texture_mode_histoire
+	positions_curseur_ecran[MODE_HISTOIRE] = {115, 245}; // sur m_texture_mode_histoire
+	positions_curseur_ecran[MODE_ARENE] = {525, 245}; // sur m_texture_mode_arene
 	
 	// Boucle du jeu.
-	
 	while(!quit)
 	{
 		// Début du chronométrage de l'image.
@@ -84,12 +86,12 @@ void Jeu::lancer(Profil* profil_joueur)
 		SDL_RenderClear(UPR::renderer_SDL);
 		
 		// Affichage des images fixes de l'écran principal du jeu.
-		m_texture_fond_jeu->render(positions_textures_ecran[0]);
-		m_texture_mode_histoire->render(positions_textures_ecran[1]);
-		m_texture_mode_arene->render(positions_textures_ecran[2]);
+		m_texture_fond_jeu->render(0, 0);
+		m_texture_mode_histoire->render(positions_textures_ecran[MODE_HISTOIRE]);
+		m_texture_mode_arene->render(positions_textures_ecran[MODE_ARENE]);
 		
 		// Affichage du curseur lors de l'écran principal du jeu.
-		m_texture_cadre_selection->render(positions_curseur_ecran[0]);
+		m_texture_cadre_selection->render(positions_curseur_ecran[position_curseur]);
 		
 		// Affichage à l'écran.
 		SDL_RenderPresent(UPR::renderer_SDL);
@@ -102,6 +104,16 @@ void Jeu::lancer(Profil* profil_joueur)
 				// Switch sur le symbole de la touche appuyée.
 				switch(e.key.keysym.sym)
 				{
+				// La touche "flèche_droite" est appuyée.
+				case SDLK_RIGHT:
+					if(position_curseur == MODE_HISTOIRE) { position_curseur = MODE_ARENE; }
+					break;
+				
+				// La touche "flèche_gauche" est appuyée.
+				case SDLK_LEFT:
+					if(position_curseur == MODE_ARENE) { position_curseur = MODE_HISTOIRE; }
+					break;
+				
 				// La touche "q" est appuyée.
 				case SDLK_q:
 					quit = true;

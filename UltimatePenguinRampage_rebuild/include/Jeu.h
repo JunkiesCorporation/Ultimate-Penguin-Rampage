@@ -49,6 +49,13 @@ class Jeu
 		
 		// Attributs membres privés
 		//-----------------------------
+		enum enum_ecran_options
+		{
+			MODE_HISTOIRE,
+			MODE_ARENE,
+			NB_OPTIONS
+		};
+		
 		Texture* m_texture_cadre_selection;
 		
 		Texture* m_texture_fond_jeu;
