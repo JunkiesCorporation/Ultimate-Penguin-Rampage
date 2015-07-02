@@ -2,6 +2,8 @@
 
 Petit jeu, bien bourrin...
 
+__Attention__ : Tous les symboles '_' (en début de fin de mot uniquement) et '*' servent à la mise en page lorsque ce readme est visionné sur GitHub.com, ils sont à ignorer si vous avez ouvert ce fichier dans un éditeur de texte.
+
 ## 1. Développement en console.
 
 A partir du 28 Juin 2015, le développement d'UPR reprend mais avec une compilation en console à l'aide d'un fichier Makefile. La branche "compilation_console" sera donc la branche principale jusqu'à ce que le jeu soit suffisamment avancé ou je commence à avoir marre de la compilation en console...
@@ -58,7 +60,7 @@ A partir du 28 Juin 2015, le développement d'UPR reprend mais avec une compilat
 
 __Note :__ Cette section ne requiert pas l'installation de MinGW décrit à la Section 3.
 
-1. A l'aide de la Section 2, se placer dans le dossier contenant le ficher _Makefile_ du projet.
+1. A l'aide de la Section 2, se placer dans le dossier contenant le ficher _Makefile_ du projet. Pour la dernière version, se placer dans le dossier __UltimatePenguinRampage_rebuild__.
 
 2. Exécuter la commande __bin\Debug\upr.exe__ (le '.exe' est facultatif). Cela lance le programme __upr__ à partir du dossier où vous vous situez. 
 
