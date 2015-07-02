@@ -53,6 +53,8 @@ class Jeu
 		
 		Texture* m_texture_fond_jeu;
 		
+		Texture* m_texture_mode_arene;
+		
 		Texture* m_texture_mode_histoire;
 		//-----------------------------
 	

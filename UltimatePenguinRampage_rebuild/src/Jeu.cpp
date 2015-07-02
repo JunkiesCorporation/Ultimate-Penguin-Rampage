@@ -11,6 +11,7 @@ Jeu::Jeu()
 	// Réglage des pointeurs vers les Textures à NULL.
 	m_texture_cadre_selection = NULL;
 	m_texture_fond_jeu = NULL;
+	m_texture_mode_arene = NULL;
 	m_texture_mode_histoire = NULL;
 	
 	// temp
@@ -23,11 +24,13 @@ Jeu::~Jeu()
 	// Suppression des textures qui auraient été oubliées.
 	delete m_texture_cadre_selection;
 	delete m_texture_fond_jeu;
+	delete m_texture_mode_arene;
 	delete m_texture_mode_histoire;
 	
 	// Fermeture des pointeurs.
 	m_texture_cadre_selection = NULL;
 	m_texture_fond_jeu = NULL;
+	m_texture_mode_arene = NULL;
 	m_texture_mode_histoire = NULL;
 	
 	// temp
@@ -40,9 +43,9 @@ void Jeu::lancer(Profil* profil_joueur)
 	// Contrôle de la boucle du Jeu.
 	bool quit = false;
 	
-	// Nombre d'images de l'écran principal du jeu : 2
+	// Nombre d'images de l'écran principal du jeu : 3
 	// Positions des images de l'écran principal du jeu.
-	Position positions_textures_ecran[2] = {{0, 0}};
+	Position positions_textures_ecran[3] = {{0, 0}};
 	
 	// Positions du curseur lors de l'écran principal du jeu.
 	Position positions_curseur_ecran[1] = {{0, 0}};
@@ -65,6 +68,7 @@ void Jeu::lancer(Profil* profil_joueur)
 	// Attribution des positions des images de l'écran principal du jeu.
 	positions_textures_ecran[0] = {0, 0}; // m_texture_fond_jeu
 	positions_textures_ecran[1] = {120, 250}; // m_texture_mode_histoire
+	positions_textures_ecran[2] = {530, 250}; // m_texture_mode_arene
 	
 	// Attribution des positions du curseur lors de l'écran principal du jeu.
 	positions_curseur_ecran[0] = {115, 245}; // sur m_texture_mode_histoire
@@ -82,6 +86,7 @@ void Jeu::lancer(Profil* profil_joueur)
 		// Affichage des images fixes de l'écran principal du jeu.
 		m_texture_fond_jeu->render(positions_textures_ecran[0]);
 		m_texture_mode_histoire->render(positions_textures_ecran[1]);
+		m_texture_mode_arene->render(positions_textures_ecran[2]);
 		
 		// Affichage du curseur lors de l'écran principal du jeu.
 		m_texture_cadre_selection->render(positions_curseur_ecran[0]);
@@ -124,10 +129,12 @@ void Jeu::chargerTexturesEcran()
 {
 	char chemin_image_cadre_selection[] = "img/jeu/jeu_cadre_selection.bmp";
 	char chemin_image_fond_jeu[] = "img/jeu/jeu_image_fond.bmp";
+	char chemin_image_mode_arene[] = "img/jeu/jeu_mode_arene.bmp";
 	char chemin_image_mode_histoire[] = "img/jeu/jeu_mode_histoire.bmp";
 	
 	m_texture_cadre_selection = new Texture(chemin_image_cadre_selection);
 	m_texture_fond_jeu = new Texture(chemin_image_fond_jeu);
+	m_texture_mode_arene = new Texture(chemin_image_mode_arene);
 	m_texture_mode_histoire = new Texture(chemin_image_mode_histoire);
 }
 
@@ -135,9 +142,11 @@ void Jeu::libererTexturesEcran()
 {
 	delete m_texture_cadre_selection;
 	delete m_texture_fond_jeu;
+	delete m_texture_mode_arene;
 	delete m_texture_mode_histoire;
 	
 	m_texture_cadre_selection = NULL;
 	m_texture_fond_jeu = NULL;
+	m_texture_mode_arene = NULL;
 	m_texture_mode_histoire = NULL;
 }
