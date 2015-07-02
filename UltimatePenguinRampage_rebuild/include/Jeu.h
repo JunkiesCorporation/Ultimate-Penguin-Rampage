@@ -61,11 +61,7 @@ class Jeu
 		
 		Texture* m_texture_fond_jeu;
 		
-		Texture* m_texture_mode_arene;
-		
-		Texture* m_texture_mode_histoire;
-		
-		Texture* m_texture_retour_menu;
+		Texture* m_textures_options_ecran_jeu[NB_OPTIONS];
 		//-----------------------------
 	
 };

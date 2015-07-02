@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <string.h>
 
 #include "Jeu.h"
 #include "Struct.h"
@@ -8,12 +9,15 @@
 /* Constructeur par défaut.*/
 Jeu::Jeu()
 {
-	// Réglage des pointeurs vers les Textures à NULL.
+	// Réglage des pointeurs vers les textures à NULL.
+	// Texture du cadre de sélection.
 	m_texture_cadre_selection = NULL;
 	m_texture_fond_jeu = NULL;
-	m_texture_mode_arene = NULL;
-	m_texture_mode_histoire = NULL;
-	m_texture_retour_menu = NULL;
+	// Textures de l'écran du jeu.
+	for(int i = 0; i < NB_OPTIONS; i++)
+	{
+		m_textures_options_ecran_jeu[i] = NULL;
+	}
 }
 
 /* Destructeur par défaut.*/
@@ -22,16 +26,18 @@ Jeu::~Jeu()
 	// Suppression des textures qui auraient été oubliées.
 	delete m_texture_cadre_selection;
 	delete m_texture_fond_jeu;
-	delete m_texture_mode_arene;
-	delete m_texture_mode_histoire;
-	delete m_texture_retour_menu;
+	for(int i = 0; i < NB_OPTIONS; i++)
+	{
+		delete m_textures_options_ecran_jeu[i];
+	}
 	
 	// Fermeture des pointeurs.
 	m_texture_cadre_selection = NULL;
 	m_texture_fond_jeu = NULL;
-	m_texture_mode_arene = NULL;
-	m_texture_mode_histoire = NULL;
-	m_texture_retour_menu = NULL;
+	for(int i = 0; i < NB_OPTIONS; i++)
+	{
+		m_textures_options_ecran_jeu[i] = NULL;
+	}
 }
 
 /* Lance le jeu avec les données du Profil donné.*/
@@ -85,9 +91,10 @@ void Jeu::lancer(Profil* profil_joueur)
 		
 		// Affichage des images fixes de l'écran principal du jeu.
 		m_texture_fond_jeu->render(0, 0);
-		m_texture_mode_histoire->render(positions_textures_ecran[MODE_HISTOIRE]);
-		m_texture_mode_arene->render(positions_textures_ecran[MODE_ARENE]);
-		m_texture_retour_menu->render(positions_textures_ecran[RETOUR_MENU]);
+		for(int i = 0; i < NB_OPTIONS; i++)
+		{
+			m_textures_options_ecran_jeu[i]->render(positions_textures_ecran[i]);
+		}
 		
 		// Affichage du curseur lors de l'écran principal du jeu.
 		m_texture_cadre_selection->render(positions_curseur_ecran[position_curseur_act]);
@@ -169,28 +176,37 @@ void Jeu::chargerTexturesEcran()
 {
 	char chemin_image_cadre_selection[] = "img/jeu/jeu_cadre_selection.bmp";
 	char chemin_image_fond_jeu[] = "img/jeu/jeu_image_fond.bmp";
-	char chemin_image_mode_arene[] = "img/jeu/jeu_mode_arene.bmp";
-	char chemin_image_mode_histoire[] = "img/jeu/jeu_mode_histoire.bmp";
-	char chemin_image_retour_menu[] = "img/jeu/jeu_retour_menu_principal.bmp";
+	
+	std::string chemin_images_ecran_jeu[NB_OPTIONS] =
+	{
+		"img/jeu/jeu_mode_histoire.bmp",
+		"img/jeu/jeu_mode_arene.bmp",
+		"img/jeu/jeu_retour_menu_principal.bmp"
+	};
 	
 	m_texture_cadre_selection = new Texture(chemin_image_cadre_selection);
 	m_texture_fond_jeu = new Texture(chemin_image_fond_jeu);
-	m_texture_mode_arene = new Texture(chemin_image_mode_arene);
-	m_texture_mode_histoire = new Texture(chemin_image_mode_histoire);
-	m_texture_retour_menu = new Texture(chemin_image_retour_menu);
+	for(int i = 0; i < NB_OPTIONS; i++)
+	{
+		m_textures_options_ecran_jeu[i] = new Texture(chemin_images_ecran_jeu[i].c_str());
+	}
 }
 
 void Jeu::libererTexturesEcran()
 {
+	// Suppression des textures qui auraient été oubliées.
 	delete m_texture_cadre_selection;
 	delete m_texture_fond_jeu;
-	delete m_texture_mode_arene;
-	delete m_texture_mode_histoire;
-	delete m_texture_retour_menu;
+	for(int i = 0; i < NB_OPTIONS; i++)
+	{
+		delete m_textures_options_ecran_jeu[i];
+	}
 	
+	// Fermeture des pointeurs.
 	m_texture_cadre_selection = NULL;
 	m_texture_fond_jeu = NULL;
-	m_texture_mode_arene = NULL;
-	m_texture_mode_histoire = NULL;
-	m_texture_retour_menu = NULL;
+	for(int i = 0; i < NB_OPTIONS; i++)
+	{
+		m_textures_options_ecran_jeu[i] = NULL;
+	}
 }
