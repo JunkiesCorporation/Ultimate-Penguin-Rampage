@@ -4,7 +4,7 @@
 #include "UPR.h"
 
 // temp
-int Texture::nombre = 0;
+int Texture::m_nombre_textures_restantes = 0;
 
 // Constructeurs
 //-------------------------------------
@@ -70,8 +70,7 @@ void Texture::charger(const char* chemin_image)
 		else
 		{
 			// temp
-			Texture::nombre++;
-			std::cout << "Nombre texture en memoire : " << Texture::nombre << std::endl;
+			Texture::m_nombre_textures_restantes++;
 			
 			// Récupération de la largeur de l'image chargée.
 			m_largeur = image_chargee->w;
@@ -98,8 +97,7 @@ void Texture::liberer()
 		SDL_DestroyTexture(m_image);
 		
 		// temp
-		Texture::nombre--;
-		std::cout << "Nombre texture en memoire : " << Texture::nombre << std::endl;
+		Texture::m_nombre_textures_restantes--;
 		
 		// Ré-initialisation des membres en vue d'une réutilisation éventuelle.
 		m_image = NULL;
@@ -126,6 +124,12 @@ void Texture::render(Position pos) const
 	
 	// L'instruction pour afficher la texture.
 	SDL_RenderCopy(UPR::renderer_SDL, m_image, NULL, &render_quad);
+}
+
+/* Retourne le nombre de textures restantes dans la mémoire.*/
+int Texture::getTexturesRestantes()
+{
+	return Texture::m_nombre_textures_restantes;
 }
 
 /* Retourne la largeur de l'image contenue.*/

@@ -14,9 +14,6 @@ Jeu::Jeu()
 	m_texture_mode_arene = NULL;
 	m_texture_mode_histoire = NULL;
 	m_texture_retour_menu = NULL;
-	
-	// temp
-	std::cout << "Jeu instancie." << std::endl;
 }
 
 /* Destructeur par défaut.*/
@@ -35,9 +32,6 @@ Jeu::~Jeu()
 	m_texture_mode_arene = NULL;
 	m_texture_mode_histoire = NULL;
 	m_texture_retour_menu = NULL;
-	
-	// temp
-	std::cout << "Jeu detruit." << std::endl;
 }
 
 /* Lance le jeu avec les données du Profil donné.*/
@@ -66,9 +60,6 @@ void Jeu::lancer(Profil* profil_joueur)
 	int ticks_image = 0;
 	
 	//---------------------------------
-	
-	// temp
-	std::cout << "Jeu lance avec le profil : " << profil_joueur->getNomProfil() << std::endl;
 	
 	// Chargement des images de l'écran principal du jeu.
 	chargerTexturesEcran();
@@ -172,9 +163,6 @@ void Jeu::lancer(Profil* profil_joueur)
 	
 	
 	libererTexturesEcran();
-	
-	// temp
-	std::cout << "Jeu termine, retour au menu principal." << std::endl << std::endl;
 }
 
 void Jeu::chargerTexturesEcran()

@@ -71,6 +71,12 @@ class Texture
 		 */
 		void render(Position pos) const;
 		
+		/** Retourne le nombre de textures restantes dans la mémoire.
+		 *
+		 * @return #m_nombre_textures_restantes Le nombre de textures restantes.
+		 */
+		static int getTexturesRestantes();
+		
 		/** Retourne la largeur de l'image contenue.
 		 * @return #m_largeur La largeur de l'image.
 		 */
@@ -81,13 +87,15 @@ class Texture
 		 */
 		int getHauteur() const;
 		//-----------------------------
+		
+		// Attributs membres publiques et static
+		//-----------------------------
+		static int m_nombre_textures_restantes;
+		//-----------------------------
 	
 	protected:
 	
-	private:
-		// temp
-		static int nombre;
-		
+	private:		
 		// Attributs membres privés
 		//-----------------------------
 		/** L'image contenue dans la texture.

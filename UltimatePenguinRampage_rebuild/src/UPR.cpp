@@ -31,6 +31,9 @@ int main(int argc, char* args[])
 	// Déroulement du programme.
 	instance_programme.lancer();
 	
+	// Vérification du nombre de textures restantes en mémoire.
+	std::cout << "Textures restantes : " << Texture::getTexturesRestantes() << std::endl;
+	
 	// Fermeture de la SDL.
 	Utils::quitterSDL();
 	
@@ -40,15 +43,13 @@ int main(int argc, char* args[])
 /* Constructeur par défaut.*/
 UPR::UPR()
 {
-	// temp
-	std::cout << "Programme instancie" << std::endl << std::endl;
+	
 }
 
 /* Destructeur par défaut.*/
 UPR::~UPR()
 {
-	// temp
-	std::cout << "Instance du Programme detruite" << std::endl;
+	
 }
 
 /* Fonction responsable du programme.*/
@@ -62,17 +63,12 @@ void UPR::lancer()
 	// Boucle principale du programme.
 	while(!quit)
 	{
-		// temp
-		std::cout << "Affichage du menu principal" << std::endl;
-		
 		switch(menuPrincipal())
 		{
 		// Si l'utilisateur à choisi de jouer avec un nouveau profil.
 		case 0:			
 			// Lancement du jeu avec le profil créé.
 			instance_jeu.lancer(&profil_joueur);
-			
-			std::cout << "Instance jeu terminee." << std::endl;
 			
 			// On ne quitte pas le programme à la fin du jeu, on ré-affiche le menu principal.
 			break;
@@ -90,9 +86,6 @@ void UPR::lancer()
 			quit = true;
 			break;
 		}
-		
-		// temp
-		std::cout << "Menu principal termine." << std::endl << std::endl;
 	}
 }
 
@@ -145,9 +138,6 @@ int UPR::menuPrincipal()
 	
 	//---------------------------------
 	
-	// temp
-	std::cout << "Chargement des images du menu..." << std::endl;
-	
 	// Chargement des images du menu.
 	texture_fond = new Texture(chemin_image_fond);
 	texture_nouveau_profil = new Texture(chemin_image_nouveau_profil);
@@ -155,10 +145,7 @@ int UPR::menuPrincipal()
 	texture_options = new Texture(chemin_image_options);
 	texture_quitter = new Texture(chemin_image_quitter);
 	texture_curseur = new Texture(chemin_image_curseur);
-	
-	// temp
-	std::cout << "Chargement des images termine." << std::endl;
-	
+		
 	// Calcul des positions des images du menu.
 	positions_fixes[0][0] = (UPR::LARGEUR_ECRAN - texture_nouveau_profil->getLargeur()) / 2;
 	positions_fixes[0][1] = 250;
@@ -224,7 +211,6 @@ int UPR::menuPrincipal()
 				
 				// La touche "retour" est appuyée.
 				case SDLK_RETURN:
-					std::cout << "Choix menu selectionne : " << choix << std::endl;
 					switch(choix)
 					{
 					// Si l'utilisateur souhaite créer un nouveau profil.

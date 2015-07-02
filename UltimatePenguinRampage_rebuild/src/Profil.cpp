@@ -13,9 +13,6 @@ Profil::Profil()
 	m_nom_du_profil = "";
 	
 	m_nouveau = true;
-	
-	// temp
-	std::cout << "Profil instancie." << std::endl;
 }
 //-------------------------------------
 
@@ -24,8 +21,7 @@ Profil::Profil()
 /* Destructeur par défaut.*/
 Profil::~Profil()
 {
-	// temp
-	std::cout << "Profil " << m_nom_du_profil << " detruit." << std::endl;
+	
 }
 //-------------------------------------
 
