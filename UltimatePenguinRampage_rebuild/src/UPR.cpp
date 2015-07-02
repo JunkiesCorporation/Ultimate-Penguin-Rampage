@@ -40,32 +40,49 @@ int main(int argc, char* args[])
 /* Constructeur par défaut.*/
 UPR::UPR()
 {
-	std::cout << "Instance du programme creee." << std::endl;
+	// temp
+	std::cout << "Programme instancie" << std::endl << std::endl;
 }
 
 /* Destructeur par défaut.*/
 UPR::~UPR()
 {
-	std::cout << "Instance du programme detruite." << std::endl;
+	// temp
+	std::cout << "Instance du Programme detruite" << std::endl;
 }
 
 /* Fonction responsable du programme.*/
 void UPR::lancer()
 {
-	// Contrôle de la boucle principal du programme.
+	// Contrôle de la boucle principale du programme.
 	bool quit = false;
 	
 	//---------------------------------
 	
-	// Boucle principal du programme.
+	// Boucle principale du programme.
 	while(!quit)
 	{
+		// temp
+		std::cout << "Affichage du menu principal" << std::endl;
+		
 		switch(menuPrincipal())
 		{
-		// Si l'utilisateur à choisi de jouer avec un profil, nouveau ou chargé.
-		case 0:
+		// Si l'utilisateur à choisi de jouer avec un nouveau profil.
+		case 0:			
+			// Lancement du jeu avec le profil créé.
+			instance_jeu.lancer(&profil_joueur);
+			
+			std::cout << "Instance jeu terminee." << std::endl;
+			
+			// On ne quitte pas le programme à la fin du jeu, on ré-affiche le menu principal.
+			break;
+		
+		// Si l'utilisateur à choisi de jouer avec un profil chargé.
 		case 1:
-			std::cout << "Lancement du jeu!" << std::endl;
+			// Lancement du jeu avec le profil chargé.
+			instance_jeu.lancer(&profil_joueur);
+			
+			// On ne quitte pas le programme à la fin du jeu, on ré-affiche le menu principal.
 			break;
 		
 		// Si l'utilisateur à choisi de quitter le jeu.
@@ -73,6 +90,9 @@ void UPR::lancer()
 			quit = true;
 			break;
 		}
+		
+		// temp
+		std::cout << "Menu principal termine." << std::endl << std::endl;
 	}
 }
 
@@ -125,6 +145,7 @@ int UPR::menuPrincipal()
 	
 	//---------------------------------
 	
+	// temp
 	std::cout << "Chargement des images du menu..." << std::endl;
 	
 	// Chargement des images du menu.
@@ -135,6 +156,7 @@ int UPR::menuPrincipal()
 	texture_quitter = new Texture(chemin_image_quitter);
 	texture_curseur = new Texture(chemin_image_curseur);
 	
+	// temp
 	std::cout << "Chargement des images termine." << std::endl;
 	
 	// Calcul des positions des images du menu.
@@ -166,7 +188,7 @@ int UPR::menuPrincipal()
 		// Nettoyage du renderer.
 		SDL_RenderClear(UPR::renderer_SDL);
 		
-		// Render des images fixes du menu.
+		// Affichage des images fixes du menu.
 		texture_fond->render(0, 0);
 		texture_nouveau_profil->render(positions_fixes[0][0], positions_fixes[0][1]);
 		texture_charger_profil->render(positions_fixes[1][0], positions_fixes[1][1]);
@@ -202,6 +224,7 @@ int UPR::menuPrincipal()
 				
 				// La touche "retour" est appuyée.
 				case SDLK_RETURN:
+					std::cout << "Choix menu selectionne : " << choix << std::endl;
 					switch(choix)
 					{
 					// Si l'utilisateur souhaite créer un nouveau profil.
@@ -279,5 +302,11 @@ bool UPR::nouveauProfil()
 /* Gère le chargement d'un ancien profil.*/
 bool UPR::chargerProfil()
 {
-		return true;
+	profil_joueur.setEmplacementSauvegarde(0);
+	
+	profil_joueur.setNomProfil("Debug");
+	
+	profil_joueur.setSiNouveau(true);
+	
+	return true;
 }

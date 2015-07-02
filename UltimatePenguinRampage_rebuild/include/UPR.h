@@ -3,11 +3,14 @@
 
 #include <SDL.h>
 
+#include "Jeu.h"
 #include "Profil.h"
 
 /** La classe principale du programme.
  * Contient la fenêtre ainsi que sa surface et son renderer.
  * Contient également les diverses dimensions constantes utilisées dans le programme.
+ *
+ * \todo Changer les variables contenant la position des images du menu principal.
  */
 class UPR
 {
@@ -101,6 +104,10 @@ class UPR
 		
 		// Attributs membres privés
 		//-----------------------------
+		/** L'instance du Jeu
+		 */
+		Jeu instance_jeu;
+		
 		/** Le profil utilisé par le joueur.
 		 */
 		Profil profil_joueur;
