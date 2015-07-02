@@ -19,7 +19,7 @@ A partir du 28 Juin 2015, le développement d'UPR reprend mais avec une compilat
 
   (Astuce : après avoir écrit les quelques premières lettres du nom du dossier, je peux juste appuyer sur "Tab" pour laisse la console auto-compléter le nom).
   
-3. Pour vérifier le contenu du dossier dans lequel la console est placée, entrer la commande __dir__ (= __dir__ectory).
+3. Pour vérifier le contenu du dossier dans lequel la console est placée, entrer la commande __dir__ (= **dir**ectory).
 
 4. Naviguer ainsi jusqu'au dossier dans lequel se trouve le ficher _Makefile_ du programme. Dans notre cas, il s'agit des dossiers "UltimatePenguinRampage" et "UltimatePenguinRampage_rebuild" du répertoire GitHub.
 
