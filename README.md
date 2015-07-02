@@ -9,19 +9,18 @@ A partir du 28 Juin 2015, le développement d'UPR reprend mais avec une compilat
 ## 2. Comment bien se placer avec la console.
 
 1. Ouvrir l'invite de commande Windows. Il s'agit du programme __cmd__ qui peut être lancer rapidement en cherchant "cmd" dans le menu _Démarrer_.
-
-  Par défaut, __cmd__ démarre dans le répertoire de l'utilisateur. Ainsi vous devriez voir ce genre de texte:
+	- Par défaut, __cmd__ démarre dans le répertoire de l'utilisateur. Ainsi vous devriez voir ce genre de texte:
   __C:\Users\"votre_utilisateur_windows">___
 	
-2. Naviguer jusqu'au répertoire où se situe la _Makefile_ du projet à l'aide de la commande __cd__ (= "**c**hange **d**irectory).
-  
-  Par exemple, si je souhaite me placer dans mon dossier "C++" lui-même dans le dossier "Creation Projects" de mes Documents, je dois écrire la commande suivante :  __cd "Documents\Creation Projects\C++"__ puis appuyer sur "Entrée". Les guillemets dans le chemin donné à la commande __cd__ sont nécessaires car mes noms de dossier ont des espaces.
+2. Pour naviguer parmis les dossiers, utiliser la commande __cd__ (= "**c**hange **d**irectory).
+  - Par exemple, si je souhaite me placer dans mon dossier "C++" lui-même dans le dossier "Creation Projects" de mes Documents, je dois écrire la commande suivante :  __cd "Documents\Creation Projects\C++"__ puis appuyer sur "Entrée". Les guillemets dans le chemin donné à la commande __cd__ sont nécessaires car mes noms de dossier ont des espaces. 
+  - Pour remonter au dossier supérieur, je dois entrer la commande __cd ..__ (deux points finaux éloignés de __cd__ par un espace). Je peux entrer __cd ..\\..__ pour remonter de deux dossiers d'un coup.
 
-  (Astuce : après avoir écrit les quelques premières lettres du nom du dossier, je peux juste appuyer sur "Tab" pour laisse la console auto-compléter le nom).
+  (__Astuce :__ après avoir écrit les quelques premières lettres du nom du dossier, je peux juste appuyer sur "Tab" pour laisser la console auto-compléter le nom).
   
 3. Pour vérifier le contenu du dossier dans lequel la console est placée, entrer la commande __dir__ (= **dir**ectory).
 
-4. Naviguer ainsi jusqu'au dossier dans lequel se trouve le ficher _Makefile_ du programme à compiler ou exécuter. Dans notre cas il y a deux programmes, il s'agit des dossiers "UltimatePenguinRampage" et "UltimatePenguinRampage_rebuild" du répertoire GitHub, chacun possède son fichier _Makefile_.
+4. Naviguer ainsi jusqu'au dossier dans lequel se trouve le ficher _Makefile_ du programme à compiler ou exécuter. Dans notre cas il y a deux programmes, ils se situent dans les dossiers "UltimatePenguinRampage" et "UltimatePenguinRampage_rebuild" du répertoire GitHub, chacun possèdant son fichier _Makefile_.
 
 ## 3. Comment compiler en invite de commande.
 
