@@ -53,6 +53,7 @@ class Jeu
 		{
 			MODE_HISTOIRE,
 			MODE_ARENE,
+			RETOUR_MENU,
 			NB_OPTIONS
 		};
 		
@@ -63,6 +64,8 @@ class Jeu
 		Texture* m_texture_mode_arene;
 		
 		Texture* m_texture_mode_histoire;
+		
+		Texture* m_texture_retour_menu;
 		//-----------------------------
 	
 };
