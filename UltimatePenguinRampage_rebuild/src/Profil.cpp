@@ -3,33 +3,45 @@
 #include "Profil.h"
 #include "Texture.h"
 
+// Constructeurs
+//-------------------------------------
 /* Constructeur par défaut.*/
 Profil::Profil()
 {
-	premiere_fois = true;
-	emplacement_sauvegarde = 0;
-	nom_du_profil = "Debug";
+	m_emplacement_sauvegarde = 0;
 	
-	std::cout << "Profil cree." << std::endl;
+	m_nom_du_profil = "";
+	
+	m_nouveau = true;
 }
+//-------------------------------------
 
-/* Constructeur permettant la configuration d'un profil.*/
-Profil::Profil(bool p_premiere_fois)
-{
-	// Si c'est la première fois, création d'un nouveau profil avec choix d'un emplacement de sauvegarde.
-	if(p_premiere_fois)
-	{
-		
-	}
-	// Sinon, chargement d'un profil existant après la sélection d'un emplacement de sauvegarde.
-	else
-	{
-		
-	}
-}
-
+// Destructeur
+//-------------------------------------
 /* Destructeur par défaut.*/
 Profil::~Profil()
 {
-	std::cout << "Profil " << nom_du_profil << " detruit." << std::endl;
+	std::cout << "Profil " << m_nom_du_profil << " detruit." << std::endl;
 }
+//-------------------------------------
+
+// Fonctions membres publiques
+//-------------------------------------
+/* Change l'emplacement de sauvegarde du profil.*/
+void Profil::setEmplacementSauvegarde(int p_emplacement_sauvegarde)
+{
+	m_emplacement_sauvegarde = p_emplacement_sauvegarde;
+}
+
+/* Change le nom du profil.*/
+void Profil::setNomProfil(std::string p_nom_du_profil)
+{
+	m_nom_du_profil = p_nom_du_profil;
+}
+
+/* Change s'il s'agit d'un nouveau profil ou non.*/
+void Profil::setSiNouveau(bool p_nouveau)
+{
+	m_nouveau = p_nouveau;
+}
+//-------------------------------------

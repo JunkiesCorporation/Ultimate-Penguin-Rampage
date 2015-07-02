@@ -15,11 +15,6 @@ class Profil
 		 * Initialise les attributs membres de Profil à des valeurs par défaut.
 		 */
 		Profil();
-		
-		/** Constructeur permettant la configuration d'un profil.
-		 * @param p_premiere_fois Si il s'agit d'un nouveau profil ou non. Détermine si le constructeur créé un nouveau profil ou en un charge un déjà existant.
-		 */
-		Profil(bool p_premiere_fois);
 		//-----------------------------
 		
 		// Destructeur
@@ -31,6 +26,20 @@ class Profil
 		
 		// Fonctions membres publiques
 		//-----------------------------
+		/** Change l'emplacement de sauvegarde du profil.
+		 * @param p_emplacement_sauvegarde Le nouvel emplacement du sauvegarde.
+		 */
+		void setEmplacementSauvegarde(int p_emplacement_sauvegarde);
+		
+		/** Change le nom du profil.
+		 * @param p_nom_du_profil Le nouveau nom du profil.
+		 */
+		void setNomProfil(std::string p_nom_du_profil);
+		
+		/** Change s'il s'agit d'un nouveau profil ou non.
+		 * @param p_nouveau Si c'est un nouveau profil.
+		 */
+		void setSiNouveau(bool p_nouveau);
 		//-----------------------------
 	
 	protected:
@@ -40,15 +49,15 @@ class Profil
 		//-----------------------------
 		/** Numéro de l'emplacement de sauvegarde de ce profil.
 		 */
-		int emplacement_sauvegarde;
+		int m_emplacement_sauvegarde;
 		
 		/** Le nom du profil.
 		 */
-		std::string nom_du_profil;
+		std::string m_nom_du_profil;
 		
-		/** S'il s'agit de la première fois que ce profil est utilisé.
+		/** S'il s'agit d'un nouveau profil ou non.
 		 */
-		bool premiere_fois;
+		bool m_nouveau;
 		//-----------------------------
 };
 
