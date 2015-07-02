@@ -3,6 +3,8 @@
 
 #include <SDL.h>
 
+#include "Struct.h"
+
 /** Classe qui englobe le type SDL_Texture.
  * Classe qui permet de conserver plus d'informations sur les textures chargées dans le jeu.
  *
@@ -54,13 +56,20 @@ class Texture
 		 */
 		void liberer();
 		
-		/** Affiche la texture à la position donnée.
+		/** Affiche la texture aux coordonnées données.
 		 * Attention! Cette fonction ne contient un appel qu'à SDL_RenderCopy(), il faut tout de même appeler SDL_RenderPresent() après.
 		 *
 		 * @param x La position x où afficher l'image.
 		 * @param y La position y où afficher l'image.
 		 */
 		void render(int x, int y) const;
+		
+		/** Affiche la texture à la Position donnée.
+		 * Attention! Cette fonction ne contient un appel qu'à SDL_RenderCopy(), il faut tout de même appeler SDL_RenderPresent() après.
+		 *
+		 * @param pos La Position où afficher l'image.
+		 */
+		void render(Position pos) const;
 		
 		/** Retourne la largeur de l'image contenue.
 		 * @return #m_largeur La largeur de l'image.
@@ -76,6 +85,9 @@ class Texture
 	protected:
 	
 	private:
+		// temp
+		static int nombre;
+		
 		// Attributs membres privés
 		//-----------------------------
 		/** L'image contenue dans la texture.

@@ -3,6 +3,9 @@
 #include "Texture.h"
 #include "UPR.h"
 
+// temp
+int Texture::nombre = 0;
+
 // Constructeurs
 //-------------------------------------
 /* Constructeur par défaut.*/
@@ -66,6 +69,10 @@ void Texture::charger(const char* chemin_image)
 		}
 		else
 		{
+			// temp
+			Texture::nombre++;
+			std::cout << "Nombre texture en memoire : " << Texture::nombre << std::endl;
+			
 			// Récupération de la largeur de l'image chargée.
 			m_largeur = image_chargee->w;
 			
@@ -90,6 +97,10 @@ void Texture::liberer()
 		// Destruction de l'image.
 		SDL_DestroyTexture(m_image);
 		
+		// temp
+		Texture::nombre--;
+		std::cout << "Nombre texture en memoire : " << Texture::nombre << std::endl;
+		
 		// Ré-initialisation des membres en vue d'une réutilisation éventuelle.
 		m_image = NULL;
 		m_largeur = 0;
@@ -97,11 +108,21 @@ void Texture::liberer()
 	}
 }
 
-/* Affiche la texture à la position donnée.*/
+/* Affiche la texture aux coordonnées données..*/
 void Texture::render(int x, int y) const
 {
 	// Le rectangle sur lequel la texture est projetée.
 	SDL_Rect render_quad = {x, y, m_largeur, m_hauteur};
+	
+	// L'instruction pour afficher la texture.
+	SDL_RenderCopy(UPR::renderer_SDL, m_image, NULL, &render_quad);
+}
+
+/* Affiche la texture à la Position donnée.*/
+void Texture::render(Position pos) const
+{
+	// Le rectangle sur lequel la texture est projetée.
+	SDL_Rect render_quad = {pos.x, pos.y, m_largeur, m_hauteur};
 	
 	// L'instruction pour afficher la texture.
 	SDL_RenderCopy(UPR::renderer_SDL, m_image, NULL, &render_quad);
