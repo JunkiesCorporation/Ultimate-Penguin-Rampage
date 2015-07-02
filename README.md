@@ -2,7 +2,7 @@
 
 Petit jeu, bien bourrin...
 
-__Attention__ : Tous les symboles '_' (en début de fin de mot uniquement) et '*' servent à la mise en page lorsque ce readme est visionné sur GitHub.com, ils sont à ignorer si vous avez ouvert ce fichier dans un éditeur de texte.
+__Attention__ : Tous les symboles '_' (en début de fin de mot uniquement) et '*' servent à la mise en page lorsque ce readme est visionné sur GitHub.com, ils sont à ignorer si vous avez ouvert ce fichier dans un éditeur de texte. Si vous lisez ceci sur GitHub, la mise en page a été faite et il n'y a aucun symboles à ignorer.
 
 ## 1. Développement en console.
 
