@@ -13,6 +13,9 @@ Profil::Profil()
 	m_nom_du_profil = "";
 	
 	m_nouveau = true;
+	
+	// temp
+	std::cout << "Profil instancie." << std::endl;
 }
 //-------------------------------------
 
@@ -21,12 +24,19 @@ Profil::Profil()
 /* Destructeur par défaut.*/
 Profil::~Profil()
 {
+	// temp
 	std::cout << "Profil " << m_nom_du_profil << " detruit." << std::endl;
 }
 //-------------------------------------
 
 // Fonctions membres publiques
 //-------------------------------------
+/* Retourne le nom du Profil.*/
+std::string Profil::getNomProfil()
+{
+	return m_nom_du_profil;
+}
+
 /* Change l'emplacement de sauvegarde du profil.*/
 void Profil::setEmplacementSauvegarde(int p_emplacement_sauvegarde)
 {

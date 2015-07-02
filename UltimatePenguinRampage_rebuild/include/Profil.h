@@ -26,17 +26,26 @@ class Profil
 		
 		// Fonctions membres publiques
 		//-----------------------------
+		/** Retourne le nom du Profil.
+		 *
+		 * @return m_nom_du_profil Le nom du Profil.
+		 */
+		std::string getNomProfil();
+		
 		/** Change l'emplacement de sauvegarde du profil.
+		 *
 		 * @param p_emplacement_sauvegarde Le nouvel emplacement du sauvegarde.
 		 */
 		void setEmplacementSauvegarde(int p_emplacement_sauvegarde);
 		
 		/** Change le nom du profil.
+		 *
 		 * @param p_nom_du_profil Le nouveau nom du profil.
 		 */
 		void setNomProfil(std::string p_nom_du_profil);
 		
 		/** Change s'il s'agit d'un nouveau profil ou non.
+		 *
 		 * @param p_nouveau Si c'est un nouveau profil.
 		 */
 		void setSiNouveau(bool p_nouveau);
