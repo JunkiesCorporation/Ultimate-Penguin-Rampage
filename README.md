@@ -21,7 +21,7 @@ A partir du 28 Juin 2015, le développement d'UPR reprend mais avec une compilat
   
 3. Pour vérifier le contenu du dossier dans lequel la console est placée, entrer la commande __dir__ (= **dir**ectory).
 
-4. Naviguer ainsi jusqu'au dossier dans lequel se trouve le ficher _Makefile_ du programme. Dans notre cas, il s'agit des dossiers "UltimatePenguinRampage" et "UltimatePenguinRampage_rebuild" du répertoire GitHub.
+4. Naviguer ainsi jusqu'au dossier dans lequel se trouve le ficher _Makefile_ du programme à compiler ou exécuter. Dans notre cas il y a deux programmes, il s'agit des dossiers "UltimatePenguinRampage" et "UltimatePenguinRampage_rebuild" du répertoire GitHub, chacun possède son fichier _Makefile_.
 
 ## 3. Comment compiler en invite de commande.
 
