@@ -20,6 +20,13 @@ class UPR
 		UPR();
 		//-----------------------------
 		
+		// Destructeurs
+		//-----------------------------
+		/** Destructeur par défaut.
+		 */
+		~UPR();
+		//-----------------------------
+		
 		// Fonctions membres publiques
 		//-----------------------------
 		/** Fonction responsable du programme.
@@ -71,7 +78,25 @@ class UPR
 		/** Gère l'affichage et le contrôle du menu principal.
 		 * @return Le numéro de l'option choisie.
 		 */
-		int gestionMenuPrincipal();
+		int menuPrincipal();
+		
+		/** Gère la création d'un nouveau profil.
+		 * Affiche la suite d'écrans nécessaires à la création d'un nouveau profil et modifie #profil_joueur en conséquence.
+		 *
+		 * \todo le code pour la création d'un nouveau profil.
+		 *
+		 * @return Si la création du profil a réussi.
+		 */
+		bool nouveauProfil();
+		
+		/** Gère le chargement d'un ancien profil.
+		 * Propose de charger les différents emplacements de sauvegarde puis configure #profil_joueur selon la sauvegarde.
+		 *
+		 * \todo le code pour le chargement d'un nouveau profil.
+		 *
+		 * @return Si le chargement du profil a réussi.
+		 */
+		bool chargerProfil();
 		//-----------------------------
 		
 		// Attributs membres privés

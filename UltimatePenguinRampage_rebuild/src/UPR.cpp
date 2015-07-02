@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 
 #include "Texture.h"
+#include "Timer.h"
 #include "UPR.h"
 #include "Utils.h"
 
@@ -24,15 +25,11 @@ int main(int argc, char* args[])
 		return -1;
 	}
 	
-	// Création d'une instance du programme.
-	UPR* programme = new UPR();
+	// Création d'une instance du programme. Comme elle n'est pas attribuée avec new il n'y a pas de delete correspondant. L'instance est détruite à la fin de la fonction main().
+	UPR instance_programme;
 	
 	// Déroulement du programme.
-	programme->lancer();
-	
-	// Destruction de l'instance à la fin du jeu et fermeture du pointeur.
-	delete programme;
-	programme = NULL;
+	instance_programme.lancer();
 	
 	// Fermeture de la SDL.
 	Utils::quitterSDL();
@@ -43,7 +40,13 @@ int main(int argc, char* args[])
 /* Constructeur par défaut.*/
 UPR::UPR()
 {
-	
+	std::cout << "Instance du programme creee." << std::endl;
+}
+
+/* Destructeur par défaut.*/
+UPR::~UPR()
+{
+	std::cout << "Instance du programme detruite." << std::endl;
 }
 
 /* Fonction responsable du programme.*/
@@ -57,39 +60,24 @@ void UPR::lancer()
 	// Boucle principal du programme.
 	while(!quit)
 	{
-		// Affichage du menu principal et traitement du choix.
-		switch(gestionMenuPrincipal())
+		switch(menuPrincipal())
 		{
-		// Nouveau profil.
+		// Si l'utilisateur à choisi de jouer avec un profil, nouveau ou chargé.
 		case 0:
-			// Création d'un nouveau profil.
-			(&profil_joueur)->~Profil();
-			new (&profil_joueur) Profil(true);
-			
-			// Lancement du jeu avec le profil créé.
-			// new Jeu(profil_joueur);
-			break;
-		
-		// Charger profil.
 		case 1:
+			std::cout << "Lancement du jeu!" << std::endl;
 			break;
 		
-		// Options.
-		case 2:
-			break;
-		
-		// Quitter.
+		// Si l'utilisateur à choisi de quitter le jeu.
 		case 3:
-			// Fermeture de la boucle de contrôle.
 			quit = true;
-			
 			break;
 		}
 	}
 }
 
 /* Gère l'affichage et le contrôle du menu principal.*/
-int UPR::gestionMenuPrincipal()
+int UPR::menuPrincipal()
 {
 	// Choix à retourner.
 	int choix = 0;
@@ -137,6 +125,8 @@ int UPR::gestionMenuPrincipal()
 	
 	//---------------------------------
 	
+	std::cout << "Chargement des images du menu..." << std::endl;
+	
 	// Chargement des images du menu.
 	texture_fond = new Texture(chemin_image_fond);
 	texture_nouveau_profil = new Texture(chemin_image_nouveau_profil);
@@ -144,6 +134,8 @@ int UPR::gestionMenuPrincipal()
 	texture_options = new Texture(chemin_image_options);
 	texture_quitter = new Texture(chemin_image_quitter);
 	texture_curseur = new Texture(chemin_image_curseur);
+	
+	std::cout << "Chargement des images termine." << std::endl;
 	
 	// Calcul des positions des images du menu.
 	positions_fixes[0][0] = (UPR::LARGEUR_ECRAN - texture_nouveau_profil->getLargeur()) / 2;
@@ -196,16 +188,50 @@ int UPR::gestionMenuPrincipal()
 				// Switch sur le symbole de la touche appuyée.
 				switch(e.key.keysym.sym)
 				{
+				// La touche "flèche_bas" est appuyée.
 				case SDLK_DOWN:
 					choix++;
 					if(choix > 3) { choix = 0; }
 					break;
+				
+				// La touche "flèche_haut" est appuyée.
 				case SDLK_UP:
 					choix--;
 					if(choix < 0) { choix = 3; }
 					break;
+				
+				// La touche "retour" est appuyée.
 				case SDLK_RETURN:
-					quit = true;
+					switch(choix)
+					{
+					// Si l'utilisateur souhaite créer un nouveau profil.
+					case 0:
+						// Si la création du nouveau profil a réussi.
+						if(nouveauProfil())
+						{
+							quit = true;
+						}
+						break;
+					
+					// Si l'utilisateur souhaite charger un ancien profil.
+					case 1:
+						// Si le chargement de l'ancien profil a réussi.
+						if(chargerProfil())
+						{
+							quit = true;
+						}
+						break;
+					
+					// Si l'utilisateur souhaite changer les options.
+					case 2:
+						// reglageOptions();
+						break;
+					
+					// Si l'utilisateur choisi de quitter.
+					case 3:
+						quit = true;
+						break;
+					}
 					break;
 				}
 			}
@@ -236,4 +262,22 @@ int UPR::gestionMenuPrincipal()
 	texture_curseur = NULL;
 	
 	return choix;
+}
+
+/* Gère la création d'un nouveau profil.*/
+bool UPR::nouveauProfil()
+{
+	profil_joueur.setEmplacementSauvegarde(0);
+	
+	profil_joueur.setNomProfil("Debug");
+	
+	profil_joueur.setSiNouveau(true);
+	
+	return true;
+}
+
+/* Gère le chargement d'un ancien profil.*/
+bool UPR::chargerProfil()
+{
+		return true;
 }
