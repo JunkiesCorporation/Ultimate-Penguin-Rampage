@@ -3,7 +3,6 @@
 
 #include "Jeu.h"
 #include "Struct.h"
-#include "Timer.h"
 #include "UPR.h"
 
 /* Constructeur par défaut.*/
@@ -13,11 +12,14 @@ Jeu::Jeu()
 	// Texture du cadre de sélection.
 	m_texture_cadre_selection = NULL;
 	m_texture_fond_jeu = NULL;
+	m_texture_fond_mode_histoire = NULL;
 	// Textures de l'écran du jeu.
 	for(int i = 0; i < NB_OPTIONS; i++)
 	{
 		m_textures_options_ecran_jeu[i] = NULL;
 	}
+	
+	ticks_image = 0;
 }
 
 /* Destructeur par défaut.*/
@@ -26,6 +28,7 @@ Jeu::~Jeu()
 	// Suppression des textures qui auraient été oubliées.
 	delete m_texture_cadre_selection;
 	delete m_texture_fond_jeu;
+	delete m_texture_fond_mode_histoire;
 	for(int i = 0; i < NB_OPTIONS; i++)
 	{
 		delete m_textures_options_ecran_jeu[i];
@@ -34,6 +37,7 @@ Jeu::~Jeu()
 	// Fermeture des pointeurs.
 	m_texture_cadre_selection = NULL;
 	m_texture_fond_jeu = NULL;
+	m_texture_fond_mode_histoire = NULL;
 	for(int i = 0; i < NB_OPTIONS; i++)
 	{
 		m_textures_options_ecran_jeu[i] = NULL;
@@ -43,14 +47,17 @@ Jeu::~Jeu()
 /* Lance le jeu avec les données du Profil donné.*/
 void Jeu::lancer(Profil* profil_joueur)
 {
-	// Contrôle de la boucle du Jeu.
+	// Contrôle de la boucle de l'écran principal du jeu.
 	bool quit = false;
 	
+	// Chemin d'accès à l'image du curseur de sélection.
+	char chemin_image_cadre_selection[] = "img/jeu/jeu_cadre_selection.bmp";
+	
 	// La position actuelle du curseur.
-	enum_ecran_options position_curseur_act = MODE_HISTOIRE;
+	EnumOptionsEcranPrincipal position_curseur_act = MODE_HISTOIRE;
 	
 	// La position précédente du curseur.
-	enum_ecran_options position_curseur_prec = MODE_HISTOIRE;
+	EnumOptionsEcranPrincipal position_curseur_prec = MODE_HISTOIRE;
 	
 	// Positions des images de l'écran principal du jeu.
 	Position positions_textures_ecran[NB_OPTIONS] = {{0, 0}};
@@ -58,17 +65,17 @@ void Jeu::lancer(Profil* profil_joueur)
 	// Positions du curseur lors de l'écran principal du jeu.
 	Position positions_curseur_ecran[NB_OPTIONS] = {{0, 0}};
 	
-	// Élément de manipulations des événements.
-	SDL_Event e;
-	
 	// Timer pour bloquer les FPS à 60 et nombre ticks par image.
-	Timer timer;
-	int ticks_image = 0;
+	ticks_image = 0;
 	
 	//---------------------------------
 	
 	// Chargement des images de l'écran principal du jeu.
 	chargerTexturesEcran();
+	
+	// Chargement de l'image du curseur de sélection.
+	m_texture_cadre_selection = new Texture(chemin_image_cadre_selection);
+
 	
 	// Attribution des positions des images de l'écran principal du jeu.
 	positions_textures_ecran[MODE_HISTOIRE] = {120, 250};
@@ -80,7 +87,7 @@ void Jeu::lancer(Profil* profil_joueur)
 	positions_curseur_ecran[MODE_ARENE] = {525, 245};
 	positions_curseur_ecran[RETOUR_MENU] = {320, 475};
 	
-	// Boucle du jeu.
+	// Boucle de l'écran principal du jeu.
 	while(!quit)
 	{
 		// Début du chronométrage de l'image.
@@ -150,6 +157,15 @@ void Jeu::lancer(Profil* profil_joueur)
 				case SDLK_RETURN:
 					switch(position_curseur_act)
 					{
+					// Si l'utilisateur choisi le mode histoire.
+					case MODE_HISTOIRE:
+						libererTexturesEcran();
+						
+						modeHistoire(profil_joueur);
+						
+						chargerTexturesEcran();
+						break;
+					
 					// Si l'utilisateur choisi de retourner au menu principal.
 					case RETOUR_MENU:
 						quit = true;
@@ -168,15 +184,17 @@ void Jeu::lancer(Profil* profil_joueur)
 		}
 	}
 	
+	delete m_texture_cadre_selection;
+	m_texture_cadre_selection = NULL;
 	
+	// Libération des images de l'écran principal du jeu.
 	libererTexturesEcran();
 }
 
 void Jeu::chargerTexturesEcran()
 {
-	char chemin_image_cadre_selection[] = "img/jeu/jeu_cadre_selection.bmp";
-	char chemin_image_fond_jeu[] = "img/jeu/jeu_image_fond.bmp";
 	
+	char chemin_image_fond_jeu[] = "img/jeu/jeu_image_fond.bmp";
 	std::string chemin_images_ecran_jeu[NB_OPTIONS] =
 	{
 		"img/jeu/jeu_mode_histoire.bmp",
@@ -184,7 +202,6 @@ void Jeu::chargerTexturesEcran()
 		"img/jeu/jeu_retour_menu_principal.bmp"
 	};
 	
-	m_texture_cadre_selection = new Texture(chemin_image_cadre_selection);
 	m_texture_fond_jeu = new Texture(chemin_image_fond_jeu);
 	for(int i = 0; i < NB_OPTIONS; i++)
 	{
@@ -195,7 +212,6 @@ void Jeu::chargerTexturesEcran()
 void Jeu::libererTexturesEcran()
 {
 	// Suppression des textures qui auraient été oubliées.
-	delete m_texture_cadre_selection;
 	delete m_texture_fond_jeu;
 	for(int i = 0; i < NB_OPTIONS; i++)
 	{
@@ -203,10 +219,79 @@ void Jeu::libererTexturesEcran()
 	}
 	
 	// Fermeture des pointeurs.
-	m_texture_cadre_selection = NULL;
 	m_texture_fond_jeu = NULL;
 	for(int i = 0; i < NB_OPTIONS; i++)
 	{
 		m_textures_options_ecran_jeu[i] = NULL;
 	}
+}
+
+void Jeu::modeHistoire(Profil* profil_joueur)
+{
+	// Contrôle de la boucle de la sélection de niveau.
+	bool quit = false;
+	
+	//---------------------------------
+	
+	// Chargement des images de la sélection du niveau.
+	chargerTexturesModeHistoire();
+	
+	// Affichage de l'image de fond de la sélection du niveau.
+	
+	ticks_image = 0;
+	
+	while(!quit)
+	{
+		// Début du chronométrage de l'image.
+		timer.start();
+		
+		// Nettoyage du renderer.
+		SDL_RenderClear(UPR::renderer_SDL);
+		
+		// Affichage de l'image de fond de la sélection du niveau.
+		m_texture_fond_mode_histoire->render(0, 0);
+		
+		// Affichage à l'écran.
+		SDL_RenderPresent(UPR::renderer_SDL);
+		
+		while(SDL_PollEvent(&e) != 0)
+		{
+			// Si une touche est appuyée.
+			if(e.type == SDL_KEYDOWN)
+			{
+				// Switch sur le symbole de la touche appuyée.
+				switch(e.key.keysym.sym)
+				{
+				// La touche "q" est appuyée.
+				case SDLK_q:
+					quit = true;
+					break;
+				}
+			}
+		}
+		
+		// Correction si le FPS dépasse le maximum.
+		ticks_image = timer.getTicks();
+		if(ticks_image < UPR::TICKS_ECRAN_PAR_IMAGE)
+		{
+			SDL_Delay(UPR::TICKS_ECRAN_PAR_IMAGE - ticks_image);
+		}
+	}
+	
+	// Libération des images de la sélection du niveau.
+	libererTexturesModeHistoire();
+}
+
+void Jeu::chargerTexturesModeHistoire()
+{
+	char chemin_image_fond_mode_histoire[] = "img/jeu/mode_histoire/mode_histoire_image_fond.bmp";
+	
+	m_texture_fond_mode_histoire = new Texture(chemin_image_fond_mode_histoire);
+}
+
+void Jeu::libererTexturesModeHistoire()
+{
+	delete m_texture_fond_mode_histoire;
+	
+	m_texture_fond_mode_histoire = NULL;
 }

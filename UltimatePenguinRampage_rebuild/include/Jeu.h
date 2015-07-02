@@ -3,6 +3,7 @@
 
 #include "Profil.h"
 #include "Texture.h"
+#include "Timer.h"
 
 /** La classe qui contient le déroulement du jeu une fois lancé à partir du menu principal.
  * \todo Documentation de Jeu.
@@ -45,11 +46,17 @@ class Jeu
 		void chargerTexturesEcran();
 		
 		void libererTexturesEcran();
+		
+		void modeHistoire(Profil* profil_joueur);
+		
+		void chargerTexturesModeHistoire();
+		
+		void libererTexturesModeHistoire();
 		//-----------------------------
 		
 		// Attributs membres privés
 		//-----------------------------
-		enum enum_ecran_options
+		enum EnumOptionsEcranPrincipal
 		{
 			MODE_HISTOIRE,
 			MODE_ARENE,
@@ -61,7 +68,17 @@ class Jeu
 		
 		Texture* m_texture_fond_jeu;
 		
+		Texture* m_texture_fond_mode_histoire;
+		
 		Texture* m_textures_options_ecran_jeu[NB_OPTIONS];
+		
+		Timer timer;
+		
+		int ticks_image;
+		
+		// Élément de manipulations des événements.
+		SDL_Event e;
+		
 		//-----------------------------
 	
 };
