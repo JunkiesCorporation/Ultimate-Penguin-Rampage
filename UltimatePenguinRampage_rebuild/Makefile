@@ -1,5 +1,5 @@
 #OBJS specifies which files to compile as part of the project
-OBJS = src\Profil.cpp src\Texture.cpp src\Timer.cpp src\UPR.cpp src\Utils.cpp
+OBJS = src\Jeu.cpp src\Profil.cpp src\Texture.cpp src\Timer.cpp src\UPR.cpp src\Utils.cpp
 
 #CC specifies which compiler we're using
 CC = g++
@@ -14,7 +14,7 @@ LIBRARY_PATHS = -Llibraries\lib
 # -w suppresses all warnings
 # -Wl,-subsystem,windows gets rid of the console window
 # -g preps the program for easy debugging
-COMPILER_FLAGS = -g
+COMPILER_FLAGS = -g -std=c++11
 
 #LINKER_FLAGS specifies the libraries we're linking against
 LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2
