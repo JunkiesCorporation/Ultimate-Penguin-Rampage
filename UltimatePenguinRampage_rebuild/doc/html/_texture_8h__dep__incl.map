@@ -1,4 +1,9 @@
 <map id="include/Texture.h" name="include/Texture.h">
-<area shape="rect" id="node2" href="$_texture_8cpp.html" title="src/Texture.cpp" alt="" coords="5,80,117,107"/>
-<area shape="rect" id="node3" href="$_u_p_r_8cpp.html" title="src/UPR.cpp" alt="" coords="141,80,237,107"/>
+<area shape="rect" id="node2" href="$_profil_8cpp.html" title="src/Profil.cpp" alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node3" href="$_texture_8cpp.html" title="src/Texture.cpp" alt="" coords="29,229,141,256"/>
+<area shape="rect" id="node4" href="$_u_p_r_8cpp.html" title="src/UPR.cpp" alt="" coords="399,229,495,256"/>
+<area shape="rect" id="node5" href="$_jeu_8h.html" title="include/Jeu.h" alt="" coords="179,80,277,107"/>
+<area shape="rect" id="node6" href="$_jeu_8cpp.html" title="src/Jeu.cpp" alt="" coords="166,229,255,256"/>
+<area shape="rect" id="node7" href="$_u_p_r_8h.html" title="include/UPR.h" alt="" coords="249,155,354,181"/>
+<area shape="rect" id="node8" href="$_utils_8cpp.html" title="src/Utils.cpp" alt="" coords="279,229,374,256"/>
 </map>

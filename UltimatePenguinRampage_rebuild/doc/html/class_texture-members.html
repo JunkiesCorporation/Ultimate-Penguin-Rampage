@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -93,14 +94,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <tr class="even"><td class="entry"><a class="el" href="class_texture.html#a021907ff4f92101782c3fbffc609d9c0">charger</a>(const char *chemin_image)</td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_texture.html#ac500f25ea924dd8a05d15ebb7f47f603">getHauteur</a>() const </td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_texture.html#a972f486b281dd5379e7ee802a3792497">getLargeur</a>() const </td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_texture.html#a764098794f6069f9f3569d772f511190">liberer</a>()</td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_texture.html#abf0dffcfa8f8b76bf966a4cb150fb5c6">m_hauteur</a></td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_texture.html#ae2157c3994c99824e640cd01810ce104">m_image</a></td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_texture.html#a84bb5fba2ef025fa9a1cb6c568bb1e88">m_largeur</a></td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_texture.html#a72b4c020ee89c982f65efd9a4a8bf9c9">getTexturesRestantes</a>()</td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_texture.html#a764098794f6069f9f3569d772f511190">liberer</a>()</td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_texture.html#abf0dffcfa8f8b76bf966a4cb150fb5c6">m_hauteur</a></td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_texture.html#ae2157c3994c99824e640cd01810ce104">m_image</a></td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_texture.html#a84bb5fba2ef025fa9a1cb6c568bb1e88">m_largeur</a></td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_texture.html#afb7caab05c7102863778f8f36c8f2f81">m_nombre_textures_restantes</a></td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_texture.html#aa578b09504e119096bede0afba62d558">render</a>(int x, int y) const </td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_texture.html#a6c275e3f186675ff6ed73ccf970e552f">Texture</a>()</td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_texture.html#a3da8cb18dfc1afcceb2806bfa95913f6">Texture</a>(const char *chemin_image)</td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a">~Texture</a>()</td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_texture.html#af2465d75ff33ff316614240347a94b56">render</a>(Position pos_render) const </td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_texture.html#a6c275e3f186675ff6ed73ccf970e552f">Texture</a>()</td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_texture.html#a3da8cb18dfc1afcceb2806bfa95913f6">Texture</a>(const char *chemin_image)</td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a">~Texture</a>()</td><td class="entry"><a class="el" href="class_texture.html">Texture</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

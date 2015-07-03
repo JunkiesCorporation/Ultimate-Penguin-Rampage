@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -84,7 +85,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
 <a href="#pub-static-attribs">Attributs publics statiques</a> &#124;
+<a href="#pri-methods">Fonctions membres privées</a> &#124;
+<a href="#pri-attribs">Attributs privés</a> &#124;
 <a href="class_u_p_r-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe UPR</div>  </div>
@@ -95,7 +99,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
  <a href="class_u_p_r.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_u_p_r_8h_source.html">UPR.h</a>&gt;</code></p>
+<div class="dynheader">
+Graphe de collaboration de UPR:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_u_p_r__coll__graph.png" border="0" usemap="#_u_p_r_coll__map" alt="Collaboration graph"/></div>
+<map name="_u_p_r_coll__map" id="_u_p_r_coll__map">
+<area shape="rect" id="node2" href="class_jeu.html" title="Classe permettant le déroulement du jeu au&#45;delà de menu principal. " alt="" coords="121,153,163,180"/>
+<area shape="rect" id="node3" href="class_texture.html" title="Classe qui englobe le type SDL_Texture. " alt="" coords="5,5,71,32"/>
+<area shape="rect" id="node4" href="class_timer.html" title="Classe permettant de mesurer le temps écoulé à partir d&#39;un point. " alt="" coords="219,5,273,32"/>
+<area shape="rect" id="node5" href="class_profil.html" title="Classe du profil du joueur. " alt="" coords="225,153,275,180"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a01d30169734db4f41e6c4750302b265b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a01d30169734db4f41e6c4750302b265b">UPR</a> ()</td></tr>
+<tr class="memdesc:a01d30169734db4f41e6c4750302b265b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur par défaut.  <a href="#a01d30169734db4f41e6c4750302b265b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a01d30169734db4f41e6c4750302b265b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a432864bf2e17a7d11d5e642bbef0c818"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a432864bf2e17a7d11d5e642bbef0c818">~UPR</a> ()</td></tr>
+<tr class="memdesc:a432864bf2e17a7d11d5e642bbef0c818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur par défaut.  <a href="#a432864bf2e17a7d11d5e642bbef0c818">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a432864bf2e17a7d11d5e642bbef0c818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43b14a43124137dcaa6e6b6d0b5e21b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a43b14a43124137dcaa6e6b6d0b5e21b0">lancer</a> ()</td></tr>
+<tr class="memdesc:a43b14a43124137dcaa6e6b6d0b5e21b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction responsable du programme.  <a href="#a43b14a43124137dcaa6e6b6d0b5e21b0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a43b14a43124137dcaa6e6b6d0b5e21b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Attributs publics statiques</h2></td></tr>
 <tr class="memitem:a29b280f8a41e96854465f42ce303520b"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a29b280f8a41e96854465f42ce303520b">LARGEUR_ECRAN</a> = 800</td></tr>
@@ -104,17 +131,210 @@ Attributs publics statiques</h2></td></tr>
 <tr class="memitem:a68b3cf191ad71e0bea073c214f47b760"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a68b3cf191ad71e0bea073c214f47b760">HAUTEUR_ECRAN</a> = 640</td></tr>
 <tr class="memdesc:a68b3cf191ad71e0bea073c214f47b760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hauteur de l'écran (= 20 tiles).  <a href="#a68b3cf191ad71e0bea073c214f47b760">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a68b3cf191ad71e0bea073c214f47b760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5543484815fc0435580d42f34f05c83"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#ab5543484815fc0435580d42f34f05c83">FPS_ECRAN</a> = 60</td></tr>
+<tr class="memdesc:ab5543484815fc0435580d42f34f05c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">FPS maximum du jeu.  <a href="#ab5543484815fc0435580d42f34f05c83">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab5543484815fc0435580d42f34f05c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d62bf93aae3f13f433fdb167185f1d0"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a8d62bf93aae3f13f433fdb167185f1d0">TICKS_ECRAN_PAR_IMAGE</a> = 1000 / <a class="el" href="class_u_p_r.html#ab5543484815fc0435580d42f34f05c83">FPS_ECRAN</a></td></tr>
+<tr class="memdesc:a8d62bf93aae3f13f433fdb167185f1d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ticks écran par image.  <a href="#a8d62bf93aae3f13f433fdb167185f1d0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8d62bf93aae3f13f433fdb167185f1d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a337a823f61ad23359193a2d031d3376e"><td class="memItemLeft" align="right" valign="top">static SDL_Window *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e">fenetre_SDL</a> = NULL</td></tr>
 <tr class="memdesc:a337a823f61ad23359193a2d031d3376e"><td class="mdescLeft">&#160;</td><td class="mdescRight">La fenêtre du programme.  <a href="#a337a823f61ad23359193a2d031d3376e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a337a823f61ad23359193a2d031d3376e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dd7c5199d974bb2a935763f4946f36c"><td class="memItemLeft" align="right" valign="top">static SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a5dd7c5199d974bb2a935763f4946f36c">renderer_SDL</a> = NULL</td></tr>
 <tr class="memdesc:a5dd7c5199d974bb2a935763f4946f36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le renderer de <a class="el" href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e" title="La fenêtre du programme. ">UPR::fenetre_SDL</a>.  <a href="#a5dd7c5199d974bb2a935763f4946f36c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a5dd7c5199d974bb2a935763f4946f36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Fonctions membres privées</h2></td></tr>
+<tr class="memitem:a5a338403a0a71006dc06ce36e3fb1d4b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a5a338403a0a71006dc06ce36e3fb1d4b">chargerProfil</a> ()</td></tr>
+<tr class="memdesc:a5a338403a0a71006dc06ce36e3fb1d4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère le chargement d'un ancien profil.  <a href="#a5a338403a0a71006dc06ce36e3fb1d4b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5a338403a0a71006dc06ce36e3fb1d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37e71f661900871687b2e3a3a799b832"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a37e71f661900871687b2e3a3a799b832">menuPrincipal</a> ()</td></tr>
+<tr class="memdesc:a37e71f661900871687b2e3a3a799b832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche et gère le menu principal.  <a href="#a37e71f661900871687b2e3a3a799b832">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a37e71f661900871687b2e3a3a799b832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc71e95c0e72c35cf079abdcfdbfd369"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#acc71e95c0e72c35cf079abdcfdbfd369">nouveauProfil</a> ()</td></tr>
+<tr class="memdesc:acc71e95c0e72c35cf079abdcfdbfd369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère la création d'un nouveau profil.  <a href="#acc71e95c0e72c35cf079abdcfdbfd369">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acc71e95c0e72c35cf079abdcfdbfd369"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr class="memitem:abe693acec2376344fd7a43f010bceb89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_jeu.html">Jeu</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#abe693acec2376344fd7a43f010bceb89">instance_jeu</a></td></tr>
+<tr class="memdesc:abe693acec2376344fd7a43f010bceb89"><td class="mdescLeft">&#160;</td><td class="mdescRight">L'instance du <a class="el" href="class_jeu.html" title="Classe permettant le déroulement du jeu au-delà de menu principal. ">Jeu</a>.  <a href="#abe693acec2376344fd7a43f010bceb89">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abe693acec2376344fd7a43f010bceb89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9324198e7faf7d5519c83bdf6dd2596a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_profil.html">Profil</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_p_r.html#a9324198e7faf7d5519c83bdf6dd2596a">profil_joueur</a></td></tr>
+<tr class="memdesc:a9324198e7faf7d5519c83bdf6dd2596a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le profil utilisé par le joueur.  <a href="#a9324198e7faf7d5519c83bdf6dd2596a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9324198e7faf7d5519c83bdf6dd2596a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>La classe principale du programme. </p>
-<p>Contient la fenêtre ainsi que sa surface et son renderer. Contient également les diverses dimensions constantes utilisées dans le programme. </p>
-</div><h2 class="groupheader">Documentation des données membres</h2>
+<p>Contient la fenêtre du programme ainsi que son renderer. Contient également les diverses dimensions constantes utilisées dans le programme.</p>
+<p>Permet le lancement du programme via la fonction <a class="el" href="class_u_p_r.html#a43b14a43124137dcaa6e6b6d0b5e21b0" title="Fonction responsable du programme. ">lancer()</a>.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">A faire:</a></b></dt><dd>Changer les variables contenant la position des images du menu principal. </dd></dl>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="a01d30169734db4f41e6c4750302b265b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UPR::UPR </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructeur par défaut. </p>
+<p>Seul et unique constructeur d'<a class="el" href="class_u_p_r.html" title="La classe principale du programme. ">UPR</a>, initialise les attributs du programme. </p>
+
+</div>
+</div>
+<a class="anchor" id="a432864bf2e17a7d11d5e642bbef0c818"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UPR::~UPR </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructeur par défaut. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a class="anchor" id="a5a338403a0a71006dc06ce36e3fb1d4b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UPR::chargerProfil </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gère le chargement d'un ancien profil. </p>
+<p>Propose de sélectionner parmi les différents emplacements de sauvegarde puis configure <a class="el" href="class_u_p_r.html#a9324198e7faf7d5519c83bdf6dd2596a" title="Le profil utilisé par le joueur. ">profil_joueur</a> selon la sauvegarde choisie.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">A faire:</a></b></dt><dd>Code et description pour le chargement d'un nouveau profil.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Si le chargement du profil a réussi. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a43b14a43124137dcaa6e6b6d0b5e21b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UPR::lancer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction responsable du programme. </p>
+<ol type="1">
+<li>Appelle <a class="el" href="class_u_p_r.html#a37e71f661900871687b2e3a3a799b832" title="Affiche et gère le menu principal. ">menuPrincipal()</a> pour gérer l'affichage du menu principal et récupérer le choix de l'utilisateur.</li>
+<li>Agit en conséquence des choix de l'utilisateur de deux manières distinctes :<ul>
+<li>Démarre <a class="el" href="class_u_p_r.html#abe693acec2376344fd7a43f010bceb89" title="L&#39;instance du Jeu. ">instance_jeu</a> avec <a class="el" href="class_u_p_r.html#a9324198e7faf7d5519c83bdf6dd2596a" title="Le profil utilisé par le joueur. ">profil_joueur</a> si l'utilisateur choisi de jouer.</li>
+<li>Quitte le programme si l'utilisateur à choisi de quitter. </li>
+</ul>
+</li>
+</ol>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">A faire:</a></b></dt><dd>Ajout d'instructions pour ré-initialiser <a class="el" href="class_u_p_r.html#abe693acec2376344fd7a43f010bceb89" title="L&#39;instance du Jeu. ">instance_jeu</a>. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">A faire:</a></b></dt><dd>Ajout d'instructions pour ré-initialiser <a class="el" href="class_u_p_r.html#abe693acec2376344fd7a43f010bceb89" title="L&#39;instance du Jeu. ">instance_jeu</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a37e71f661900871687b2e3a3a799b832"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UPR::menuPrincipal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Affiche et gère le menu principal. </p>
+<ol type="1">
+<li>Permet à l'utilisateur de sélectionner l'un des choix du menu principal à l'aide des flèches haut et bas et de la touche "retour". Les 4 options sont :<ol type="a">
+<li>Nouveau profil.</li>
+<li>Charger profil.</li>
+<li>Options.</li>
+<li>Quitter.</li>
+</ol>
+</li>
+<li>Agit selon le choix de l'utilisateur :<ol type="a">
+<li>Nouveau profil : appelle <a class="el" href="class_u_p_r.html#acc71e95c0e72c35cf079abdcfdbfd369" title="Gère la création d&#39;un nouveau profil. ">nouveauProfil()</a> et se termine si la création du profil est réussie.</li>
+<li>Charger profil : appelle <a class="el" href="class_u_p_r.html#a5a338403a0a71006dc06ce36e3fb1d4b" title="Gère le chargement d&#39;un ancien profil. ">chargerProfil()</a> et se termine si le chargement du profil est réussi.</li>
+<li>Options : <em>cf. à faire</em>.</li>
+<li>Quitter : quitte le menu principal sans confirmation.</li>
+</ol>
+</li>
+<li>Au moment de quitter, renvoie le choix final de l'utilisateur.</li>
+</ol>
+<dl class="section return"><dt>Renvoie</dt><dd>Le numéro de l'option choisie. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">A faire:</a></b></dt><dd>Ajout de la fonction permettant de changer les options du jeu. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acc71e95c0e72c35cf079abdcfdbfd369"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UPR::nouveauProfil </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gère la création d'un nouveau profil. </p>
+<p>Guide l'utilisateur pendant la création d'un nouveau profil et modifie <a class="el" href="class_u_p_r.html#a9324198e7faf7d5519c83bdf6dd2596a" title="Le profil utilisé par le joueur. ">profil_joueur</a> en conséquence.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">A faire:</a></b></dt><dd>Code et description pour la création d'un nouveau profil.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Si la création du profil a réussi. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
 <a class="anchor" id="a337a823f61ad23359193a2d031d3376e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -135,7 +355,29 @@ Attributs publics statiques</h2></td></tr>
 
 <p>La fenêtre du programme. </p>
 <p>Créée dans <a class="el" href="class_utils.html#a65fa5f629d47909dcd35b7194a394df5" title="Initialise la SDL et ses principaux composants. ">Utils::initialisationSDL()</a>.</p>
-<p>Détruite dans <a class="el" href="class_utils.html#a1a1317e9deaac6dc1ad285d101b6f929" title="Détruit les composants restants de la SDL et quitte correctement les systèmes ouverts. ">Utils::quitter()</a>. </p>
+<p>Détruite dans Utils::quitter(). </p>
+
+</div>
+</div>
+<a class="anchor" id="ab5543484815fc0435580d42f34f05c83"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int UPR::FPS_ECRAN = 60</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>FPS maximum du jeu. </p>
 
 </div>
 </div>
@@ -161,6 +403,28 @@ Attributs publics statiques</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="abe693acec2376344fd7a43f010bceb89"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_jeu.html">Jeu</a> UPR::instance_jeu</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>L'instance du <a class="el" href="class_jeu.html" title="Classe permettant le déroulement du jeu au-delà de menu principal. ">Jeu</a>. </p>
+
+</div>
+</div>
 <a class="anchor" id="a29b280f8a41e96854465f42ce303520b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -180,6 +444,28 @@ Attributs publics statiques</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Largeur de l'écran (= 25 tiles). </p>
+
+</div>
+</div>
+<a class="anchor" id="a9324198e7faf7d5519c83bdf6dd2596a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_profil.html">Profil</a> UPR::profil_joueur</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Le profil utilisé par le joueur. </p>
 
 </div>
 </div>
@@ -203,7 +489,29 @@ Attributs publics statiques</h2></td></tr>
 
 <p>Le renderer de <a class="el" href="class_u_p_r.html#a337a823f61ad23359193a2d031d3376e" title="La fenêtre du programme. ">UPR::fenetre_SDL</a>. </p>
 <p>Créé dans <a class="el" href="class_utils.html#a65fa5f629d47909dcd35b7194a394df5" title="Initialise la SDL et ses principaux composants. ">Utils::initialisationSDL()</a>.</p>
-<p>Détruit dans <a class="el" href="class_utils.html#a1a1317e9deaac6dc1ad285d101b6f929" title="Détruit les composants restants de la SDL et quitte correctement les systèmes ouverts. ">Utils::quitter()</a>; </p>
+<p>Détruit dans Utils::quitter(); </p>
+
+</div>
+</div>
+<a class="anchor" id="a8d62bf93aae3f13f433fdb167185f1d0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int UPR::TICKS_ECRAN_PAR_IMAGE = 1000 / <a class="el" href="class_u_p_r.html#ab5543484815fc0435580d42f34f05c83">FPS_ECRAN</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ticks écran par image. </p>
 
 </div>
 </div>

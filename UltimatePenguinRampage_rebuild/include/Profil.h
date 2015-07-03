@@ -4,7 +4,20 @@
 #include <string>
 
 /** Classe du profil du joueur.
- * \todo description de Profil.
+ *
+ * *En construction au fur et à mesure de l'avancée de la première version jouable d'Ultimate Penguin Rampage.*
+ *
+ * Contient toutes les informations concernant le profil du joueur avec lequel une instance de Jeu peut se #Jeu::lancer(). Actuellement ces informations sont :
+ * - L'emplacement de sauvegarde que le profil doit utiliser.
+ * - Le nom du profil.
+ * - S'il s'agit d'un profil nouvellement créé (sera peut-être remplacé par un marqueur d'avancée dans l'histoire).
+ *
+ * Plus tard, on peut imaginer que les informations suivantes seront également contenues ici.
+ * - Avancée du joueur dans l'histoire.
+ * - Avancée du joueur dans les arènes.
+ * - Développement de la base secrète du joueur.
+ * - Caractéristiques du héros du joueur. (Statistiques, avancement des compétences, inventaire, armes, etc.)
+ * - etc.
  */
 class Profil
 {
@@ -12,6 +25,7 @@ class Profil
 		// Constructeurs
 		//-----------------------------
 		/** Constructeur par défaut.
+		 *
 		 * Initialise les attributs membres de Profil à des valeurs par défaut.
 		 */
 		Profil();
@@ -30,7 +44,7 @@ class Profil
 		 *
 		 * @return m_nom_du_profil Le nom du Profil.
 		 */
-		std::string getNomProfil();
+		std::string getNomProfil() const;
 		
 		/** Change l'emplacement de sauvegarde du profil.
 		 *

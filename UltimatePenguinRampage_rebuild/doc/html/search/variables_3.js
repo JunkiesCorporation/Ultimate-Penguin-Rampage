@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['m_5fhauteur',['m_hauteur',['../class_texture.html#abf0dffcfa8f8b76bf966a4cb150fb5c6',1,'Texture']]],
-  ['m_5fimage',['m_image',['../class_texture.html#ae2157c3994c99824e640cd01810ce104',1,'Texture']]],
-  ['m_5flargeur',['m_largeur',['../class_texture.html#a84bb5fba2ef025fa9a1cb6c568bb1e88',1,'Texture']]]
+  ['instance_5fjeu',['instance_jeu',['../class_u_p_r.html#abe693acec2376344fd7a43f010bceb89',1,'UPR']]]
 ];

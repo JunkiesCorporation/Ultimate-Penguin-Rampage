@@ -5,9 +5,10 @@
 // Constructeur
 //-------------------------------------
 /* Constructeur par défaut.*/
-Timer::Timer() : m_ticks_depart(0)
+Timer::Timer()
 {
-	
+	// Initialisation du nombre de ticks au départ à 0.
+	m_ticks_depart = 0;
 }
 //-------------------------------------
 
@@ -16,13 +17,14 @@ Timer::Timer() : m_ticks_depart(0)
 /* Démarre le Timer.*/
 void Timer::start()
 {
-	// On récupère le temps système actuel.
+	// Récupération du temps système actuel.
 	m_ticks_depart = SDL_GetTicks();
 }
 
 /* Retourne le nombre de ticks écoulé depuis le démarrage du Timer.*/
 Uint32 Timer::getTicks()
 {
+	// Retour de la différence entre le temps système actuel et le temps de départ.
 	return SDL_GetTicks() - m_ticks_depart;
 }
 //-------------------------------------

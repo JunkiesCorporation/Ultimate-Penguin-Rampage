@@ -1,0 +1,6 @@
+<map id="UPR" name="UPR">
+<area shape="rect" id="node2" href="$class_jeu.html" title="Classe permettant le déroulement du jeu au&#45;delà de menu principal. " alt="" coords="121,153,163,180"/>
+<area shape="rect" id="node3" href="$class_texture.html" title="Classe qui englobe le type SDL_Texture. " alt="" coords="5,5,71,32"/>
+<area shape="rect" id="node4" href="$class_timer.html" title="Classe permettant de mesurer le temps écoulé à partir d&#39;un point. " alt="" coords="219,5,273,32"/>
+<area shape="rect" id="node5" href="$class_profil.html" title="Classe du profil du joueur. " alt="" coords="225,153,275,180"/>
+</map>

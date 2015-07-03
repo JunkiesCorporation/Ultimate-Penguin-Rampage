@@ -5,14 +5,15 @@
 #include "UPR.h"
 #include "Utils.h"
 
+// Initialisation des membres statiques.
 SDL_Window* UPR::fenetre_SDL = NULL;
 SDL_Renderer* UPR::renderer_SDL = NULL;
 
 /** La fonction main.
  *
- * Initialise la SDL grâces aux méthodes static de la classe Utils, lance la cinématique d'introduction puis créé une instance d'UPR.
+ * Initialise la SDL grâces aux méthodes statiques de la classe Utils, (? lance la cinématique de présentation puis) crée une instance d'UPR.
  * 
- * Une fois le jeu quitté, quitte la SDL correctement grâce à Utils::quitter().
+ * Une fois le jeu terminé, quitte la SDL correctement grâce à Utils::quitter().
  */
 int main(int argc, char* args[])
 {	
@@ -28,7 +29,7 @@ int main(int argc, char* args[])
 	// Création d'une instance du programme. Comme elle n'est pas attribuée avec new il n'y a pas de delete correspondant. L'instance est détruite à la fin de la fonction main().
 	UPR instance_programme;
 	
-	// Déroulement du programme.
+	// Lancement et déroulement du programme.
 	instance_programme.lancer();
 	
 	// Vérification du nombre de textures restantes en mémoire.
@@ -40,18 +41,26 @@ int main(int argc, char* args[])
 	return 0;
 }
 
+// Constructeurs
+//-------------------------------------
 /* Constructeur par défaut.*/
 UPR::UPR()
 {
-	
+	// Aucun attribut à initialiser.
 }
+//-------------------------------------
 
+// Destructeur
+//-------------------------------------
 /* Destructeur par défaut.*/
 UPR::~UPR()
 {
-	
+	// Aucun attribut à détruire.
 }
+//-------------------------------------
 
+// Fonctions membres publiques
+//-------------------------------------
 /* Fonction responsable du programme.*/
 void UPR::lancer()
 {
@@ -63,12 +72,15 @@ void UPR::lancer()
 	// Boucle principale du programme.
 	while(!quit)
 	{
+		// Affichage du menu principal, récupération du choix de l'utilisateur et agissement en conséquence.
 		switch(menuPrincipal())
 		{
-		// Si l'utilisateur à choisi de jouer avec un nouveau profil.
+		// Si l'utilisateur à choisi de jouer avec un profil nouvellement créé.
 		case 0:			
 			// Lancement du jeu avec le profil créé.
 			instance_jeu.lancer(&profil_joueur);
+			
+			/** \todo Ajout d'instructions pour ré-initialiser #instance_jeu. */
 			
 			// On ne quitte pas le programme à la fin du jeu, on ré-affiche le menu principal.
 			break;
@@ -77,6 +89,8 @@ void UPR::lancer()
 		case 1:
 			// Lancement du jeu avec le profil chargé.
 			instance_jeu.lancer(&profil_joueur);
+			
+			/** \todo Ajout d'instructions pour ré-initialiser #instance_jeu. */
 			
 			// On ne quitte pas le programme à la fin du jeu, on ré-affiche le menu principal.
 			break;
@@ -88,8 +102,23 @@ void UPR::lancer()
 		}
 	}
 }
+//-------------------------------------
 
-/* Gère l'affichage et le contrôle du menu principal.*/
+// Fonctions membres privées
+//-------------------------------------
+/* Gère le chargement d'un ancien profil.*/
+bool UPR::chargerProfil()
+{
+	profil_joueur.setEmplacementSauvegarde(0);
+	
+	profil_joueur.setNomProfil("Debug");
+	
+	profil_joueur.setSiNouveau(true);
+	
+	return true;
+}
+
+/* Affiche et gère le menu principal.*/
 int UPR::menuPrincipal()
 {
 	// Choix à retourner.
@@ -136,6 +165,7 @@ int UPR::menuPrincipal()
 	Timer timer;
 	int ticks_image = 0;
 	
+	// Démarrage de l'affichage et de la gestion du menu principal.
 	//---------------------------------
 	
 	// Chargement des images du menu.
@@ -182,7 +212,7 @@ int UPR::menuPrincipal()
 		texture_options->render(positions_fixes[2][0], positions_fixes[2][1]);
 		texture_quitter->render(positions_fixes[3][0], positions_fixes[3][1]);
 		
-		// Render de l'image du curseur.
+		// Affichage de l'image du curseur.
 		texture_curseur->render(positions_curseur[choix % 4][0], positions_curseur[choix % 4][1]);
 		
 		// Affichage à l'écran.
@@ -215,29 +245,32 @@ int UPR::menuPrincipal()
 					{
 					// Si l'utilisateur souhaite créer un nouveau profil.
 					case 0:
-						// Si la création du nouveau profil a réussi.
+						// Démarre la création d'un nouveau profil.
 						if(nouveauProfil())
 						{
+							// Si la création du nouveau profil a réussie et si le joueur choisi de jouer avec, on quitte le menu principal.
 							quit = true;
 						}
 						break;
 					
 					// Si l'utilisateur souhaite charger un ancien profil.
 					case 1:
-						// Si le chargement de l'ancien profil a réussi.
+						// Démarre le chargement d'un nouveau profil.
 						if(chargerProfil())
 						{
+							// Si le chargement de l'ancien profil a réussi et si le joueur choisi de jouer avec, on quitte le menu principal.
 							quit = true;
 						}
 						break;
 					
 					// Si l'utilisateur souhaite changer les options.
 					case 2:
-						// reglageOptions();
+						/** \todo Ajout de la fonction permettant de changer les options du jeu. */
 						break;
 					
-					// Si l'utilisateur choisi de quitter.
+					// Si l'utilisateur choisi de quitter le menu principal.
 					case 3:
+						// On quitte le menu principal sans confirmation.
 						quit = true;
 						break;
 					}
@@ -253,6 +286,9 @@ int UPR::menuPrincipal()
 			SDL_Delay(UPR::TICKS_ECRAN_PAR_IMAGE - ticks_image);
 		}
 	}
+	
+	//---------------------------------
+	// Affichage et gestion du menu principal terminés.
 	
 	// Libération des images du menu.
 	delete texture_fond;
@@ -270,6 +306,7 @@ int UPR::menuPrincipal()
 	texture_quitter = NULL;
 	texture_curseur = NULL;
 	
+	// Renvoie du choix de l'utilisateur.
 	return choix;
 }
 
@@ -284,15 +321,4 @@ bool UPR::nouveauProfil()
 	
 	return true;
 }
-
-/* Gère le chargement d'un ancien profil.*/
-bool UPR::chargerProfil()
-{
-	profil_joueur.setEmplacementSauvegarde(0);
-	
-	profil_joueur.setNomProfil("Debug");
-	
-	profil_joueur.setSiNouveau(true);
-	
-	return true;
-}
+//-------------------------------------

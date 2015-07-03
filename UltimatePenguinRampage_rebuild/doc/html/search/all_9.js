@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['texture',['Texture',['../class_texture.html',1,'Texture'],['../class_texture.html#a6c275e3f186675ff6ed73ccf970e552f',1,'Texture::Texture()'],['../class_texture.html#a3da8cb18dfc1afcceb2806bfa95913f6',1,'Texture::Texture(const char *chemin_image)']]],
-  ['texture_2ecpp',['Texture.cpp',['../_texture_8cpp.html',1,'']]],
-  ['texture_2eh',['Texture.h',['../_texture_8h.html',1,'']]]
+  ['nb_5foptions',['NB_OPTIONS',['../class_jeu.html#a89eeb74e5dd4a448115cb5e249c19ef7a845f3a51ead9f82e4cedcf83018cf720',1,'Jeu']]],
+  ['nouveauprofil',['nouveauProfil',['../class_u_p_r.html#acc71e95c0e72c35cf079abdcfdbfd369',1,'UPR']]]
 ];

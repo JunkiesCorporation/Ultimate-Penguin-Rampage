@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -94,6 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="contents">
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &quot;<a class="el" href="_texture_8h_source.html">Texture.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_timer_8h_source.html">Timer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_u_p_r_8h_source.html">UPR.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_utils_8h_source.html">Utils.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -101,9 +103,13 @@ Graphe des dépendances par inclusion de UPR.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_u_p_r_8cpp__incl.png" border="0" usemap="#src_2_u_p_r_8cpp" alt=""/></div>
 <map name="src_2_u_p_r_8cpp" id="src_2_u_p_r_8cpp">
-<area shape="rect" id="node3" href="_texture_8h.html" title="Texture.h" alt="" coords="102,80,178,107"/>
-<area shape="rect" id="node5" href="_u_p_r_8h.html" title="UPR.h" alt="" coords="202,80,262,107"/>
-<area shape="rect" id="node6" href="_utils_8h.html" title="Utils.h" alt="" coords="287,80,345,107"/>
+<area shape="rect" id="node3" href="_texture_8h.html" title="Texture.h" alt="" coords="51,229,127,256"/>
+<area shape="rect" id="node6" href="_timer_8h.html" title="Timer.h" alt="" coords="307,229,373,256"/>
+<area shape="rect" id="node7" href="_u_p_r_8h.html" title="UPR.h" alt="" coords="199,80,259,107"/>
+<area shape="rect" id="node11" href="_utils_8h.html" title="Utils.h" alt="" coords="381,80,440,107"/>
+<area shape="rect" id="node5" href="_struct_8h.html" title="Struct.h" alt="" coords="43,304,111,331"/>
+<area shape="rect" id="node8" href="_jeu_8h.html" title="Jeu.h" alt="" coords="203,155,256,181"/>
+<area shape="rect" id="node9" href="_profil_8h.html" title="Profil.h" alt="" coords="218,229,281,256"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -112,29 +118,8 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a700a0caa5b70a06d1064e576f9f3cf65"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_p_r_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65">main</a> (int argc, char *args[])</td></tr>
 <tr class="memdesc:a700a0caa5b70a06d1064e576f9f3cf65"><td class="mdescLeft">&#160;</td><td class="mdescRight">La fonction main.  <a href="#a700a0caa5b70a06d1064e576f9f3cf65">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a700a0caa5b70a06d1064e576f9f3cf65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07eb386ace866c37e5a61c566029ebf1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_p_r_8cpp.html#a07eb386ace866c37e5a61c566029ebf1">gestionMenuPrincipal</a> ()</td></tr>
-<tr class="memdesc:a07eb386ace866c37e5a61c566029ebf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère l'affichage et le contrôle du menu principal.  <a href="#a07eb386ace866c37e5a61c566029ebf1">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a07eb386ace866c37e5a61c566029ebf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions</h2>
-<a class="anchor" id="a07eb386ace866c37e5a61c566029ebf1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int gestionMenuPrincipal </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gère l'affichage et le contrôle du menu principal. </p>
-<dl class="section return"><dt>Renvoie</dt><dd>Le numéro de l'option choisie. </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a700a0caa5b70a06d1064e576f9f3cf65"></a>
 <div class="memitem">
 <div class="memproto">
@@ -160,8 +145,8 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>La fonction main. </p>
-<p>Initialise la SDL grâces aux méthodes static de la classe <a class="el" href="class_utils.html" title="Regroupe quelques fonctions d&#39;utilité générale. ">Utils</a>, lance la cinématique d'introduction puis le menu principal.</p>
-<p>Une fois le jeu quitté, quitte la SDL correctement grâce à <a class="el" href="class_utils.html#a1a1317e9deaac6dc1ad285d101b6f929" title="Détruit les composants restants de la SDL et quitte correctement les systèmes ouverts. ">Utils::quitter()</a>. </p>
+<p>Initialise la SDL grâces aux méthodes statiques de la classe <a class="el" href="class_utils.html" title="Regroupe quelques fonctions d&#39;utilité générale. ">Utils</a>, (? lance la cinématique de présentation puis) crée une instance d'<a class="el" href="class_u_p_r.html" title="La classe principale du programme. ">UPR</a>.</p>
+<p>Une fois le jeu terminé, quitte la SDL correctement grâce à Utils::quitter(). </p>
 
 </div>
 </div>

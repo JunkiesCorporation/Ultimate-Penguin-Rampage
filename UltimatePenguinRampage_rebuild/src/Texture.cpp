@@ -9,22 +9,33 @@ int Texture::m_nombre_textures_restantes = 0;
 // Constructeurs
 //-------------------------------------
 /* Constructeur par défaut.*/
-Texture::Texture() : m_image(NULL), m_largeur(0), m_hauteur(0)
+Texture::Texture()
 {
-	
+	// Initialisation par défaut des attributs.
+	m_image = NULL;
+	m_largeur = 0;
+	m_hauteur = 0;
 }
 
-/* Constructeur avec chemin d'image.*/
-Texture::Texture(const char* chemin_image) : m_image(NULL), m_largeur(0), m_hauteur(0)
+/* Constructeur avec chemin d'image BMP.*/
+Texture::Texture(const char* chemin_image)
 {
+	// Initialisation par défaut des attributs.
+	m_image = NULL;
+	m_largeur = 0;
+	m_hauteur = 0;
+	
+	// Chargement de l'image donnée.
 	charger(chemin_image);
 }
 //-------------------------------------
 
 // Destructeur
 //-------------------------------------
+/* Destructeur par défaut.*/
 Texture::~Texture()
 {
+	// Libère la texture proprement.
 	liberer();
 }
 //-------------------------------------
@@ -41,8 +52,9 @@ void Texture::charger(const char* chemin_image)
 	SDL_Surface* image_chargee = NULL;
 	
 	//---------------------------------
+	// Démarrage du chargement de la nouvelle image.
 	
-	// Libération de l'éventuelle Texture précédente.
+	// Libération de l'éventuelle image précédente.
 	liberer();
 	
 	// Tentative de chargement de l'image Bitmap.
@@ -69,7 +81,7 @@ void Texture::charger(const char* chemin_image)
 		}
 		else
 		{
-			// temp
+			// Augmentation du compteur de textures restantes.
 			Texture::m_nombre_textures_restantes++;
 			
 			// Récupération de la largeur de l'image chargée.
@@ -79,7 +91,7 @@ void Texture::charger(const char* chemin_image)
 			m_hauteur = image_chargee->h;
 		}
 		
-		// Libération de l'image chargée afin de ne pas encombrer la mémoire, et fermeture du pointeur.
+		// Libération de l'image chargée, afin de ne pas encombrer la mémoire, et fermeture du pointeur.
 		SDL_FreeSurface(image_chargee);
 		image_chargee = NULL;
 	}
@@ -91,22 +103,23 @@ void Texture::charger(const char* chemin_image)
 /* Libère la Texture.*/
 void Texture::liberer()
 {
+	// Libération uniquement si une image a été chargée.
 	if(m_image != NULL)
 	{
 		// Destruction de l'image.
 		SDL_DestroyTexture(m_image);
 		
-		// temp
+		// Réduction du compteur de textures restantes.
 		Texture::m_nombre_textures_restantes--;
 		
-		// Ré-initialisation des membres en vue d'une réutilisation éventuelle.
+		// Ré-initialisation des attributs en vue d'une réutilisation éventuelle.
 		m_image = NULL;
 		m_largeur = 0;
 		m_hauteur = 0;
 	}
 }
 
-/* Affiche la texture aux coordonnées données..*/
+/* Affiche la texture aux coordonnées données.*/
 void Texture::render(int x, int y) const
 {
 	// Le rectangle sur lequel la texture est projetée.
@@ -126,12 +139,6 @@ void Texture::render(Position pos) const
 	SDL_RenderCopy(UPR::renderer_SDL, m_image, NULL, &render_quad);
 }
 
-/* Retourne le nombre de textures restantes dans la mémoire.*/
-int Texture::getTexturesRestantes()
-{
-	return Texture::m_nombre_textures_restantes;
-}
-
 /* Retourne la largeur de l'image contenue.*/
 int Texture::getLargeur() const
 {
@@ -142,5 +149,14 @@ int Texture::getLargeur() const
 int Texture::getHauteur() const
 {
 	return m_hauteur;
+}
+//-------------------------------------
+
+// Fonctions membres publiques statiques
+//-------------------------------------
+/* Retourne le nombre de textures restantes dans la mémoire.*/
+int Texture::getTexturesRestantes()
+{
+	return Texture::m_nombre_textures_restantes;
 }
 //-------------------------------------

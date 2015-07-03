@@ -8,10 +8,9 @@
 /* Constructeur par défaut.*/
 Profil::Profil()
 {
+	// Initialisation des attributs à des valeurs par défaut.
 	m_emplacement_sauvegarde = 0;
-	
 	m_nom_du_profil = "";
-	
 	m_nouveau = true;
 }
 //-------------------------------------
@@ -21,14 +20,14 @@ Profil::Profil()
 /* Destructeur par défaut.*/
 Profil::~Profil()
 {
-	
+	// Aucun attribut à détruire.
 }
 //-------------------------------------
 
 // Fonctions membres publiques
 //-------------------------------------
 /* Retourne le nom du Profil.*/
-std::string Profil::getNomProfil()
+std::string Profil::getNomProfil() const
 {
 	return m_nom_du_profil;
 }

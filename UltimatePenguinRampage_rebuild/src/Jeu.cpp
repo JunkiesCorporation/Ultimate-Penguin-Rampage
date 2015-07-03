@@ -8,12 +8,12 @@
 /* Constructeur par défaut.*/
 Jeu::Jeu()
 {
-	// Réglage des pointeurs vers les textures à NULL.
-	// Texture du cadre de sélection.
+	// Initialisation des attributs à des valeurs par défaut.
+	// Initialisation des pointeurs vers les textures individuelles à NULL.
 	m_texture_cadre_selection = NULL;
 	m_texture_fond_jeu = NULL;
 	m_texture_fond_mode_histoire = NULL;
-	// Textures de l'écran du jeu.
+	// Initialisation des pointeurs vers les textures contenues dans des tableaux à NULL.
 	for(int i = 0; i < NB_OPTIONS; i++)
 	{
 		m_textures_options_ecran_jeu[i] = NULL;
@@ -44,7 +44,9 @@ Jeu::~Jeu()
 	}
 }
 
-/* Lance le jeu avec les données du Profil donné.*/
+// Fonctions membres publiques
+//-------------------------------------
+/* Affiche l'écran principal du jeu et permet la navigation vers les fonctionnalités du jeu.*/
 void Jeu::lancer(Profil* profil_joueur)
 {
 	// Contrôle de la boucle de l'écran principal du jeu.
@@ -64,9 +66,6 @@ void Jeu::lancer(Profil* profil_joueur)
 	
 	// Positions du curseur lors de l'écran principal du jeu.
 	Position positions_curseur_ecran[NB_OPTIONS] = {{0, 0}};
-	
-	// Timer pour bloquer les FPS à 60 et nombre ticks par image.
-	ticks_image = 0;
 	
 	//---------------------------------
 	
@@ -109,6 +108,7 @@ void Jeu::lancer(Profil* profil_joueur)
 		// Affichage à l'écran.
 		SDL_RenderPresent(UPR::renderer_SDL);
 		
+		// Gestion des événements.
 		while(SDL_PollEvent(&e) != 0)
 		{
 			// Si une touche est appuyée.
@@ -119,6 +119,7 @@ void Jeu::lancer(Profil* profil_joueur)
 				{
 				// La touche "flèche_droite" est appuyée.
 				case SDLK_RIGHT:
+					// Changement de la position du curseur.
 					if(position_curseur_act == MODE_HISTOIRE)
 					{
 						position_curseur_prec = MODE_HISTOIRE;
@@ -128,6 +129,7 @@ void Jeu::lancer(Profil* profil_joueur)
 				
 				// La touche "flèche_gauche" est appuyée.
 				case SDLK_LEFT:
+					// Changement de la position du curseur.
 					if(position_curseur_act == MODE_ARENE)
 					{
 						position_curseur_prec = MODE_ARENE;
@@ -137,6 +139,7 @@ void Jeu::lancer(Profil* profil_joueur)
 				
 				// La touche "flèche_bas" est appuyée.
 				case SDLK_DOWN:
+					// Changement de la position du curseur.
 					if(position_curseur_act == MODE_ARENE || position_curseur_act == MODE_HISTOIRE)
 					{
 						position_curseur_prec = position_curseur_act;
@@ -146,6 +149,7 @@ void Jeu::lancer(Profil* profil_joueur)
 				
 				// La touche "flèche_haut" est appuyée.
 				case SDLK_UP:
+					// Changement de la position du curseur.
 					if(position_curseur_act == RETOUR_MENU)
 					{
 						position_curseur_act = position_curseur_prec;
@@ -155,19 +159,24 @@ void Jeu::lancer(Profil* profil_joueur)
 				
 				// La touche "retour" est appuyée.
 				case SDLK_RETURN:
+					// Agissement en fonction de la position du curseur.
 					switch(position_curseur_act)
 					{
 					// Si l'utilisateur choisi le mode histoire.
 					case MODE_HISTOIRE:
+						// Libération des images de l'écran principal du jeu.
 						libererTexturesEcran();
 						
+						// Lancement du mode histoire avec le profil du joueur.
 						modeHistoire(profil_joueur);
 						
+						// Chargement des images de l'écran principal du jeu une fois le mode histoire terminé.
 						chargerTexturesEcran();
 						break;
 					
 					// Si l'utilisateur choisi de retourner au menu principal.
 					case RETOUR_MENU:
+						// Quitte le jeu sans confirmation.
 						quit = true;
 						break;
 					}
@@ -190,10 +199,14 @@ void Jeu::lancer(Profil* profil_joueur)
 	// Libération des images de l'écran principal du jeu.
 	libererTexturesEcran();
 }
+//-------------------------------------
 
+// Fonctions membres privées
+//-------------------------------------
+/* Charge les textures nécessaires à l'écran principal du jeu.*/
 void Jeu::chargerTexturesEcran()
 {
-	
+	// Chemins des images à charger.
 	char chemin_image_fond_jeu[] = "img/jeu/jeu_image_fond.bmp";
 	std::string chemin_images_ecran_jeu[NB_OPTIONS] =
 	{
@@ -202,6 +215,7 @@ void Jeu::chargerTexturesEcran()
 		"img/jeu/jeu_retour_menu_principal.bmp"
 	};
 	
+	// Chargement des textures.
 	m_texture_fond_jeu = new Texture(chemin_image_fond_jeu);
 	for(int i = 0; i < NB_OPTIONS; i++)
 	{
@@ -209,9 +223,20 @@ void Jeu::chargerTexturesEcran()
 	}
 }
 
+/* Charge les textures nécessaires à l'écran du mode histoire.*/
+void Jeu::chargerTexturesModeHistoire()
+{
+	// Chemins des images à charger.
+	char chemin_image_fond_mode_histoire[] = "img/jeu/mode_histoire/mode_histoire_image_fond.bmp";
+	
+	// Chargement des textures.
+	m_texture_fond_mode_histoire = new Texture(chemin_image_fond_mode_histoire);
+}
+
+/* Libère les textures de l'écran principal du jeu.*/
 void Jeu::libererTexturesEcran()
 {
-	// Suppression des textures qui auraient été oubliées.
+	// Suppression des textures.
 	delete m_texture_fond_jeu;
 	for(int i = 0; i < NB_OPTIONS; i++)
 	{
@@ -226,20 +251,31 @@ void Jeu::libererTexturesEcran()
 	}
 }
 
+/* Libère les textures de l'écran du mode histoire.*/
+void Jeu::libererTexturesModeHistoire()
+{
+	// Suppression des textures.
+	delete m_texture_fond_mode_histoire;
+	
+	// Fermeture des pointeurs.
+	m_texture_fond_mode_histoire = NULL;
+}
+
+/* Affiche et gère le mode histoire.*/
 void Jeu::modeHistoire(Profil* profil_joueur)
 {
-	// Contrôle de la boucle de la sélection de niveau.
+	// Contrôle de la boucle de sélection de niveau.
 	bool quit = false;
 	
 	//---------------------------------
 	
-	// Chargement des images de la sélection du niveau.
+	// Chargement des images du mode histoire.
 	chargerTexturesModeHistoire();
 	
-	// Affichage de l'image de fond de la sélection du niveau.
-	
+	// Initialisation des ticks image.
 	ticks_image = 0;
 	
+	// Boucle de sélection de niveau.
 	while(!quit)
 	{
 		// Début du chronométrage de l'image.
@@ -254,6 +290,7 @@ void Jeu::modeHistoire(Profil* profil_joueur)
 		// Affichage à l'écran.
 		SDL_RenderPresent(UPR::renderer_SDL);
 		
+		// Gestion des événements.
 		while(SDL_PollEvent(&e) != 0)
 		{
 			// Si une touche est appuyée.
@@ -262,6 +299,10 @@ void Jeu::modeHistoire(Profil* profil_joueur)
 				// Switch sur le symbole de la touche appuyée.
 				switch(e.key.keysym.sym)
 				{
+				// La touche "retour" est appuyée.
+				case SDLK_RETURN:
+					break;
+				
 				// La touche "q" est appuyée.
 				case SDLK_q:
 					quit = true;
@@ -278,20 +319,7 @@ void Jeu::modeHistoire(Profil* profil_joueur)
 		}
 	}
 	
-	// Libération des images de la sélection du niveau.
+	// Libération des images du mode histoire.
 	libererTexturesModeHistoire();
 }
-
-void Jeu::chargerTexturesModeHistoire()
-{
-	char chemin_image_fond_mode_histoire[] = "img/jeu/mode_histoire/mode_histoire_image_fond.bmp";
-	
-	m_texture_fond_mode_histoire = new Texture(chemin_image_fond_mode_histoire);
-}
-
-void Jeu::libererTexturesModeHistoire()
-{
-	delete m_texture_fond_mode_histoire;
-	
-	m_texture_fond_mode_histoire = NULL;
-}
+//-------------------------------------

@@ -1,7 +1,7 @@
 ﻿#ifndef TIMER_H
 #define TIMER_H
 
-/** Permet de mesurer le temps écoulé à partir d'un point.
+/** Classe permettant de mesurer le temps écoulé à partir d'un point.
  */
 class Timer
 {
@@ -9,6 +9,7 @@ class Timer
 		// Constructeurs
 		//-----------------------------
 		/** Constructeur par défaut.
+		 *
 		 * Initialise les attributs membres.
 		 */
 		Timer();
@@ -21,7 +22,8 @@ class Timer
 		void start();
 		
 		/** Retourne le nombre de ticks écoulé depuis le démarrage du Timer.
-		 * @return Le nombre de ticks.
+		 *
+		 * @return Le nombre de ticks écoulé depuis l'appel de #start().
 		 */
 		Uint32 getTicks();
 		//-----------------------------
@@ -29,8 +31,10 @@ class Timer
 	protected:
 	
 	private:
-		// Attributs membres privés
+		// Attributs privés
 		//-----------------------------
+		/** Le nombre de ticks écoulés au moment de l'appel à #start().
+		 */
 		Uint32 m_ticks_depart;
 		//-----------------------------
 };

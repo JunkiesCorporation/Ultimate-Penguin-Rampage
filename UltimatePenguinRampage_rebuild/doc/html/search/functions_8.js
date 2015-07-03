@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7etexture',['~Texture',['../class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a',1,'Texture']]]
+  ['quittersdl',['quitterSDL',['../class_utils.html#ab889bee431b013d3e17d9d677b10d153',1,'Utils']]]
 ];

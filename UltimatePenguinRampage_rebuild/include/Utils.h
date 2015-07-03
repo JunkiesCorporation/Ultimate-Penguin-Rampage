@@ -9,6 +9,7 @@ class Utils
 		// Fonctions membres publiques
 		//-----------------------------
 		/** Initialise la SDL et ses principaux composants.
+		 *
 		 * @return TRUE si l'initialisation s'est correctement déroulée.
 		 * @return FALSE si il y a eu un problème avec l'initialisation de la SDL.
 		 */
