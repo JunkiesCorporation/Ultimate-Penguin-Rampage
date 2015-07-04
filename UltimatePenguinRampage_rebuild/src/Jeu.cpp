@@ -290,6 +290,8 @@ void Jeu::modeHistoire(Profil* profil_joueur)
 		// Affichage à l'écran.
 		SDL_RenderPresent(UPR::renderer_SDL);
 		
+		/** \todo Navigation parmi les arènes disponibles dans le mode histoire. */
+		
 		// Gestion des événements.
 		while(SDL_PollEvent(&e) != 0)
 		{
@@ -301,6 +303,20 @@ void Jeu::modeHistoire(Profil* profil_joueur)
 				{
 				// La touche "retour" est appuyée.
 				case SDLK_RETURN:
+					// Libération des images du mode histoire pour alléger la mémoire.
+					libererTexturesModeHistoire();
+					
+					// Chargement de l'arène choisie
+					m_arene.charger();
+					
+					// Lancement de l'arène chargée.
+					m_arene.lancer();
+					
+					// Ré-initialisation de l'arène terminée.
+					m_arene.reinitialiser();
+					
+					// Chargement des images du mode histoire avant le retour à la navigation.
+					chargerTexturesModeHistoire();
 					break;
 				
 				// La touche "q" est appuyée.

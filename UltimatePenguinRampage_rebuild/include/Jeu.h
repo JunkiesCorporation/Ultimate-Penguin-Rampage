@@ -1,6 +1,7 @@
 ﻿#ifndef JEU_H
 #define JEU_H
 
+#include "Arene.h"
 #include "Profil.h"
 #include "Texture.h"
 #include "Timer.h"
@@ -97,6 +98,10 @@ class Jeu
 		
 		// Attributs privés
 		//-----------------------------
+		/** L'instance d'Arene à charger lorsque le joueur lance un niveau.
+		 */
+		Arene m_arene;
+		
 		/** Objet permettant la manipulation des événements au sein des diverses boucles.
 		 */
 		SDL_Event e;
