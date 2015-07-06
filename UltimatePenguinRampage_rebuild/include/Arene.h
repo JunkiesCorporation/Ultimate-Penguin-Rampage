@@ -48,7 +48,7 @@ class Arene
 	//---------------------------------
 	/** La carte de l'arène.
 	 */
-	Carte m_carte
+	Carte m_carte;
 	
 	/** Si cette instance d'Arene est prête à être lancée.
 	 */

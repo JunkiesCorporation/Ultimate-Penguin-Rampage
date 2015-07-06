@@ -113,9 +113,9 @@ bool Carte::charger(std::string chemin_fichier)
 		
 		// Lecture des coordonnées de départ du joueur.
 		fichier >> ligne; fichier >> ligne;
-		m_depart_joueur.x = atoi(c_str());
+		m_depart_joueur.x = atoi(ligne.c_str());
 		fichier >> ligne;
-		m_depart_joueur.y = atoi(c_str());
+		m_depart_joueur.y = atoi(ligne.c_str());
 		
 		//-----------------------------
 		// Lecture du [tileset]
