@@ -3,6 +3,7 @@
 
 #include <string>
 
+#include "Tileset.h"
 #include "Struct.h"
 
 /** Classe contenant toutes les informations sur la carte d'une arène.
@@ -13,6 +14,8 @@ class Carte
 	// Constructeurs
 	//---------------------------------
 	/** Constructeur par défaut.
+	 * 
+	 * Initialise les attributs à des valeurs par défaut.
 	 */
 	Carte();
 	//---------------------------------
@@ -68,7 +71,7 @@ class Carte
 	
 	/** Le Tileset utilisé par la carte.
 	 */
-	Tilset m_tileset;
+	Tileset m_tileset;
 	//---------------------------------
 	
 };

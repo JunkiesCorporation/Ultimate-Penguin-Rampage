@@ -134,7 +134,14 @@ bool Carte::charger(std::string chemin_fichier)
 		chemin_tileset = ligne;
 		
 		// Chargement du Tileset.
-		m_tileset.charger(chemin_tileset);
+		if(!m_tileset.charger(chemin_tileset))
+		{
+			// temp
+			std::cout << "Erreur : impossible de charger le tileset " << chemin_tileset << " de la carte " << chemin_fichier << std::endl;
+			
+			succes = false;
+			goto fin;
+		}
 		
 		//-----------------------------
 		// Lecture des [donnees]

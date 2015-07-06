@@ -29,7 +29,7 @@ void Arene::charger()
 	// Chargement de la carte et gestion d'un échec potentiel.
 	// temp
 	std::cout << "Chargement de la Carte..." << std::endl;
-	if(!m_carte.charger("map/carte_test_1.txt"))
+	if(!m_carte.charger("rsc/map/carte_test_1.txt"))
 	{
 		// temp
 		std::cout << "Chargement de l'arene interrompu : le chargement de la carte a echoue." << std::endl;
@@ -38,7 +38,7 @@ void Arene::charger()
 		return;
 	}
 	// temp
-	std::cout << "Carte chargee avec succes." << std::cout;
+	std::cout << "Carte chargee avec succes." << std::endl;
 	
 	// temp
 	std::cout << "Chargement de l'arene termine." << std::endl;
