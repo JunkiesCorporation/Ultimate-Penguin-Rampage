@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "Tileset.h"
+#include "UPR.h"
 
 // Constructeurs
 //-------------------------------------
@@ -192,5 +193,27 @@ void Tileset::reinitialiser()
 	
 	// temp
 	std::cout << "Tileset reinitialise." << std::endl;
+}
+
+/* Affiche la tile donnée aux coordonnées indiquées.*/
+void Tileset::render(int id_tile, int x, int y) const
+{
+	// Le rectangle sur lequel la texture est projetée.
+	SDL_Rect render_quad = {x, y, m_largeur_tile, m_hauteur_tile};
+	
+	// L'instruction pour afficher la texture.
+	SDL_RenderCopy(UPR::renderer_SDL, m_image->getImage(), &m_tiles[id_tile - 1].rect_clip, &render_quad);
+}
+
+/** Retourne la largeur d'une tile du tileset.*/
+int Tileset::getLargeurTile() const
+{
+	return m_largeur_tile;
+}
+
+/** Retourne la hauteur d'une tile du tileset.*/
+int Tileset::getHauteurTile() const
+{
+	return m_hauteur_tile;
 }
 //-------------------------------------

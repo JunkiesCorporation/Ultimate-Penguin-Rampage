@@ -90,6 +90,12 @@ class Texture
 		 * @return #m_hauteur La hauteur de l'image.
 		 */
 		int getHauteur() const;
+		
+		/** Retourne l'image contenue par la texture.
+		 *
+		 * @return #m_image L'image de la texture.
+		 */
+		SDL_Texture* getImage() const;
 		//-----------------------------
 		
 		// Fonctions membres publiques statiques

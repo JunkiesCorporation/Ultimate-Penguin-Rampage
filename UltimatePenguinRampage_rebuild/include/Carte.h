@@ -1,6 +1,7 @@
 ﻿#ifndef CARTE_H
 #define CARTE_H
 
+#include <SDL.h>
 #include <string>
 
 #include "Tileset.h"
@@ -42,6 +43,14 @@ class Carte
 	 * Réinitialise les éléments modifiés par #charger() en vue d'une réutilisation de l'instance de Carte.
 	 */
 	void reinitialiser();
+	
+	/** Affiche les tiles de la carte qui se trouvent sous la caméra.
+	 *
+	 * Attention! Cette fonction ne contient qu'un appel à SDL_RenderCopy(), il faut tout de même appeler SDL_RenderPresent() après.
+	 *
+	 * @param camera La caméra du niveau.
+	 */
+	void render(SDL_Rect camera) const;
 	//---------------------------------
 	
 	protected:

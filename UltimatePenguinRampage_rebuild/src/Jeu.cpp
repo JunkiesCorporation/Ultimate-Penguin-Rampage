@@ -19,7 +19,7 @@ Jeu::Jeu()
 		m_textures_options_ecran_jeu[i] = NULL;
 	}
 	
-	ticks_image = 0;
+	m_ticks_image = 0;
 }
 
 /* Destructeur par défaut.*/
@@ -90,7 +90,7 @@ void Jeu::lancer(Profil* profil_joueur)
 	while(!quit)
 	{
 		// Début du chronométrage de l'image.
-		timer.start();
+		m_timer.start();
 		
 		// Nettoyage du renderer.
 		SDL_RenderClear(UPR::renderer_SDL);
@@ -186,10 +186,10 @@ void Jeu::lancer(Profil* profil_joueur)
 		}
 		
 		// Correction si le FPS dépasse le maximum.
-		ticks_image = timer.getTicks();
-		if(ticks_image < UPR::TICKS_ECRAN_PAR_IMAGE)
+		m_ticks_image = m_timer.getTicks();
+		if(m_ticks_image < UPR::TICKS_ECRAN_PAR_IMAGE)
 		{
-			SDL_Delay(UPR::TICKS_ECRAN_PAR_IMAGE - ticks_image);
+			SDL_Delay(UPR::TICKS_ECRAN_PAR_IMAGE - m_ticks_image);
 		}
 	}
 	
@@ -273,13 +273,13 @@ void Jeu::modeHistoire(Profil* profil_joueur)
 	chargerTexturesModeHistoire();
 	
 	// Initialisation des ticks image.
-	ticks_image = 0;
+	m_ticks_image = 0;
 	
 	// Boucle de sélection de niveau.
 	while(!quit)
 	{
 		// Début du chronométrage de l'image.
-		timer.start();
+		m_timer.start();
 		
 		// Nettoyage du renderer.
 		SDL_RenderClear(UPR::renderer_SDL);
@@ -328,10 +328,10 @@ void Jeu::modeHistoire(Profil* profil_joueur)
 		}
 		
 		// Correction si le FPS dépasse le maximum.
-		ticks_image = timer.getTicks();
-		if(ticks_image < UPR::TICKS_ECRAN_PAR_IMAGE)
+		m_ticks_image = m_timer.getTicks();
+		if(m_ticks_image < UPR::TICKS_ECRAN_PAR_IMAGE)
 		{
-			SDL_Delay(UPR::TICKS_ECRAN_PAR_IMAGE - ticks_image);
+			SDL_Delay(UPR::TICKS_ECRAN_PAR_IMAGE - m_ticks_image);
 		}
 	}
 	

@@ -150,6 +150,12 @@ int Texture::getHauteur() const
 {
 	return m_hauteur;
 }
+
+/* Retourne l'image contenue par la texture.*/
+SDL_Texture* Texture::getImage() const
+{
+	return m_image;
+}
 //-------------------------------------
 
 // Fonctions membres publiques statiques

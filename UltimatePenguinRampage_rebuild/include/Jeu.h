@@ -126,11 +126,11 @@ class Jeu
 		 * 
 		 * Utilisé de paire avec le #timer.
 		 */
-		int ticks_image;
+		int m_ticks_image;
 		
 		/** Le Timer utilisé par diverses fonctions afin de maintenir les FPS aux alentours de 60.
 		 */
-		Timer timer;
+		Timer m_timer;
 		//-----------------------------
 		
 };

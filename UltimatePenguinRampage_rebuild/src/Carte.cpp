@@ -200,6 +200,44 @@ void Carte::reinitialiser()
 	// temp
 	std::cout << "Carte reinitialisee." << std::endl;
 }
+
+/* Affiche les tiles de la carte qui se trouvent sous la caméra.*/
+void Carte::render(SDL_Rect camera) const
+{
+	// Récupération des dimensions d'une tile.
+	int largeur_tile = m_tileset.getLargeurTile();
+	int hauteur_tile = m_tileset.getHauteurTile();
+	
+	// Définissent le rectangle qui couvre toutes les tiles à afficher (en tiles)
+	Position pos_haut_gauche = { 0, 0};
+	Position pos_bas_droite = { 0, 0};
+	
+	// Attribution des dimensions du rectangle.
+	pos_haut_gauche.x = camera.x / largeur_tile;
+	pos_haut_gauche.y = camera.y / hauteur_tile;
+	pos_bas_droite.x = ((camera.x + camera.w) / largeur_tile) + 1;
+	pos_bas_droite.y = ((camera.y + camera.h) / hauteur_tile) + 1;
+	
+	// Il ne faut que pas que l'on accède à des tiles en-dehors de la carte.
+	if(pos_haut_gauche.x < 0) { pos_haut_gauche.x = 0; }
+	if(pos_haut_gauche.x > m_largeur) { pos_haut_gauche.x = m_largeur - (camera.w / largeur_tile); }
+	if(pos_haut_gauche.y < 0) { pos_haut_gauche.y = 0; }
+	if(pos_haut_gauche.y > m_hauteur) { pos_haut_gauche.y = m_hauteur - (camera.h / hauteur_tile); }
+	if(pos_bas_droite.x > m_largeur) { pos_bas_droite.x = m_largeur; }
+	if(pos_bas_droite.x < 0) { pos_bas_droite.x = camera.w / largeur_tile; }
+	if(pos_bas_droite.y > m_hauteur) {pos_bas_droite.y = m_hauteur; }
+	if(pos_bas_droite.y < 0) {pos_bas_droite.y = camera.h / hauteur_tile; }
+	
+	// Affichage des tiles contenues dans le rectangle agrandi.
+	for(int y = pos_haut_gauche.y; y < pos_bas_droite.y; y++)
+	{
+		for(int x = pos_haut_gauche.x; x < pos_bas_droite.x; x++)
+		{
+			m_tileset.render(m_id_tiles[x][y], x * largeur_tile - camera.x, y * hauteur_tile - camera.y);
+		}
+	}
+	
+}
 //---------------------------------
 
 // Fonctions membres privées

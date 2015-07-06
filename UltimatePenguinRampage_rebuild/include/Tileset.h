@@ -40,6 +40,28 @@ class Tileset
 	 * Réinitialise les éléments modifiés par #charger() en vue d'une réutilisation de l'instance de Tileset.
 	 */
 	void reinitialiser();
+	
+	/** Affiche la tile donnée aux coordonnées indiquées.
+	 *
+	 * Attention! Cette fonction ne contient qu'un appel à SDL_RenderCopy(), il faut tout de même appeler SDL_RenderPresent() après.
+	 *
+	 * @param id_tile L'ID de la tile à afficher.
+	 * @param x La coordonnée x où afficher la tile.
+	 * @param y La coordonnée y où afficher la tile.
+	 */
+	void render(int id_tile, int x, int y) const;
+	
+	/** Retourne la largeur d'une tile du tileset.
+	 *
+	 * @return #m_largeur_tile La largeur d'une tile.
+	 */
+	int getLargeurTile() const;
+	
+	/** Retourne la hauteur d'une tile du tileset.
+	 *
+	 * @return #m_hauteur_tile La hauteur d'une tile.
+	 */
+	int getHauteurTile() const;
 	//---------------------------------
 	
 	protected:
