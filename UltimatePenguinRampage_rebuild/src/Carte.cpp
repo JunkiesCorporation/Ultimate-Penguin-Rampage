@@ -54,6 +54,9 @@ bool Carte::charger(std::string chemin_fichier)
 	//---------------------------------
 	// Démarrage du chargement de la carte.
 	
+	// temp
+	std::cout << "Ouverture du fichier " << chemin_fichier << std::endl;
+	
 	// Gestion de d'un échec potentiel du chargement du fichier.
 	if(!fichier.is_open())
 	{
@@ -66,6 +69,9 @@ bool Carte::charger(std::string chemin_fichier)
 	}
 	else
 	{
+		// temp
+		std::cout << "Ouverture reussie, lecture du fichier..." << std::endl;
+		
 		//-----------------------------
 		// Lecture des [infos_carte]
 		
@@ -155,10 +161,37 @@ bool Carte::charger(std::string chemin_fichier)
 		//-----------------------------
 		// Fermeture du fichier.
 		fichier.close();
+		
+		// temp
+		std::cout << "Fichier " << chemin_fichier << " ferme." << std::endl;
 	}
 	
 	fin:
 	return succes;
+}
+
+/* Réinitialise la carte.*/
+void Carte::reinitialiser()
+{
+	// Libération des éléments chargés.
+	m_tileset.reinitialiser();
+	
+	// Réinitialisation des attributs à des valeurs par défaut.
+	m_depart_joueur = { 0, 0};
+	m_hauteur = 0;
+	// Suppression correcte de la grille allouée dynamiquement.
+	if(m_id_tiles != NULL)
+	{
+		for(int i = 0; i < m_largeur; i++)
+		{
+			delete[] m_id_tiles[i];
+		}
+		delete[] m_id_tiles;
+	}
+	m_largeur = 0;
+	
+	// temp
+	std::cout << "Carte reinitialisee." << std::endl;
 }
 //---------------------------------
 

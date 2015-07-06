@@ -26,6 +26,20 @@ Arene::~Arene()
 /* Charge les éléments requis pour le fonctionnement de cette instance d'Arene.*/
 void Arene::charger()
 {
+	// Chargement de la carte et gestion d'un échec potentiel.
+	// temp
+	std::cout << "Chargement de la Carte..." << std::endl;
+	if(!m_carte.charger("map/carte_test_1.txt"))
+	{
+		// temp
+		std::cout << "Chargement de l'arene interrompu : le chargement de la carte a echoue." << std::endl;
+		
+		m_est_prete = false;
+		return;
+	}
+	// temp
+	std::cout << "Carte chargee avec succes." << std::cout;
+	
 	// temp
 	std::cout << "Chargement de l'arene termine." << std::endl;
 	
@@ -49,11 +63,14 @@ void Arene::lancer()
 	std::cout << "Lancement de l'arene..." << std::endl;
 }
 
-/* Ré-initialise une arène lancée et terminée.*/
+/* Réinitialise une arène lancée et terminée.*/
 void Arene::reinitialiser()
 {
+	// Réinitialisation de la carte.
+	m_carte.reinitialiser();
+	
 	// temp
-	std::cout << "Arene re-initialisee." << std::endl;
+	std::cout << "Arene reinitialisee." << std::endl;
 	
 	// Indication que l'arène n'est plus prête à être lancée.
 	m_est_prete = false;

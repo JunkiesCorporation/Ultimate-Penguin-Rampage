@@ -34,9 +34,11 @@ class Carte
 	 */
 	bool charger(std::string chemin_fichier);
 	
-	/** Libère les éléments chargés par #charger().
+	/** Réinitialise la carte.
+	 *
+	 * Réinitialise les éléments modifiés par #charger() en vue d'une réutilisation de l'instance de Carte.
 	 */
-	void liberer();
+	void reinitialiser();
 	//---------------------------------
 	
 	protected:

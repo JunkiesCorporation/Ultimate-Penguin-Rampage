@@ -34,7 +34,7 @@ class Arene
 	 */
 	void lancer();
 	
-	/** Ré-initialise une arène lancée et terminée.
+	/** Réinitialise une arène lancée et terminée.
 	 *
 	 * Permet de réutiliser la même instance d'Arene afin de ne pas encombrer la mémoire en chargeant toutes les arènes du jeu d'un coup.
 	 */
