@@ -137,12 +137,12 @@ int UPR::menuPrincipal()
 	 */
 	
 	// Chemins des images du menu.
-	char chemin_image_fond[] = "img/menu_principal/menu_principal.bmp";
-	char chemin_image_nouveau_profil[] = "img/menu_principal/nouveau_profil.bmp";
-	char chemin_image_charger_profil[] = "img/menu_principal/charger_profil.bmp";
-	char chemin_image_options[] = "img/menu_principal/options.bmp";
-	char chemin_image_quitter[] = "img/menu_principal/quitter.bmp";
-	char chemin_image_curseur[] = "img/commun/curseur.bmp";
+	char chemin_image_fond[] = "rsc/img/menu_principal/menu_principal.bmp";
+	char chemin_image_nouveau_profil[] = "rsc/img/menu_principal/nouveau_profil.bmp";
+	char chemin_image_charger_profil[] = "rsc/img/menu_principal/charger_profil.bmp";
+	char chemin_image_options[] = "rsc/img/menu_principal/options.bmp";
+	char chemin_image_quitter[] = "rsc/img/menu_principal/quitter.bmp";
+	char chemin_image_curseur[] = "rsc/img/commun/curseur.bmp";
 	
 	// Textures contenant les images du menu.
 	Texture* texture_fond = NULL;

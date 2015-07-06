@@ -1,8 +1,8 @@
-[infos_tiles]
+[infos_tileset]
 largeur= 10
 hauteur= 10
 dimensionTiles= 32 x 32
-image= img/TSbanquise.bmp
+image= rsc/img/tileset/tileset_banquise.bmp
 
 [tiles_solides]
 nombre= 14

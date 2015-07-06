@@ -53,7 +53,7 @@ void Jeu::lancer(Profil* profil_joueur)
 	bool quit = false;
 	
 	// Chemin d'accès à l'image du curseur de sélection.
-	char chemin_image_cadre_selection[] = "img/jeu/jeu_cadre_selection.bmp";
+	char chemin_image_cadre_selection[] = "rsc/img/jeu/jeu_cadre_selection.bmp";
 	
 	// La position actuelle du curseur.
 	EnumOptionsEcranPrincipal position_curseur_act = MODE_HISTOIRE;
@@ -207,12 +207,12 @@ void Jeu::lancer(Profil* profil_joueur)
 void Jeu::chargerTexturesEcran()
 {
 	// Chemins des images à charger.
-	char chemin_image_fond_jeu[] = "img/jeu/jeu_image_fond.bmp";
+	char chemin_image_fond_jeu[] = "rsc/img/jeu/jeu_image_fond.bmp";
 	std::string chemin_images_ecran_jeu[NB_OPTIONS] =
 	{
-		"img/jeu/jeu_mode_histoire.bmp",
-		"img/jeu/jeu_mode_arene.bmp",
-		"img/jeu/jeu_retour_menu_principal.bmp"
+		"rsc/img/jeu/jeu_mode_histoire.bmp",
+		"rsc/img/jeu/jeu_mode_arene.bmp",
+		"rsc/img/jeu/jeu_retour_menu_principal.bmp"
 	};
 	
 	// Chargement des textures.
@@ -227,7 +227,7 @@ void Jeu::chargerTexturesEcran()
 void Jeu::chargerTexturesModeHistoire()
 {
 	// Chemins des images à charger.
-	char chemin_image_fond_mode_histoire[] = "img/jeu/mode_histoire/mode_histoire_image_fond.bmp";
+	char chemin_image_fond_mode_histoire[] = "rsc/img/jeu/mode_histoire/mode_histoire_image_fond.bmp";
 	
 	// Chargement des textures.
 	m_texture_fond_mode_histoire = new Texture(chemin_image_fond_mode_histoire);
