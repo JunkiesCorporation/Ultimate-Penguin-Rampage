@@ -2,6 +2,7 @@
 #define ARENE_H
 
 #include "Carte.h"
+#include "Joueur.h"
 #include "Timer.h"
 
 /** Objet permettant le contrôle d'un niveau jouable.
@@ -60,6 +61,10 @@ class Arene
 		/** Si cette instance d'Arene est prête à être lancée.
 		 */
 		bool m_est_prete;
+		
+		/** L'objet joueur contrôlé par l'utilisateur.
+		 */
+		Joueur* m_joueur;
 		
 		/** Compteur du nombre de ticks nécessaires à l'affichage d'une trame à l'écran.
 		 * 

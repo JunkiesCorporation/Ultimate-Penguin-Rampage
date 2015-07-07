@@ -6,6 +6,8 @@
 #include "Struct.h"
 #include "Texture.h"
 
+/** Objet contenant un tileset précis et permettant son affichage à l'écran grâce aux numéros d'ID de ses tiles.
+ */
 class Tileset
 {
 	public:

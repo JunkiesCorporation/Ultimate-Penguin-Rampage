@@ -6,15 +6,13 @@
 // Constructeurs
 //---------------------------------
 /* Constructeur par défaut.*/
-Arene::Arene()
+Arene::Arene() : m_est_prete(false), m_joueur(NULL), m_ticks_image(0)
 {
 	// Initialisation des attributs à des valeurs par défaut.
 	m_camera.x = 0;
 	m_camera.y = 0;
 	m_camera.w = UPR::LARGEUR_ECRAN;
 	m_camera.h = UPR::HAUTEUR_ECRAN;
-	m_est_prete = false;
-	m_ticks_image = 0;
 }
 //---------------------------------
 
@@ -45,6 +43,9 @@ void Arene::charger()
 	}
 	// temp
 	std::cout << "Carte chargee avec succes." << std::endl;
+	
+	// Chargement du joueur.
+	m_joueur = new Joueur();
 	
 	// temp
 	std::cout << "Chargement de l'arene termine." << std::endl;
@@ -83,6 +84,14 @@ void Arene::lancer()
 		// Début du chronométrage de l'image.
 		m_timer.start();
 		
+		//-----------------------------
+		// Mise-à-jour des éléments.
+		
+		m_joueur->update();
+		
+		//-----------------------------
+		// Affichage des images
+		
 		// Nettoyage du renderer.
 		SDL_RenderClear(UPR::renderer_SDL);
 		
@@ -91,6 +100,7 @@ void Arene::lancer()
 		// Affichage à l'écran.
 		SDL_RenderPresent(UPR::renderer_SDL);
 		
+		//-----------------------------
 		// Gestion des événements.
 		while(SDL_PollEvent(&e) != 0)
 		{
@@ -110,6 +120,7 @@ void Arene::lancer()
 			}
 		}
 		
+		//-----------------------------
 		// Correction si le FPS dépasse le maximum.
 		m_ticks_image = m_timer.getTicks();
 		if(m_ticks_image < UPR::TICKS_ECRAN_PAR_IMAGE)
@@ -124,6 +135,10 @@ void Arene::reinitialiser()
 {
 	// Réinitialisation de la carte.
 	m_carte.reinitialiser();
+	
+	// Destruction du joueur.
+	delete m_joueur;
+	m_joueur = NULL;
 	
 	// Réinitialisation des attributs à des valeurs par défaut.
 	m_camera.x = 0;
