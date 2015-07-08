@@ -51,6 +51,12 @@ class Carte
 	 * @param camera La caméra du niveau.
 	 */
 	void render(SDL_Rect camera) const;
+	
+	/** Retourne la position de départ du joueur (en px).
+	 *
+	 * @return m_depart_joueur Les coordonnées de départ du joueur.
+	 */
+	Coordonnees getPositionDepartJoueur() const;
 	//---------------------------------
 	
 	protected:
@@ -62,9 +68,9 @@ class Carte
 	
 	// Attributs privés
 	//---------------------------------
-	/** La Position de départ du joueur.
+	/** Les Coordonnees de départ du joueur (en tiles).
 	 */
-	Position m_depart_joueur;
+	Coordonnees m_depart_joueur;
 	
 	/** La hauteur de la carte (en tiles).
 	 */

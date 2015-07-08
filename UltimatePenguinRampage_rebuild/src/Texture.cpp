@@ -129,8 +129,8 @@ void Texture::render(int x, int y) const
 	SDL_RenderCopy(UPR::renderer_SDL, m_image, NULL, &render_quad);
 }
 
-/* Affiche la texture à la Position donnée.*/
-void Texture::render(Position pos) const
+/* Affiche la texture aux Coordonnees données.*/
+void Texture::render(Coordonnees pos) const
 {
 	// Le rectangle sur lequel la texture est projetée.
 	SDL_Rect render_quad = {pos.x, pos.y, m_largeur, m_hauteur};

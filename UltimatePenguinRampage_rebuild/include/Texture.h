@@ -71,13 +71,13 @@ class Texture
 		 */
 		void render(int x, int y) const;
 		
-		/** Affiche la texture à la Position donnée.
+		/** Affiche la texture aux Coordonnees données.
 		 *
 		 * Attention! Cette fonction ne contient qu'un appel à SDL_RenderCopy(), il faut tout de même appeler SDL_RenderPresent() après.
 		 *
-		 * @param pos_render La Position où afficher l'image.
+		 * @param pos_render Les Coordonnees où afficher l'image.
 		 */
-		void render(Position pos_render) const;
+		void render(Coordonnees pos_render) const;
 		
 		/** Retourne la largeur de l'image contenue.
 		 *

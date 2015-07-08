@@ -5,15 +5,15 @@
 
 #include "Enums.h"
 
-/** Petite structure pour contenir des positions avec 2 coordonnées.
+/** Petite structure pour contenir des coordonnées en deux dimensions.
  */
-struct Position
+struct Coordonnees
 {
-	/** La coordonnée x de la position.
+	/** La coordonnée x.
 	 */
 	int x;
 	
-	/** La coordonnée y de la position.
+	/** La coordonnée y.
 	 */
 	int y;
 };

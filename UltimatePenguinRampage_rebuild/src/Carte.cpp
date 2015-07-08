@@ -209,8 +209,8 @@ void Carte::render(SDL_Rect camera) const
 	int hauteur_tile = m_tileset.getHauteurTile();
 	
 	// Définissent le rectangle qui couvre toutes les tiles à afficher (en tiles)
-	Position pos_haut_gauche = { 0, 0};
-	Position pos_bas_droite = { 0, 0};
+	Coordonnees pos_haut_gauche = { 0, 0};
+	Coordonnees pos_bas_droite = { 0, 0};
 	
 	// Attribution des dimensions du rectangle.
 	pos_haut_gauche.x = camera.x / largeur_tile;
@@ -237,6 +237,15 @@ void Carte::render(SDL_Rect camera) const
 		}
 	}
 	
+}
+
+/* Retourne la position de départ du joueur.*/
+Coordonnees Carte::getPositionDepartJoueur() const
+{
+	// Conversion des unités des coordonnées.
+	Coordonnees temp = { m_depart_joueur.x * m_tileset.getLargeurTile(), m_depart_joueur.y * m_tileset.getHauteurTile()};
+	
+	return temp;
 }
 //---------------------------------
 

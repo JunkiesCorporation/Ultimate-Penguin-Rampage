@@ -4,7 +4,7 @@
 #include "UPR.h"
 
 // Constructeurs
-//---------------------------------
+//-------------------------------------
 /* Constructeur par défaut.*/
 Arene::Arene() : m_est_prete(false), m_joueur(NULL), m_ticks_image(0)
 {
@@ -14,19 +14,19 @@ Arene::Arene() : m_est_prete(false), m_joueur(NULL), m_ticks_image(0)
 	m_camera.w = UPR::LARGEUR_ECRAN;
 	m_camera.h = UPR::HAUTEUR_ECRAN;
 }
-//---------------------------------
+//-------------------------------------
 
 // Destructeur
-//---------------------------------
+//-------------------------------------
 /* Destructeur par défaut.*/
 Arene::~Arene()
 {
 	// Aucun attribut à détruire.
 }
-//---------------------------------
+//-------------------------------------
 
 // Fonctions membres publiques
-//---------------------------------
+//-------------------------------------
 /* Charge les éléments requis pour le fonctionnement de cette instance d'Arene.*/
 void Arene::charger()
 {
@@ -45,7 +45,9 @@ void Arene::charger()
 	std::cout << "Carte chargee avec succes." << std::endl;
 	
 	// Chargement du joueur.
-	m_joueur = new Joueur();
+	m_joueur = new Joueur(m_carte.getPositionDepartJoueur());
+	
+	std::cout << "Position du joueur : " << m_joueur->getPosition().x << ", " << m_joueur->getPosition().y << std::endl;
 	
 	// temp
 	std::cout << "Chargement de l'arene termine." << std::endl;
@@ -88,6 +90,7 @@ void Arene::lancer()
 		// Mise-à-jour des éléments.
 		
 		m_joueur->update();
+		updateCamera();
 		
 		//-----------------------------
 		// Affichage des images
@@ -96,6 +99,7 @@ void Arene::lancer()
 		SDL_RenderClear(UPR::renderer_SDL);
 		
 		m_carte.render(m_camera);
+		m_joueur->render(m_camera);
 		
 		// Affichage à l'écran.
 		SDL_RenderPresent(UPR::renderer_SDL);
@@ -104,16 +108,18 @@ void Arene::lancer()
 		// Gestion des événements.
 		while(SDL_PollEvent(&e) != 0)
 		{
+			// On donne l'événement au joueur.
+			m_joueur->gererEvenement(e, m_camera);
+			
 			// Si une touche est appuyée.
 			if(e.type == SDL_KEYDOWN)
 			{
 				// Switch sur le symbole de la touche appuyée.
 				switch(e.key.keysym.sym)
 				{
-				// temp
-				// La touche "q" est appuyée.
-				case SDLK_q:
-					// Changement de la position du curseur.
+				// La touche "echap" est appuyée.
+				case SDLK_ESCAPE:
+					// Quitte l'arène sans confirmation.
 					quit = true;
 					break;
 				}
@@ -153,4 +159,14 @@ void Arene::reinitialiser()
 	// Indication que l'arène n'est plus prête à être lancée.
 	m_est_prete = false;
 }
-//---------------------------------
+//-------------------------------------
+
+// Fonctions membres privées
+//-------------------------------------
+/* Met à jour la position de la caméra.*/
+void Arene::updateCamera()
+{
+	m_camera.x = m_joueur->getPosition().x + ((m_joueur->getLargeurImage() - m_camera.w) / 2);
+	m_camera.y = m_joueur->getPosition().y + ((m_joueur->getHauteurImage() - m_camera.h) / 2);
+}
+//-------------------------------------

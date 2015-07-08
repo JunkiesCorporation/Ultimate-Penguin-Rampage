@@ -46,6 +46,13 @@ class Arene
 	protected:
 		
 	private:
+		// Fonctions membres privées
+		//-----------------------------
+		/** Met à jour la position de la caméra.
+		 */
+		void updateCamera();
+		//-----------------------------
+		
 		// Attributs privés
 		//---------------------------------
 		/** La caméra qui permet l'affichage.

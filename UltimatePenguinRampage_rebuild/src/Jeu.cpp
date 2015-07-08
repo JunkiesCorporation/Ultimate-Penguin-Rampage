@@ -61,11 +61,11 @@ void Jeu::lancer(Profil* profil_joueur)
 	// La position précédente du curseur.
 	EnumOptionsEcranPrincipal position_curseur_prec = MODE_HISTOIRE;
 	
-	// Positions des images de l'écran principal du jeu.
-	Position positions_textures_ecran[NB_OPTIONS] = {{0, 0}};
+	// Coordonnees des images de l'écran principal du jeu.
+	Coordonnees positions_textures_ecran[NB_OPTIONS] = {{0, 0}};
 	
-	// Positions du curseur lors de l'écran principal du jeu.
-	Position positions_curseur_ecran[NB_OPTIONS] = {{0, 0}};
+	// Coordonnees du curseur lors de l'écran principal du jeu.
+	Coordonnees positions_curseur_ecran[NB_OPTIONS] = {{0, 0}};
 	
 	//---------------------------------
 	
