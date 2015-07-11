@@ -162,42 +162,62 @@ void Joueur::gererEvenement(SDL_Event const &e, SDL_Rect const &camera)
 }
 
 /* Met à jour le joueur.*/
-void Joueur::update()
-{	
+void Joueur::update(Carte const &carte)
+{
+	// Si les coins du personnages touchent une tile solide.
+	bool coins[4];
+	
+	EnumDirections direction_deplacement = HAUT;
+	
+	// Les dimensions d'une tile de la carte.
+	int hauteur_tile = carte.getHauteurTile();
+	int largeur_tile = carte.getLargeurTile();
+	
+	// La position du joueur à l'image précédente.
+	Coordonnees pos_precedente = m_position;
+	
 	//---------------------------------
 	// Mise à jour des attributs du joueur.
 	
 	// Attribution de la direction en fonction du déplacement demandé.
 	if(m_actions[DIR_HAUT] && !m_actions[DIR_DROITE] && !m_actions[DIR_BAS] && !m_actions[DIR_GAUCHE])
 	{
+		direction_deplacement = HAUT;
 		m_direction_deplacement = 0;
 	}
 	else if(m_actions[DIR_HAUT] && m_actions[DIR_DROITE] && !m_actions[DIR_BAS] && !m_actions[DIR_GAUCHE])
 	{
+		direction_deplacement = HAUT_DROITE;
 		m_direction_deplacement = M_PI_4;
 	}
 	else if(!m_actions[DIR_HAUT] && m_actions[DIR_DROITE] && !m_actions[DIR_BAS] && !m_actions[DIR_GAUCHE])
 	{
+		direction_deplacement = DROITE;
 		m_direction_deplacement = M_PI_2;
 	}
 	else if(!m_actions[DIR_HAUT] && m_actions[DIR_DROITE] && m_actions[DIR_BAS] && !m_actions[DIR_GAUCHE])
 	{
+		direction_deplacement = BAS_DROITE;
 		m_direction_deplacement = 3. * M_PI_4;
 	}
 	else if(!m_actions[DIR_HAUT] && !m_actions[DIR_DROITE] && m_actions[DIR_BAS] && !m_actions[DIR_GAUCHE])
 	{
+		direction_deplacement = BAS;
 		m_direction_deplacement = M_PI;
 	}
 	else if(!m_actions[DIR_HAUT] && !m_actions[DIR_DROITE] && m_actions[DIR_BAS] && m_actions[DIR_GAUCHE])
 	{
+		direction_deplacement = BAS_GAUCHE;
 		m_direction_deplacement = 5. * M_PI_4;
 	}
 	else if(!m_actions[DIR_HAUT] && !m_actions[DIR_DROITE] && !m_actions[DIR_BAS] && m_actions[DIR_GAUCHE])
 	{
+		direction_deplacement = GAUCHE;
 		m_direction_deplacement = 3. * M_PI_2;
 	}
 	else if(m_actions[DIR_HAUT] && !m_actions[DIR_DROITE] && !m_actions[DIR_BAS] && m_actions[DIR_GAUCHE])
 	{
+		direction_deplacement = HAUT_GAUCHE;
 		m_direction_deplacement = 7. * M_PI_4;
 	}
 	
@@ -212,6 +232,108 @@ void Joueur::update()
 		m_position.x += m_vitesse.x;
 		m_position.y += m_vitesse.y;
 	}
+	
+	// Test de collisions avec les tiles solides de la carte et modification du déplacement si il y a collision.
+    coins[0] = carte.isTileSolide(m_position.x/largeur_tile, m_position.y/hauteur_tile);
+    coins[1] = carte.isTileSolide((m_position.x+largeur_tile-1)/largeur_tile, m_position.y/hauteur_tile);
+    coins[2] = carte.isTileSolide((m_position.x+largeur_tile-1)/largeur_tile, (m_position.y+hauteur_tile-1)/hauteur_tile);
+    coins[3] = carte.isTileSolide(m_position.x/largeur_tile, (m_position.y+hauteur_tile-1)/hauteur_tile);
+    if(coins[0] && coins[1]) {
+        m_position.y = (m_position.y/hauteur_tile + 1) * hauteur_tile;
+    }
+    if(coins[1] && coins[2]) {
+        m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+    }
+    if(coins[2] && coins[3]) {
+        m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+    }
+    if(coins[3] && coins[0]) {
+        m_position.x = (m_position.x/largeur_tile + 1) * largeur_tile;
+    }
+    if (coins[0] && !(coins[1] || coins[2] || coins[3])) {
+        switch(direction_deplacement) {
+        case GAUCHE: m_position.x = (m_position.x/largeur_tile + 1) * largeur_tile;
+            break;
+        case HAUT: m_position.y = (m_position.y/hauteur_tile + 1) * hauteur_tile;
+            break;
+        case HAUT_DROITE: m_position.y = (m_position.y/hauteur_tile + 1) * hauteur_tile;
+            break;
+        case BAS_GAUCHE: m_position.x = (m_position.x/largeur_tile + 1) * largeur_tile;
+            break;
+        case HAUT_GAUCHE:
+            if (pos_precedente.x - (m_position.x / largeur_tile + 1)*largeur_tile > pos_precedente.y - (m_position.y / hauteur_tile + 1)*hauteur_tile) {
+                m_position.x = (m_position.x/largeur_tile + 1) * largeur_tile;
+            } else {
+                m_position.y = (m_position.y/hauteur_tile + 1) * hauteur_tile;
+            }
+            break;
+        default:
+            break;
+        }
+    }
+    if (coins[1] && !(coins[0] || coins[2] || coins[3])) {
+        switch(direction_deplacement) {
+        case DROITE: m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+            break;
+        case HAUT: m_position.y = (m_position.y/hauteur_tile + 1) * hauteur_tile;
+            break;
+        case HAUT_GAUCHE: m_position.y = (m_position.y/hauteur_tile + 1) * hauteur_tile;
+            break;
+        case BAS_DROITE: m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+            break;
+        case HAUT_DROITE:
+            if((m_position.x/largeur_tile)*largeur_tile - pos_precedente.x > pos_precedente.y - (m_position.y/hauteur_tile + 1) * hauteur_tile) {
+                m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+            } else {
+                m_position.y = (m_position.y/hauteur_tile + 1) * hauteur_tile;
+            }
+            break;
+        default:
+            break;
+        }
+    }
+    if (coins[2] && !(coins[0] || coins[1] || coins[3])) {
+        switch(direction_deplacement) {
+        case DROITE: m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+            break;
+        case BAS: m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+            break;
+        case BAS_GAUCHE: m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+            break;
+        case HAUT_DROITE: m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+            break;
+        case BAS_DROITE:
+            if((m_position.x/largeur_tile)*largeur_tile - pos_precedente.x > (m_position.y/hauteur_tile)*hauteur_tile - pos_precedente.y) {
+                m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+            } else {
+                m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+            }
+            break;
+        default:
+            break;
+        }
+    }
+    if (coins[3] && !(coins[0] || coins[1] || coins[2])) {
+        switch(direction_deplacement) {
+        case GAUCHE: m_position.x = (m_position.x/largeur_tile + 1) * largeur_tile;
+            break;
+        case BAS: m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+            break;
+        case BAS_DROITE: m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+            break;
+        case HAUT_GAUCHE: m_position.x = (m_position.x/largeur_tile + 1) * largeur_tile;
+            break;
+        case BAS_GAUCHE:
+            if(pos_precedente.x - (m_position.x/largeur_tile + 1)*largeur_tile > (m_position.y/hauteur_tile)*hauteur_tile - pos_precedente.y) {
+                m_position.x = (m_position.x/largeur_tile + 1) * largeur_tile;
+            } else {
+                m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+            }
+            break;
+        default:
+            break;
+        }
+    }
 	
 	// Changement de l'image du joueur en fonction de la direction.
 	if(m_actions[CHANGE_DIRECTION])

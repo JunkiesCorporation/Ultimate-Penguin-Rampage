@@ -205,13 +205,18 @@ void Tileset::render(int id_tile, int x, int y) const
 	SDL_RenderCopy(UPR::renderer_SDL, m_image->getImage(), &m_tiles[id_tile - 1].rect_clip, &render_quad);
 }
 
-/** Retourne la largeur d'une tile du tileset.*/
+/* Retourne si la tile indiquée est solide ou non.*/
+bool Tileset::isTileSolide(int tileID) const {
+    return m_tiles[tileID-1].type == TILE_SOLIDE;
+}
+
+/* Retourne la largeur d'une tile du tileset.*/
 int Tileset::getLargeurTile() const
 {
 	return m_largeur_tile;
 }
 
-/** Retourne la hauteur d'une tile du tileset.*/
+/* Retourne la hauteur d'une tile du tileset.*/
 int Tileset::getHauteurTile() const
 {
 	return m_hauteur_tile;

@@ -6,6 +6,7 @@
 #include <math.h>
 #include <SDL.h>
 
+#include "Carte.h"
 #include "Struct.h"
 #include "Texture.h"
 
@@ -55,8 +56,10 @@ class Entite
 		/** Met à jour l'entité.
 		 *
 		 * Toutes les actions que l'entité effectue au cours du niveau partent de cette fonction.
+		 *
+		 * @param carte La Carte sur laquelle se situe l'entité.
 		 */
-		virtual void update() = 0;
+		virtual void update(Carte const &carte) = 0;
 		
 		/** Retourne la hauteur de l'image de l'entité.
 		 *

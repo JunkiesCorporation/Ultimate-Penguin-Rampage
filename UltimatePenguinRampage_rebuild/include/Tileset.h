@@ -53,6 +53,12 @@ class Tileset
 	 */
 	void render(int id_tile, int x, int y) const;
 	
+	/** Retourne si la tile indiquée est solide ou non.
+	 *
+	 * @return Si la tile indiquée est de type TILE_SOLIDE.
+	 */
+	bool isTileSolide(int tileID) const;
+	
 	/** Retourne la largeur d'une tile du tileset.
 	 *
 	 * @return #m_largeur_tile La largeur d'une tile.

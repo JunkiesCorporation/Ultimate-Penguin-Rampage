@@ -45,9 +45,10 @@ class Joueur : public Entite
 		
 		/** Met à jour le joueur.
 		 *
+		 * @param carte La carte sur laquelle le joueur joue.
 		 * @sa Entite::update().
 		 */
-		void update();
+		void update(Carte const &carte);
 		//---------------------------------
 	
 	protected:

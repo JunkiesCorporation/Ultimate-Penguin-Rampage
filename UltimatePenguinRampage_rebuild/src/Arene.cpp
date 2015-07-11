@@ -89,7 +89,7 @@ void Arene::lancer()
 		//-----------------------------
 		// Mise-à-jour des éléments.
 		
-		m_joueur->update();
+		m_joueur->update(m_carte);
 		updateCamera();
 		
 		//-----------------------------

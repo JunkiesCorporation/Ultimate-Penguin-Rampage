@@ -240,6 +240,23 @@ void Carte::render(SDL_Rect camera) const
 	
 }
 
+/* Retourne si la tile à la position indiquée est solide ou non.*/
+bool Carte::isTileSolide(int x, int y) const {
+    return m_tileset.isTileSolide(m_id_tiles[x][y]);
+}
+
+/* Retourne la hauteur d'une tile sur la carte.*/
+int Carte::getHauteurTile() const
+{
+	return m_tileset.getHauteurTile();
+}
+
+/* Retourne la largeur d'une tile sur la carte.*/
+int Carte::getLargeurTile() const
+{
+	return m_tileset.getLargeurTile();
+}
+
 /* Retourne la position de départ du joueur.*/
 Coordonnees Carte::getPositionDepartJoueur() const
 {

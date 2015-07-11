@@ -52,6 +52,24 @@ class Carte
 	 */
 	void render(SDL_Rect camera) const;
 	
+	/** Retourne si la tile à la position indiquée est solide ou non.
+	 *
+	 * @return Si la tile indiquée est solide.
+	 */
+	bool isTileSolide(int x, int y) const;
+	
+	/** Retourne la hauteur d'une tile sur la carte.
+	 *
+	 * @return La hauteur d'une tile de m_tileset.
+	 */
+	int getHauteurTile() const;
+	
+	/** Retourne la largeur d'une tile sur la carte.
+	 *
+	 * @return La largeur d'une tile de m_tileset.
+	 */
+	int getLargeurTile() const;
+	
 	/** Retourne la position de départ du joueur (en px).
 	 *
 	 * @return m_depart_joueur Les coordonnées de départ du joueur.
