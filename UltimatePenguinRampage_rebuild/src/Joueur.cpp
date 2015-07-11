@@ -87,19 +87,19 @@ void Joueur::gererEvenement(SDL_Event const &e, SDL_Rect const &camera)
 		// Calcul de la direction en fonction du cadran dans lequel la souris est.
 		if(pos_souris_relative.x >= 0 && pos_souris_relative.y < 0)
 		{
-			m_direction = atan(((double)pos_souris_relative.x) / ((-1.)*(double)pos_souris_relative.y));
+			m_direction_visee = atan(((double)pos_souris_relative.x) / ((-1.)*(double)pos_souris_relative.y));
 		}
 		else if(pos_souris_relative.x > 0 && pos_souris_relative.y >= 0)
 		{
-			m_direction = M_PI_2 + atan(((double)pos_souris_relative.y) / ((double)pos_souris_relative.x));
+			m_direction_visee = M_PI_2 + atan(((double)pos_souris_relative.y) / ((double)pos_souris_relative.x));
 		}
 		else if(pos_souris_relative.x <= 0 && pos_souris_relative.y > 0)
 		{
-			m_direction = M_PI + atan(((-1.)*(double)pos_souris_relative.x)/((double)pos_souris_relative.y));
+			m_direction_visee = M_PI + atan(((-1.)*(double)pos_souris_relative.x)/((double)pos_souris_relative.y));
 		}
 		else if(pos_souris_relative.x < 0 && pos_souris_relative.y <= 0)
 		{
-			m_direction = M_PI + M_PI_2 + atan(((-1.)*(double)pos_souris_relative.y) / ((-1.)*(double)pos_souris_relative.x));
+			m_direction_visee = M_PI + M_PI_2 + atan(((-1.)*(double)pos_souris_relative.y) / ((-1.)*(double)pos_souris_relative.x));
 		}
 	}
 	// Si l'utilisateur appuie sur une touche.
@@ -109,19 +109,27 @@ void Joueur::gererEvenement(SDL_Event const &e, SDL_Rect const &camera)
 		{
 		// Si l'utilisateur appuie sur "d".
 		case SDLK_d:
-			m_actions[PAN_DROITE] = true;
+			m_actions[DIR_DROITE] = true;
 			break;
+			
 		// Si l'utilisateur appuie sur "echap"
 		case SDLK_ESCAPE:
 			m_image = NULL;
 			break;
+			
 		// Si l'utilisateur appuie sur "q".
 		case SDLK_q:
-			m_actions[PAN_GAUCHE] = true;
+			m_actions[DIR_GAUCHE] = true;
 			break;
+			
+		// Si l'utilisateur appuie sur "s".
+		case SDLK_s:
+			m_actions[DIR_BAS] = true;
+			break;
+			
 		// Si l'utilisateur appuie sur "z".
 		case SDLK_z:
-			m_actions[AVANCER] = true;
+			m_actions[DIR_HAUT] = true;
 			break;
 		}
 	}
@@ -130,17 +138,24 @@ void Joueur::gererEvenement(SDL_Event const &e, SDL_Rect const &camera)
 	{
 		switch(e.key.keysym.sym)
 		{
-		// Si l'utilisateur relâche "z".
-		case SDLK_z:
-			m_actions[AVANCER] = false;
-			break;
 		// Si l'utilisateur relâche "d".
 		case SDLK_d:
-			m_actions[PAN_DROITE] = false;
+			m_actions[DIR_DROITE] = false;
 			break;
+		
 		// Si l'utilisateur relâche "q".
 		case SDLK_q:
-			m_actions[PAN_GAUCHE] = false;
+			m_actions[DIR_GAUCHE] = false;
+			break;
+			
+		// Si l'utilisateur relâche "s".
+		case SDLK_s:
+			m_actions[DIR_BAS] = false;
+			break;
+			
+		// Si l'utilisateur relâche "z".	
+		case SDLK_z:
+			m_actions[DIR_HAUT] = false;
 			break;
 		}
 	}
@@ -148,61 +163,50 @@ void Joueur::gererEvenement(SDL_Event const &e, SDL_Rect const &camera)
 
 /* Met à jour le joueur.*/
 void Joueur::update()
-{
-	// La direction à utiliser pour l'image.
-	double direction_temp = m_direction;
-	
+{	
 	//---------------------------------
 	// Mise à jour des attributs du joueur.
 	
-	// Si le joueur avance vers la direction.
-	if(m_actions[AVANCER] && !m_actions[PAN_DROITE] && !m_actions[PAN_GAUCHE])
+	// Attribution de la direction en fonction du déplacement demandé.
+	if(m_actions[DIR_HAUT] && !m_actions[DIR_DROITE] && !m_actions[DIR_BAS] && !m_actions[DIR_GAUCHE])
 	{
-		// Pas de modification de direction.
+		m_direction_deplacement = 0;
 	}
-	else if(!m_actions[AVANCER] && m_actions[PAN_DROITE] && !m_actions[PAN_GAUCHE])
+	else if(m_actions[DIR_HAUT] && m_actions[DIR_DROITE] && !m_actions[DIR_BAS] && !m_actions[DIR_GAUCHE])
 	{
-		// Ajout de pi/2 à la direction.
-		direction_temp += M_PI_2;
-		
-		// On cycle si on dépasse 2pi.
-		if(direction_temp > 2 * M_PI)
-			direction_temp -= 2 * M_PI;
+		m_direction_deplacement = M_PI_4;
 	}
-	else if(!m_actions[AVANCER] && !m_actions[PAN_DROITE] && m_actions[PAN_GAUCHE])
+	else if(!m_actions[DIR_HAUT] && m_actions[DIR_DROITE] && !m_actions[DIR_BAS] && !m_actions[DIR_GAUCHE])
 	{
-		// Soustraction de pi/2 à la direction.
-		direction_temp -= M_PI_2;
-		
-		// On cycle si on dépasse 0.
-		if(direction_temp < 0)
-			direction_temp += 2 * M_PI;
+		m_direction_deplacement = M_PI_2;
 	}
-	else if(m_actions[AVANCER] && m_actions[PAN_DROITE] && !m_actions[PAN_GAUCHE])
+	else if(!m_actions[DIR_HAUT] && m_actions[DIR_DROITE] && m_actions[DIR_BAS] && !m_actions[DIR_GAUCHE])
 	{
-		// Ajout de pi/4 à la direction.
-		direction_temp += M_PI_4;
-		
-		// On cycle si on dépasse 2pi.
-		if(direction_temp > 2 * M_PI)
-			direction_temp -= 2 * M_PI;
+		m_direction_deplacement = 3. * M_PI_4;
 	}
-	else if(m_actions[AVANCER] && !m_actions[PAN_DROITE] && m_actions[PAN_GAUCHE])
+	else if(!m_actions[DIR_HAUT] && !m_actions[DIR_DROITE] && m_actions[DIR_BAS] && !m_actions[DIR_GAUCHE])
 	{
-		// Soustraction de pi/4 à la direction.
-		direction_temp -= M_PI_4;
-		
-		// On cycle si on dépasse 0.
-		if(direction_temp < 0)
-			direction_temp += 2 * M_PI;
+		m_direction_deplacement = M_PI;
+	}
+	else if(!m_actions[DIR_HAUT] && !m_actions[DIR_DROITE] && m_actions[DIR_BAS] && m_actions[DIR_GAUCHE])
+	{
+		m_direction_deplacement = 5. * M_PI_4;
+	}
+	else if(!m_actions[DIR_HAUT] && !m_actions[DIR_DROITE] && !m_actions[DIR_BAS] && m_actions[DIR_GAUCHE])
+	{
+		m_direction_deplacement = 3. * M_PI_2;
+	}
+	else if(m_actions[DIR_HAUT] && !m_actions[DIR_DROITE] && !m_actions[DIR_BAS] && m_actions[DIR_GAUCHE])
+	{
+		m_direction_deplacement = 7. * M_PI_4;
 	}
 	
 	// Si le joueur se déplace
-	if(m_actions[AVANCER] || m_actions[PAN_GAUCHE] || m_actions[PAN_DROITE])
+	if(m_actions[DIR_BAS] || m_actions[DIR_DROITE] || m_actions[DIR_GAUCHE] || m_actions[DIR_HAUT])
 	{
 		// Calcul de la vitesse.
-		m_vitesse.x = sin(direction_temp) * m_vitesse_max;
-		m_vitesse.y = (-1.) * cos(direction_temp) * m_vitesse_max;
+		m_vitesse.x = sin(m_direction_deplacement) * m_vitesse_max;
+		m_vitesse.y = (-1.) * cos(m_direction_deplacement) * m_vitesse_max;
 		
 		// Changement de la position.
 		m_position.x += m_vitesse.x;
@@ -212,35 +216,35 @@ void Joueur::update()
 	// Changement de l'image du joueur en fonction de la direction.
 	if(m_actions[CHANGE_DIRECTION])
 	{
-		if(m_direction >= 15. * M_PI_8 || m_direction < M_PI_8)
+		if(m_direction_visee >= 15. * M_PI_8 || m_direction_visee < M_PI_8)
 		{
 			m_image = m_textures[HAUT];
 		}
-		else if(m_direction >= M_PI_8 && m_direction < 3. * M_PI_8)
+		else if(m_direction_visee >= M_PI_8 && m_direction_visee < 3. * M_PI_8)
 		{
 			m_image = m_textures[HAUT_DROITE];
 		}
-		else if(m_direction >= 3. * M_PI_8 && m_direction < 5. * M_PI_8)
+		else if(m_direction_visee >= 3. * M_PI_8 && m_direction_visee < 5. * M_PI_8)
 		{
 			m_image = m_textures[DROITE];
 		}
-		else if(m_direction >= 5. * M_PI_8 && m_direction < 7. * M_PI_8)
+		else if(m_direction_visee >= 5. * M_PI_8 && m_direction_visee < 7. * M_PI_8)
 		{
 			m_image = m_textures[BAS_DROITE];
 		}
-		else if(m_direction >= 7. * M_PI_8 && m_direction < 9. * M_PI_8)
+		else if(m_direction_visee >= 7. * M_PI_8 && m_direction_visee < 9. * M_PI_8)
 		{
 			m_image = m_textures[BAS];
 		}
-		else if(m_direction >= 9. * M_PI_8 && m_direction < 11. * M_PI_8)
+		else if(m_direction_visee >= 9. * M_PI_8 && m_direction_visee < 11. * M_PI_8)
 		{
 			m_image = m_textures[BAS_GAUCHE];
 		}
-		else if(m_direction >= 11. * M_PI_8 && m_direction < 13. * M_PI_8)
+		else if(m_direction_visee >= 11. * M_PI_8 && m_direction_visee < 13. * M_PI_8)
 		{
 			m_image = m_textures[GAUCHE];
 		}
-		else if(m_direction >= 13. * M_PI_8 && m_direction < 15. * M_PI_8)
+		else if(m_direction_visee >= 13. * M_PI_8 && m_direction_visee < 15. * M_PI_8)
 		{
 			m_image = m_textures[HAUT_GAUCHE];
 		}

@@ -3,7 +3,7 @@
 // Constructeurs
 //---------------------------------
 /* Constructeur par défaut.*/
-Entite::Entite() : m_direction(M_PI), m_image(NULL), m_vitesse_max(0)
+Entite::Entite() : m_direction_deplacement(M_PI), m_direction_visee(M_PI), m_image(NULL), m_vitesse_max(0)
 {
 	// Initialisation des attributs à des valeurs par défaut.
 	m_position.x = 0;
@@ -13,7 +13,7 @@ Entite::Entite() : m_direction(M_PI), m_image(NULL), m_vitesse_max(0)
 }
 
 /* Constructeur avec position.*/
-Entite::Entite(Coordonnees pos_depart) : m_direction(M_PI), m_image(NULL), m_vitesse_max(0)
+Entite::Entite(Coordonnees pos_depart) : m_direction_deplacement(M_PI), m_direction_visee(M_PI), m_image(NULL), m_vitesse_max(0)
 {
 	// Initialisation des attributs
 	m_position.x = pos_depart.x;

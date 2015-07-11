@@ -63,18 +63,21 @@ class Joueur : public Entite
 		 */
 		enum EnumActions
 		{
-			/** Le joueur avance dans la direction actuelle.
-			 */
-			AVANCER,
 			/** La souris est déplacée et le joueur change de direction.
 			 */
 			CHANGE_DIRECTION,
-			/** Translation vers la gauche de la direction.
+			/** Le joueur se dirige vers le bas.*
 			 */
-			PAN_GAUCHE,
-			/** Translation vers la droite de la direction.
+			DIR_BAS,
+			/** Le joueur se dirige vers la droite.*
 			 */
-			PAN_DROITE,
+			DIR_DROITE,
+			/** Le joueur se dirige vers la gauche.*
+			 */
+			DIR_GAUCHE,
+			/** Le joueur se dirige vers le haut.*
+			 */
+			DIR_HAUT,
 			/** Permet l'initialisation de tableaux avec une taille suffisante. 
 			 */
 			NB_ACTIONS

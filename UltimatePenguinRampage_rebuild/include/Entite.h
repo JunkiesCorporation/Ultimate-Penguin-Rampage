@@ -80,11 +80,17 @@ class Entite
 	protected:
 		// Attributs protégés
 		//---------------------------------
+		/** La direction dans laquelle se déplace l'entité (en radians).
+		 *
+		 * Comprise entre 0 et 2*Pi radians.
+		 */
+		double m_direction_deplacement;
+		
 		/** La direction vers laquelle pointe l'entité (en radians).
 		 *
 		 * Comprise entre 0 et 2*Pi radians.
 		 */
-		double m_direction;
+		double m_direction_visee;
 		
 		/** L'image de l'entité à afficher à l'écran.
 		 */
