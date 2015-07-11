@@ -27,9 +27,9 @@ Carte::~Carte()
 	{
 		for(int i = 0; i < m_largeur; i++)
 		{
-			delete[] m_id_tiles[i];
+			delete m_id_tiles[i];
 		}
-		delete[] m_id_tiles;
+		delete m_id_tiles;
 	}
 }
 //---------------------------------
@@ -195,6 +195,7 @@ void Carte::reinitialiser()
 		}
 		delete[] m_id_tiles;
 	}
+	m_id_tiles = NULL;
 	m_largeur = 0;
 	
 	// temp
