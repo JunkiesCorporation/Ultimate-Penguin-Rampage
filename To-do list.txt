@@ -1,0 +1,14 @@
+MAP
+	Separation de la map en calques
+	Modifier la tileset en consequence
+
+MENU
+	Navigation zqsd
+	Images menu
+
+ANIMATIONS
+	Anim pingouin
+	Anim armes
+	Images
+
+ARMES
