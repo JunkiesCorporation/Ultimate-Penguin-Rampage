@@ -228,13 +228,13 @@ int UPR::menuPrincipal()
 				switch(e.key.keysym.sym)
 				{
 				// La touche "flèche_bas" est appuyée.
-				case SDLK_DOWN:
+				case SDLK_s:
 					choix++;
 					if(choix > 3) { choix = 0; }
 					break;
 				
 				// La touche "flèche_haut" est appuyée.
-				case SDLK_UP:
+				case SDLK_z:
 					choix--;
 					if(choix < 0) { choix = 3; }
 					break;

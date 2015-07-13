@@ -118,7 +118,7 @@ void Jeu::lancer(Profil* profil_joueur)
 				switch(e.key.keysym.sym)
 				{
 				// La touche "flèche_droite" est appuyée.
-				case SDLK_RIGHT:
+				case SDLK_d:
 					// Changement de la position du curseur.
 					if(position_curseur_act == MODE_HISTOIRE)
 					{
@@ -128,7 +128,7 @@ void Jeu::lancer(Profil* profil_joueur)
 					break;
 				
 				// La touche "flèche_gauche" est appuyée.
-				case SDLK_LEFT:
+				case SDLK_q:
 					// Changement de la position du curseur.
 					if(position_curseur_act == MODE_ARENE)
 					{
@@ -138,7 +138,7 @@ void Jeu::lancer(Profil* profil_joueur)
 					break;
 				
 				// La touche "flèche_bas" est appuyée.
-				case SDLK_DOWN:
+				case SDLK_s:
 					// Changement de la position du curseur.
 					if(position_curseur_act == MODE_ARENE || position_curseur_act == MODE_HISTOIRE)
 					{
@@ -148,7 +148,7 @@ void Jeu::lancer(Profil* profil_joueur)
 					break;
 				
 				// La touche "flèche_haut" est appuyée.
-				case SDLK_UP:
+				case SDLK_z:
 					// Changement de la position du curseur.
 					if(position_curseur_act == RETOUR_MENU)
 					{

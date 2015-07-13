@@ -1,14 +1,14 @@
 MAP
-	Separation de la map en calques
-	Modifier la tileset en consequence
+	[ ] Separation de la map en calques
+	[ ] Modifier la tileset en consequence // Pas besoin de modifier le tileset, il suffira d'indiquer les n° de tile dans chaque calque.
 
 MENU
-	Navigation zqsd
-	Images menu
+	[x] Navigation zqsd
+	[ ] Images menu
 
 ANIMATIONS
-	Anim pingouin
-	Anim armes
-	Images
+	[ ] Anim pingouin
+	[ ] Anim armes
+	[ ] Images
 
 ARMES
