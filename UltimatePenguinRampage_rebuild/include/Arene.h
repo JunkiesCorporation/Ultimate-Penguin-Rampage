@@ -1,6 +1,8 @@
 ﻿#ifndef ARENE_H
 #define ARENE_H
 
+#include <string.h>
+
 #include "Carte.h"
 #include "Joueur.h"
 #include "Timer.h"
@@ -30,7 +32,7 @@ class Arene
 		//---------------------------------
 		/** Charge les éléments requis pour le fonctionnement de cette instance d'Arene.
 		 */
-		void charger();
+		void charger(std::string const &chemin_fichier);
 		
 		/** Lance l'arène si elle a été précédemment correctement préparée à l'aide de #charger().
 		 */

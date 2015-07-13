@@ -307,7 +307,7 @@ void Jeu::modeHistoire(Profil* profil_joueur)
 					libererTexturesModeHistoire();
 					
 					// Chargement de l'arène choisie
-					m_arene.charger();
+					m_arene.charger("rsc/arenes/arene_1.txt");
 					
 					// Lancement de l'arène chargée.
 					m_arene.lancer();

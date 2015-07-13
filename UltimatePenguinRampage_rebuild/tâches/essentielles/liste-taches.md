@@ -4,7 +4,7 @@
 2. [x] Fondations des Entités (et du Joueur par extension).
 3. [x] Contrôle et affichage du joueur.
 4. [x] Implémenter les tiles solides et les collisions avec le Héros.
-5. [ ] Créer fichier d'arène et implémenter son chargement.
+5. [x] Créer fichier d'arène et implémenter son chargement.
 6. [ ] Ajout de la classe Arme et chargement des armes avec fichier.
   - [ ] Arme n°1 : Boule de neige.
 7. [ ] Ajout de l'attribution d'armes au Joueur au début de l'Arène.

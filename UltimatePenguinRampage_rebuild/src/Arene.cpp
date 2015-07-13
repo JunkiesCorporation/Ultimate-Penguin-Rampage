@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#include <fstream>
+#include <iostream>
 
 #include "Arene.h"
 #include "UPR.h"
@@ -28,32 +29,87 @@ Arene::~Arene()
 // Fonctions membres publiques
 //-------------------------------------
 /* Charge les éléments requis pour le fonctionnement de cette instance d'Arene.*/
-void Arene::charger()
+void Arene::charger(std::string const &chemin_fichier)
 {
-	// Chargement de la carte et gestion d'un échec potentiel.
-	// temp
-	std::cout << "Chargement de la Carte..." << std::endl;
-	if(!m_carte.charger("rsc/map/carte_test_1.txt"))
+	// Le chemin d'accès à la carte de l'arène.
+	std::string chemin_carte = "";
+	
+	// Chargement du fichier donné dans un flux d'entrée.
+	std::ifstream fichier(chemin_fichier.c_str());
+	
+	// La ligne de lecture du fichier.
+	std::string ligne = "";
+	
+	//---------------------------------
+	// Démarrage du chargement de l'arène.
+	
+	// Gestion d'un échec potentiel du chargement du fichier.
+	if(!fichier.is_open())
 	{
-		// temp
-		std::cout << "Chargement de l'arene interrompu : le chargement de la carte a echoue." << std::endl;
+		// Affichage d'un message d'erreur.
+		std::cout << "Erreur : impossible de charger l'arene depuis le fichier " << chemin_fichier << std::endl;
 		
 		m_est_prete = false;
-		return;
 	}
-	// temp
-	std::cout << "Carte chargee avec succes." << std::endl;
+	else
+	{
+		// temp
+		std::cout << "Lecture du fichier " << chemin_fichier << std::endl;
+		
+		//-----------------------------
+		// Lecture des [infos_arene]
+		
+		// Gestion d'un échec potentiel.
+		fichier >> ligne;
+		if(ligne != "[infos_arene]")
+		{
+			std::cout << "Erreur : [infos_arene] manquant dans : " << chemin_fichier << std::endl;
+			
+			m_est_prete = false;
+			goto fin;
+		}
+		
+		// Lecture du chemin de la carte.
+		fichier >> ligne; fichier >> ligne;
+		chemin_carte = ligne;
 	
-	// Chargement du joueur.
-	m_joueur = new Joueur(m_carte.getPositionDepartJoueur());
-	
-	std::cout << "Position du joueur : " << m_joueur->getPosition().x << ", " << m_joueur->getPosition().y << std::endl;
-	
-	// temp
-	std::cout << "Chargement de l'arene termine." << std::endl;
-	
-	// Indication que l'arène est prête à être lancée.
-	m_est_prete = true;
+		//---------------------------------
+		// Chargement de la carte.
+		
+		// temp
+		std::cout << "Chargement de la Carte..." << std::endl;
+		
+		// Gestion d'un échec du chargement de la carte.
+		if(!m_carte.charger(chemin_carte))
+		{
+			// temp
+			std::cout << "Chargement de l'arene interrompu : le chargement de la carte a echoue." << std::endl;
+			
+			m_est_prete = false;
+			goto fin;
+		}
+		
+		// temp
+		std::cout << "Carte chargee avec succes." << std::endl;
+		
+		//---------------------------------
+		// Chargement du joueur.
+		
+		m_joueur = new Joueur(m_carte.getPositionDepartJoueur());
+		
+		//---------------------------------
+		// Fin du chargement.
+		
+		// temp
+		std::cout << "Chargement de l'arene termine." << std::endl;
+		
+		// Indication que l'arène est prête à être lancée.
+		m_est_prete = true;
+		
+		// Fermeture du fichier.
+		fin:
+		fichier.close();
+	}
 }
 
 /* Lance l'arène si elle a été précédemment préparée à l'aide de #charger().*/
@@ -64,7 +120,7 @@ void Arene::lancer()
 	{
 		/** \todo Affichage d'un message d'erreur graphique si on tente le lancement d'une instance d'Arene qui n'est pas prête.*/
 		// temp
-		std::cout << "Erreur : tentative de lancement d'une arène incorrectement preparee." << std::endl;
+		std::cout << "Erreur : tentative de lancement d'une arene incorrectement preparee." << std::endl;
 		return;
 	}
 	
