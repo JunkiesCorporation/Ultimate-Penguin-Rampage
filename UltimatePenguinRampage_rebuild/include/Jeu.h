@@ -1,7 +1,10 @@
 ﻿#ifndef JEU_H
 #define JEU_H
 
+#include <vector>
+
 #include "Arene.h"
+#include "Arme.h"
 #include "Profil.h"
 #include "Texture.h"
 #include "Timer.h"
@@ -105,6 +108,10 @@ class Jeu
 		/** Objet permettant la manipulation des événements au sein des diverses boucles.
 		 */
 		SDL_Event e;
+		
+		/** Liste d'objets Arme contenant les exemplaires par défaut de chaque arme du jeu.
+		 */
+		std::vector<Arme> m_liste_armes;
 		
 		/** L'image du cadre de sélection.
 		 */

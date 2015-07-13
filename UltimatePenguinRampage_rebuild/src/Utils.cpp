@@ -1,4 +1,7 @@
-﻿#include <iostream>
+﻿#include <algorithm>
+#include <iostream>
+#include <sstream>
+#include <string>
 
 #include "UPR.h"
 #include "Utils.h"
@@ -72,5 +75,38 @@ void Utils::quitterSDL()
 	
 	// Fermeture des systèmes ouverts
 	SDL_Quit();
+}
+//-------------------------------------
+
+// Fonctions globales
+//-------------------------------------
+/* Converti le nombre donnée en un objet string qui contient sa représentation en texte.*/
+std::string intVersString(int const &p_nombre)
+{
+	// String à retourner.
+	std::string nombre_string;
+	
+	// Le flux string qui permet de convertir.
+	std::stringstream ss;
+	
+	//---------------------------------
+	// Conversion du nombre;
+	ss << p_nombre;
+	nombre_string = ss.str();
+	
+	return nombre_string;
+}
+
+/* Remplace tous les tirets bas '_' par des espaces ' ' dans le texte donné.*/
+std::string remplacerParEspaces(std::string const &p_texte)
+{
+	// String à retourner.
+	std::string nouveau_texte = p_texte;
+	
+	//---------------------------------
+	// Remplacement des tirets bas.
+	std::replace(nouveau_texte.begin(), nouveau_texte.end(), '_', ' ');
+	
+	return nouveau_texte;
 }
 //-------------------------------------

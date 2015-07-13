@@ -1,0 +1,5 @@
+[infos_liste_armes]
+nombre_armes= 1
+
+[liste_armes]
+1 boule_de_neige

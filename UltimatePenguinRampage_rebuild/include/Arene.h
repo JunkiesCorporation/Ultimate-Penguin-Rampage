@@ -1,7 +1,7 @@
 ﻿#ifndef ARENE_H
 #define ARENE_H
 
-#include <string.h>
+#include <string>
 
 #include "Carte.h"
 #include "Joueur.h"

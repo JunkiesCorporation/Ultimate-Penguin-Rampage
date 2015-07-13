@@ -1,0 +1,3 @@
+[infos_arme]
+id= 1
+nom= Boule_de_neige

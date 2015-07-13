@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#include <fstream>
+#include <iostream>
 #include <string.h>
 
 #include "Jeu.h"
@@ -6,20 +7,13 @@
 #include "UPR.h"
 
 /* Constructeur par défaut.*/
-Jeu::Jeu()
+Jeu::Jeu() : m_arene(), m_liste_armes(0), m_texture_cadre_selection(NULL), m_texture_fond_jeu(NULL), m_texture_fond_mode_histoire(NULL), m_ticks_image(0), m_timer()
 {
 	// Initialisation des attributs à des valeurs par défaut.
-	// Initialisation des pointeurs vers les textures individuelles à NULL.
-	m_texture_cadre_selection = NULL;
-	m_texture_fond_jeu = NULL;
-	m_texture_fond_mode_histoire = NULL;
-	// Initialisation des pointeurs vers les textures contenues dans des tableaux à NULL.
 	for(int i = 0; i < NB_OPTIONS; i++)
 	{
 		m_textures_options_ecran_jeu[i] = NULL;
 	}
-	
-	m_ticks_image = 0;
 }
 
 /* Destructeur par défaut.*/
@@ -52,8 +46,20 @@ void Jeu::lancer(Profil* profil_joueur)
 	// Contrôle de la boucle de l'écran principal du jeu.
 	bool quit = false;
 	
+	// Chemin d'accès à la liste des armes.
+	std::string chemin_fichier_liste_armes = "rsc/obj/armes/0_liste_armes.txt";
+	
 	// Chemin d'accès à l'image du curseur de sélection.
 	char chemin_image_cadre_selection[] = "rsc/img/jeu/jeu_cadre_selection.bmp";
+	
+	// Le flux d'entrée pour charger la liste des armes.
+	std::ifstream fichier_liste_armes;
+	
+	// La ligne de lecture des fichiers.
+	std::string ligne = "";
+	
+	// Le nombre d'armes à charger.
+	int nombre_armes = 0;
 	
 	// La position actuelle du curseur.
 	EnumOptionsEcranPrincipal position_curseur_act = MODE_HISTOIRE;
@@ -67,7 +73,17 @@ void Jeu::lancer(Profil* profil_joueur)
 	// Coordonnees du curseur lors de l'écran principal du jeu.
 	Coordonnees positions_curseur_ecran[NB_OPTIONS] = {{0, 0}};
 	
+	// ID temporaire de l'arme pendant le chargement.
+	int temp_id_arme = 0;
+	
+	// Nom temporaire de l'arme pendant le chargement.
+	std::string temp_nom_arme = "";
+	
 	//---------------------------------
+	// Démarrage du Jeu.
+	
+	//---------------------------------
+	// Chargement des images.
 	
 	// Chargement des images de l'écran principal du jeu.
 	chargerTexturesEcran();
@@ -86,6 +102,77 @@ void Jeu::lancer(Profil* profil_joueur)
 	positions_curseur_ecran[MODE_ARENE] = {525, 245};
 	positions_curseur_ecran[RETOUR_MENU] = {320, 475};
 	
+	//---------------------------------
+	// Chargement de la liste des armes.
+	
+	// Ouverture du fichier contenant la liste des armes.
+	fichier_liste_armes.open(chemin_fichier_liste_armes);
+	
+	// Gestion d'un échec potentiel
+	if(!fichier_liste_armes.is_open())
+	{
+		// Affichage d'un message d'erreur.
+		std::cout << "Erreur : impossible d'ouvrir le fichier " << chemin_fichier_liste_armes << std::endl;
+		
+		// On empêche le démarrage du jeu.
+		quit = true;
+	}
+	else
+	{
+		//-----------------------------
+		// Lecture des [infos_liste_armes]
+		
+		// Gestion d'un échec potentiel.
+		fichier_liste_armes >> ligne;
+		if(ligne != "[infos_liste_armes]")
+		{
+			// Affichage d'un message d'erreur.
+			std::cout << "Erreur : [infos_liste_armes] manquant dans le fichier " << chemin_fichier_liste_armes << std::endl;
+			
+			// On empêche le démarrage du jeu et on arrête le chargement.
+			quit = true;
+			goto close;
+		}
+		
+		// Lecture du nombre d'armes dans la liste
+		fichier_liste_armes >> ligne; fichier_liste_armes >> ligne;
+		nombre_armes = atoi(ligne.c_str());
+		
+		//-----------------------------
+		// Lecture de la [liste_armes]
+		
+		// Gestion d'un échec potentiel.
+		fichier_liste_armes >> ligne;
+		if(ligne != "[liste_armes]")
+		{
+			// Affichage d'un message d'erreur.
+			std::cout << "Erreur : [liste_arme] manquant dans le fichier " << chemin_fichier_liste_armes << std::endl;
+			
+			// On empêche le démarrage du jeu et on arrête le chargement.
+			quit = true;
+			goto close;
+		}
+		
+		// Récupération des id et nom_fichier des armes et ajout de l'arme au vecteur.
+		for(int i = 0; i < nombre_armes; i++)
+		{
+			// Lecture de l'id de l'arme.
+			fichier_liste_armes >> ligne;
+			temp_id_arme = atoi(ligne.c_str());
+			
+			// Lecture du nom du fichier de l'arme.
+			fichier_liste_armes >> ligne;
+			temp_nom_arme = ligne;
+			
+			// Création d'une nouvelle instance de Arme et ajout à la liste.
+			m_liste_armes.emplace_back(temp_id_arme, temp_nom_arme);
+		}
+		
+		close:
+		fichier_liste_armes.close();
+	}
+	
+	//---------------------------------
 	// Boucle de l'écran principal du jeu.
 	while(!quit)
 	{
