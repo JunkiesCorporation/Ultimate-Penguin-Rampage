@@ -1,0 +1,15 @@
+﻿### Liste des tâches
+
+1. [x] Recréer l'affichage de la carte.
+2. [x] Fondations des Entités (et du Joueur par extension).
+3. [x] Contrôle et affichage du joueur.
+4. [x] Implémenter les tiles solides et les collisions avec le Héros.
+5. [ ] Créer fichier d'arène et implémenter son chargement.
+6. [ ] Ajout de la classe Arme et chargement des armes avec fichier.
+  - [ ] Arme n°1 : Boule de neige.
+7. [ ] Ajout de l'attribution d'armes au Joueur au début de l'Arène.
+8. [ ] Création de la classe Projectile et implémentation du tir.
+9. [ ] Ajout de caractéristiques simples pour le Joueur.
+10. [ ] Ajout des Ennemis et path-finding simple vers le Joueur.
+11. [ ] Les ennemis tirent des boules de neige simples sur le Joueur.
+12. [ ] Collisions entre projectiles et Entités ainsi que la carte. Dégâts simples et mort.
