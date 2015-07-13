@@ -1,0 +1,9 @@
+﻿#### 7. Attribution d'armes au joueur
+
+- [ ] Ajout dans Joueur d'attributs vecteur d'armes, numéro de l'arme sélectionnée et un pointeur vers l'arme sélectionnée. Initialisation par défaut dans Joueur::Joueur().
+- [ ] Ajout dans Arme d'un constructeur de copie.
+- [ ] Ajout dans Jeu d'une fonction qui retourne l'arme de m_liste_arme correspondant à l'id donnée en paramètre.
+- [ ] Ajout d'un paramètre vecteur de int au constructeur de chargement de Joueur.
+- [ ] Initialisation des nouveaux attributs dans le constructeur de chargement de Joueur grâce au constructeur de copie de Arme et de la nouvelle fonction de Jeu.
+- [ ] Ajout dans le fichier arène du nombre et des id des armes avec lesquelles le joueur doit commencer.
+- [ ] Implémentation de la récupération de ces informations dans Arene::charger() et de leur transmission au constructeur de chargement de Joueur.
