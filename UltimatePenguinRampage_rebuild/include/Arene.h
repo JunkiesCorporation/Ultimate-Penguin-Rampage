@@ -2,10 +2,13 @@
 #define ARENE_H
 
 #include <string>
+#include <SDL.h>
 
 #include "Carte.h"
 #include "Joueur.h"
 #include "Timer.h"
+
+class Jeu;
 
 /** Objet permettant le contrôle d'un niveau jouable.
  */ 
@@ -31,8 +34,11 @@ class Arene
 		// Fonctions membres publiques
 		//---------------------------------
 		/** Charge les éléments requis pour le fonctionnement de cette instance d'Arene.
+		 *
+		 * @param chemin_fichier Le chemin d'accès au fichiers d'infos de l'arène.
+		 * @param jeu Le jeu en cours.
 		 */
-		void charger(std::string const &chemin_fichier);
+		void charger(std::string const &chemin_fichier, Jeu const &jeu);
 		
 		/** Lance l'arène si elle a été précédemment correctement préparée à l'aide de #charger().
 		 */

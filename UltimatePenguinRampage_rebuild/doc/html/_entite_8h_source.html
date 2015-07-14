@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Ultimate Penguin Rampage:  Fichier source de include/Entite.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Ultimate Penguin Rampage
+   &#160;<span id="projectnumber">alpha_0.1</span>
+   </div>
+   <div id="projectbrief">RPG-themed Penguin Hack n&#39; Slash</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Entite.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_entite_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ENTITE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ENTITE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="_entite_8h.html#a525335710b53cb064ca56b936120431e">    4</a></span>&#160;<span class="preprocessor">#define _USE_MATH_DEFINES</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_carte_8h.html">Carte.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_struct_8h.html">Struct.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_texture_8h.html">Texture.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="_entite_8h.html#ade747d04ae8b198fe389b6454f8c7944">   13</a></span>&#160;<span class="preprocessor">#define M_PI_8 M_PI_4 / 2.</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_entite.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_entite.html">Entite</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="comment">// Constructeurs</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span>        <a class="code" href="class_entite.html#af198e4cd607eff1fce60eb103b713360">Entite</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="class_entite.html#af198e4cd607eff1fce60eb103b713360">Entite</a>(<a class="code" href="struct_coordonnees.html">Coordonnees</a> pos_depart);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">// Destructeur</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <a class="code" href="class_entite.html#a60525ac0a9be3ac6c4e4095578245f29">~Entite</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">// Fonctions membres publiques</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_entite.html#a871ef359a7b65bf8ef9a95df60ddeed8">render</a>(SDL_Rect <span class="keyword">const</span> &amp;camera);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_entite.html#a171cab24211da9ac8f5f2f18154a5c99">update</a>(<a class="code" href="class_carte.html">Carte</a> <span class="keyword">const</span> &amp;carte) = 0;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_entite.html#a166f3b8e18cb13ebae3d5843dcfe9ba4">getHauteurImage</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_entite.html#a914876c92dc96889b2f8dadba7974dde">getLargeurImage</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="struct_coordonnees.html">Coordonnees</a> <a class="code" href="class_entite.html#ae07e75f83e1b2067b6aa415da594506b">getPosition</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="comment">// Attributs protégés</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="class_entite.html#a4a16b8c9d39d09941f0421bf3797131b">   90</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="class_entite.html#a4a16b8c9d39d09941f0421bf3797131b">m_direction_deplacement</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="class_entite.html#a29e5da66da8ed39f82dceacff8536491">   96</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_entite.html#a29e5da66da8ed39f82dceacff8536491">m_direction_visee</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="class_entite.html#ac58095ac9e67f02cea45d2efcdd28eb4">  100</a></span>&#160;        <a class="code" href="class_texture.html">Texture</a>* <a class="code" href="class_entite.html#ac58095ac9e67f02cea45d2efcdd28eb4">m_image</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        </div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="class_entite.html#a1a175b8f963b42282cb7eb3cc669de55">  104</a></span>&#160;        <a class="code" href="struct_coordonnees.html">Coordonnees</a> <a class="code" href="class_entite.html#a1a175b8f963b42282cb7eb3cc669de55">m_position</a>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="class_entite.html#a24014bea11149d864f7210306cc75731">  108</a></span>&#160;        <a class="code" href="struct_coordonnees.html">Coordonnees</a> <a class="code" href="class_entite.html#a24014bea11149d864f7210306cc75731">m_vitesse</a>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="class_entite.html#a733b8e34ce764c212e3bbe85979cb172">  112</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_entite.html#a733b8e34ce764c212e3bbe85979cb172">m_vitesse_max</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif // ENTITE_H</span></div>
+<div class="ttc" id="_texture_8h_html"><div class="ttname"><a href="_texture_8h.html">Texture.h</a></div></div>
+<div class="ttc" id="class_entite_html_af198e4cd607eff1fce60eb103b713360"><div class="ttname"><a href="class_entite.html#af198e4cd607eff1fce60eb103b713360">Entite::Entite</a></div><div class="ttdeci">Entite()</div><div class="ttdoc">Constructeur par défaut. </div><div class="ttdef"><b>Definition:</b> Entite.cpp:6</div></div>
+<div class="ttc" id="struct_coordonnees_html"><div class="ttname"><a href="struct_coordonnees.html">Coordonnees</a></div><div class="ttdoc">Petite structure pour contenir des coordonnées en deux dimensions. </div><div class="ttdef"><b>Definition:</b> Struct.h:10</div></div>
+<div class="ttc" id="class_entite_html_a4a16b8c9d39d09941f0421bf3797131b"><div class="ttname"><a href="class_entite.html#a4a16b8c9d39d09941f0421bf3797131b">Entite::m_direction_deplacement</a></div><div class="ttdeci">double m_direction_deplacement</div><div class="ttdoc">La direction dans laquelle se déplace l&#39;entité (en radians). </div><div class="ttdef"><b>Definition:</b> Entite.h:90</div></div>
+<div class="ttc" id="class_entite_html_a914876c92dc96889b2f8dadba7974dde"><div class="ttname"><a href="class_entite.html#a914876c92dc96889b2f8dadba7974dde">Entite::getLargeurImage</a></div><div class="ttdeci">int getLargeurImage() const </div><div class="ttdoc">Retourne la largeur de l&#39;image de l&#39;entité. </div><div class="ttdef"><b>Definition:</b> Entite.cpp:67</div></div>
+<div class="ttc" id="class_entite_html_a24014bea11149d864f7210306cc75731"><div class="ttname"><a href="class_entite.html#a24014bea11149d864f7210306cc75731">Entite::m_vitesse</a></div><div class="ttdeci">Coordonnees m_vitesse</div><div class="ttdoc">Les composantes de la vitesse de l&#39;entité. </div><div class="ttdef"><b>Definition:</b> Entite.h:108</div></div>
+<div class="ttc" id="class_entite_html_a166f3b8e18cb13ebae3d5843dcfe9ba4"><div class="ttname"><a href="class_entite.html#a166f3b8e18cb13ebae3d5843dcfe9ba4">Entite::getHauteurImage</a></div><div class="ttdeci">int getHauteurImage() const </div><div class="ttdoc">Retourne la hauteur de l&#39;image de l&#39;entité. </div><div class="ttdef"><b>Definition:</b> Entite.cpp:61</div></div>
+<div class="ttc" id="class_entite_html_ac58095ac9e67f02cea45d2efcdd28eb4"><div class="ttname"><a href="class_entite.html#ac58095ac9e67f02cea45d2efcdd28eb4">Entite::m_image</a></div><div class="ttdeci">Texture * m_image</div><div class="ttdoc">L&#39;image de l&#39;entité à afficher à l&#39;écran. </div><div class="ttdef"><b>Definition:</b> Entite.h:100</div></div>
+<div class="ttc" id="class_carte_html"><div class="ttname"><a href="class_carte.html">Carte</a></div><div class="ttdoc">Classe contenant toutes les informations sur la carte d&#39;une arène. </div><div class="ttdef"><b>Definition:</b> Carte.h:12</div></div>
+<div class="ttc" id="_carte_8h_html"><div class="ttname"><a href="_carte_8h.html">Carte.h</a></div></div>
+<div class="ttc" id="class_entite_html_a60525ac0a9be3ac6c4e4095578245f29"><div class="ttname"><a href="class_entite.html#a60525ac0a9be3ac6c4e4095578245f29">Entite::~Entite</a></div><div class="ttdeci">virtual ~Entite()</div><div class="ttdoc">Destructeur par défaut. </div><div class="ttdef"><b>Definition:</b> Entite.cpp:29</div></div>
+<div class="ttc" id="_struct_8h_html"><div class="ttname"><a href="_struct_8h.html">Struct.h</a></div></div>
+<div class="ttc" id="class_entite_html_a1a175b8f963b42282cb7eb3cc669de55"><div class="ttname"><a href="class_entite.html#a1a175b8f963b42282cb7eb3cc669de55">Entite::m_position</a></div><div class="ttdeci">Coordonnees m_position</div><div class="ttdoc">Les Coordonnees de l&#39;entité sur la carte (en px). </div><div class="ttdef"><b>Definition:</b> Entite.h:104</div></div>
+<div class="ttc" id="class_entite_html_ae07e75f83e1b2067b6aa415da594506b"><div class="ttname"><a href="class_entite.html#ae07e75f83e1b2067b6aa415da594506b">Entite::getPosition</a></div><div class="ttdeci">Coordonnees getPosition() const </div><div class="ttdoc">Retourne la position de l&#39;entité. </div><div class="ttdef"><b>Definition:</b> Entite.cpp:73</div></div>
+<div class="ttc" id="class_texture_html"><div class="ttname"><a href="class_texture.html">Texture</a></div><div class="ttdoc">Classe qui englobe le type SDL_Texture. </div><div class="ttdef"><b>Definition:</b> Texture.h:13</div></div>
+<div class="ttc" id="class_entite_html_a871ef359a7b65bf8ef9a95df60ddeed8"><div class="ttname"><a href="class_entite.html#a871ef359a7b65bf8ef9a95df60ddeed8">Entite::render</a></div><div class="ttdeci">void render(SDL_Rect const &amp;camera)</div><div class="ttdoc">Affiche l&#39;image de l&#39;entité si elle est sous la caméra. </div><div class="ttdef"><b>Definition:</b> Entite.cpp:42</div></div>
+<div class="ttc" id="class_entite_html_a171cab24211da9ac8f5f2f18154a5c99"><div class="ttname"><a href="class_entite.html#a171cab24211da9ac8f5f2f18154a5c99">Entite::update</a></div><div class="ttdeci">virtual void update(Carte const &amp;carte)=0</div><div class="ttdoc">Met à jour l&#39;entité. </div></div>
+<div class="ttc" id="class_entite_html_a29e5da66da8ed39f82dceacff8536491"><div class="ttname"><a href="class_entite.html#a29e5da66da8ed39f82dceacff8536491">Entite::m_direction_visee</a></div><div class="ttdeci">double m_direction_visee</div><div class="ttdoc">La direction vers laquelle pointe l&#39;entité (en radians). </div><div class="ttdef"><b>Definition:</b> Entite.h:96</div></div>
+<div class="ttc" id="class_entite_html"><div class="ttname"><a href="class_entite.html">Entite</a></div><div class="ttdoc">Classe abstraite qui regroupe toutes les fonctionnalités communes aux entités qui apparaissent dans u...</div><div class="ttdef"><b>Definition:</b> Entite.h:17</div></div>
+<div class="ttc" id="class_entite_html_a733b8e34ce764c212e3bbe85979cb172"><div class="ttname"><a href="class_entite.html#a733b8e34ce764c212e3bbe85979cb172">Entite::m_vitesse_max</a></div><div class="ttdeci">int m_vitesse_max</div><div class="ttdoc">La vitesse maximum de l&#39;entité. </div><div class="ttdef"><b>Definition:</b> Entite.h:112</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

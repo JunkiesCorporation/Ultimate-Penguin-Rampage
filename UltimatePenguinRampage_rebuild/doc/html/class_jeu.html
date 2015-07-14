@@ -65,6 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Liste&#160;des&#160;classes</span></a></li>
       <li><a href="classes.html"><span>Index&#160;des&#160;classes</span></a></li>
+      <li><a href="inherits.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
       <li><a href="functions.html"><span>Membres&#160;de&#160;classe</span></a></li>
     </ul>
   </div>
@@ -104,8 +105,16 @@ Graphe de collaboration de Jeu:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_jeu__coll__graph.png" border="0" usemap="#_jeu_coll__map" alt="Collaboration graph"/></div>
 <map name="_jeu_coll__map" id="_jeu_coll__map">
-<area shape="rect" id="node2" href="class_texture.html" title="Classe qui englobe le type SDL_Texture. " alt="" coords="5,5,71,32"/>
-<area shape="rect" id="node3" href="class_timer.html" title="Classe permettant de mesurer le temps écoulé à partir d&#39;un point. " alt="" coords="219,5,273,32"/>
+<area shape="rect" id="node2" href="class_texture.html" title="Classe qui englobe le type SDL_Texture. " alt="" coords="62,5,127,32"/>
+<area shape="rect" id="node4" href="class_joueur.html" title="Joueur" alt="" coords="207,222,267,249"/>
+<area shape="rect" id="node5" href="class_entite.html" title="Classe abstraite qui regroupe toutes les fonctionnalités communes aux entités qui apparaissent dans u..." alt="" coords="163,109,219,136"/>
+<area shape="rect" id="node9" href="class_tileset.html" title="Objet contenant un tileset précis et permettant son affichage à l&#39;écran grâce aux numéros d&#39;ID de ses..." alt="" coords="321,109,381,136"/>
+<area shape="rect" id="node3" href="class_arene.html" title="Objet permettant le contrôle d&#39;un niveau jouable. " alt="" coords="297,335,353,361"/>
+<area shape="rect" id="node6" href="struct_coordonnees.html" title="Petite structure pour contenir des coordonnées en deux dimensions. " alt="" coords="395,5,493,32"/>
+<area shape="rect" id="node8" href="class_carte.html" title="Classe contenant toutes les informations sur la carte d&#39;une arène. " alt="" coords="373,222,427,249"/>
+<area shape="rect" id="node7" href="class_arme.html" title="Modèle de toutes armes du jeu. " alt="" coords="243,109,296,136"/>
+<area shape="rect" id="node10" href="struct_tile.html" title="Structure pour contenir les informations essentielles des tiles, éléments composant toutes les cartes..." alt="" coords="295,5,337,32"/>
+<area shape="rect" id="node11" href="class_timer.html" title="Classe permettant de mesurer le temps écoulé à partir d&#39;un point. " alt="" coords="453,222,507,249"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center></div>
 <table class="memberdecls">
@@ -117,6 +126,9 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a9cd19e73df169d7f09397be61ba8548c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a9cd19e73df169d7f09397be61ba8548c">~Jeu</a> ()</td></tr>
 <tr class="memdesc:a9cd19e73df169d7f09397be61ba8548c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur par défaut.  <a href="#a9cd19e73df169d7f09397be61ba8548c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a9cd19e73df169d7f09397be61ba8548c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646f6bab7fd3ee1b67c4a15af026cced"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_arme.html">Arme</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a646f6bab7fd3ee1b67c4a15af026cced">getArmeDepuisID</a> (int const &amp;p_id)</td></tr>
+<tr class="memdesc:a646f6bab7fd3ee1b67c4a15af026cced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'arme dont l'id correspond à celui donné en paramètre.  <a href="#a646f6bab7fd3ee1b67c4a15af026cced">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a646f6bab7fd3ee1b67c4a15af026cced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27bf3151f196dc10d8fabd5f7fbb6c67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a27bf3151f196dc10d8fabd5f7fbb6c67">lancer</a> (<a class="el" href="class_profil.html">Profil</a> *profil_joueur)</td></tr>
 <tr class="memdesc:a27bf3151f196dc10d8fabd5f7fbb6c67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche l'écran principal du jeu et permet la navigation vers les fonctionnalités du jeu.  <a href="#a27bf3151f196dc10d8fabd5f7fbb6c67">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a27bf3151f196dc10d8fabd5f7fbb6c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,9 +163,15 @@ Fonctions membres privées</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
+<tr class="memitem:acc8db4fc71d95d3702a864a0b6d0c45f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_arene.html">Arene</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#acc8db4fc71d95d3702a864a0b6d0c45f">m_arene</a></td></tr>
+<tr class="memdesc:acc8db4fc71d95d3702a864a0b6d0c45f"><td class="mdescLeft">&#160;</td><td class="mdescRight">L'instance d'<a class="el" href="class_arene.html" title="Objet permettant le contrôle d&#39;un niveau jouable. ">Arene</a> à charger lorsque le joueur lance un niveau.  <a href="#acc8db4fc71d95d3702a864a0b6d0c45f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acc8db4fc71d95d3702a864a0b6d0c45f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1a9b886d3879d7ea3c34ff7c0ce040d"><td class="memItemLeft" align="right" valign="top">SDL_Event&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#ab1a9b886d3879d7ea3c34ff7c0ce040d">e</a></td></tr>
 <tr class="memdesc:ab1a9b886d3879d7ea3c34ff7c0ce040d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Objet permettant la manipulation des événements au sein des diverses boucles.  <a href="#ab1a9b886d3879d7ea3c34ff7c0ce040d">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ab1a9b886d3879d7ea3c34ff7c0ce040d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2d89db7b46a952c0a0d72102f022972"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_arme.html">Arme</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#af2d89db7b46a952c0a0d72102f022972">m_liste_armes</a></td></tr>
+<tr class="memdesc:af2d89db7b46a952c0a0d72102f022972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liste d'objets <a class="el" href="class_arme.html" title="Modèle de toutes armes du jeu. ">Arme</a> contenant les exemplaires par défaut de chaque arme du jeu.  <a href="#af2d89db7b46a952c0a0d72102f022972">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af2d89db7b46a952c0a0d72102f022972"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a54dc109cddb197cd1d27e08a8c63c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a1a54dc109cddb197cd1d27e08a8c63c3">m_texture_cadre_selection</a></td></tr>
 <tr class="memdesc:a1a54dc109cddb197cd1d27e08a8c63c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">L'image du cadre de sélection.  <a href="#a1a54dc109cddb197cd1d27e08a8c63c3">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a1a54dc109cddb197cd1d27e08a8c63c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,12 +184,12 @@ Attributs privés</h2></td></tr>
 <tr class="memitem:a3163624fd50598054dd63b5651effc1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a3163624fd50598054dd63b5651effc1b">m_textures_options_ecran_jeu</a> [<a class="el" href="class_jeu.html#a89eeb74e5dd4a448115cb5e249c19ef7a845f3a51ead9f82e4cedcf83018cf720">NB_OPTIONS</a>]</td></tr>
 <tr class="memdesc:a3163624fd50598054dd63b5651effc1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Les images des options de l'écran principal du jeu.  <a href="#a3163624fd50598054dd63b5651effc1b">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3163624fd50598054dd63b5651effc1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82efecc4c121b1eb2043fb44d314d32b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a82efecc4c121b1eb2043fb44d314d32b">ticks_image</a></td></tr>
-<tr class="memdesc:a82efecc4c121b1eb2043fb44d314d32b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compteur du nombre de ticks nécessaires à l'affichage d'une trame à l'écran.  <a href="#a82efecc4c121b1eb2043fb44d314d32b">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a82efecc4c121b1eb2043fb44d314d32b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac52ad806ee8535f10abd9eb3ab8fccef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_timer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#ac52ad806ee8535f10abd9eb3ab8fccef">timer</a></td></tr>
-<tr class="memdesc:ac52ad806ee8535f10abd9eb3ab8fccef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le <a class="el" href="class_timer.html" title="Classe permettant de mesurer le temps écoulé à partir d&#39;un point. ">Timer</a> utilisé par diverses fonctions afin de maintenir les FPS aux alentours de 60.  <a href="#ac52ad806ee8535f10abd9eb3ab8fccef">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ac52ad806ee8535f10abd9eb3ab8fccef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7638eef7d1b75ee07590b87105f3a70a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a7638eef7d1b75ee07590b87105f3a70a">m_ticks_image</a></td></tr>
+<tr class="memdesc:a7638eef7d1b75ee07590b87105f3a70a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compteur du nombre de ticks nécessaires à l'affichage d'une trame à l'écran.  <a href="#a7638eef7d1b75ee07590b87105f3a70a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7638eef7d1b75ee07590b87105f3a70a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f9a60372526aa05ea46cc8294dc27e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_timer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a5f9a60372526aa05ea46cc8294dc27e4">m_timer</a></td></tr>
+<tr class="memdesc:a5f9a60372526aa05ea46cc8294dc27e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le <a class="el" href="class_timer.html" title="Classe permettant de mesurer le temps écoulé à partir d&#39;un point. ">Timer</a> utilisé par diverses fonctions afin de maintenir les FPS aux alentours de 60.  <a href="#a5f9a60372526aa05ea46cc8294dc27e4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5f9a60372526aa05ea46cc8294dc27e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Classe permettant le déroulement du jeu au-delà de menu principal. </p>
@@ -308,6 +326,31 @@ Attributs privés</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a646f6bab7fd3ee1b67c4a15af026cced"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_arme.html">Arme</a> Jeu::getArmeDepuisID </td>
+          <td>(</td>
+          <td class="paramtype">int const &amp;&#160;</td>
+          <td class="paramname"><em>p_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne l'arme dont l'id correspond à celui donné en paramètre. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_id</td><td>L'id de l'arme à retourner.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'arme de <a class="el" href="class_jeu.html#af2d89db7b46a952c0a0d72102f022972" title="Liste d&#39;objets Arme contenant les exemplaires par défaut de chaque arme du jeu. ">m_liste_armes</a> correspondant à l'id donné. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a27bf3151f196dc10d8fabd5f7fbb6c67"></a>
 <div class="memitem">
 <div class="memproto">
@@ -416,6 +459,7 @@ Attributs privés</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">A faire:</a></b></dt><dd>Navigation parmi les arènes disponibles dans le mode histoire. </dd></dl>
 
 </div>
 </div>
@@ -439,6 +483,50 @@ Attributs privés</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Objet permettant la manipulation des événements au sein des diverses boucles. </p>
+
+</div>
+</div>
+<a class="anchor" id="acc8db4fc71d95d3702a864a0b6d0c45f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_arene.html">Arene</a> Jeu::m_arene</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>L'instance d'<a class="el" href="class_arene.html" title="Objet permettant le contrôle d&#39;un niveau jouable. ">Arene</a> à charger lorsque le joueur lance un niveau. </p>
+
+</div>
+</div>
+<a class="anchor" id="af2d89db7b46a952c0a0d72102f022972"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_arme.html">Arme</a>&gt; Jeu::m_liste_armes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Liste d'objets <a class="el" href="class_arme.html" title="Modèle de toutes armes du jeu. ">Arme</a> contenant les exemplaires par défaut de chaque arme du jeu. </p>
 
 </div>
 </div>
@@ -530,7 +618,7 @@ Attributs privés</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a82efecc4c121b1eb2043fb44d314d32b"></a>
+<a class="anchor" id="a7638eef7d1b75ee07590b87105f3a70a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -538,7 +626,7 @@ Attributs privés</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Jeu::ticks_image</td>
+          <td class="memname">int Jeu::m_ticks_image</td>
         </tr>
       </table>
   </td>
@@ -549,11 +637,11 @@ Attributs privés</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Compteur du nombre de ticks nécessaires à l'affichage d'une trame à l'écran. </p>
-<p>Utilisé de paire avec le <a class="el" href="class_jeu.html#ac52ad806ee8535f10abd9eb3ab8fccef" title="Le Timer utilisé par diverses fonctions afin de maintenir les FPS aux alentours de 60...">timer</a>. </p>
+<p>Utilisé de paire avec le #timer. </p>
 
 </div>
 </div>
-<a class="anchor" id="ac52ad806ee8535f10abd9eb3ab8fccef"></a>
+<a class="anchor" id="a5f9a60372526aa05ea46cc8294dc27e4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -561,7 +649,7 @@ Attributs privés</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_timer.html">Timer</a> Jeu::timer</td>
+          <td class="memname"><a class="el" href="class_timer.html">Timer</a> Jeu::m_timer</td>
         </tr>
       </table>
   </td>

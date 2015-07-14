@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quittersdl',['quitterSDL',['../class_utils.html#ab889bee431b013d3e17d9d677b10d153',1,'Utils']]]
+  ['nouveauprofil',['nouveauProfil',['../class_u_p_r.html#acc71e95c0e72c35cf079abdcfdbfd369',1,'UPR']]]
 ];

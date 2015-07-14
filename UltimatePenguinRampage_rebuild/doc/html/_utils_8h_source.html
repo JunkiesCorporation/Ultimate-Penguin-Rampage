@@ -94,26 +94,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a href="_utils_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef UTILS_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define UTILS_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_utils.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_utils.html">Utils</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="comment">// Fonctions membres publiques</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="comment">//-----------------------------</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_utils.html#a65fa5f629d47909dcd35b7194a394df5">initialisationSDL</a>(); </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_utils.html#ab889bee431b013d3e17d9d677b10d153">quitterSDL</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment">//-----------------------------</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_utils.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_utils.html">Utils</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="comment">// Fonctions membres publiques</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="comment">//-----------------------------</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_utils.html#a65fa5f629d47909dcd35b7194a394df5">initialisationSDL</a>(); </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_utils.html#ab889bee431b013d3e17d9d677b10d153">quitterSDL</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">//-----------------------------</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif // UTILS_H</span></div>
-<div class="ttc" id="class_utils_html"><div class="ttname"><a href="class_utils.html">Utils</a></div><div class="ttdoc">Regroupe quelques fonctions d&#39;utilité générale. </div><div class="ttdef"><b>Definition:</b> Utils.h:6</div></div>
-<div class="ttc" id="class_utils_html_a65fa5f629d47909dcd35b7194a394df5"><div class="ttname"><a href="class_utils.html#a65fa5f629d47909dcd35b7194a394df5">Utils::initialisationSDL</a></div><div class="ttdeci">static bool initialisationSDL()</div><div class="ttdoc">Initialise la SDL et ses principaux composants. </div><div class="ttdef"><b>Definition:</b> Utils.cpp:9</div></div>
-<div class="ttc" id="class_utils_html_ab889bee431b013d3e17d9d677b10d153"><div class="ttname"><a href="class_utils.html#ab889bee431b013d3e17d9d677b10d153">Utils::quitterSDL</a></div><div class="ttdeci">static void quitterSDL()</div><div class="ttdoc">Détruit les composants restants de la SDL et quitte correctement les systèmes ouverts. </div><div class="ttdef"><b>Definition:</b> Utils.cpp:62</div></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;std::string <a class="code" href="_utils_8h.html#a79248f0622d834448aed86ae788bc390">intVersString</a>(<span class="keywordtype">int</span> <span class="keyword">const</span>&amp; p_nombre);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;std::string <a class="code" href="_utils_8h.html#abe19d6af78abe545e1611e79282863cc">remplacerParEspaces</a>(std::string <span class="keyword">const</span> &amp;p_texte);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif // UTILS_H</span></div>
+<div class="ttc" id="class_utils_html"><div class="ttname"><a href="class_utils.html">Utils</a></div><div class="ttdoc">Regroupe quelques fonctions d&#39;utilité générale. </div><div class="ttdef"><b>Definition:</b> Utils.h:8</div></div>
+<div class="ttc" id="class_utils_html_a65fa5f629d47909dcd35b7194a394df5"><div class="ttname"><a href="class_utils.html#a65fa5f629d47909dcd35b7194a394df5">Utils::initialisationSDL</a></div><div class="ttdeci">static bool initialisationSDL()</div><div class="ttdoc">Initialise la SDL et ses principaux composants. </div><div class="ttdef"><b>Definition:</b> Utils.cpp:12</div></div>
+<div class="ttc" id="class_utils_html_ab889bee431b013d3e17d9d677b10d153"><div class="ttname"><a href="class_utils.html#ab889bee431b013d3e17d9d677b10d153">Utils::quitterSDL</a></div><div class="ttdeci">static void quitterSDL()</div><div class="ttdoc">Détruit les composants restants de la SDL et quitte correctement les systèmes ouverts. </div><div class="ttdef"><b>Definition:</b> Utils.cpp:65</div></div>
+<div class="ttc" id="_utils_8h_html_abe19d6af78abe545e1611e79282863cc"><div class="ttname"><a href="_utils_8h.html#abe19d6af78abe545e1611e79282863cc">remplacerParEspaces</a></div><div class="ttdeci">std::string remplacerParEspaces(std::string const &amp;p_texte)</div><div class="ttdoc">Remplace tous les tirets bas &#39;_&#39; par des espaces &#39; &#39; dans le texte donné. </div><div class="ttdef"><b>Definition:</b> Utils.cpp:101</div></div>
+<div class="ttc" id="_utils_8h_html_a79248f0622d834448aed86ae788bc390"><div class="ttname"><a href="_utils_8h.html#a79248f0622d834448aed86ae788bc390">intVersString</a></div><div class="ttdeci">std::string intVersString(int const &amp;p_nombre)</div><div class="ttdoc">Converti le nombre donnée en un objet string qui contient sa représentation en texte. </div><div class="ttdef"><b>Definition:</b> Utils.cpp:84</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

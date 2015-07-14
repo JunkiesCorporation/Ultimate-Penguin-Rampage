@@ -87,11 +87,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier Utils.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 <code>#include &quot;<a class="el" href="_u_p_r_8h_source.html">UPR.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_utils_8h_source.html">Utils.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -99,16 +104,84 @@ Graphe des dépendances par inclusion de Utils.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_utils_8cpp__incl.png" border="0" usemap="#src_2_utils_8cpp" alt=""/></div>
 <map name="src_2_utils_8cpp" id="src_2_utils_8cpp">
-<area shape="rect" id="node3" href="_u_p_r_8h.html" title="UPR.h" alt="" coords="175,80,235,107"/>
-<area shape="rect" id="node11" href="_utils_8h.html" title="Utils.h" alt="" coords="260,80,319,107"/>
-<area shape="rect" id="node5" href="_jeu_8h.html" title="Jeu.h" alt="" coords="179,155,232,181"/>
-<area shape="rect" id="node6" href="_profil_8h.html" title="Profil.h" alt="" coords="262,229,325,256"/>
-<area shape="rect" id="node8" href="_texture_8h.html" title="Texture.h" alt="" coords="73,229,149,256"/>
-<area shape="rect" id="node10" href="_timer_8h.html" title="Timer.h" alt="" coords="173,229,238,256"/>
-<area shape="rect" id="node9" href="_struct_8h.html" title="Struct.h" alt="" coords="89,304,157,331"/>
+<area shape="rect" id="node6" href="_u_p_r_8h.html" title="UPR.h" alt="" coords="842,80,902,107"/>
+<area shape="rect" id="node22" href="_utils_8h.html" title="Utils.h" alt="" coords="979,155,1037,181"/>
+<area shape="rect" id="node8" href="_jeu_8h.html" title="Jeu.h" alt="" coords="631,155,684,181"/>
+<area shape="rect" id="node11" href="_profil_8h.html" title="Profil.h" alt="" coords="841,229,903,256"/>
+<area shape="rect" id="node10" href="_arme_8h.html" title="Arme.h" alt="" coords="739,379,803,405"/>
+<area shape="rect" id="node12" href="_arene_8h.html" title="Arene.h" alt="" coords="624,229,691,256"/>
+<area shape="rect" id="node17" href="_texture_8h.html" title="Texture.h" alt="" coords="326,603,402,629"/>
+<area shape="rect" id="node21" href="_timer_8h.html" title="Timer.h" alt="" coords="737,304,802,331"/>
+<area shape="rect" id="node13" href="_carte_8h.html" title="Carte.h" alt="" coords="605,453,669,480"/>
+<area shape="rect" id="node18" href="_joueur_8h.html" title="Joueur.h" alt="" coords="479,304,550,331"/>
+<area shape="rect" id="node14" href="_tileset_8h.html" title="Tileset.h" alt="" coords="529,528,599,555"/>
+<area shape="rect" id="node15" href="_struct_8h.html" title="Struct.h" alt="" coords="498,677,566,704"/>
+<area shape="rect" id="node16" href="_enums_8h.html" title="Enums.h" alt="" coords="495,752,569,779"/>
+<area shape="rect" id="node19" href="_entite_8h.html" title="Entite.h" alt="" coords="445,379,512,405"/>
 </map>
 </div>
-</div></div><!-- contents -->
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a79248f0622d834448aed86ae788bc390"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_utils_8cpp.html#a79248f0622d834448aed86ae788bc390">intVersString</a> (int const &amp;p_nombre)</td></tr>
+<tr class="memdesc:a79248f0622d834448aed86ae788bc390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converti le nombre donnée en un objet string qui contient sa représentation en texte.  <a href="#a79248f0622d834448aed86ae788bc390">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a79248f0622d834448aed86ae788bc390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe19d6af78abe545e1611e79282863cc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_utils_8cpp.html#abe19d6af78abe545e1611e79282863cc">remplacerParEspaces</a> (std::string const &amp;p_texte)</td></tr>
+<tr class="memdesc:abe19d6af78abe545e1611e79282863cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplace tous les tirets bas '_' par des espaces ' ' dans le texte donné.  <a href="#abe19d6af78abe545e1611e79282863cc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abe19d6af78abe545e1611e79282863cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a79248f0622d834448aed86ae788bc390"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string intVersString </td>
+          <td>(</td>
+          <td class="paramtype">int const &amp;&#160;</td>
+          <td class="paramname"><em>p_nombre</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converti le nombre donnée en un objet string qui contient sa représentation en texte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_nombre</td><td>Le nombre à convertir.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'objet string contenant la représentation texte du nombre. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abe19d6af78abe545e1611e79282863cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string remplacerParEspaces </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>p_texte</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remplace tous les tirets bas '_' par des espaces ' ' dans le texte donné. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_texte</td><td>Le texte à modifier.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le texte modifié. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré par &#160;<a href="http://www.doxygen.org/index.html">

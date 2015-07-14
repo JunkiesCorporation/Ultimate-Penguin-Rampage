@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['position',['Position',['../struct_position.html',1,'']]],
-  ['profil',['Profil',['../class_profil.html',1,'']]]
+  ['carte',['Carte',['../class_carte.html',1,'']]],
+  ['coordonnees',['Coordonnees',['../struct_coordonnees.html',1,'']]]
 ];

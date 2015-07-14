@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Ultimate Penguin Rampage:  Fichier source de include/Tileset.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Ultimate Penguin Rampage
+   &#160;<span id="projectnumber">alpha_0.1</span>
+   </div>
+   <div id="projectbrief">RPG-themed Penguin Hack n&#39; Slash</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Tileset.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_tileset_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TILESET_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TILESET_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_struct_8h.html">Struct.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_texture_8h.html">Texture.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_tileset.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tileset.html">Tileset</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// Constructeurs</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span>    <a class="code" href="class_tileset.html#a9b75b605d834e3c9e25fb1c2429a36f6">Tileset</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// Destructeur</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span>    <a class="code" href="class_tileset.html#afbb53f34f87b8b9c1f575349e89a6cd5">~Tileset</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// Fonctions membres publiques</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_tileset.html#a37ad7a36271010834274dc66276a2469">charger</a>(std::string chemin_fichier);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tileset.html#a7787633202b24ad13a7a4e6582aba5a6">reinitialiser</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tileset.html#a0e0e1f81da699742c6bd254204031a81">render</a>(<span class="keywordtype">int</span> id_tile, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_tileset.html#a41666bace7ed59cf83b82685048c2676">isTileSolide</a>(<span class="keywordtype">int</span> tileID) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_tileset.html#a9a8a5145693ff1544155866e63775340">getLargeurTile</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_tileset.html#aa925a0e6a077652979b0106cabf4e0e4">getHauteurTile</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// Attributs privés</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_tileset.html#abcbe92d570395733cff7a1672033ceb3">   82</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="class_tileset.html#abcbe92d570395733cff7a1672033ceb3">m_hauteur</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="class_tileset.html#aa79fb5185820c75565d30c613e7e4dc0">   86</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_tileset.html#aa79fb5185820c75565d30c613e7e4dc0">m_hauteur_tile</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="class_tileset.html#aad43ac0c17ae233c7babf6956d8e8958">   90</a></span>&#160;    <a class="code" href="class_texture.html">Texture</a> *<a class="code" href="class_tileset.html#aad43ac0c17ae233c7babf6956d8e8958">m_image</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="class_tileset.html#ad41b8024ec1ff2d1f9ebaa37d0b1fb3f">   94</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_tileset.html#ad41b8024ec1ff2d1f9ebaa37d0b1fb3f">m_largeur</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="class_tileset.html#ae13941b235bbcde886047ebd729037c2">   98</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_tileset.html#ae13941b235bbcde886047ebd729037c2">m_largeur_tile</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    </div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="class_tileset.html#abaae05c5398ad987f01cdb21f8d57438">  102</a></span>&#160;    <a class="code" href="struct_tile.html">Tile</a>* <a class="code" href="class_tileset.html#abaae05c5398ad987f01cdb21f8d57438">m_tiles</a>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif // TILESET_H</span></div>
+<div class="ttc" id="_texture_8h_html"><div class="ttname"><a href="_texture_8h.html">Texture.h</a></div></div>
+<div class="ttc" id="class_tileset_html_a7787633202b24ad13a7a4e6582aba5a6"><div class="ttname"><a href="class_tileset.html#a7787633202b24ad13a7a4e6582aba5a6">Tileset::reinitialiser</a></div><div class="ttdeci">void reinitialiser()</div><div class="ttdoc">Réinitialise le Tileset. </div><div class="ttdef"><b>Definition:</b> Tileset.cpp:179</div></div>
+<div class="ttc" id="class_tileset_html_afbb53f34f87b8b9c1f575349e89a6cd5"><div class="ttname"><a href="class_tileset.html#afbb53f34f87b8b9c1f575349e89a6cd5">Tileset::~Tileset</a></div><div class="ttdeci">~Tileset()</div><div class="ttdoc">Destructeur par défaut. </div><div class="ttdef"><b>Definition:</b> Tileset.cpp:25</div></div>
+<div class="ttc" id="class_tileset_html_a41666bace7ed59cf83b82685048c2676"><div class="ttname"><a href="class_tileset.html#a41666bace7ed59cf83b82685048c2676">Tileset::isTileSolide</a></div><div class="ttdeci">bool isTileSolide(int tileID) const </div><div class="ttdoc">Retourne si la tile indiquée est solide ou non. </div><div class="ttdef"><b>Definition:</b> Tileset.cpp:209</div></div>
+<div class="ttc" id="class_tileset_html_a9b75b605d834e3c9e25fb1c2429a36f6"><div class="ttname"><a href="class_tileset.html#a9b75b605d834e3c9e25fb1c2429a36f6">Tileset::Tileset</a></div><div class="ttdeci">Tileset()</div><div class="ttdoc">Constructeur par défaut. </div><div class="ttdef"><b>Definition:</b> Tileset.cpp:10</div></div>
+<div class="ttc" id="class_tileset_html_aad43ac0c17ae233c7babf6956d8e8958"><div class="ttname"><a href="class_tileset.html#aad43ac0c17ae233c7babf6956d8e8958">Tileset::m_image</a></div><div class="ttdeci">Texture * m_image</div><div class="ttdoc">L&#39;image contenant les tiles du tileset. </div><div class="ttdef"><b>Definition:</b> Tileset.h:90</div></div>
+<div class="ttc" id="class_tileset_html_a37ad7a36271010834274dc66276a2469"><div class="ttname"><a href="class_tileset.html#a37ad7a36271010834274dc66276a2469">Tileset::charger</a></div><div class="ttdeci">bool charger(std::string chemin_fichier)</div><div class="ttdoc">Lis le fichier donné associé au Tileset et charge les informations. </div><div class="ttdef"><b>Definition:</b> Tileset.cpp:39</div></div>
+<div class="ttc" id="_struct_8h_html"><div class="ttname"><a href="_struct_8h.html">Struct.h</a></div></div>
+<div class="ttc" id="class_tileset_html_abaae05c5398ad987f01cdb21f8d57438"><div class="ttname"><a href="class_tileset.html#abaae05c5398ad987f01cdb21f8d57438">Tileset::m_tiles</a></div><div class="ttdeci">Tile * m_tiles</div><div class="ttdoc">Le tableau de tiles du tileset. </div><div class="ttdef"><b>Definition:</b> Tileset.h:102</div></div>
+<div class="ttc" id="class_tileset_html_ad41b8024ec1ff2d1f9ebaa37d0b1fb3f"><div class="ttname"><a href="class_tileset.html#ad41b8024ec1ff2d1f9ebaa37d0b1fb3f">Tileset::m_largeur</a></div><div class="ttdeci">int m_largeur</div><div class="ttdoc">La largeur du tileset (en tiles). </div><div class="ttdef"><b>Definition:</b> Tileset.h:94</div></div>
+<div class="ttc" id="class_tileset_html_abcbe92d570395733cff7a1672033ceb3"><div class="ttname"><a href="class_tileset.html#abcbe92d570395733cff7a1672033ceb3">Tileset::m_hauteur</a></div><div class="ttdeci">int m_hauteur</div><div class="ttdoc">La hauteur du tileset (en tiles). </div><div class="ttdef"><b>Definition:</b> Tileset.h:82</div></div>
+<div class="ttc" id="class_tileset_html_a9a8a5145693ff1544155866e63775340"><div class="ttname"><a href="class_tileset.html#a9a8a5145693ff1544155866e63775340">Tileset::getLargeurTile</a></div><div class="ttdeci">int getLargeurTile() const </div><div class="ttdoc">Retourne la largeur d&#39;une tile du tileset. </div><div class="ttdef"><b>Definition:</b> Tileset.cpp:214</div></div>
+<div class="ttc" id="class_texture_html"><div class="ttname"><a href="class_texture.html">Texture</a></div><div class="ttdoc">Classe qui englobe le type SDL_Texture. </div><div class="ttdef"><b>Definition:</b> Texture.h:13</div></div>
+<div class="ttc" id="class_tileset_html_aa925a0e6a077652979b0106cabf4e0e4"><div class="ttname"><a href="class_tileset.html#aa925a0e6a077652979b0106cabf4e0e4">Tileset::getHauteurTile</a></div><div class="ttdeci">int getHauteurTile() const </div><div class="ttdoc">Retourne la hauteur d&#39;une tile du tileset. </div><div class="ttdef"><b>Definition:</b> Tileset.cpp:220</div></div>
+<div class="ttc" id="class_tileset_html_a0e0e1f81da699742c6bd254204031a81"><div class="ttname"><a href="class_tileset.html#a0e0e1f81da699742c6bd254204031a81">Tileset::render</a></div><div class="ttdeci">void render(int id_tile, int x, int y) const </div><div class="ttdoc">Affiche la tile donnée aux coordonnées indiquées. </div><div class="ttdef"><b>Definition:</b> Tileset.cpp:199</div></div>
+<div class="ttc" id="struct_tile_html"><div class="ttname"><a href="struct_tile.html">Tile</a></div><div class="ttdoc">Structure pour contenir les informations essentielles des tiles, éléments composant toutes les cartes...</div><div class="ttdef"><b>Definition:</b> Struct.h:23</div></div>
+<div class="ttc" id="class_tileset_html"><div class="ttname"><a href="class_tileset.html">Tileset</a></div><div class="ttdoc">Objet contenant un tileset précis et permettant son affichage à l&#39;écran grâce aux numéros d&#39;ID de ses...</div><div class="ttdef"><b>Definition:</b> Tileset.h:11</div></div>
+<div class="ttc" id="class_tileset_html_aa79fb5185820c75565d30c613e7e4dc0"><div class="ttname"><a href="class_tileset.html#aa79fb5185820c75565d30c613e7e4dc0">Tileset::m_hauteur_tile</a></div><div class="ttdeci">int m_hauteur_tile</div><div class="ttdoc">La hauteur d&#39;une tile du tileset (en px). </div><div class="ttdef"><b>Definition:</b> Tileset.h:86</div></div>
+<div class="ttc" id="class_tileset_html_ae13941b235bbcde886047ebd729037c2"><div class="ttname"><a href="class_tileset.html#ae13941b235bbcde886047ebd729037c2">Tileset::m_largeur_tile</a></div><div class="ttdeci">int m_largeur_tile</div><div class="ttdoc">La largeur d&#39;une tile du tileset (en px). </div><div class="ttdef"><b>Definition:</b> Tileset.h:98</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

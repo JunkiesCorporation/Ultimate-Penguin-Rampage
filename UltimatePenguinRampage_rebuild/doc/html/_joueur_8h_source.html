@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Ultimate Penguin Rampage:  Fichier source de include/Joueur.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Ultimate Penguin Rampage
+   &#160;<span id="projectnumber">alpha_0.1</span>
+   </div>
+   <div id="projectbrief">RPG-themed Penguin Hack n&#39; Slash</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Joueur.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_joueur_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef JOUEUR_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define JOUEUR_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entite_8h.html">Entite.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_struct_8h.html">Struct.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_carte_8h.html">Carte.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_arme_8h.html">Arme.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_texture_8h.html">Texture.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_joueur.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_joueur.html">Joueur</a> : <span class="keyword">public</span> <a class="code" href="class_entite.html">Entite</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="comment">// Constructeurs</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span>        <a class="code" href="class_joueur.html#add6c98be3020651d84f6d75ccc1d867e">Joueur</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="class_joueur.html#add6c98be3020651d84f6d75ccc1d867e">Joueur</a>(std::vector&lt;int&gt; <span class="keyword">const</span> &amp;id_armes_depart, <a class="code" href="struct_coordonnees.html">Coordonnees</a> pos_depart);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">// Destructeur</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span>        <a class="code" href="class_joueur.html#a9fb594f755601ee77ce5884c4c0861f3">~Joueur</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">// Fonctions membres publiques</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a29b7c82d9e8f0ae76dfb51556d65df21">gererEvenement</a>(SDL_Event <span class="keyword">const</span> &amp;e, SDL_Rect <span class="keyword">const</span> &amp;camera);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_joueur.html#a18202af5cf2cc0b8026ef60653998da9">update</a>(<a class="code" href="class_carte.html">Carte</a> <span class="keyword">const</span> &amp;carte);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">// Types privés</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_joueur.html#a86ee04abf45a0ecebae321ada8b1da2b">   70</a></span>&#160;<span class="comment"></span>        <span class="keyword">typedef</span> <a class="code" href="class_entite.html">Entite</a> <a class="code" href="class_joueur.html#a86ee04abf45a0ecebae321ada8b1da2b">super</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_joueur.html#a374b55a581df72651484eef6652c6002">   74</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="class_joueur.html#a374b55a581df72651484eef6652c6002">EnumActions</a></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="class_joueur.html#a374b55a581df72651484eef6652c6002a916ab43bd74619dfecf48b1181b3d280">   78</a></span>&#160;            <a class="code" href="class_joueur.html#a374b55a581df72651484eef6652c6002a916ab43bd74619dfecf48b1181b3d280">CHANGE_DIRECTION</a>,</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_joueur.html#a374b55a581df72651484eef6652c6002ab3dfdc9cbfa64d39d5abcc456d57e1b6">   81</a></span>&#160;            <a class="code" href="class_joueur.html#a374b55a581df72651484eef6652c6002ab3dfdc9cbfa64d39d5abcc456d57e1b6">DIR_BAS</a>,</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_joueur.html#a374b55a581df72651484eef6652c6002ae8f45b3fbe75f4e1c2ffde170899291d">   84</a></span>&#160;            <a class="code" href="class_joueur.html#a374b55a581df72651484eef6652c6002ae8f45b3fbe75f4e1c2ffde170899291d">DIR_DROITE</a>,</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_joueur.html#a374b55a581df72651484eef6652c6002a75323b6031036d53c8fb97546f2aad87">   87</a></span>&#160;            <a class="code" href="class_joueur.html#a374b55a581df72651484eef6652c6002a75323b6031036d53c8fb97546f2aad87">DIR_GAUCHE</a>,</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="class_joueur.html#a374b55a581df72651484eef6652c6002a413172df492986793f342b5f60f5b3ca">   90</a></span>&#160;            <a class="code" href="class_joueur.html#a374b55a581df72651484eef6652c6002a413172df492986793f342b5f60f5b3ca">DIR_HAUT</a>,</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="class_joueur.html#a374b55a581df72651484eef6652c6002ad5b4d97ee554fea2748e8016d4395336">   93</a></span>&#160;            <a class="code" href="class_joueur.html#a374b55a581df72651484eef6652c6002ad5b4d97ee554fea2748e8016d4395336">NB_ACTIONS</a></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        };</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104">   98</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104">EnumDirections</a></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a6eac69d88bae5d7ff7b3201d33f81515">  101</a></span>&#160;            <a class="code" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a6eac69d88bae5d7ff7b3201d33f81515">HAUT</a>,</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a2c9f4713376a831445f90d2013cc697d">  102</a></span>&#160;            <a class="code" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a2c9f4713376a831445f90d2013cc697d">HAUT_DROITE</a>,</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104ac4eec780ba38fdf62a565edfe1200fcf">  103</a></span>&#160;            <a class="code" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104ac4eec780ba38fdf62a565edfe1200fcf">DROITE</a>,</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a08043a32809d3c4d424473f50a6125c5">  104</a></span>&#160;            <a class="code" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a08043a32809d3c4d424473f50a6125c5">BAS_DROITE</a>,</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104aa60eb44f31c43df7d7580ef5f3f3dd59">  105</a></span>&#160;            <a class="code" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104aa60eb44f31c43df7d7580ef5f3f3dd59">BAS</a>,</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a397484d72c0c4f192157b34966744e6b">  106</a></span>&#160;            <a class="code" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a397484d72c0c4f192157b34966744e6b">BAS_GAUCHE</a>,</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104aa4f70459d3ecb027f3625f03fd999593">  107</a></span>&#160;            <a class="code" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104aa4f70459d3ecb027f3625f03fd999593">GAUCHE</a>,</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a0081baedf8f135a29052eb175e2e14bb">  108</a></span>&#160;            <a class="code" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a0081baedf8f135a29052eb175e2e14bb">HAUT_GAUCHE</a>,</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a55b006a53412c01d29f9673a35def6f0">  109</a></span>&#160;            <a class="code" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a55b006a53412c01d29f9673a35def6f0">NB_DIRECTIONS</a></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        };</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment">// Attributs privés</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="class_joueur.html#a877b22d74b5ed09cb21af36e3f2c1e9a">  117</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code" href="class_joueur.html#a877b22d74b5ed09cb21af36e3f2c1e9a">m_actions</a>[<a class="code" href="class_joueur.html#a374b55a581df72651484eef6652c6002ad5b4d97ee554fea2748e8016d4395336">NB_ACTIONS</a>];</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="class_joueur.html#a7f7c80dda3683b7678facf844056fa3a">  121</a></span>&#160;        std::vector&lt;Arme&gt; <a class="code" href="class_joueur.html#a7f7c80dda3683b7678facf844056fa3a">m_armes_portees</a>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="class_joueur.html#ae8b082b1ce8af8990cc4b7ca0c208609">  125</a></span>&#160;        <a class="code" href="class_arme.html">Arme</a>* <a class="code" href="class_joueur.html#ae8b082b1ce8af8990cc4b7ca0c208609">m_arme_selectionnee</a>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="class_joueur.html#a6a4c7a11f9dbf028f036c35a2e0d608a">  129</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#a6a4c7a11f9dbf028f036c35a2e0d608a">m_num_arme_selectionnee</a>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        </div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="class_joueur.html#a12ae806fa3bd3d897611a74c5ee33813">  133</a></span>&#160;        <a class="code" href="class_texture.html">Texture</a>* <a class="code" href="class_joueur.html#a12ae806fa3bd3d897611a74c5ee33813">m_textures</a>[<a class="code" href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a55b006a53412c01d29f9673a35def6f0">NB_DIRECTIONS</a>];</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="comment">//---------------------------------</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;};</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">#endif // JOUEUR_H</span></div>
+<div class="ttc" id="_texture_8h_html"><div class="ttname"><a href="_texture_8h.html">Texture.h</a></div></div>
+<div class="ttc" id="struct_coordonnees_html"><div class="ttname"><a href="struct_coordonnees.html">Coordonnees</a></div><div class="ttdoc">Petite structure pour contenir des coordonnées en deux dimensions. </div><div class="ttdef"><b>Definition:</b> Struct.h:10</div></div>
+<div class="ttc" id="class_joueur_html_a86ee04abf45a0ecebae321ada8b1da2b"><div class="ttname"><a href="class_joueur.html#a86ee04abf45a0ecebae321ada8b1da2b">Joueur::super</a></div><div class="ttdeci">Entite super</div><div class="ttdoc">Mot-clef permettant l&#39;accès rapide aux méthodes d&#39;Entite. </div><div class="ttdef"><b>Definition:</b> Joueur.h:70</div></div>
+<div class="ttc" id="class_joueur_html_a18202af5cf2cc0b8026ef60653998da9"><div class="ttname"><a href="class_joueur.html#a18202af5cf2cc0b8026ef60653998da9">Joueur::update</a></div><div class="ttdeci">void update(Carte const &amp;carte)</div><div class="ttdoc">Met à jour le joueur. </div><div class="ttdef"><b>Definition:</b> Joueur.cpp:176</div></div>
+<div class="ttc" id="class_joueur_html_a9fb594f755601ee77ce5884c4c0861f3"><div class="ttname"><a href="class_joueur.html#a9fb594f755601ee77ce5884c4c0861f3">Joueur::~Joueur</a></div><div class="ttdeci">~Joueur()</div><div class="ttdoc">Destructeur par défaut. </div><div class="ttdef"><b>Definition:</b> Joueur.cpp:68</div></div>
+<div class="ttc" id="_arme_8h_html"><div class="ttname"><a href="_arme_8h.html">Arme.h</a></div></div>
+<div class="ttc" id="class_joueur_html"><div class="ttname"><a href="class_joueur.html">Joueur</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:13</div></div>
+<div class="ttc" id="class_carte_html"><div class="ttname"><a href="class_carte.html">Carte</a></div><div class="ttdoc">Classe contenant toutes les informations sur la carte d&#39;une arène. </div><div class="ttdef"><b>Definition:</b> Carte.h:12</div></div>
+<div class="ttc" id="_entite_8h_html"><div class="ttname"><a href="_entite_8h.html">Entite.h</a></div></div>
+<div class="ttc" id="_carte_8h_html"><div class="ttname"><a href="_carte_8h.html">Carte.h</a></div></div>
+<div class="ttc" id="class_joueur_html_a12ae806fa3bd3d897611a74c5ee33813"><div class="ttname"><a href="class_joueur.html#a12ae806fa3bd3d897611a74c5ee33813">Joueur::m_textures</a></div><div class="ttdeci">Texture * m_textures[NB_DIRECTIONS]</div><div class="ttdoc">Tableau contenant les 8 différentes images du joueur. </div><div class="ttdef"><b>Definition:</b> Joueur.h:133</div></div>
+<div class="ttc" id="class_joueur_html_aeed76feb88cb817d6a6b427e040a2104a55b006a53412c01d29f9673a35def6f0"><div class="ttname"><a href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a55b006a53412c01d29f9673a35def6f0">Joueur::NB_DIRECTIONS</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:109</div></div>
+<div class="ttc" id="class_joueur_html_aeed76feb88cb817d6a6b427e040a2104a08043a32809d3c4d424473f50a6125c5"><div class="ttname"><a href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a08043a32809d3c4d424473f50a6125c5">Joueur::BAS_DROITE</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:104</div></div>
+<div class="ttc" id="class_joueur_html_a29b7c82d9e8f0ae76dfb51556d65df21"><div class="ttname"><a href="class_joueur.html#a29b7c82d9e8f0ae76dfb51556d65df21">Joueur::gererEvenement</a></div><div class="ttdeci">void gererEvenement(SDL_Event const &amp;e, SDL_Rect const &amp;camera)</div><div class="ttdoc">Gère les événements s&#39;ils s&#39;appliquent au Joueur. </div><div class="ttdef"><b>Definition:</b> Joueur.cpp:84</div></div>
+<div class="ttc" id="class_joueur_html_a7f7c80dda3683b7678facf844056fa3a"><div class="ttname"><a href="class_joueur.html#a7f7c80dda3683b7678facf844056fa3a">Joueur::m_armes_portees</a></div><div class="ttdeci">std::vector&lt; Arme &gt; m_armes_portees</div><div class="ttdoc">Les armes que le joueur porte sur lui pendant la partie. </div><div class="ttdef"><b>Definition:</b> Joueur.h:121</div></div>
+<div class="ttc" id="_struct_8h_html"><div class="ttname"><a href="_struct_8h.html">Struct.h</a></div></div>
+<div class="ttc" id="class_joueur_html_a374b55a581df72651484eef6652c6002a75323b6031036d53c8fb97546f2aad87"><div class="ttname"><a href="class_joueur.html#a374b55a581df72651484eef6652c6002a75323b6031036d53c8fb97546f2aad87">Joueur::DIR_GAUCHE</a></div><div class="ttdoc">Le joueur se dirige vers la gauche. </div><div class="ttdef"><b>Definition:</b> Joueur.h:87</div></div>
+<div class="ttc" id="class_joueur_html_aeed76feb88cb817d6a6b427e040a2104a397484d72c0c4f192157b34966744e6b"><div class="ttname"><a href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a397484d72c0c4f192157b34966744e6b">Joueur::BAS_GAUCHE</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:106</div></div>
+<div class="ttc" id="class_joueur_html_a374b55a581df72651484eef6652c6002a413172df492986793f342b5f60f5b3ca"><div class="ttname"><a href="class_joueur.html#a374b55a581df72651484eef6652c6002a413172df492986793f342b5f60f5b3ca">Joueur::DIR_HAUT</a></div><div class="ttdoc">Le joueur se dirige vers le haut. </div><div class="ttdef"><b>Definition:</b> Joueur.h:90</div></div>
+<div class="ttc" id="class_joueur_html_aeed76feb88cb817d6a6b427e040a2104ac4eec780ba38fdf62a565edfe1200fcf"><div class="ttname"><a href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104ac4eec780ba38fdf62a565edfe1200fcf">Joueur::DROITE</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:103</div></div>
+<div class="ttc" id="class_joueur_html_a374b55a581df72651484eef6652c6002"><div class="ttname"><a href="class_joueur.html#a374b55a581df72651484eef6652c6002">Joueur::EnumActions</a></div><div class="ttdeci">EnumActions</div><div class="ttdoc">Les actions possibles du joueur. </div><div class="ttdef"><b>Definition:</b> Joueur.h:74</div></div>
+<div class="ttc" id="class_joueur_html_aeed76feb88cb817d6a6b427e040a2104a0081baedf8f135a29052eb175e2e14bb"><div class="ttname"><a href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a0081baedf8f135a29052eb175e2e14bb">Joueur::HAUT_GAUCHE</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:108</div></div>
+<div class="ttc" id="class_arme_html"><div class="ttname"><a href="class_arme.html">Arme</a></div><div class="ttdoc">Modèle de toutes armes du jeu. </div><div class="ttdef"><b>Definition:</b> Arme.h:10</div></div>
+<div class="ttc" id="class_joueur_html_ae8b082b1ce8af8990cc4b7ca0c208609"><div class="ttname"><a href="class_joueur.html#ae8b082b1ce8af8990cc4b7ca0c208609">Joueur::m_arme_selectionnee</a></div><div class="ttdeci">Arme * m_arme_selectionnee</div><div class="ttdoc">Pointeur vers l&#39;arme sélectionnée. </div><div class="ttdef"><b>Definition:</b> Joueur.h:125</div></div>
+<div class="ttc" id="class_joueur_html_add6c98be3020651d84f6d75ccc1d867e"><div class="ttname"><a href="class_joueur.html#add6c98be3020651d84f6d75ccc1d867e">Joueur::Joueur</a></div><div class="ttdeci">Joueur()</div><div class="ttdoc">Constructeur par défaut. </div><div class="ttdef"><b>Definition:</b> Joueur.cpp:12</div></div>
+<div class="ttc" id="class_joueur_html_a374b55a581df72651484eef6652c6002ae8f45b3fbe75f4e1c2ffde170899291d"><div class="ttname"><a href="class_joueur.html#a374b55a581df72651484eef6652c6002ae8f45b3fbe75f4e1c2ffde170899291d">Joueur::DIR_DROITE</a></div><div class="ttdoc">Le joueur se dirige vers la droite. </div><div class="ttdef"><b>Definition:</b> Joueur.h:84</div></div>
+<div class="ttc" id="class_texture_html"><div class="ttname"><a href="class_texture.html">Texture</a></div><div class="ttdoc">Classe qui englobe le type SDL_Texture. </div><div class="ttdef"><b>Definition:</b> Texture.h:13</div></div>
+<div class="ttc" id="class_joueur_html_a374b55a581df72651484eef6652c6002ad5b4d97ee554fea2748e8016d4395336"><div class="ttname"><a href="class_joueur.html#a374b55a581df72651484eef6652c6002ad5b4d97ee554fea2748e8016d4395336">Joueur::NB_ACTIONS</a></div><div class="ttdoc">Permet l&#39;initialisation de tableaux avec une taille suffisante. </div><div class="ttdef"><b>Definition:</b> Joueur.h:93</div></div>
+<div class="ttc" id="class_joueur_html_a6a4c7a11f9dbf028f036c35a2e0d608a"><div class="ttname"><a href="class_joueur.html#a6a4c7a11f9dbf028f036c35a2e0d608a">Joueur::m_num_arme_selectionnee</a></div><div class="ttdeci">int m_num_arme_selectionnee</div><div class="ttdoc">L&#39;indice dans m_armes_portees de l&#39;arme en cours d&#39;utilisation. </div><div class="ttdef"><b>Definition:</b> Joueur.h:129</div></div>
+<div class="ttc" id="class_joueur_html_aeed76feb88cb817d6a6b427e040a2104a6eac69d88bae5d7ff7b3201d33f81515"><div class="ttname"><a href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a6eac69d88bae5d7ff7b3201d33f81515">Joueur::HAUT</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:101</div></div>
+<div class="ttc" id="class_joueur_html_aeed76feb88cb817d6a6b427e040a2104aa4f70459d3ecb027f3625f03fd999593"><div class="ttname"><a href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104aa4f70459d3ecb027f3625f03fd999593">Joueur::GAUCHE</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:107</div></div>
+<div class="ttc" id="class_joueur_html_aeed76feb88cb817d6a6b427e040a2104"><div class="ttname"><a href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104">Joueur::EnumDirections</a></div><div class="ttdeci">EnumDirections</div><div class="ttdoc">Les 8 découpages de la direction. </div><div class="ttdef"><b>Definition:</b> Joueur.h:98</div></div>
+<div class="ttc" id="class_entite_html"><div class="ttname"><a href="class_entite.html">Entite</a></div><div class="ttdoc">Classe abstraite qui regroupe toutes les fonctionnalités communes aux entités qui apparaissent dans u...</div><div class="ttdef"><b>Definition:</b> Entite.h:17</div></div>
+<div class="ttc" id="class_joueur_html_a877b22d74b5ed09cb21af36e3f2c1e9a"><div class="ttname"><a href="class_joueur.html#a877b22d74b5ed09cb21af36e3f2c1e9a">Joueur::m_actions</a></div><div class="ttdeci">bool m_actions[NB_ACTIONS]</div><div class="ttdoc">Tableau pour stocker les actions en cours du joueur. </div><div class="ttdef"><b>Definition:</b> Joueur.h:117</div></div>
+<div class="ttc" id="class_joueur_html_aeed76feb88cb817d6a6b427e040a2104a2c9f4713376a831445f90d2013cc697d"><div class="ttname"><a href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a2c9f4713376a831445f90d2013cc697d">Joueur::HAUT_DROITE</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:102</div></div>
+<div class="ttc" id="class_joueur_html_a374b55a581df72651484eef6652c6002a916ab43bd74619dfecf48b1181b3d280"><div class="ttname"><a href="class_joueur.html#a374b55a581df72651484eef6652c6002a916ab43bd74619dfecf48b1181b3d280">Joueur::CHANGE_DIRECTION</a></div><div class="ttdoc">La souris est déplacée et le joueur change de direction. </div><div class="ttdef"><b>Definition:</b> Joueur.h:78</div></div>
+<div class="ttc" id="class_joueur_html_aeed76feb88cb817d6a6b427e040a2104aa60eb44f31c43df7d7580ef5f3f3dd59"><div class="ttname"><a href="class_joueur.html#aeed76feb88cb817d6a6b427e040a2104aa60eb44f31c43df7d7580ef5f3f3dd59">Joueur::BAS</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:105</div></div>
+<div class="ttc" id="class_joueur_html_a374b55a581df72651484eef6652c6002ab3dfdc9cbfa64d39d5abcc456d57e1b6"><div class="ttname"><a href="class_joueur.html#a374b55a581df72651484eef6652c6002ab3dfdc9cbfa64d39d5abcc456d57e1b6">Joueur::DIR_BAS</a></div><div class="ttdoc">Le joueur se dirige vers le bas. </div><div class="ttdef"><b>Definition:</b> Joueur.h:81</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

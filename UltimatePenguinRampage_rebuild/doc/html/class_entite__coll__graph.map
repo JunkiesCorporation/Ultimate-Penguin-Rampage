@@ -1,0 +1,4 @@
+<map id="Entite" name="Entite">
+<area shape="rect" id="node2" href="$struct_coordonnees.html" title="Petite structure pour contenir des coordonnées en deux dimensions. " alt="" coords="5,5,104,32"/>
+<area shape="rect" id="node3" href="$class_texture.html" title="Classe qui englobe le type SDL_Texture. " alt="" coords="129,5,194,32"/>
+</map>

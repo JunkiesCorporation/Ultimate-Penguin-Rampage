@@ -11,6 +11,9 @@
 Arme::Arme() : m_id(0), m_nom("")
 {
 	// Aucun attribut à initialiser.
+	
+	// temp
+	std::cout << "Arme construite par defaut." << std::endl;
 }
 
 /* Constructeur de chargement.*/
@@ -78,12 +81,21 @@ Arme::Arme(int p_id, std::string const &p_nom_fichier)
 		m_nom = remplacerParEspaces(ligne);
 		
 		// temp
-		std::cout << "Arme chargee avec succes." << std::endl;
+		std::cout << "Arme construite par chargement." << std::endl;
 		
 		// Fermeture du fichier.
 		close:
 		fichier.close();
 	}
+}
+
+/* Constructeur de copie.*/
+Arme::Arme(Arme const &arme) : m_id(arme.getID()), m_nom(arme.getNom())
+{
+	// Aucun attribut à initialise.
+	
+	// temp
+	std::cout << "Arme construite par copie." << std::endl;
 }
 //-------------------------------------
 
@@ -93,5 +105,23 @@ Arme::Arme(int p_id, std::string const &p_nom_fichier)
 Arme::~Arme()
 {
 	// Aucun attribut à détruire.
+	
+	// temp
+	std::cout << "Arme detruite." << std::endl;
+}
+//-------------------------------------
+
+// Fonctions membres publiques
+//-------------------------------------
+/* Retourne l'id de l'arme.*/
+int Arme::getID() const
+{
+	return m_id;
+}
+
+/* Retourne le nom de l'arme.*/
+std::string Arme::getNom() const
+{
+	return m_nom;
 }
 //-------------------------------------

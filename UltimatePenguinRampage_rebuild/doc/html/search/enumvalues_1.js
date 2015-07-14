@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nb_5foptions',['NB_OPTIONS',['../class_jeu.html#a89eeb74e5dd4a448115cb5e249c19ef7a845f3a51ead9f82e4cedcf83018cf720',1,'Jeu']]]
+  ['change_5fdirection',['CHANGE_DIRECTION',['../class_joueur.html#a374b55a581df72651484eef6652c6002a916ab43bd74619dfecf48b1181b3d280',1,'Joueur']]]
 ];

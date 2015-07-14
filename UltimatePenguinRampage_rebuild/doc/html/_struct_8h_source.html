@@ -94,17 +94,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a href="_struct_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef STRUCT_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define STRUCT_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="struct_position.html">    6</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_position.html">Position</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="struct_position.html#aeda152ffeee17ae5be9c02327b2408d8">   10</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_position.html#aeda152ffeee17ae5be9c02327b2408d8">x</a>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="struct_position.html#a3c08e9213d4726b21caba3073192c4a3">   14</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_position.html#a3c08e9213d4726b21caba3073192c4a3">y</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif // STRUCT_H</span></div>
-<div class="ttc" id="struct_position_html"><div class="ttname"><a href="struct_position.html">Position</a></div><div class="ttdoc">Petite structure pour contenir des positions avec 2 coordonnées. </div><div class="ttdef"><b>Definition:</b> Struct.h:6</div></div>
-<div class="ttc" id="struct_position_html_a3c08e9213d4726b21caba3073192c4a3"><div class="ttname"><a href="struct_position.html#a3c08e9213d4726b21caba3073192c4a3">Position::y</a></div><div class="ttdeci">int y</div><div class="ttdoc">La coordonnée y de la position. </div><div class="ttdef"><b>Definition:</b> Struct.h:14</div></div>
-<div class="ttc" id="struct_position_html_aeda152ffeee17ae5be9c02327b2408d8"><div class="ttname"><a href="struct_position.html#aeda152ffeee17ae5be9c02327b2408d8">Position::x</a></div><div class="ttdeci">int x</div><div class="ttdoc">La coordonnée x de la position. </div><div class="ttdef"><b>Definition:</b> Struct.h:10</div></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_enums_8h.html">Enums.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="struct_coordonnees.html">   10</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_coordonnees.html">Coordonnees</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="struct_coordonnees.html#a5e06653deab672083941d8f81d9bafca">   14</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_coordonnees.html#a5e06653deab672083941d8f81d9bafca">x</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="struct_coordonnees.html#ae1735d3e076d11a9a48ddd544e098e55">   18</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_coordonnees.html#ae1735d3e076d11a9a48ddd544e098e55">y</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="struct_tile.html">   23</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_tile.html">Tile</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="struct_tile.html#ae78bdc697a1239432765bb8ec6838f44">   27</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_tile.html#ae78bdc697a1239432765bb8ec6838f44">id_tile</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="struct_tile.html#af8b5e98c2009bfd88a0932bc8b64b3aa">   31</a></span>&#160;    SDL_Rect <a class="code" href="struct_tile.html#af8b5e98c2009bfd88a0932bc8b64b3aa">rect_clip</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="struct_tile.html#a86d32444511cf5bdd370330d7d642036">   35</a></span>&#160;    <a class="code" href="_enums_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1">TileType</a> <a class="code" href="struct_tile.html#a86d32444511cf5bdd370330d7d642036">type</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif // STRUCT_H</span></div>
+<div class="ttc" id="struct_coordonnees_html_ae1735d3e076d11a9a48ddd544e098e55"><div class="ttname"><a href="struct_coordonnees.html#ae1735d3e076d11a9a48ddd544e098e55">Coordonnees::y</a></div><div class="ttdeci">int y</div><div class="ttdoc">La coordonnée y. </div><div class="ttdef"><b>Definition:</b> Struct.h:18</div></div>
+<div class="ttc" id="struct_tile_html_ae78bdc697a1239432765bb8ec6838f44"><div class="ttname"><a href="struct_tile.html#ae78bdc697a1239432765bb8ec6838f44">Tile::id_tile</a></div><div class="ttdeci">int id_tile</div><div class="ttdoc">Le numéro d&#39;identification de la tile, relatif à son tileset. </div><div class="ttdef"><b>Definition:</b> Struct.h:27</div></div>
+<div class="ttc" id="struct_coordonnees_html"><div class="ttname"><a href="struct_coordonnees.html">Coordonnees</a></div><div class="ttdoc">Petite structure pour contenir des coordonnées en deux dimensions. </div><div class="ttdef"><b>Definition:</b> Struct.h:10</div></div>
+<div class="ttc" id="struct_coordonnees_html_a5e06653deab672083941d8f81d9bafca"><div class="ttname"><a href="struct_coordonnees.html#a5e06653deab672083941d8f81d9bafca">Coordonnees::x</a></div><div class="ttdeci">int x</div><div class="ttdoc">La coordonnée x. </div><div class="ttdef"><b>Definition:</b> Struct.h:14</div></div>
+<div class="ttc" id="struct_tile_html_af8b5e98c2009bfd88a0932bc8b64b3aa"><div class="ttname"><a href="struct_tile.html#af8b5e98c2009bfd88a0932bc8b64b3aa">Tile::rect_clip</a></div><div class="ttdeci">SDL_Rect rect_clip</div><div class="ttdoc">Le rectangle pour découper la tile de son tileset. </div><div class="ttdef"><b>Definition:</b> Struct.h:31</div></div>
+<div class="ttc" id="struct_tile_html_a86d32444511cf5bdd370330d7d642036"><div class="ttname"><a href="struct_tile.html#a86d32444511cf5bdd370330d7d642036">Tile::type</a></div><div class="ttdeci">TileType type</div><div class="ttdoc">Le type de la tile. </div><div class="ttdef"><b>Definition:</b> Struct.h:35</div></div>
+<div class="ttc" id="_enums_8h_html_ac9e486ec80ccfdb28a4f4837d419c9f1"><div class="ttname"><a href="_enums_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1">TileType</a></div><div class="ttdeci">TileType</div><div class="ttdoc">Les différents types de tiles possible sur une carte. </div><div class="ttdef"><b>Definition:</b> Enums.h:6</div></div>
+<div class="ttc" id="struct_tile_html"><div class="ttname"><a href="struct_tile.html">Tile</a></div><div class="ttdoc">Structure pour contenir les informations essentielles des tiles, éléments composant toutes les cartes...</div><div class="ttdef"><b>Definition:</b> Struct.h:23</div></div>
+<div class="ttc" id="_enums_8h_html"><div class="ttname"><a href="_enums_8h.html">Enums.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

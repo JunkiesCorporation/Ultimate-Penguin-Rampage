@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['_7ejeu',['~Jeu',['../class_jeu.html#a9cd19e73df169d7f09397be61ba8548c',1,'Jeu']]],
-  ['_7eprofil',['~Profil',['../class_profil.html#a3a77115b1e734e5057d1dc87fd7648ff',1,'Profil']]],
-  ['_7etexture',['~Texture',['../class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a',1,'Texture']]],
-  ['_7eupr',['~UPR',['../class_u_p_r.html#a432864bf2e17a7d11d5e642bbef0c818',1,'UPR']]]
+  ['texture',['Texture',['../class_texture.html#a6c275e3f186675ff6ed73ccf970e552f',1,'Texture::Texture()'],['../class_texture.html#a3da8cb18dfc1afcceb2806bfa95913f6',1,'Texture::Texture(const char *chemin_image)']]],
+  ['tileset',['Tileset',['../class_tileset.html#a9b75b605d834e3c9e25fb1c2429a36f6',1,'Tileset']]],
+  ['timer',['Timer',['../class_timer.html#a5f16e8da27d2a5a5242dead46de05d97',1,'Timer']]]
 ];

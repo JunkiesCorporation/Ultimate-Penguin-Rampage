@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['texture_2ecpp',['Texture.cpp',['../_texture_8cpp.html',1,'']]],
-  ['texture_2eh',['Texture.h',['../_texture_8h.html',1,'']]],
-  ['timer_2ecpp',['Timer.cpp',['../_timer_8cpp.html',1,'']]],
-  ['timer_2eh',['Timer.h',['../_timer_8h.html',1,'']]]
+  ['jeu_2ecpp',['Jeu.cpp',['../_jeu_8cpp.html',1,'']]],
+  ['jeu_2eh',['Jeu.h',['../_jeu_8h.html',1,'']]],
+  ['joueur_2ecpp',['Joueur.cpp',['../_joueur_8cpp.html',1,'']]],
+  ['joueur_2eh',['Joueur.h',['../_joueur_8h.html',1,'']]]
 ];

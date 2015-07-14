@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['setemplacementsauvegarde',['setEmplacementSauvegarde',['../class_profil.html#a75dcf0b367004845706f8cfffd178c5e',1,'Profil']]],
-  ['setnomprofil',['setNomProfil',['../class_profil.html#af40d306951112ff5be52ca73e5ce7791',1,'Profil']]],
-  ['setsinouveau',['setSiNouveau',['../class_profil.html#acb1f4b7fcc7f7d819a513cfe94862b01',1,'Profil']]],
-  ['start',['start',['../class_timer.html#a3a8b5272198d029779dc9302a54305a8',1,'Timer']]],
-  ['struct_2eh',['Struct.h',['../_struct_8h.html',1,'']]]
+  ['nb_5factions',['NB_ACTIONS',['../class_joueur.html#a374b55a581df72651484eef6652c6002ad5b4d97ee554fea2748e8016d4395336',1,'Joueur']]],
+  ['nb_5fdirections',['NB_DIRECTIONS',['../class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a55b006a53412c01d29f9673a35def6f0',1,'Joueur']]],
+  ['nb_5foptions',['NB_OPTIONS',['../class_jeu.html#a89eeb74e5dd4a448115cb5e249c19ef7a845f3a51ead9f82e4cedcf83018cf720',1,'Jeu']]],
+  ['nouveauprofil',['nouveauProfil',['../class_u_p_r.html#acc71e95c0e72c35cf079abdcfdbfd369',1,'UPR']]]
 ];

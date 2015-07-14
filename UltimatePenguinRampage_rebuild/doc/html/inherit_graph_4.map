@@ -1,0 +1,4 @@
+<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
+<area shape="rect" id="node1" href="$class_entite.html" title="Classe abstraite qui regroupe toutes les fonctionnalités communes aux entités qui apparaissent dans u..." alt="" coords="5,5,61,32"/>
+<area shape="rect" id="node2" href="$class_joueur.html" title="Joueur" alt="" coords="109,5,169,32"/>
+</map>

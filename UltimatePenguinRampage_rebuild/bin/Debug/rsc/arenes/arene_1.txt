@@ -1,2 +1,4 @@
 [infos_arene]
 chemin_carte= rsc/map/carte_test_1.txt
+nombre_armes_depart_joueur= 1
+id_armes_depart_joueur= 1

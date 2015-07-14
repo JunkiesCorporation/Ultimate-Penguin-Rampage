@@ -1,7 +1,10 @@
 <map id="include/Jeu.h" name="include/Jeu.h">
-<area shape="rect" id="node2" href="$_jeu_8cpp.html" title="src/Jeu.cpp" alt="" coords="5,155,95,181"/>
-<area shape="rect" id="node3" href="$_u_p_r_8h.html" title="include/UPR.h" alt="" coords="123,80,228,107"/>
-<area shape="rect" id="node4" href="$_texture_8cpp.html" title="src/Texture.cpp" alt="" coords="119,155,231,181"/>
-<area shape="rect" id="node5" href="$_u_p_r_8cpp.html" title="src/UPR.cpp" alt="" coords="255,155,351,181"/>
-<area shape="rect" id="node6" href="$_utils_8cpp.html" title="src/Utils.cpp" alt="" coords="376,155,471,181"/>
+<area shape="rect" id="node2" href="$_arene_8cpp.html" title="src/Arene.cpp" alt="" coords="5,155,108,181"/>
+<area shape="rect" id="node3" href="$_jeu_8cpp.html" title="src/Jeu.cpp" alt="" coords="132,155,221,181"/>
+<area shape="rect" id="node4" href="$_arene_8h.html" title="include/Arene.h" alt="" coords="41,80,153,107"/>
+<area shape="rect" id="node5" href="$_u_p_r_8h.html" title="include/UPR.h" alt="" coords="241,80,347,107"/>
+<area shape="rect" id="node6" href="$_texture_8cpp.html" title="src/Texture.cpp" alt="" coords="486,155,598,181"/>
+<area shape="rect" id="node7" href="$_tileset_8cpp.html" title="src/Tileset.cpp" alt="" coords="622,155,729,181"/>
+<area shape="rect" id="node8" href="$_u_p_r_8cpp.html" title="src/UPR.cpp" alt="" coords="246,155,342,181"/>
+<area shape="rect" id="node9" href="$_utils_8cpp.html" title="src/Utils.cpp" alt="" coords="367,155,461,181"/>
 </map>

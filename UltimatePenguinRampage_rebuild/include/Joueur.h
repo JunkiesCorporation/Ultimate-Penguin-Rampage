@@ -1,7 +1,16 @@
 ﻿#ifndef JOUEUR_H
 #define JOUEUR_H
 
+#include <vector>
+#include <SDL.h>
+
 #include "Entite.h"
+#include "Struct.h"
+#include "Carte.h"
+#include "Arme.h"
+#include "Texture.h"
+
+class Jeu;
 
 class Joueur : public Entite
 {
@@ -16,11 +25,13 @@ class Joueur : public Entite
 		 */
 		Joueur();
 		
-		/** Constructeur avec position de départ.
+		/** Constructeur de chargement.
 		 *
+		 * @param id_armes_depart Vecteur des id des armes de départ du joueur.
+		 * @param jeu Le jeu en cours
 		 * @param pos_depart La position de départ de l'entité.
 		 */
-		Joueur(Coordonnees pos_depart);
+		Joueur(std::vector<int> const &id_armes_depart, Jeu const &jeu, Coordonnees pos_depart);
 		//---------------------------------
 		
 		// Destructeur
@@ -106,6 +117,18 @@ class Joueur : public Entite
 		/** Tableau pour stocker les actions en cours du joueur.
 		 */
 		bool m_actions[NB_ACTIONS];
+		
+		/** Les armes que le joueur porte sur lui pendant la partie.
+		 */
+		std::vector<Arme> m_armes_portees;
+		
+		/** Pointeur vers l'arme sélectionnée.
+		 */
+		Arme* m_arme_selectionnee;
+		
+		/** L'indice dans #m_armes_portees de l'arme en cours d'utilisation.
+		 */
+		int m_num_arme_selectionnee;
 		
 		/** Tableau contenant les 8 différentes images du joueur.
 		 */

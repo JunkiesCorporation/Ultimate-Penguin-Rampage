@@ -1,0 +1,6 @@
+<map id="Carte" name="Carte">
+<area shape="rect" id="node2" href="$struct_coordonnees.html" title="Petite structure pour contenir des coordonnées en deux dimensions. " alt="" coords="5,95,104,121"/>
+<area shape="rect" id="node3" href="$class_tileset.html" title="Objet contenant un tileset précis et permettant son affichage à l&#39;écran grâce aux numéros d&#39;ID de ses..." alt="" coords="157,95,217,121"/>
+<area shape="rect" id="node4" href="$class_texture.html" title="Classe qui englobe le type SDL_Texture. " alt="" coords="110,5,175,32"/>
+<area shape="rect" id="node5" href="$struct_tile.html" title="Structure pour contenir les informations essentielles des tiles, éléments composant toutes les cartes..." alt="" coords="209,5,252,32"/>
+</map>

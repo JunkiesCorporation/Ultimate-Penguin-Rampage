@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['main',['main',['../_u_p_r_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65',1,'UPR.cpp']]],
-  ['menuprincipal',['menuPrincipal',['../class_u_p_r.html#a37e71f661900871687b2e3a3a799b832',1,'UPR']]],
-  ['modehistoire',['modeHistoire',['../class_jeu.html#a989283d432a60d334489649d3c465ffb',1,'Jeu']]]
+  ['jeu',['Jeu',['../class_jeu.html#acc5795ee00edf75516d3dfe65be3e6d6',1,'Jeu']]],
+  ['joueur',['Joueur',['../class_joueur.html#add6c98be3020651d84f6d75ccc1d867e',1,'Joueur::Joueur()'],['../class_joueur.html#a9941feb5a9263133afef693485731996',1,'Joueur::Joueur(std::vector&lt; int &gt; const &amp;id_armes_depart, Coordonnees pos_depart)']]]
 ];

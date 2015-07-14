@@ -1,11 +1,12 @@
 ﻿#ifndef JEU_H
 #define JEU_H
 
+#include <SDL.h>
 #include <vector>
 
-#include "Arene.h"
 #include "Arme.h"
 #include "Profil.h"
+#include "Arene.h"
 #include "Texture.h"
 #include "Timer.h"
 
@@ -36,6 +37,14 @@ class Jeu
 		
 		// Fonctions membres publiques
 		//-----------------------------
+		/** Retourne l'arme dont l'id correspond à celui donné en paramètre.
+		 * 
+		 * @param p_id L'id de l'arme à retourner.
+		 *
+		 * @return L'arme de #m_liste_armes correspondant à l'id donné.
+		 */
+		Arme getArmeDepuisID(int const &p_id) const;
+		
 		/** Affiche l'écran principal du jeu et permet la navigation vers les fonctionnalités du jeu.
 		 *
 		 * @param profil_joueur Le profil utilisé par le joueur.

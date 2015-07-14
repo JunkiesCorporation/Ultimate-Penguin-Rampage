@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['lancer',['lancer',['../class_jeu.html#a27bf3151f196dc10d8fabd5f7fbb6c67',1,'Jeu::lancer()'],['../class_u_p_r.html#a43b14a43124137dcaa6e6b6d0b5e21b0',1,'UPR::lancer()']]],
-  ['liberer',['liberer',['../class_texture.html#a764098794f6069f9f3569d772f511190',1,'Texture']]],
-  ['liberertexturesecran',['libererTexturesEcran',['../class_jeu.html#ab152c05747415c71a61c1bd302980663',1,'Jeu']]],
-  ['liberertexturesmodehistoire',['libererTexturesModeHistoire',['../class_jeu.html#a1010df99aa66c1b70454b2e278515bdf',1,'Jeu']]]
+  ['initialisationsdl',['initialisationSDL',['../class_utils.html#a65fa5f629d47909dcd35b7194a394df5',1,'Utils']]],
+  ['intversstring',['intVersString',['../_utils_8cpp.html#a79248f0622d834448aed86ae788bc390',1,'intVersString(int const &amp;p_nombre):&#160;Utils.cpp'],['../_utils_8h.html#a79248f0622d834448aed86ae788bc390',1,'intVersString(int const &amp;p_nombre):&#160;Utils.cpp']]],
+  ['istilesolide',['isTileSolide',['../class_carte.html#a9f655652c5bf6ff8f687e5cf4a4dbff0',1,'Carte::isTileSolide()'],['../class_tileset.html#a41666bace7ed59cf83b82685048c2676',1,'Tileset::isTileSolide()']]]
 ];

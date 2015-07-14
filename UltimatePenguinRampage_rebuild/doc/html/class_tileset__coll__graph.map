@@ -1,0 +1,4 @@
+<map id="Tileset" name="Tileset">
+<area shape="rect" id="node2" href="$class_texture.html" title="Classe qui englobe le type SDL_Texture. " alt="" coords="5,5,71,32"/>
+<area shape="rect" id="node3" href="$struct_tile.html" title="Structure pour contenir les informations essentielles des tiles, éléments composant toutes les cartes..." alt="" coords="105,5,147,32"/>
+</map>

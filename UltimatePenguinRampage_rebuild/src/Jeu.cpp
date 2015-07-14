@@ -1,6 +1,6 @@
-﻿#include <fstream>
+﻿#include <string>
+#include <fstream>
 #include <iostream>
-#include <string.h>
 
 #include "Jeu.h"
 #include "Struct.h"
@@ -40,6 +40,25 @@ Jeu::~Jeu()
 
 // Fonctions membres publiques
 //-------------------------------------
+/* Retourne l'arme dont l'id correspond à celui donné en paramètre.*/
+Arme Jeu::getArmeDepuisID(int const &p_id) const
+{
+	// Arme temporaire à retourner.
+	Arme temp_arme;
+	
+	// Recherche de l'arme demandée.
+	for(int i = 0; i < m_liste_armes.size(); i++)
+	{
+		if(m_liste_armes.at(i).getID() == p_id)
+		{
+			temp_arme = m_liste_armes.at(i);
+			break;
+		}
+	}
+	
+	return temp_arme;
+}
+
 /* Affiche l'écran principal du jeu et permet la navigation vers les fonctionnalités du jeu.*/
 void Jeu::lancer(Profil* profil_joueur)
 {
@@ -280,11 +299,18 @@ void Jeu::lancer(Profil* profil_joueur)
 		}
 	}
 	
+	//---------------------------------
+	// Fermeture du Jeu une fois terminé.
+	
+	// Suppression de la texture du cadre de sélection.
 	delete m_texture_cadre_selection;
 	m_texture_cadre_selection = NULL;
 	
 	// Libération des images de l'écran principal du jeu.
 	libererTexturesEcran();
+	
+	// Effacement de la liste d'armes.
+	m_liste_armes.clear();
 }
 //-------------------------------------
 
@@ -394,7 +420,7 @@ void Jeu::modeHistoire(Profil* profil_joueur)
 					libererTexturesModeHistoire();
 					
 					// Chargement de l'arène choisie
-					m_arene.charger("rsc/arenes/arene_1.txt");
+					m_arene.charger("rsc/arenes/arene_1.txt", *this);
 					
 					// Lancement de l'arène chargée.
 					m_arene.lancer();

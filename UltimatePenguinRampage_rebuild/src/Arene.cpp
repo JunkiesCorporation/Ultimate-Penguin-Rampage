@@ -1,5 +1,7 @@
 ﻿#include <fstream>
+#include <vector>
 #include <iostream>
+#include <cstdlib>
 
 #include "Arene.h"
 #include "UPR.h"
@@ -29,7 +31,7 @@ Arene::~Arene()
 // Fonctions membres publiques
 //-------------------------------------
 /* Charge les éléments requis pour le fonctionnement de cette instance d'Arene.*/
-void Arene::charger(std::string const &chemin_fichier)
+void Arene::charger(std::string const &chemin_fichier, Jeu const &jeu)
 {
 	// Le chemin d'accès à la carte de l'arène.
 	std::string chemin_carte = "";
@@ -37,8 +39,14 @@ void Arene::charger(std::string const &chemin_fichier)
 	// Chargement du fichier donné dans un flux d'entrée.
 	std::ifstream fichier(chemin_fichier.c_str());
 	
+	// ID des armes avec lesquelles le joueur commence l'arène.
+	std::vector<int> id_armes_depart_joueur;
+	
 	// La ligne de lecture du fichier.
 	std::string ligne = "";
+	
+	// Le nombre d'armes avec lesquelles le joueur commence l'arène.
+	int nombre_armes_depart_joueur = 0;
 	
 	//---------------------------------
 	// Démarrage du chargement de l'arène.
@@ -72,6 +80,18 @@ void Arene::charger(std::string const &chemin_fichier)
 		// Lecture du chemin de la carte.
 		fichier >> ligne; fichier >> ligne;
 		chemin_carte = ligne;
+		
+		// Lecture du nombres d'armes de départ du joueur.
+		fichier >> ligne; fichier >> ligne;
+		nombre_armes_depart_joueur = atoi(ligne.c_str());
+		
+		// Lecture des id des armes de départ du joueur.
+		fichier >> ligne;
+		for(int i = 0; i < nombre_armes_depart_joueur; i++)
+		{
+			fichier >> ligne;
+			id_armes_depart_joueur.emplace_back(atoi(ligne.c_str()));
+		}
 	
 		//---------------------------------
 		// Chargement de la carte.
@@ -95,7 +115,7 @@ void Arene::charger(std::string const &chemin_fichier)
 		//---------------------------------
 		// Chargement du joueur.
 		
-		m_joueur = new Joueur(m_carte.getPositionDepartJoueur());
+		m_joueur = new Joueur(id_armes_depart_joueur, jeu, m_carte.getPositionDepartJoueur());
 		
 		//---------------------------------
 		// Fin du chargement.

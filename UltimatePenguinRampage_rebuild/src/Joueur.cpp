@@ -1,6 +1,8 @@
 ﻿#include <iostream>
+#include <iterator>
 
 #include "Joueur.h"
+#include "Jeu.h"
 
 // Constructeurs
 //---------------------------------
@@ -8,7 +10,7 @@
  *
  * Appel explicitement le constructeur par défaut d'Entité.
  */
-Joueur::Joueur() : super()
+Joueur::Joueur() : super(), m_armes_portees(0), m_arme_selectionnee(NULL), m_num_arme_selectionnee(0)
 {
 	// Initialisation des attributs.
 	for(int i = 0; i < NB_ACTIONS; i++)
@@ -24,8 +26,8 @@ Joueur::Joueur() : super()
 	std::cout << "Joueur cree." << std::endl;
 }
 
-/* Constructeur avec position de départ.*/
-Joueur::Joueur(Coordonnees pos_depart) : super(pos_depart)
+/* Constructeur de chargement.*/
+Joueur::Joueur(std::vector<int> const &id_armes_depart, Jeu const &jeu, Coordonnees pos_depart) : super(pos_depart)
 {
 	// Initialisation des attributs.
 	// Attributs hérités.
@@ -48,6 +50,16 @@ Joueur::Joueur(Coordonnees pos_depart) : super(pos_depart)
 	
 	// Attribution de l'image de départ par défaut.
 	m_image = m_textures[BAS];
+	
+	// Récupération des armes correspondants aux id donnés.
+	for(std::vector<int>::const_iterator it = id_armes_depart.cbegin(); it != id_armes_depart.cend(); ++it)
+	{
+		m_armes_portees.emplace_back(jeu.getArmeDepuisID(*it));
+	}
+	
+	// Sélection automatique de la première arme portée.
+	m_num_arme_selectionnee = 0;
+	m_arme_selectionnee = &m_armes_portees.at(m_num_arme_selectionnee);
 }
 //---------------------------------
 
@@ -61,6 +73,9 @@ Joueur::~Joueur()
 		delete m_textures[i];
 		m_textures[i] = NULL;
 	}
+	
+	m_arme_selectionnee = NULL;
+	m_armes_portees.clear();
 	
 	// temp
 	std::cout << "Joueur detruit." << std::endl;

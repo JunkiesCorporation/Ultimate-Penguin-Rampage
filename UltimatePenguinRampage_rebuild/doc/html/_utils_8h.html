@@ -88,18 +88,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier Utils.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de Utils.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_utils_8h__incl.png" border="0" usemap="#include_2_utils_8h" alt=""/></div>
+<map name="include_2_utils_8h" id="include_2_utils_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
 <div class="dyncontent">
 <div class="center"><img src="_utils_8h__dep__incl.png" border="0" usemap="#include_2_utils_8hdep" alt=""/></div>
 <map name="include_2_utils_8hdep" id="include_2_utils_8hdep">
-<area shape="rect" id="node2" href="_u_p_r_8cpp.html" title="src/UPR.cpp" alt="" coords="5,80,101,107"/>
-<area shape="rect" id="node3" href="_utils_8cpp.html" title="src/Utils.cpp" alt="" coords="126,80,221,107"/>
+<area shape="rect" id="node2" href="_arme_8cpp.html" title="src/Arme.cpp" alt="" coords="5,80,105,107"/>
+<area shape="rect" id="node3" href="_u_p_r_8cpp.html" title="src/UPR.cpp" alt="" coords="130,80,226,107"/>
+<area shape="rect" id="node4" href="_utils_8cpp.html" title="src/Utils.cpp" alt="" coords="251,80,345,107"/>
 </map>
 </div>
 </div>
@@ -110,7 +120,67 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utils.html">Utils</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regroupe quelques fonctions d'utilité générale.  <a href="class_utils.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a79248f0622d834448aed86ae788bc390"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_utils_8h.html#a79248f0622d834448aed86ae788bc390">intVersString</a> (int const &amp;p_nombre)</td></tr>
+<tr class="memdesc:a79248f0622d834448aed86ae788bc390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converti le nombre donnée en un objet string qui contient sa représentation en texte.  <a href="#a79248f0622d834448aed86ae788bc390">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a79248f0622d834448aed86ae788bc390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe19d6af78abe545e1611e79282863cc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_utils_8h.html#abe19d6af78abe545e1611e79282863cc">remplacerParEspaces</a> (std::string const &amp;p_texte)</td></tr>
+<tr class="memdesc:abe19d6af78abe545e1611e79282863cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplace tous les tirets bas '_' par des espaces ' ' dans le texte donné.  <a href="#abe19d6af78abe545e1611e79282863cc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abe19d6af78abe545e1611e79282863cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a79248f0622d834448aed86ae788bc390"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string intVersString </td>
+          <td>(</td>
+          <td class="paramtype">int const &amp;&#160;</td>
+          <td class="paramname"><em>p_nombre</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converti le nombre donnée en un objet string qui contient sa représentation en texte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_nombre</td><td>Le nombre à convertir.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'objet string contenant la représentation texte du nombre. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abe19d6af78abe545e1611e79282863cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string remplacerParEspaces </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>p_texte</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remplace tous les tirets bas '_' par des espaces ' ' dans le texte donné. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_texte</td><td>Le texte à modifier.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le texte modifié. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

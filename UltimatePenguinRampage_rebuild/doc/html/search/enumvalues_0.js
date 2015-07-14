@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['mode_5farene',['MODE_ARENE',['../class_jeu.html#a89eeb74e5dd4a448115cb5e249c19ef7a527e90826cea7a3546c020d1ced419b7',1,'Jeu']]],
-  ['mode_5fhistoire',['MODE_HISTOIRE',['../class_jeu.html#a89eeb74e5dd4a448115cb5e249c19ef7ac5c51a7a3bb4b02eb79c2752637c976e',1,'Jeu']]]
+  ['bas',['BAS',['../class_joueur.html#aeed76feb88cb817d6a6b427e040a2104aa60eb44f31c43df7d7580ef5f3f3dd59',1,'Joueur']]],
+  ['bas_5fdroite',['BAS_DROITE',['../class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a08043a32809d3c4d424473f50a6125c5',1,'Joueur']]],
+  ['bas_5fgauche',['BAS_GAUCHE',['../class_joueur.html#aeed76feb88cb817d6a6b427e040a2104a397484d72c0c4f192157b34966744e6b',1,'Joueur']]]
 ];

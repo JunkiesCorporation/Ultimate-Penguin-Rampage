@@ -1,4 +1,12 @@
 <map id="Jeu" name="Jeu">
-<area shape="rect" id="node2" href="$class_texture.html" title="Classe qui englobe le type SDL_Texture. " alt="" coords="5,5,71,32"/>
-<area shape="rect" id="node3" href="$class_timer.html" title="Classe permettant de mesurer le temps écoulé à partir d&#39;un point. " alt="" coords="219,5,273,32"/>
+<area shape="rect" id="node2" href="$class_texture.html" title="Classe qui englobe le type SDL_Texture. " alt="" coords="62,5,127,32"/>
+<area shape="rect" id="node4" href="$class_joueur.html" title="Joueur" alt="" coords="207,222,267,249"/>
+<area shape="rect" id="node5" href="$class_entite.html" title="Classe abstraite qui regroupe toutes les fonctionnalités communes aux entités qui apparaissent dans u..." alt="" coords="163,109,219,136"/>
+<area shape="rect" id="node9" href="$class_tileset.html" title="Objet contenant un tileset précis et permettant son affichage à l&#39;écran grâce aux numéros d&#39;ID de ses..." alt="" coords="321,109,381,136"/>
+<area shape="rect" id="node3" href="$class_arene.html" title="Objet permettant le contrôle d&#39;un niveau jouable. " alt="" coords="297,335,353,361"/>
+<area shape="rect" id="node6" href="$struct_coordonnees.html" title="Petite structure pour contenir des coordonnées en deux dimensions. " alt="" coords="395,5,493,32"/>
+<area shape="rect" id="node8" href="$class_carte.html" title="Classe contenant toutes les informations sur la carte d&#39;une arène. " alt="" coords="373,222,427,249"/>
+<area shape="rect" id="node7" href="$class_arme.html" title="Modèle de toutes armes du jeu. " alt="" coords="243,109,296,136"/>
+<area shape="rect" id="node10" href="$struct_tile.html" title="Structure pour contenir les informations essentielles des tiles, éléments composant toutes les cartes..." alt="" coords="295,5,337,32"/>
+<area shape="rect" id="node11" href="$class_timer.html" title="Classe permettant de mesurer le temps écoulé à partir d&#39;un point. " alt="" coords="453,222,507,249"/>
 </map>

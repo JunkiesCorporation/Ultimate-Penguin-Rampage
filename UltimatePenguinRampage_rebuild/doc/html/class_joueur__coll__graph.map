@@ -1,0 +1,6 @@
+<map id="Joueur" name="Joueur">
+<area shape="rect" id="node2" href="$class_entite.html" title="Classe abstraite qui regroupe toutes les fonctionnalités communes aux entités qui apparaissent dans u..." alt="" coords="121,109,177,136"/>
+<area shape="rect" id="node3" href="$struct_coordonnees.html" title="Petite structure pour contenir des coordonnées en deux dimensions. " alt="" coords="5,5,104,32"/>
+<area shape="rect" id="node4" href="$class_texture.html" title="Classe qui englobe le type SDL_Texture. " alt="" coords="161,5,226,32"/>
+<area shape="rect" id="node5" href="$class_arme.html" title="Modèle de toutes armes du jeu. " alt="" coords="320,109,373,136"/>
+</map>
