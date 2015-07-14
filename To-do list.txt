@@ -5,6 +5,7 @@ MAP
 MENU
 	[x] Navigation zqsd
 	[ ] Images menu
+	[ ] Re-strucuturer les fonctions du chargement du menu
 
 ANIMATIONS
 	[ ] Anim pingouin
@@ -12,3 +13,9 @@ ANIMATIONS
 	[ ] Images
 
 ARMES
+
+ENUMERATIONs
+	[ ] Enumération des directions de déplacement possible
+
+ENTITES
+	[ ] Ajouter une fonction de collision avec la carte valable pour toutes les entités
