@@ -8,6 +8,8 @@ __Attention__ : Tous les symboles '_' (en début de fin de mot uniquement) et '*
 
 A partir du 28 Juin 2015, le développement d'UPR reprend mais avec une compilation en console à l'aide d'un fichier Makefile. La branche "compilation_console" sera donc la branche principale jusqu'à ce que le jeu soit suffisamment avancé ou je commence à avoir marre de la compilation en console...
 
+Le jeu est désormais suffisamment avancé dans sa reconstruction et le branche "compilation_console" est en cours de fusion avec la branche "master". Elle sera éventuellement supprimée.
+
 ## 2. Comment bien se placer avec la console.
 
 1. Ouvrir l'invite de commande Windows. Il s'agit du programme __cmd__ qui peut être lancer rapidement en cherchant "cmd" dans le menu _Démarrer_.
@@ -65,3 +67,6 @@ __Note :__ Cette section ne requiert pas l'installation de MinGW décrit à la S
 2. Exécuter la commande __bin\Debug\upr.exe__ (le '.exe' est facultatif). Cela lance le programme __upr__ à partir du dossier où vous vous situez. 
 
 	Naviguer jusqu'au dossier "bin\Debug" avec l'Explorateur de Fichier Windows et double-cliquer sur l'exécutable "upr.exe" résuletera en une erreur au lancement car les dossiers de ressources nécessaires à l'exécution du programme (tels que le dossier "img") ne sont pas présents dans le dossier "bin\Debug". C'est pour cela qu'il faut le lancer à partir du dossier où se situe le ficher _Makefile_.
+=======
+Passez sur la branche _compilation_console_ pour avoir les dernières sources, documentations et guides pour la compilation.
+>>>>>>> 1d7f7a3d59d0c4cfe4dd0e651cfb6aed18fc6340
