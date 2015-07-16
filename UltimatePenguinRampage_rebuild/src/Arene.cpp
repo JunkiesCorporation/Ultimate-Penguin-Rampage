@@ -6,10 +6,13 @@
 #include "Arene.h"
 #include "UPR.h"
 
+// Initialisation du vecteur de projectiles.
+std::vector<Projectile> Arene::m_projectiles_actifs(0);
+
 // Constructeurs
 //-------------------------------------
 /* Constructeur par défaut.*/
-Arene::Arene() : m_est_prete(false), m_joueur(NULL), m_ticks_image(0)
+Arene::Arene() : m_est_prete(false), m_joueur(NULL),  m_ticks_image(0)
 {
 	// Initialisation des attributs à des valeurs par défaut.
 	m_camera.x = 0;
@@ -24,14 +27,15 @@ Arene::Arene() : m_est_prete(false), m_joueur(NULL), m_ticks_image(0)
 /* Destructeur par défaut.*/
 Arene::~Arene()
 {
-	// Aucun attribut à détruire.
+	delete m_joueur;
+	m_joueur = NULL;
 }
 //-------------------------------------
 
 // Fonctions membres publiques
 //-------------------------------------
 /* Charge les éléments requis pour le fonctionnement de cette instance d'Arene.*/
-void Arene::charger(std::string const &chemin_fichier, Jeu const &jeu)
+void Arene::charger(std::string const &chemin_fichier)
 {
 	// Le chemin d'accès à la carte de l'arène.
 	std::string chemin_carte = "";
@@ -115,7 +119,7 @@ void Arene::charger(std::string const &chemin_fichier, Jeu const &jeu)
 		//---------------------------------
 		// Chargement du joueur.
 		
-		m_joueur = new Joueur(id_armes_depart_joueur, jeu, m_carte.getPositionDepartJoueur());
+		m_joueur = new Joueur(id_armes_depart_joueur, m_carte.getPositionDepartJoueur());
 		
 		//---------------------------------
 		// Fin du chargement.
@@ -167,6 +171,21 @@ void Arene::lancer()
 		
 		m_joueur->update(m_carte);
 		updateCamera();
+		for(int i = 0; i < m_projectiles_actifs.size(); i++)
+		{
+			m_projectiles_actifs.at(i).update(m_carte);
+		}
+		
+		//-----------------------------
+		// Suppression d'objets sortis
+		
+		for(std::vector<Projectile>::reverse_iterator i = m_projectiles_actifs.rbegin(); i != m_projectiles_actifs.rend(); ++i)
+		{
+			if(i->estHorsCarte())
+			{
+				m_projectiles_actifs.erase((i+1).base());
+			}
+		}
 		
 		//-----------------------------
 		// Affichage des images
@@ -176,6 +195,10 @@ void Arene::lancer()
 		
 		m_carte.render(m_camera);
 		m_joueur->render(m_camera);
+		for(int i = 0; i < m_projectiles_actifs.size(); i++)
+		{
+			m_projectiles_actifs.at(i).render(m_camera);
+		}
 		
 		// Affichage à l'écran.
 		SDL_RenderPresent(UPR::renderer_SDL);
@@ -215,6 +238,9 @@ void Arene::lancer()
 /* Réinitialise une arène lancée et terminée.*/
 void Arene::reinitialiser()
 {
+	// On efface les projectiles encore actifs.
+	m_projectiles_actifs.clear();
+	
 	// Réinitialisation de la carte.
 	m_carte.reinitialiser();
 	
@@ -234,6 +260,16 @@ void Arene::reinitialiser()
 	
 	// Indication que l'arène n'est plus prête à être lancée.
 	m_est_prete = false;
+}
+//-------------------------------------
+
+// Fonctions membres statiques
+//-------------------------------------
+/* Ajoute une copie du projectile donné à #m_projectiles_actifs.*/
+void Arene::ajouterProjectile(Projectile const &p_projectile)
+{
+	// Ajout du projectile donné au vecteur.
+	m_projectiles_actifs.emplace_back(p_projectile);
 }
 //-------------------------------------
 

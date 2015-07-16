@@ -6,19 +6,41 @@
 #include "Struct.h"
 #include "UPR.h"
 
+
+// Initialisation de la liste des exemplaires d'armes.
+std::vector<Arme> Jeu::m_liste_armes(0);
+// Initialisation de la liste des exemplaires des projectiles
+std::vector<Projectile> Jeu::m_liste_projectiles(0);
+
+// temp
+Texture Jeu::textureBouleDeNeige;
+
+
+// Constructeurs
+//-------------------------------------
 /* Constructeur par défaut.*/
-Jeu::Jeu() : m_arene(), m_liste_armes(0), m_texture_cadre_selection(NULL), m_texture_fond_jeu(NULL), m_texture_fond_mode_histoire(NULL), m_ticks_image(0), m_timer()
+Jeu::Jeu() : m_arene(), m_texture_cadre_selection(NULL), m_texture_fond_jeu(NULL), m_texture_fond_mode_histoire(NULL), m_ticks_image(0), m_timer()
 {
 	// Initialisation des attributs à des valeurs par défaut.
 	for(int i = 0; i < NB_OPTIONS; i++)
 	{
 		m_textures_options_ecran_jeu[i] = NULL;
 	}
+	
+	// temp
+	textureBouleDeNeige.charger("rsc/img/jeu/entites/projectiles/boule_de_neige.bmp");
 }
+//-------------------------------------
 
+
+// Destructeur
+//-------------------------------------
 /* Destructeur par défaut.*/
 Jeu::~Jeu()
 {
+	// temp
+	textureBouleDeNeige.liberer();
+	
 	// Suppression des textures qui auraient été oubliées.
 	delete m_texture_cadre_selection;
 	delete m_texture_fond_jeu;
@@ -36,29 +58,15 @@ Jeu::~Jeu()
 	{
 		m_textures_options_ecran_jeu[i] = NULL;
 	}
+	
+	// Nettoyage des listes d'exemplaires d'objets.
+	m_liste_armes.clear();
+	m_liste_projectiles.clear();
 }
+//-------------------------------------
 
 // Fonctions membres publiques
 //-------------------------------------
-/* Retourne l'arme dont l'id correspond à celui donné en paramètre.*/
-Arme Jeu::getArmeDepuisID(int const &p_id) const
-{
-	// Arme temporaire à retourner.
-	Arme temp_arme;
-	
-	// Recherche de l'arme demandée.
-	for(int i = 0; i < m_liste_armes.size(); i++)
-	{
-		if(m_liste_armes.at(i).getID() == p_id)
-		{
-			temp_arme = m_liste_armes.at(i);
-			break;
-		}
-	}
-	
-	return temp_arme;
-}
-
 /* Affiche l'écran principal du jeu et permet la navigation vers les fonctionnalités du jeu.*/
 void Jeu::lancer(Profil* profil_joueur)
 {
@@ -68,17 +76,26 @@ void Jeu::lancer(Profil* profil_joueur)
 	// Chemin d'accès à la liste des armes.
 	std::string chemin_fichier_liste_armes = "rsc/obj/armes/0_liste_armes.txt";
 	
+	// Chemin d'accès à la liste des projectiles.
+	std::string chemin_fichier_liste_projectiles = "rsc/obj/projectiles/0_liste_projectiles.txt";
+	
 	// Chemin d'accès à l'image du curseur de sélection.
 	char chemin_image_cadre_selection[] = "rsc/img/jeu/jeu_cadre_selection.bmp";
 	
 	// Le flux d'entrée pour charger la liste des armes.
 	std::ifstream fichier_liste_armes;
 	
+	// Le flux d'entrée pour charger la liste des projectiles.
+	std::ifstream fichier_liste_projectiles;
+	
 	// La ligne de lecture des fichiers.
 	std::string ligne = "";
 	
 	// Le nombre d'armes à charger.
 	int nombre_armes = 0;
+	
+	// Le nombre de projectiles à charger.
+	int nombre_projectiles = 0;
 	
 	// La position actuelle du curseur.
 	EnumOptionsEcranPrincipal position_curseur_act = MODE_HISTOIRE;
@@ -95,8 +112,14 @@ void Jeu::lancer(Profil* profil_joueur)
 	// ID temporaire de l'arme pendant le chargement.
 	int temp_id_arme = 0;
 	
+	// ID temporaire du projectile pendant le chargement.
+	int temp_id_projectile = 0;
+	
 	// Nom temporaire de l'arme pendant le chargement.
 	std::string temp_nom_arme = "";
+	
+	// Nom temporaire de l'arme pendant le chargement.
+	std::string temp_nom_projectile = "";
 	
 	//---------------------------------
 	// Démarrage du Jeu.
@@ -127,7 +150,7 @@ void Jeu::lancer(Profil* profil_joueur)
 	// Ouverture du fichier contenant la liste des armes.
 	fichier_liste_armes.open(chemin_fichier_liste_armes);
 	
-	// Gestion d'un échec potentiel
+	// Gestion d'un échec potentiel.
 	if(!fichier_liste_armes.is_open())
 	{
 		// Affichage d'un message d'erreur.
@@ -150,7 +173,7 @@ void Jeu::lancer(Profil* profil_joueur)
 			
 			// On empêche le démarrage du jeu et on arrête le chargement.
 			quit = true;
-			goto close;
+			goto close_liste_armes;
 		}
 		
 		// Lecture du nombre d'armes dans la liste
@@ -169,7 +192,7 @@ void Jeu::lancer(Profil* profil_joueur)
 			
 			// On empêche le démarrage du jeu et on arrête le chargement.
 			quit = true;
-			goto close;
+			goto close_liste_armes;
 		}
 		
 		// Récupération des id et nom_fichier des armes et ajout de l'arme au vecteur.
@@ -187,8 +210,77 @@ void Jeu::lancer(Profil* profil_joueur)
 			m_liste_armes.emplace_back(temp_id_arme, temp_nom_arme);
 		}
 		
-		close:
+		close_liste_armes:
 		fichier_liste_armes.close();
+	}
+	
+	//---------------------------------
+	// Chargement de la liste des projectiles.
+	
+	// Ouverture du fichier contenant la liste des projectiles.
+	fichier_liste_projectiles.open(chemin_fichier_liste_projectiles);
+	
+	// Gestion d'un échec potentiel.
+	if(!fichier_liste_projectiles.is_open())
+	{
+		// Affichage d'un message d'erreur.
+		std::cout << "Erreur : impossible d'ouvrir le fichier " << chemin_fichier_liste_projectiles << std::endl;
+		
+		// On empêche le démarrage du jeu.
+		quit = true;
+	}
+	else
+	{
+		//-----------------------------
+		// Lecture des [infos_liste_projectiles]
+		
+		fichier_liste_projectiles >> ligne;
+		if(ligne != "[infos_liste_projectiles]")
+		{
+			// Affichage d'un message d'erreur.
+			std::cout << "Erreur : [infos_liste_projectiles] manquant dans le fichier " << chemin_fichier_liste_projectiles << std::endl;
+			
+			// On empêche le démarrage du jeu et on arrête le chargement.
+			quit = true;
+			goto close_liste_projectiles;
+		}
+		
+		// Lecture du nombre de projectiles dans la liste
+		fichier_liste_projectiles >> ligne; fichier_liste_projectiles >> ligne;
+		nombre_projectiles = atoi(ligne.c_str());
+		
+		//-----------------------------
+		// Lecture de la [liste_projectiles]
+		
+		// Gestion d'un échec potentiel.
+		fichier_liste_projectiles >> ligne;
+		if(ligne != "[liste_projectiles]")
+		{
+			// Affichage d'un message d'erreur.
+			std::cout << "Erreur : [liste_projectiles] manquant dans le fichier " << chemin_fichier_liste_projectiles << std::endl;
+			
+			// On empêche le démarrage du jeu et on arrête le chargement.
+			quit = true;
+			goto close_liste_projectiles;
+		}
+		
+		// Récupération des id et nom_fichier des projectiles et ajout du projectile au vecteur.
+		for(int i = 0; i < nombre_projectiles; i++)
+		{
+			// Lecture de l'id du projectile.
+			fichier_liste_projectiles >> ligne;
+			temp_id_projectile = atoi(ligne.c_str());
+			
+			// Lecture du nom du fichier du projectile.
+			fichier_liste_projectiles >> ligne;
+			temp_nom_projectile = ligne;
+			
+			// Création d'une nouvelle instance de Projectile et ajout à la liste.
+			m_liste_projectiles.emplace_back(temp_id_projectile, temp_nom_projectile);
+		}
+		
+		close_liste_projectiles:
+		fichier_liste_projectiles.close();
 	}
 	
 	//---------------------------------
@@ -311,8 +403,54 @@ void Jeu::lancer(Profil* profil_joueur)
 	
 	// Effacement de la liste d'armes.
 	m_liste_armes.clear();
+	
+	// Effacement de la liste de projectiles.
+	m_liste_projectiles.clear();
 }
 //-------------------------------------
+
+
+// Fonctions membres publiques et statiques
+//-------------------------------------
+/* Retourne l'arme dont l'id correspond à celui donné en paramètre.*/
+Arme Jeu::getArmeDepuisID(int const &p_id)
+{
+	// Arme temporaire à retourner.
+	Arme temp_arme;
+	
+	// Recherche de l'arme demandée.
+	for(int i = 0; i < m_liste_armes.size(); i++)
+	{
+		if(m_liste_armes.at(i).getID() == p_id)
+		{
+			temp_arme = m_liste_armes.at(i);
+			break;
+		}
+	}
+	
+	return temp_arme;
+}
+
+/* Retourne le projectile dont l'id correspond à celui donné en paramètre.*/
+Projectile Jeu::getProjectileDepuisID(int const &p_id)
+{
+	// Arme temporaire à retourner.
+	Projectile temp_projectile;
+	
+	// Recherche de l'arme demandée.
+	for(int i = 0; i < m_liste_projectiles.size(); i++)
+	{
+		if(m_liste_projectiles.at(i).getID() == p_id)
+		{
+			temp_projectile = m_liste_projectiles.at(i);
+			break;
+		}
+	}
+	
+	return temp_projectile;
+}
+//-------------------------------------
+
 
 // Fonctions membres privées
 //-------------------------------------
@@ -420,7 +558,7 @@ void Jeu::modeHistoire(Profil* profil_joueur)
 					libererTexturesModeHistoire();
 					
 					// Chargement de l'arène choisie
-					m_arene.charger("rsc/arenes/arene_1.txt", *this);
+					m_arene.charger("rsc/arenes/arene_1.txt");
 					
 					// Lancement de l'arène chargée.
 					m_arene.lancer();

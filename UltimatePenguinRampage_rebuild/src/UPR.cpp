@@ -32,9 +32,6 @@ int main(int argc, char* args[])
 	// Lancement et déroulement du programme.
 	instance_programme.lancer();
 	
-	// Vérification du nombre de textures restantes en mémoire.
-	std::cout << "Textures restantes : " << Texture::getTexturesRestantes() << std::endl;
-	
 	// Fermeture de la SDL.
 	Utils::quitterSDL();
 	

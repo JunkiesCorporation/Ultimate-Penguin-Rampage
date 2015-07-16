@@ -77,12 +77,15 @@ void Texture::charger(const char* chemin_image)
 		// Gestion d'un échec potentiel.
 		if(nouvelle_texture == NULL)
 		{
-			std::cout << "Erreur : La texture n'a pas pu etre creee." << std::endl;
+			std::cout << "Erreur : La texture n'a pas pu etre creee. " << SDL_GetError() << std::endl;
 		}
 		else
 		{
 			// Augmentation du compteur de textures restantes.
 			Texture::m_nombre_textures_restantes++;
+			
+			// temp. Affichage du nombre de textures en mémoire.
+			std::cout << "Texture chargee, il y a " << m_nombre_textures_restantes << " textures en memoire." << std::endl;
 			
 			// Récupération de la largeur de l'image chargée.
 			m_largeur = image_chargee->w;
@@ -116,6 +119,9 @@ void Texture::liberer()
 		m_image = NULL;
 		m_largeur = 0;
 		m_hauteur = 0;
+		
+		// temp. Affichage du nombre de textures en mémoire.
+		std::cout << "Texture liberee, il reste " << m_nombre_textures_restantes << " textures en memoire." << std::endl;
 	}
 }
 

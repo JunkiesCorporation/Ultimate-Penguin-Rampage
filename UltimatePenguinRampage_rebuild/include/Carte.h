@@ -58,11 +58,23 @@ class Carte
 	 */
 	bool isTileSolide(int x, int y) const;
 	
+	/** Retourne la hauteur de la carte (en tiles).
+	 *
+	 * @return #m_hauteur La hauteur de la carte.
+	 */
+	int getHauteur() const;
+	
 	/** Retourne la hauteur d'une tile sur la carte.
 	 *
 	 * @return La hauteur d'une tile de m_tileset.
 	 */
 	int getHauteurTile() const;
+	
+	/** Retourne la largeur de la carte (en tiles).
+	 *
+	 * @return #m_largeur La largeur de la carte.
+	 */
+	int getLargeur() const;
 	
 	/** Retourne la largeur d'une tile sur la carte.
 	 *

@@ -34,6 +34,14 @@ class Entite
 		 * @param pos_depart La position de départ de l'entité.
 		 */
 		Entite(Coordonnees pos_depart);
+		
+		/** Constructeur de copie.
+		 *
+		 * Permet de créer une nouvelle instance d'Entite identique à celle donnée en paramètre sauf pour l'image qui n'est pas copié et doit être allouée après.
+		 *
+		 * @param entite L'entité à copier.
+		 */
+		Entite(Entite const &entite);
 		//---------------------------------
 		
 		// Destructeur
@@ -61,6 +69,18 @@ class Entite
 		 */
 		virtual void update(Carte const &carte) = 0;
 		
+		/** Retourne la direction de déplacement de l'entité (en radians).
+		 *
+		 * @return #m_direction_deplacement La direction de déplacement de l'entité.
+		 */
+		double getDirectionDeplacement() const;
+		
+		/** Retourne la direction de visée de l'entité (en radians).
+		 *
+		 * @return #m_direction_visee La direction de visée de l'entité.
+		 */
+		double getDirectionVisee() const;
+		
 		/** Retourne la hauteur de l'image de l'entité.
 		 *
 		 * @return La hauteur de #m_image.
@@ -78,6 +98,30 @@ class Entite
 		 * @return #m_position.
 		 */
 		Coordonnees getPosition() const;
+		
+		/** Retourne la structure qui contient les composantes de la vitesse de l'entité.
+		 *
+		 * @return #m_vitesse La vitesse de l'entité.
+		 */
+		Coordonnees getVitesse() const;
+		
+		/** Retourne la vitesse maximum de l'entité.
+		 *
+		 * @return #m_vitesse_max La vitesse maximum de l'entité.
+		 */
+		int getVitesseMax() const;
+		
+		/** Permet de modifier la direction de déplacement de l'entité.
+		 *
+		 * @param p_direction_deplacement La nouvelle direction de déplacement de l'entité.
+		 */
+		void setDirectionDeplacement(double p_direction_deplacement);
+		
+		/** Permet de modifier la position de l'entité.
+		 *
+		 * @param p_position La nouvelle position de l'entité.
+		 */
+		void setPosition(Coordonnees p_position);
 		//---------------------------------
 	
 	protected:

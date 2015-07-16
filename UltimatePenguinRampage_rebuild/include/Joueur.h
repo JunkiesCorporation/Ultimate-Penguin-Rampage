@@ -10,8 +10,9 @@
 #include "Arme.h"
 #include "Texture.h"
 
-class Jeu;
 
+/** La classe qui décrit le Joueur.
+ */
 class Joueur : public Entite
 {
 	public:
@@ -31,7 +32,7 @@ class Joueur : public Entite
 		 * @param jeu Le jeu en cours
 		 * @param pos_depart La position de départ de l'entité.
 		 */
-		Joueur(std::vector<int> const &id_armes_depart, Jeu const &jeu, Coordonnees pos_depart);
+		Joueur(std::vector<int> const &id_armes_depart, Coordonnees pos_depart);
 		//---------------------------------
 		
 		// Destructeur
@@ -90,6 +91,9 @@ class Joueur : public Entite
 			/** Le joueur se dirige vers le haut.*
 			 */
 			DIR_HAUT,
+			/** Le joueur utilise l'arme sélectionnée.
+			 */
+			UTILISE_ARME,
 			/** Permet l'initialisation de tableaux avec une taille suffisante. 
 			 */
 			NB_ACTIONS
@@ -99,7 +103,6 @@ class Joueur : public Entite
 		 */
 		enum EnumDirections
 		{
-			
 			HAUT,
 			HAUT_DROITE,
 			DROITE,
@@ -125,6 +128,10 @@ class Joueur : public Entite
 		/** Pointeur vers l'arme sélectionnée.
 		 */
 		Arme* m_arme_selectionnee;
+		
+		/** Le compteur de trames passées à recharger l'arme.
+		 */
+		int m_compteur_recharge;
 		
 		/** L'indice dans #m_armes_portees de l'arme en cours d'utilisation.
 		 */

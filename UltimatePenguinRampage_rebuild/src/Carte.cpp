@@ -245,10 +245,22 @@ bool Carte::isTileSolide(int x, int y) const {
     return m_tileset.isTileSolide(m_id_tiles[x][y]);
 }
 
+/* Retourne la hauteur de la carte (en tiles).*/
+int Carte::getHauteur() const
+{
+	return m_hauteur;
+}
+
 /* Retourne la hauteur d'une tile sur la carte.*/
 int Carte::getHauteurTile() const
 {
 	return m_tileset.getHauteurTile();
+}
+
+/* Retourne la largeur de la carte (en tiles).*/
+int Carte::getLargeur() const
+{
+	return m_largeur;
 }
 
 /* Retourne la largeur d'une tile sur la carte.*/

@@ -1,5 +1,4 @@
 ﻿#include <iostream>
-#include <iterator>
 
 #include "Joueur.h"
 #include "Jeu.h"
@@ -10,7 +9,7 @@
  *
  * Appel explicitement le constructeur par défaut d'Entité.
  */
-Joueur::Joueur() : super(), m_armes_portees(0), m_arme_selectionnee(NULL), m_num_arme_selectionnee(0)
+Joueur::Joueur() : super(), m_armes_portees(0), m_arme_selectionnee(NULL), m_compteur_recharge(0), m_num_arme_selectionnee(0)
 {
 	// Initialisation des attributs.
 	for(int i = 0; i < NB_ACTIONS; i++)
@@ -27,7 +26,7 @@ Joueur::Joueur() : super(), m_armes_portees(0), m_arme_selectionnee(NULL), m_num
 }
 
 /* Constructeur de chargement.*/
-Joueur::Joueur(std::vector<int> const &id_armes_depart, Jeu const &jeu, Coordonnees pos_depart) : super(pos_depart)
+Joueur::Joueur(std::vector<int> const &id_armes_depart, Coordonnees pos_depart) : super(pos_depart), m_compteur_recharge(0)
 {
 	// Initialisation des attributs.
 	// Attributs hérités.
@@ -54,7 +53,7 @@ Joueur::Joueur(std::vector<int> const &id_armes_depart, Jeu const &jeu, Coordonn
 	// Récupération des armes correspondants aux id donnés.
 	for(std::vector<int>::const_iterator it = id_armes_depart.cbegin(); it != id_armes_depart.cend(); ++it)
 	{
-		m_armes_portees.emplace_back(jeu.getArmeDepuisID(*it));
+		m_armes_portees.emplace_back(Jeu::getArmeDepuisID(*it));
 	}
 	
 	// Sélection automatique de la première arme portée.
@@ -174,6 +173,16 @@ void Joueur::gererEvenement(SDL_Event const &e, SDL_Rect const &camera)
 			break;
 		}
 	}
+	// Si l'utilisateur appuie sur un bouton de la souris.
+	else if(e.type == SDL_MOUSEBUTTONDOWN)
+	{
+		// Si l'utilisateur fait un click gauche.
+		if(e.button.button == SDL_BUTTON_LEFT)
+		{
+			std::cout << "tps recharge : " << m_arme_selectionnee->getTpsRecharge() << std::endl;
+			m_actions[UTILISE_ARME] = true;
+		}
+	}
 }
 
 /* Met à jour le joueur.*/
@@ -193,6 +202,9 @@ void Joueur::update(Carte const &carte)
 	
 	//---------------------------------
 	// Mise à jour des attributs du joueur.
+	
+	//---------------------------------
+	// Déplacement du joueur.
 	
 	// Attribution de la direction en fonction du déplacement demandé.
 	if(m_actions[DIR_HAUT] && !m_actions[DIR_DROITE] && !m_actions[DIR_BAS] && !m_actions[DIR_GAUCHE])
@@ -387,6 +399,23 @@ void Joueur::update(Carte const &carte)
 		}
 		
 		m_actions[CHANGE_DIRECTION] = false;
+	}
+	
+	//---------------------------------
+	// Utilisation de l'arme.
+	
+	// Écoulement du compteur de recharge.
+	if(m_compteur_recharge > 0)
+	{
+		m_compteur_recharge--;
+		std::cout << "compteur recharge : " << m_compteur_recharge << std::endl;
+	}
+	
+	if(m_actions[UTILISE_ARME] && m_compteur_recharge == 0)
+	{
+		m_compteur_recharge = m_arme_selectionnee->getTpsRecharge();
+		m_arme_selectionnee->utiliser(*this);
+		m_actions[UTILISE_ARME] = false;
 	}
 }
 //---------------------------------

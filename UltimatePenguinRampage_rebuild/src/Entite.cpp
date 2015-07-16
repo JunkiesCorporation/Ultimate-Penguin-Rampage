@@ -21,6 +21,12 @@ Entite::Entite(Coordonnees pos_depart) : m_direction_deplacement(M_PI), m_direct
 	m_vitesse.x = 0;
 	m_vitesse.y = 0;
 }
+
+/* Constructeur de copie.*/
+Entite::Entite(Entite const &entite) : m_direction_deplacement(entite.getDirectionDeplacement()), m_direction_visee(entite.getDirectionVisee()), m_image(NULL), m_position(entite.getPosition()), m_vitesse(entite.getVitesse()), m_vitesse_max(entite.getVitesseMax())
+{
+	// Aucun attributs à initialiser
+}
 //---------------------------------
 
 // Destructeur
@@ -57,6 +63,18 @@ void Entite::render(SDL_Rect const &camera)
 	}
 }
 
+/* Retourne la direction de déplacement de l'entité (en radians).*/
+double Entite::getDirectionDeplacement() const
+{
+	return m_direction_deplacement;
+}
+
+/* Retourne la direction de visée de l'entité (en radians).*/
+double Entite::getDirectionVisee() const
+{
+	return m_direction_visee;
+}
+
 /* Retourne la hauteur de l'image de l'entité.*/
 int Entite::getHauteurImage() const
 {
@@ -73,5 +91,29 @@ int Entite::getLargeurImage() const
 Coordonnees Entite::getPosition() const
 {
 	return m_position;
+}
+
+/* Retourne la structure qui contient les composatnes de la vitesse de l'entité.*/
+Coordonnees Entite::getVitesse() const
+{
+	return m_vitesse;
+}
+
+/* Retourne la vitesse maximum de l'entité.*/
+int Entite::getVitesseMax() const
+{
+	return m_vitesse_max;
+}
+
+/* Permet de modifier la direction de déplacement de l'entité.*/
+void Entite::setDirectionDeplacement(double p_direction_deplacement)
+{
+	m_direction_deplacement = p_direction_deplacement;
+}
+
+/* Permet de modifier la position de l'entité.*/
+void Entite::setPosition(Coordonnees p_position)
+{
+	m_position = p_position;
 }
 //-------------------------------------

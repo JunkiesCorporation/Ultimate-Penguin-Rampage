@@ -3,12 +3,13 @@
 
 #include <string>
 #include <SDL.h>
+#include <vector>
 
+#include "Projectile.h"
 #include "Carte.h"
 #include "Joueur.h"
 #include "Timer.h"
 
-class Jeu;
 
 /** Objet permettant le contrôle d'un niveau jouable.
  */ 
@@ -38,7 +39,7 @@ class Arene
 		 * @param chemin_fichier Le chemin d'accès au fichiers d'infos de l'arène.
 		 * @param jeu Le jeu en cours.
 		 */
-		void charger(std::string const &chemin_fichier, Jeu const &jeu);
+		void charger(std::string const &chemin_fichier);
 		
 		/** Lance l'arène si elle a été précédemment correctement préparée à l'aide de #charger().
 		 */
@@ -51,6 +52,15 @@ class Arene
 		void reinitialiser();
 		//---------------------------------
 		
+		// Fonctions membres publiques et statiques
+		//-----------------------------
+		/** Ajoute une copie du projectile donné à #m_projectiles_actifs.
+		 *
+		 * @param p_projectile Le Projectile à ajouter.
+		 */
+		static void ajouterProjectile(Projectile const &p_projectile);
+		//-----------------------------
+		
 	protected:
 		
 	private:
@@ -62,7 +72,7 @@ class Arene
 		//-----------------------------
 		
 		// Attributs privés
-		//---------------------------------
+		//-----------------------------
 		/** La caméra qui permet l'affichage.
 		 *
 		 * Schématiquement c'est un rectangle que l'on déplace au-dessus de la carte. Le personnage reste toujours au centre.
@@ -81,6 +91,10 @@ class Arene
 		 */
 		Joueur* m_joueur;
 		
+		/** Les objets Projectile actifs à l'écran.
+		 */
+		static std::vector<Projectile> m_projectiles_actifs;
+		
 		/** Compteur du nombre de ticks nécessaires à l'affichage d'une trame à l'écran.
 		 * 
 		 * Utilisé de paire avec le #timer.
@@ -90,7 +104,7 @@ class Arene
 		/** Le Timer utilisé par diverses fonctions afin de maintenir les FPS aux alentours de 60.
 		 */
 		Timer m_timer;
-	//---------------------------------
+		//-----------------------------
 	
 };
 

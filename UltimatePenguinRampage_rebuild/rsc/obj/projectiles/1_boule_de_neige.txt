@@ -1,0 +1,2 @@
+[infos_projectile]
+id= 1

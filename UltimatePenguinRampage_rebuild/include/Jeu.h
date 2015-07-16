@@ -4,8 +4,9 @@
 #include <SDL.h>
 #include <vector>
 
-#include "Arme.h"
 #include "Profil.h"
+#include "Arme.h"
+#include "Projectile.h"
 #include "Arene.h"
 #include "Texture.h"
 #include "Timer.h"
@@ -37,19 +38,36 @@ class Jeu
 		
 		// Fonctions membres publiques
 		//-----------------------------
+		/** Affiche l'écran principal du jeu et permet la navigation vers les fonctionnalités du jeu.
+		 *
+		 * @param profil_joueur Le profil utilisé par le joueur.
+		 */
+		void lancer(Profil* profil_joueur);
+		//-----------------------------
+		
+		// Fonctions membres publiques et statiques
+		//-----------------------------
 		/** Retourne l'arme dont l'id correspond à celui donné en paramètre.
 		 * 
 		 * @param p_id L'id de l'arme à retourner.
 		 *
 		 * @return L'arme de #m_liste_armes correspondant à l'id donné.
 		 */
-		Arme getArmeDepuisID(int const &p_id) const;
+		static Arme getArmeDepuisID(int const &p_id);
 		
-		/** Affiche l'écran principal du jeu et permet la navigation vers les fonctionnalités du jeu.
+		/** Retourne le projectile dont l'id correspond à celui donné en paramètre.
+		 * 
+		 * @param p_id L'id du projectile à retourner.
 		 *
-		 * @param profil_joueur Le profil utilisé par le joueur.
+		 * @return Le projectile de #m_liste_projectiles correspondant à l'id donné.
 		 */
-		void lancer(Profil* profil_joueur);
+		static Projectile getProjectileDepuisID(int const &p_id);
+		//-----------------------------
+		
+		// Attributs publics et statiques
+		//-----------------------------
+		// temp
+		static Texture textureBouleDeNeige;
 		//-----------------------------
 	
 	protected:
@@ -120,7 +138,11 @@ class Jeu
 		
 		/** Liste d'objets Arme contenant les exemplaires par défaut de chaque arme du jeu.
 		 */
-		std::vector<Arme> m_liste_armes;
+		static std::vector<Arme> m_liste_armes;
+		
+		/** Liste d'objets Projectile contenant les exemplaires par défaut de chaque projectile du jeu.
+		 */
+		static std::vector<Projectile> m_liste_projectiles;
 		
 		/** L'image du cadre de sélection.
 		 */

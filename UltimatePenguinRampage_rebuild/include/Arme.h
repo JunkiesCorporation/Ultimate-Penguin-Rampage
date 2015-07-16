@@ -3,6 +3,9 @@
 
 #include <string>
 
+#include "Enums.h"
+#include "Entite.h"
+
 /** Modèle de toutes armes du jeu.
  *
  * Assure leur fonctionnement ainsi que leur affichage à l'écran.
@@ -47,6 +50,12 @@ class Arme
 		
 		// Fonctions membres publiques
 		//-----------------------------
+		/** Enclenche l'utilisation de l'arme.
+		 *
+		 * @param entite L'entité qui utilise l'arme.
+		 */
+		void utiliser(Entite const &entite);
+		
 		/** Retourne l'id de l'arme.
 		 *
 		 * @return #m_id L'id de l'arme.
@@ -55,9 +64,21 @@ class Arme
 		
 		/** Retourne le nom de l'arme.
 		 *
-		 * @return m_nom Le nom de l'arme.
+		 * @return #m_nom Le nom de l'arme.
 		 */
 		std::string getNom() const;
+		
+		/** Retourne le temps de recharge de l'arme.
+		 *
+		 * @return #m_tps_recharge Le temps de recharge de l'arme.
+		 */
+		int getTpsRecharge() const;
+		
+		/** Retourne le type de l'arme.
+		 *
+		 * @return #m_type Le type de l'arme.
+		 */
+		TypeArme getType() const;
 		//-----------------------------
 		
 	protected:
@@ -69,9 +90,23 @@ class Arme
 		 */
 		int m_id;
 		
+		/** Le numéro d'id du projectile tiré par l'arme si elle est de type TypeArme::ARME_DE_JET.
+		 */
+		int m_id_projectile;
+		
 		/** Le nom de l'arme, tel qu'il apparaît à l'écran.
 		 */
 		std::string m_nom;
+		
+		/** Le temps (en trames) que le joueur doit prendre pour recharger l'arme.
+		 */
+		int m_tps_recharge;
+		
+		/** Le type de l'instance d'Arme.
+		 *
+		 * @sa TypeArme.
+		 */
+		TypeArme m_type;
 		//-----------------------------
 	
 };
