@@ -27,7 +27,7 @@ class Texture
 		 *
 		 * @param chemin_image Le chemin de l'image BMP à charger.
 		 */
-		Texture(const char* chemin_image);
+		Texture(const char* chemin_image, bool anim);
 		//-----------------------------
 		
 		// Destructeur
@@ -77,7 +77,15 @@ class Texture
 		 *
 		 * @param pos_render Les Coordonnees où afficher l'image.
 		 */
-		void render(Coordonnees pos_render) const;
+		void render(Coordonnees pos) const;
+		
+		/** Affiche l'animation aux Coordonnees données.
+		 *
+		 * Attention! Cette fonction ne contient qu'un appel à SDL_RenderCopy(), il faut tout de même appeler SDL_RenderPresent() après.
+		 *
+		 * @param pos_render Les Coordonnees où afficher l'image.
+		 */
+		void render_anim(Coordonnees pos_render, SDL_Rect rect_clip) const;
 		
 		/** Retourne la largeur de l'image contenue.
 		 *
@@ -122,7 +130,11 @@ class Texture
 		/** L'image contenue dans la texture.
 		 */
 		SDL_Texture* m_image;
-		
+
+		/** Détermine si la texture est animée ou non.
+		 */
+		bool m_animation;
+
 		/** La largeur (en px) de l'image chargée.
 		 */
 		int m_largeur;

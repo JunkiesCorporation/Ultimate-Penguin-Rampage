@@ -1,0 +1,5 @@
+[infos_tileset]
+largeur= 5
+hauteur= 5
+dimensionTiles= 32 x 32
+image= rsc\img\jeu\entites\joueur\joueur_1.bmp

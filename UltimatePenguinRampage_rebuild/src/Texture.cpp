@@ -15,15 +15,17 @@ Texture::Texture()
 	m_image = NULL;
 	m_largeur = 0;
 	m_hauteur = 0;
+	m_animation = false;
 }
 
 /* Constructeur avec chemin d'image BMP.*/
-Texture::Texture(const char* chemin_image)
+Texture::Texture(const char* chemin_image, bool anim)
 {
 	// Initialisation par défaut des attributs.
 	m_image = NULL;
 	m_largeur = 0;
 	m_hauteur = 0;
+	m_animation = anim
 	
 	// Chargement de l'image donnée.
 	charger(chemin_image);
@@ -137,6 +139,16 @@ void Texture::render(Coordonnees pos) const
 	
 	// L'instruction pour afficher la texture.
 	SDL_RenderCopy(UPR::renderer_SDL, m_image, NULL, &render_quad);
+}
+
+/* Affiche l'animation aux Coordonnees données.*/
+void Texture::render_anim(Coordonnees pos, SDL_Rect rect_clip) const
+{
+	// Le rectangle sur lequel la texture est projetée.
+	SDL_Rect render_quad = {pos.x, pos.y, m_largeur, m_hauteur};
+	
+	// L'instruction pour afficher la texture.
+	SDL_RenderCopy(UPR::renderer_SDL, m_image, &m_tiles[id_tile - 1].rect_clip, &render_quad);
 }
 
 /* Retourne la largeur de l'image contenue.*/
