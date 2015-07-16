@@ -1,0 +1,5 @@
+[infos_liste_projectiles]
+nombre_projectiles= 1
+
+[liste_projectiles]
+1 boule_de_neige
