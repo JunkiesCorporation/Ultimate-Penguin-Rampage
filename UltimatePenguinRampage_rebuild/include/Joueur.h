@@ -55,6 +55,12 @@ class Joueur : public Entite
 		 */
 		void gererEvenement(SDL_Event const &e, SDL_Rect const &camera);
 		
+		/** Inflige les dégâts indiqués au joueur.
+		 *
+		 * @param degats Les dégâts à infliger.
+		 */
+		void infligerDegats(int degats);
+		
 		/** Met à jour le joueur.
 		 *
 		 * @param carte La carte sur laquelle le joueur joue.
@@ -136,6 +142,10 @@ class Joueur : public Entite
 		/** L'indice dans #m_armes_portees de l'arme en cours d'utilisation.
 		 */
 		int m_num_arme_selectionnee;
+		
+		/** Le nombre de points de vie de joueur.
+		 */
+		int m_points_de_vie;
 		
 		/** Tableau contenant les 8 différentes images du joueur.
 		 */

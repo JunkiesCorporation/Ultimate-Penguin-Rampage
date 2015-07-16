@@ -9,7 +9,7 @@
  *
  * Appel explicitement le constructeur par défaut d'Entité.
  */
-Joueur::Joueur() : super(), m_armes_portees(0), m_arme_selectionnee(NULL), m_compteur_recharge(0), m_num_arme_selectionnee(0)
+Joueur::Joueur() : super(), m_armes_portees(0), m_arme_selectionnee(NULL), m_compteur_recharge(0), m_num_arme_selectionnee(0), m_points_de_vie(0)
 {
 	// Initialisation des attributs.
 	for(int i = 0; i < NB_ACTIONS; i++)
@@ -26,7 +26,7 @@ Joueur::Joueur() : super(), m_armes_portees(0), m_arme_selectionnee(NULL), m_com
 }
 
 /* Constructeur de chargement.*/
-Joueur::Joueur(std::vector<int> const &id_armes_depart, Coordonnees pos_depart) : super(pos_depart), m_compteur_recharge(0)
+Joueur::Joueur(std::vector<int> const &id_armes_depart, Coordonnees pos_depart) : super(pos_depart), m_compteur_recharge(0), m_points_de_vie(100)
 {
 	// Initialisation des attributs.
 	// Attributs hérités.
@@ -183,6 +183,12 @@ void Joueur::gererEvenement(SDL_Event const &e, SDL_Rect const &camera)
 			m_actions[UTILISE_ARME] = true;
 		}
 	}
+}
+
+/* Inflige les dégâts indiqués au joueur.*/
+void Joueur::infligerDegats(int degats)
+{
+	m_points_de_vie -= degats;
 }
 
 /* Met à jour le joueur.*/
