@@ -125,8 +125,8 @@ Projectile::~Projectile()
 void Projectile::update(Carte const &carte)
 {
 	// Calcul de la vitesse.
-	m_vitesse.x = sin(m_direction_deplacement) * m_vitesse_max;
-	m_vitesse.y = (-1.) * cos(m_direction_deplacement) * m_vitesse_max;
+	m_vitesse.x = sin(m_angle_deplacement) * m_vitesse_max;
+	m_vitesse.y = (-1.) * cos(m_angle_deplacement) * m_vitesse_max;
 	
 	// Changement de la position.
 	m_position.x += m_vitesse.x;

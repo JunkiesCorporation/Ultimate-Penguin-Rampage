@@ -7,6 +7,7 @@
 #include <SDL.h>
 
 #include "Carte.h"
+#include "Enums.h"
 #include "Struct.h"
 #include "Texture.h"
 
@@ -64,10 +65,12 @@ class Entite
 		/** Met à jour l'entité.
 		 *
 		 * Toutes les actions que l'entité effectue au cours du niveau partent de cette fonction.
+		 * Entite::update() met à jour la position en fonction de la vitesse et de la direction de déplacement si l'entité est en mouvement. Elle doit être appelée explicitement par les classes filles.
 		 *
 		 * @param carte La Carte sur laquelle se situe l'entité.
 		 */
-		virtual void update(Carte const &carte) = 0;
+		virtual void update(Carte const &carte);
+		
 		
 		/** Retourne la direction de déplacement de l'entité (en radians).
 		 *
@@ -111,6 +114,12 @@ class Entite
 		 */
 		int getVitesseMax() const;
 		
+		/** Si l'entité est en mouvement.
+		 *
+		 * @return #m_se_deplace Si l'entité se déplace.
+		 */
+		bool seDeplace() const;
+		
 		/** Permet de modifier la direction de déplacement de l'entité.
 		 *
 		 * @param p_direction_deplacement La nouvelle direction de déplacement de l'entité.
@@ -131,13 +140,13 @@ class Entite
 		 *
 		 * Comprise entre 0 et 2*Pi radians.
 		 */
-		double m_direction_deplacement;
+		double m_angle_deplacement;
 		
 		/** La direction vers laquelle pointe l'entité (en radians).
 		 *
 		 * Comprise entre 0 et 2*Pi radians.
 		 */
-		double m_direction_visee;
+		double m_angle_visee;
 		
 		/** L'image de l'entité à afficher à l'écran.
 		 */
@@ -146,6 +155,10 @@ class Entite
 		/** Les Coordonnees de l'entité sur la carte (en px).
 		 */
 		Coordonnees m_position;
+		
+		/** Si l'entité est en train de se déplacer.
+		 */
+		bool m_se_deplace;
 		
 		/** Les composantes de la vitesse de l'entité.
 		 */

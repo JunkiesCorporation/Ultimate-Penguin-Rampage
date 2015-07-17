@@ -103,23 +103,7 @@ class Joueur : public Entite
 			/** Permet l'initialisation de tableaux avec une taille suffisante. 
 			 */
 			NB_ACTIONS
-		};
-		
-		/** Les 8 découpages de la direction.
-		 */
-		enum EnumDirections
-		{
-			HAUT,
-			HAUT_DROITE,
-			DROITE,
-			BAS_DROITE,
-			BAS,
-			BAS_GAUCHE,
-			GAUCHE,
-			HAUT_GAUCHE,
-			NB_DIRECTIONS
-		};
-		//---------------------------------
+		};//---------------------------------
 		
 		// Attributs privés
 		//---------------------------------

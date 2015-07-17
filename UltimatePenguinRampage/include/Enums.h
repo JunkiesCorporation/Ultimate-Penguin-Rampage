@@ -30,5 +30,22 @@ const std::string type_armes_string[NB_TYPES_ARMES] = {
 	"arme_corps_a_corps",
 	"arme_de_jet"
 	};
-
+		
+/** Les 8 découpages de la direction.
+ *
+ * Surtout utilisé pour changer les affichages des Personnages.
+ */
+enum EnumDirections
+{
+	HAUT,
+	HAUT_DROITE,
+	DROITE,
+	BAS_DROITE,
+	BAS,
+	BAS_GAUCHE,
+	GAUCHE,
+	HAUT_GAUCHE,
+	NB_DIRECTIONS
+};
+		
 #endif // ENUMS_H
