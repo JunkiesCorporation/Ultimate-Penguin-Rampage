@@ -100,6 +100,9 @@ Projectile::Projectile(Projectile const &projectile) : super(projectile), m_id(p
 	m_vitesse_max = 6;
 	
 	// temp
+	m_se_deplace = true;
+	
+	// temp
 	std::cout << "Projectile construit par copie." << std::endl;
 }
 //-------------------------------------
@@ -124,19 +127,13 @@ Projectile::~Projectile()
 /* Met à jour le projectile.*/
 void Projectile::update(Carte const &carte)
 {
-	// Calcul de la vitesse.
-	m_vitesse.x = sin(m_angle_deplacement) * m_vitesse_max;
-	m_vitesse.y = (-1.) * cos(m_angle_deplacement) * m_vitesse_max;
-	
-	// Changement de la position.
-	m_position.x += m_vitesse.x;
-	m_position.y += m_vitesse.y;
+	// Appel à Entite::update().
+	super::update(carte);
 	
 	if(m_position.x + m_image->getHauteur() < 0 || m_position.y + m_image->getLargeur() < 0 || m_position.x > carte.getLargeur() * carte.getLargeurTile() || m_position.y > carte.getHauteur() * carte.getHauteurTile())
 	{
 		m_hors_carte = true;
 	}
-		
 }
 
 /* Retourne si le projectile est hors des frontières de la carte.*/

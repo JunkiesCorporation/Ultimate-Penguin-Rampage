@@ -75,6 +75,10 @@ void Entite::update(Carte const &carte)
 	int hauteur_tile = carte.getHauteurTile();
 	int largeur_tile = carte.getLargeurTile();
 	
+	// Les dimensions de l'image de l'entité.
+	int hauteur_entite = m_image->getHauteur();
+	int largeur_entite = m_image->getLargeur();
+	
 	// La position du joueur à l'image précédente.
 	Coordonnees pos_precedente = m_position;
 	
@@ -125,17 +129,17 @@ void Entite::update(Carte const &carte)
 		
 		// Test de collisions avec les tiles solides de la carte et modification du déplacement si il y a collision.
 		coins[0] = carte.isTileSolide(m_position.x/largeur_tile, m_position.y/hauteur_tile);
-		coins[1] = carte.isTileSolide((m_position.x+largeur_tile-1)/largeur_tile, m_position.y/hauteur_tile);
-		coins[2] = carte.isTileSolide((m_position.x+largeur_tile-1)/largeur_tile, (m_position.y+hauteur_tile-1)/hauteur_tile);
-		coins[3] = carte.isTileSolide(m_position.x/largeur_tile, (m_position.y+hauteur_tile-1)/hauteur_tile);
+		coins[1] = carte.isTileSolide((m_position.x+largeur_entite-1)/largeur_tile, m_position.y/hauteur_tile);
+		coins[2] = carte.isTileSolide((m_position.x+largeur_entite-1)/largeur_tile, (m_position.y+hauteur_entite-1)/hauteur_tile);
+		coins[3] = carte.isTileSolide(m_position.x/largeur_tile, (m_position.y+hauteur_entite-1)/hauteur_tile);
 		if(coins[0] && coins[1]) {
 			m_position.y = (m_position.y/hauteur_tile + 1) * hauteur_tile;
 		}
 		if(coins[1] && coins[2]) {
-			m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+			m_position.x = ((m_position.x + largeur_entite - 1) / largeur_tile) * largeur_tile - largeur_entite;
 		}
 		if(coins[2] && coins[3]) {
-			m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+			m_position.y = ((m_position.y + hauteur_entite - 1) / hauteur_tile) * hauteur_tile - hauteur_entite;
 		}
 		if(coins[3] && coins[0]) {
 			m_position.x = (m_position.x/largeur_tile + 1) * largeur_tile;
@@ -163,17 +167,17 @@ void Entite::update(Carte const &carte)
 		}
 		if (coins[1] && !(coins[0] || coins[2] || coins[3])) {
 			switch(direction_deplacement) {
-			case DROITE: m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+			case DROITE: m_position.x = ((m_position.x + largeur_entite - 1) / largeur_tile) * largeur_tile - largeur_entite;
 				break;
 			case HAUT: m_position.y = (m_position.y/hauteur_tile + 1) * hauteur_tile;
 				break;
 			case HAUT_GAUCHE: m_position.y = (m_position.y/hauteur_tile + 1) * hauteur_tile;
 				break;
-			case BAS_DROITE: m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+			case BAS_DROITE: m_position.x = ((m_position.x + largeur_entite - 1) / largeur_tile) * largeur_tile - largeur_entite;
 				break;
 			case HAUT_DROITE:
 				if((m_position.x/largeur_tile)*largeur_tile - pos_precedente.x > pos_precedente.y - (m_position.y/hauteur_tile + 1) * hauteur_tile) {
-					m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+					m_position.x = ((m_position.x + largeur_entite - 1) / largeur_tile) * largeur_tile - largeur_entite;
 				} else {
 					m_position.y = (m_position.y/hauteur_tile + 1) * hauteur_tile;
 				}
@@ -184,19 +188,19 @@ void Entite::update(Carte const &carte)
 		}
 		if (coins[2] && !(coins[0] || coins[1] || coins[3])) {
 			switch(direction_deplacement) {
-			case DROITE: m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+			case DROITE: m_position.x = ((m_position.x + largeur_entite - 1) / largeur_tile) * largeur_tile - largeur_entite;
 				break;
-			case BAS: m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+			case BAS: m_position.y = ((m_position.y + hauteur_entite - 1) / hauteur_tile) * hauteur_tile - hauteur_entite;
 				break;
-			case BAS_GAUCHE: m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+			case BAS_GAUCHE: m_position.y = ((m_position.y + hauteur_entite - 1) / hauteur_tile) * hauteur_tile - hauteur_entite;
 				break;
-			case HAUT_DROITE: m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+			case HAUT_DROITE: m_position.x = ((m_position.x + largeur_entite - 1) / largeur_tile) * largeur_tile - largeur_entite;
 				break;
 			case BAS_DROITE:
 				if((m_position.x/largeur_tile)*largeur_tile - pos_precedente.x > (m_position.y/hauteur_tile)*hauteur_tile - pos_precedente.y) {
-					m_position.x = (m_position.x/largeur_tile) * largeur_tile;
+					m_position.x = ((m_position.x + largeur_entite - 1) / largeur_tile) * largeur_tile - largeur_entite;
 				} else {
-					m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+					m_position.y = ((m_position.y + hauteur_entite - 1) / hauteur_tile) * hauteur_tile - hauteur_entite;
 				}
 				break;
 			default:
@@ -207,9 +211,9 @@ void Entite::update(Carte const &carte)
 			switch(direction_deplacement) {
 			case GAUCHE: m_position.x = (m_position.x/largeur_tile + 1) * largeur_tile;
 				break;
-			case BAS: m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+			case BAS: m_position.y = ((m_position.y + hauteur_entite - 1) / hauteur_tile) * hauteur_tile - hauteur_entite;
 				break;
-			case BAS_DROITE: m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+			case BAS_DROITE: m_position.y = ((m_position.y + hauteur_entite - 1) / hauteur_tile) * hauteur_tile - hauteur_entite;
 				break;
 			case HAUT_GAUCHE: m_position.x = (m_position.x/largeur_tile + 1) * largeur_tile;
 				break;
@@ -217,7 +221,7 @@ void Entite::update(Carte const &carte)
 				if(pos_precedente.x - (m_position.x/largeur_tile + 1)*largeur_tile > (m_position.y/hauteur_tile)*hauteur_tile - pos_precedente.y) {
 					m_position.x = (m_position.x/largeur_tile + 1) * largeur_tile;
 				} else {
-					m_position.y = (m_position.y/hauteur_tile) * hauteur_tile;
+					m_position.y = ((m_position.y + hauteur_entite - 1) / hauteur_tile) * hauteur_tile - hauteur_entite;
 				}
 				break;
 			default:

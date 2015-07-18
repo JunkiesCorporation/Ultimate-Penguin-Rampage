@@ -103,19 +103,19 @@ void Joueur::gererEvenement(SDL_Event const &e, SDL_Rect const &camera)
 		// Calcul de la direction en fonction du cadran dans lequel la souris est.
 		if(pos_souris_relative.x >= 0 && pos_souris_relative.y < 0)
 		{
-			m_angle_visee = atan(((double)pos_souris_relative.x) / ((-1.)*(double)pos_souris_relative.y));
+			m_angle_visee = atan((static_cast<double>(pos_souris_relative.x)) / ((-1.)*static_cast<double>(pos_souris_relative.y)));
 		}
 		else if(pos_souris_relative.x > 0 && pos_souris_relative.y >= 0)
 		{
-			m_angle_visee = M_PI_2 + atan(((double)pos_souris_relative.y) / ((double)pos_souris_relative.x));
+			m_angle_visee = M_PI_2 + atan((static_cast<double>(pos_souris_relative.y)) / (static_cast<double>(pos_souris_relative.x)));
 		}
 		else if(pos_souris_relative.x <= 0 && pos_souris_relative.y > 0)
 		{
-			m_angle_visee = M_PI + atan(((-1.)*(double)pos_souris_relative.x)/((double)pos_souris_relative.y));
+			m_angle_visee = M_PI + atan(((-1.)*static_cast<double>(pos_souris_relative.x))/(static_cast<double>(pos_souris_relative.y)));
 		}
 		else if(pos_souris_relative.x < 0 && pos_souris_relative.y <= 0)
 		{
-			m_angle_visee = M_PI + M_PI_2 + atan(((-1.)*(double)pos_souris_relative.y) / ((-1.)*(double)pos_souris_relative.x));
+			m_angle_visee = M_PI + M_PI_2 + atan(((-1.)*static_cast<double>(pos_souris_relative.y)) / ((-1.)*static_cast<double>(pos_souris_relative.x)));
 		}
 	}
 	// Si l'utilisateur appuie sur une touche.
