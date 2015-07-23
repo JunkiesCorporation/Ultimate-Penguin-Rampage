@@ -62,12 +62,14 @@ class Jeu
 		 * @return Le projectile de #m_liste_projectiles correspondant à l'id donné.
 		 */
 		static Projectile getProjectileDepuisID(int const &p_id);
-		//-----------------------------
 		
-		// Attributs publics et statiques
-		//-----------------------------
-		// temp
-		static Texture textureBouleDeNeige;
+		/** Retourne l'image correspondant à l'id du projectile donné.
+		 *
+		 * @param p_id L'id du projectile dont il faut retourner l'image.
+		 *
+		 * @return Un pointeur vers la Texture correspondant au projectile indiqué.
+		 */
+		static Texture* getTextureProjectileDepuisID(int const &p_id);
 		//-----------------------------
 	
 	protected:
@@ -159,6 +161,10 @@ class Jeu
 		/** Les images des options de l'écran principal du jeu.
 		 */
 		Texture* m_textures_options_ecran_jeu[NB_OPTIONS];
+		
+		/** Les textures des différents projectiles.
+		 */
+		static std::vector<Texture*> m_textures_projectiles;
 		
 		/** Compteur du nombre de ticks nécessaires à l'affichage d'une trame à l'écran.
 		 * 

@@ -12,8 +12,8 @@ std::vector<Arme> Jeu::m_liste_armes(0);
 // Initialisation de la liste des exemplaires des projectiles
 std::vector<Projectile> Jeu::m_liste_projectiles(0);
 
-// temp
-Texture Jeu::textureBouleDeNeige;
+// Initialisation de la liste des textures des projectiles.
+std::vector<Texture*> Jeu::m_textures_projectiles(0);
 
 
 // Constructeurs
@@ -26,9 +26,6 @@ Jeu::Jeu() : m_arene(), m_texture_cadre_selection(NULL), m_texture_fond_jeu(NULL
 	{
 		m_textures_options_ecran_jeu[i] = NULL;
 	}
-	
-	// temp
-	textureBouleDeNeige.charger("rsc/img/jeu/entites/projectiles/boule_de_neige.bmp");
 }
 //-------------------------------------
 
@@ -38,8 +35,6 @@ Jeu::Jeu() : m_arene(), m_texture_cadre_selection(NULL), m_texture_fond_jeu(NULL
 /* Destructeur par défaut.*/
 Jeu::~Jeu()
 {
-	// temp
-	textureBouleDeNeige.liberer();
 	
 	// Suppression des textures qui auraient été oubliées.
 	delete m_texture_cadre_selection;
@@ -62,6 +57,14 @@ Jeu::~Jeu()
 	// Nettoyage des listes d'exemplaires d'objets.
 	m_liste_armes.clear();
 	m_liste_projectiles.clear();
+	
+	// Nettoyage des images des projectiles.
+	for(int i = 0; i < m_textures_projectiles.size(); i++)
+	{
+		delete m_textures_projectiles.at(i);
+		m_textures_projectiles.at(i) = NULL;
+	}
+	m_textures_projectiles.clear();
 }
 //-------------------------------------
 
@@ -109,6 +112,9 @@ void Jeu::lancer(Profil* profil_joueur)
 	// Coordonnees du curseur lors de l'écran principal du jeu.
 	Coordonnees positions_curseur_ecran[NB_OPTIONS] = {{0, 0}};
 	
+	// Chemin d'accès temporaire à l'image du projectile pendant le chargement.
+	std::string temp_chemin_image_projectile = "";
+	
 	// ID temporaire de l'arme pendant le chargement.
 	int temp_id_arme = 0;
 	
@@ -118,7 +124,7 @@ void Jeu::lancer(Profil* profil_joueur)
 	// Nom temporaire de l'arme pendant le chargement.
 	std::string temp_nom_arme = "";
 	
-	// Nom temporaire de l'arme pendant le chargement.
+	// Nom temporaire du projectile pendant le chargement.
 	std::string temp_nom_projectile = "";
 	
 	//---------------------------------
@@ -264,7 +270,7 @@ void Jeu::lancer(Profil* profil_joueur)
 			goto close_liste_projectiles;
 		}
 		
-		// Récupération des id et nom_fichier des projectiles et ajout du projectile au vecteur.
+		// Récupération des id et nom_fichier des projectiles et ajout du projectile au vecteur. Récupération du chemin d'image du projectile et ajout au vecteur de textures.
 		for(int i = 0; i < nombre_projectiles; i++)
 		{
 			// Lecture de l'id du projectile.
@@ -274,6 +280,13 @@ void Jeu::lancer(Profil* profil_joueur)
 			// Lecture du nom du fichier du projectile.
 			fichier_liste_projectiles >> ligne;
 			temp_nom_projectile = ligne;
+			
+			// Lecture du chemin d'image du projectile.
+			fichier_liste_projectiles >> ligne;
+			temp_chemin_image_projectile = ligne;
+			
+			// Ajout de l'image du projectile au vecteur.
+			m_textures_projectiles.emplace_back(new Texture(ligne.c_str()));
 			
 			// Création d'une nouvelle instance de Projectile et ajout à la liste.
 			m_liste_projectiles.emplace_back(temp_id_projectile, temp_nom_projectile);
@@ -448,6 +461,34 @@ Projectile Jeu::getProjectileDepuisID(int const &p_id)
 	}
 	
 	return temp_projectile;
+}
+
+/* Retourne l'image correspondant à l'id du projectile donné.*/
+Texture* Jeu::getTextureProjectileDepuisID(int const &p_id)
+{
+	// L'indice de la Texture à retourner.
+	int temp_indice = -1;
+	
+	// Récupération de l'indice grâce à l'id donné.
+	for(int i = 0; i < m_liste_projectiles.size(); i++)
+	{
+		if(m_liste_projectiles.at(i).getID() == p_id)
+		{
+			temp_indice = i;
+			break;
+		}
+	}
+	
+	// Retour de la texture demandée, sauf erreur.
+	if(temp_indice != -1 && temp_indice < m_textures_projectiles.size())
+	{
+		return m_textures_projectiles.at(temp_indice);
+	}
+	else
+	{
+		std::cout << "Erreur : Aucune Texture trouvee correspondant a l'id " << p_id << std::endl;
+		return NULL;
+	}
 }
 //-------------------------------------
 

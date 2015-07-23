@@ -23,7 +23,7 @@ Entite::Entite(Coordonnees pos_depart) : m_angle_deplacement(M_PI), m_angle_vise
 }
 
 /* Constructeur de copie.*/
-Entite::Entite(Entite const &entite) : m_angle_deplacement(entite.getDirectionDeplacement()), m_angle_visee(entite.getDirectionVisee()), m_image(NULL), m_position(entite.getPosition()), m_se_deplace(entite.seDeplace()), m_vitesse(entite.getVitesse()), m_vitesse_max(entite.getVitesseMax())
+Entite::Entite(Entite const &entite) : m_angle_deplacement(entite.getDirectionDeplacement()), m_angle_visee(entite.getDirectionVisee()), m_image(entite.getImage()), m_position(entite.getPosition()), m_se_deplace(entite.seDeplace()), m_vitesse(entite.getVitesse()), m_vitesse_max(entite.getVitesseMax())
 {
 	// Aucun attributs à initialiser
 }
@@ -248,6 +248,12 @@ double Entite::getDirectionVisee() const
 int Entite::getHauteurImage() const
 {
 	return m_image->getHauteur();
+}
+
+/* Retourne le pointeur vers l'image de l'entité.*/
+Texture* Entite::getImage() const
+{
+	return m_image;
 }
 
 /* Retourne la largeur de l'image de l'entité.*/

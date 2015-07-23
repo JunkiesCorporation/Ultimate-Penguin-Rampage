@@ -90,6 +90,12 @@ class Entite
 		 */
 		int getHauteurImage() const;
 		
+		/** Retourne le pointeur vers l'image de l'entité.
+		 *
+		 * @return #m_image L'image de l'entité.
+		 */
+		Texture* getImage() const;
+		
 		/** Retourne la largeur de l'image de l'entité.
 		 *
 		 * @return La largeur de #m_image.

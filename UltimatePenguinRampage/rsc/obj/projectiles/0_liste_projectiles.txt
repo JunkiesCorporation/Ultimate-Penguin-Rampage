@@ -2,4 +2,4 @@
 nombre_projectiles= 1
 
 [liste_projectiles]
-1 boule_de_neige
+1 boule_de_neige rsc/img/jeu/entites/projectiles/boule_de_neige.bmp

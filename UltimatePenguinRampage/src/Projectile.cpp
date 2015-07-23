@@ -77,7 +77,7 @@ Projectile::Projectile(int p_id, std::string const &p_nom_fichier) : super(), m_
 		}
 		
 		m_id = temp_id;
-		
+
 		// temp
 		std::cout << "Projectile construit par chargement." << std::endl;
 		std::cout << "    id : " << m_id << std::endl;
@@ -93,8 +93,8 @@ Projectile::Projectile(Projectile const &projectile) : super(projectile), m_id(p
 {
 	// Aucun attribut à initialise.
 	
-	// temp
-	m_image = &Jeu::textureBouleDeNeige;
+	// Initialisation de l'image.
+	m_image = Jeu::getTextureProjectileDepuisID(m_id);
 	
 	// temp
 	m_vitesse_max = 6;
@@ -112,9 +112,7 @@ Projectile::Projectile(Projectile const &projectile) : super(projectile), m_id(p
 /* Destructeur par défaut.*/
 Projectile::~Projectile()
 {
-	// Aucun attribut à détruire.
-	
-	// temp
+	// Dé-attribution du pointeur vers l'image car elle est détruire séparément.
 	m_image = NULL;
 	
 	// temp
